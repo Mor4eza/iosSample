@@ -102,9 +102,10 @@ class PortfolioListViewController: BaseViewController {
         let searchSymbol = ActionButtonItem(title: "SearchSymbol".localized(), image: UIImage(named: "ic_search"))
         searchSymbol.action = { item in
             
-            
-            let serchViewConntroller:SearchSeymbolTableView = SearchSeymbolTableView()
-            self.presentViewController(serchViewConntroller, animated: true, completion: nil)
+            self.performSegueWithIdentifier("searchSeguei", sender: nil)
+//            let searchViewConntroller:SearchSeymbolTableView = SearchSeymbolTableView()
+//            self.presentViewController(serchViewConntroller, animated: true, completion: nil)
+//            self.navigationController?.pushViewController(searchViewConntroller, animated: true)
             
         }
         
