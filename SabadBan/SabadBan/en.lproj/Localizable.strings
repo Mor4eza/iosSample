@@ -1,0 +1,54 @@
+/* 
+  localizable.strings
+  HamrahTraderPro
+
+  Created by Morteza Gharedaghi on 8/16/16.
+  Copyright © 2016 Morteza Gharedaghi. All rights reserved.
+*/
+
+
+//MARK :- App Strings
+"APP_NAME" = "SabadBan";
+"Setting" = "Setting";
+"AboutUs" = "AboutUs";
+"ContactUs" = "Contact Us";
+"Index" = "Index";
+"Portfolio" = "Portfolio";
+"News" = "News";
+
+//MARK :- Setting View Controller Strings
+"Language" = " Language ";
+"SwitchLanguage" = "Switch Language";
+"Cancel" = "Cancel";
+"Submit" = "Submit";
+
+//MARK:- Index View Strings
+"Index" = "Index";
+"Count" = "Count";
+"Percent" = "Percent";
+
+//MARK:- IndexDetails Strings
+"Day" = "Day" ;
+"Week" = "Week" ;
+"Month" = "Month" ;
+"Year" = "Year" ;
+
+"MaxPrice" = "Max Price" ;
+"MinPrice" = "Min Price" ;
+"LastPrice" = "Last Price" ;
+"PriceChanges" = "Price Changes" ;
+"PriceChangesPercent" = "Price Changes Percent" ;
+
+"Symbol" = "Symbol";
+"Trade" = "Trade";
+"Volume" = "Volume";
+"Amount" = "Amount";
+
+//MARK: - Portfolio Strings
+
+"AddSymbol" = "Add Symbol";
+"EditPortfolio" = "Edit Portfolio";
+"SearchSymbol" = "Search Symbol";
+"AddPortfolio" = "Add Portfolio";
+"DeletePortfolio" = "Delete Portfolio";
+"EnterPortfolioName" = "Enter Portfolio Name:";

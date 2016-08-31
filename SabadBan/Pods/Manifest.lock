@@ -1,0 +1,35 @@
+PODS:
+  - ActionButton (0.1.4)
+  - Alamofire (3.4.1)
+  - Alamofire-Gloss (1.0.1):
+    - Alamofire-Gloss/Core (= 1.0.1)
+  - Alamofire-Gloss/Core (1.0.1):
+    - Alamofire (~> 3.4)
+    - Gloss (~> 0.7)
+  - BTNavigationDropdownMenu (0.4.1)
+  - Gloss (0.7.4)
+  - Localize-Swift (1.5)
+  - SQLite.swift (0.10.1)
+  - SwiftEventBus (1.1.0)
+
+DEPENDENCIES:
+  - ActionButton
+  - Alamofire-Gloss
+  - BTNavigationDropdownMenu
+  - Localize-Swift (~> 1.5)
+  - SQLite.swift
+  - SwiftEventBus
+
+SPEC CHECKSUMS:
+  ActionButton: 1b94024013cf57e960d09aa56792f29e1bb545e0
+  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  Alamofire-Gloss: e22525bc86605d72e8d41b249cd3a5c8ba610dc4
+  BTNavigationDropdownMenu: 093f3cbfad1572f2c222bdf8d17584d1e13380d4
+  Gloss: d86009ef4d12c221d889c4e3f9e1eb547ee6251d
+  Localize-Swift: 288aa763db72b0628d2cb111fbf5babc90529d0c
+  SQLite.swift: 6a6e4b034efc317ce4e203b6af2d3024fee2b570
+  SwiftEventBus: d33b51752d4e3e994f0ea7b31873f0beca7eada0
+
+PODFILE CHECKSUM: f799580bc9fb4dfa08442d1c38e9f831b182d61c
+
+COCOAPODS: 1.0.0

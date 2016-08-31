@@ -1,0 +1,52 @@
+/* 
+  localizable.strings
+  HamrahTraderPro
+
+  Created by Morteza Gharedaghi on 8/16/16.
+  Copyright © 2016 Morteza Gharedaghi. All rights reserved.
+*/
+
+
+//-Mark : App Strings
+"APP_NAME" = "سبدبان";
+"Setting" = "تنظیمات";
+"AboutUs" = "درباره ما";
+"ContactUs" = "تماس با ما";
+"Index" = "شاخص";
+"Portfolio" = "پرتفوی";
+"News" = "اخبار";
+
+//-Mark : Setting View Controlle Strings
+"SwitchLanguage" = "تغییر زبان";
+"Cancel" = "لغو";
+"Language" = " زبان ";
+"Submit" = "تایید";
+//-Mark: Index View Strings
+"Index" = "شاخص";
+"Count" = "مقدار";
+"Percent" = "درصد";
+
+//mark:- IndexDetails Strings
+"Day" = "روز" ;
+"Week" = "هفته" ;
+"Month" = "ماه" ;
+"Year" = "سال" ;
+
+"MaxPrice" = "بیشترین قیمت" ;
+"MinPrice" = "کمترین قیمت" ;
+"LastPrice" = "آخرین قیمت" ;
+"PriceChanges" = "تغییر قیمت" ;
+"PriceChangesPercent" = "درصد تغییر قیمت" ;
+
+"Symbol" = "نماد";
+"Trade" = "آخرین معامله";
+"Volume" = "حجم";
+"Amount" = "تعداد";
+
+//MARK: - Portfolio Strings
+"AddSymbol" = "افزودن نماد";
+"EditPortfolio" = "ویرایش پرتفوی";
+"SearchSymbol" = "جستجوی نماد";
+"AddPortfolio" = "افزودن پرتفوی";
+"DeletePortfolio" = "حذف پرتفوی";
+"EnterPortfolioName" = "نام پرتفوی را وارد  کنید:";
