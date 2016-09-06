@@ -24,6 +24,36 @@ extension NSNumber {
     
 }
 
+extension Int {
+    
+    func currencyFormat() -> String {
+        let formatter = NSNumberFormatter()
+        formatter.usesGroupingSeparator = true
+        formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        formatter.currencySymbol = ""
+        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 2
+        let priceString = formatter.stringFromNumber(self)
+        return priceString!
+    }
+}
+
+extension Float {
+    
+    func currencyFormat() -> String {
+        let formatter = NSNumberFormatter()
+        formatter.usesGroupingSeparator = true
+        formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        formatter.currencySymbol = ""
+        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 2
+        let priceString = formatter.stringFromNumber(self)
+        return priceString!
+    }
+}
+
 extension Double {
     
     func currencyFormat() -> String {

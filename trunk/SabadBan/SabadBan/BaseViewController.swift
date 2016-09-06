@@ -39,16 +39,16 @@ class BaseViewController: UIViewController,ENSideMenuDelegate,DialogClickDelegat
     func addMenuButton() {
         self.navigationItem.rightBarButtonItem = nil
         self.navigationItem.leftBarButtonItem = nil
-        let btnName = UIButton()
-        btnName.setImage(UIImage(named: "Menu"), forState: .Normal)
-        btnName.frame = CGRectMake(0, 0, 30, 30)
-        btnName.addTarget(self, action: #selector(openMenu), forControlEvents: .TouchUpInside)
+        let btnMenu = UIButton()
+        btnMenu.setImage(UIImage(named: "Menu"), forState: .Normal)
+        btnMenu.frame = CGRectMake(0, 0, 30, 30)
+        btnMenu.addTarget(self, action: #selector(openMenu), forControlEvents: .TouchUpInside)
         //.... Set Right/Left Bar Button item
         if (getAppLanguage() == "fa"){
-            let rightBarButton = UIBarButtonItem(customView: btnName)
+            let rightBarButton = UIBarButtonItem(customView: btnMenu)
             self.navigationItem.rightBarButtonItem = rightBarButton
         }else {
-            let rightBarButton = UIBarButtonItem(customView: btnName)
+            let rightBarButton = UIBarButtonItem(customView: btnMenu)
             self.navigationItem.leftBarButtonItem = rightBarButton
         }
     }

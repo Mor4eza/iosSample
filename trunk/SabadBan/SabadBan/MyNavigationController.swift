@@ -13,6 +13,7 @@ public class MyNavigationController: ENSideMenuNavigationController, ENSideMenuD
     override public func viewDidLoad() {
         super.viewDidLoad()
         SwiftEventBus.onMainThread(self, name: LanguageChangedNotification) { result in
+            print("getMessage")
             self.initMenu()
         }
         var menuPosition:ENSideMenuPosition!
@@ -55,6 +56,7 @@ public class MyNavigationController: ENSideMenuNavigationController, ENSideMenuD
         sideMenu?.menuPosition = menuPosition
         sideMenu?.showSideMenu()
         sideMenu?.hideSideMenu()
+        SwiftEventBus.unregister(self)
     }
     
     func addMenuButton() {

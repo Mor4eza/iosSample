@@ -10,6 +10,7 @@ PODS:
   - Gloss (0.7.4)
   - Localize-Swift (1.5)
   - SQLite.swift (0.10.1)
+  - SwiftCharts (0.4)
   - SwiftEventBus (1.1.0)
 
 DEPENDENCIES:
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - BTNavigationDropdownMenu
   - Localize-Swift (~> 1.5)
   - SQLite.swift
+  - SwiftCharts
   - SwiftEventBus
 
 SPEC CHECKSUMS:
@@ -28,8 +30,9 @@ SPEC CHECKSUMS:
   Gloss: d86009ef4d12c221d889c4e3f9e1eb547ee6251d
   Localize-Swift: 288aa763db72b0628d2cb111fbf5babc90529d0c
   SQLite.swift: 6a6e4b034efc317ce4e203b6af2d3024fee2b570
+  SwiftCharts: 84b43d9d70b791459ff5f50ae5a6704326de309d
   SwiftEventBus: d33b51752d4e3e994f0ea7b31873f0beca7eada0
 
-PODFILE CHECKSUM: f799580bc9fb4dfa08442d1c38e9f831b182d61c
+PODFILE CHECKSUM: c044a92ab108d3039ce4987160ddc80f5f9547c4
 
 COCOAPODS: 1.0.0
