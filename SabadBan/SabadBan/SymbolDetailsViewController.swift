@@ -125,7 +125,7 @@ class SymbolDetailsViewController: BaseTableViewController {
         // Fetch Request
         Alamofire.request(.POST, url, headers: ServicesHeaders, parameters: body, encoding: .JSON)
             .validate(statusCode: 200..<300)
-            .responseObject(SymbolBestLimitModel.self) { response in
+            .responseObject(MainResponse<SymbolBestLimitResponse>.self) { response in
                 
                 switch response.result {
                 case .Success(let bestLimit):
@@ -176,7 +176,7 @@ class SymbolDetailsViewController: BaseTableViewController {
         // Fetch Request
         Alamofire.request(.POST, url, headers: ServicesHeaders, parameters: body, encoding: .JSON)
             .validate(statusCode: 200..<300)
-            .responseObject(SymbolTradingModel.self) { response in
+            .responseObject(MainResponse<SymbolTradingResponse>.self) { response in
                 
                 switch response.result {
                 case .Success(let trading):
@@ -219,7 +219,7 @@ class SymbolDetailsViewController: BaseTableViewController {
         // Fetch Request
         Alamofire.request(.POST, url, headers: headers, parameters: body as? [String : AnyObject], encoding: .JSON)
             .validate(statusCode: 200..<300)
-            .responseObject(symbolListModel.self) { response in
+            .responseObject(MainResponse<SymbolListByIndexResponse>.self) { response in
                 
                 switch response.result {
                 case .Success(let symbol):

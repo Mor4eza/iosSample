@@ -43,11 +43,11 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         tblDetails.delegate = self
         tblDetails.tableFooterView = UIView()
         
-        let titleAttributes = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline), NSForegroundColorAttributeName: UIColor.whiteColor()]
-        
-        let attrText = NSAttributedString(string: "Pull to Refresh", attributes: titleAttributes)
+//        let titleAttributes = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline), NSForegroundColorAttributeName: UIColor.whiteColor()]
+//        
+//        let attrText = NSAttributedString(string: "Pull to Refresh", attributes: titleAttributes)
         refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = attrText
+//        refreshControl.attributedTitle = attrText
         refreshControl.tintColor = UIColor.whiteColor()
         refreshControl.addTarget(self, action: #selector(DetailsViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tblDetails.addSubview(refreshControl)
@@ -129,7 +129,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         // Fetch Request
         Alamofire.request(.POST,url, headers: ServicesHeaders, parameters: body as? [String : AnyObject], encoding: .JSON)
             .validate(statusCode: 200..<300)
-            .responseObject(Indexs.self) { response in
+            .responseObject(MainResponse<Response>.self) { response in
                 switch response.result {
                 case .Success(let indexs):
                     if (indexs.response.indexDetailsList.count > 0) {

@@ -25,11 +25,11 @@ class SymbolListTableViewController: BaseTableViewController {
         self.tableView.tableFooterView = UIView()
         
         
-        let titleAttributes = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline), NSForegroundColorAttributeName: UIColor.whiteColor()]
+//        let titleAttributes = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline), NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        let attrText = NSAttributedString(string: "Pull to Refresh", attributes: titleAttributes)
+//        let attrText = NSAttributedString(string: "Pull to Refresh", attributes: titleAttributes)
         refreshControl = UIRefreshControl()
-        refreshControl!.attributedTitle = attrText
+//        refreshControl!.attributedTitle = attrText
         refreshControl!.tintColor = UIColor.whiteColor()
         refreshControl!.addTarget(self, action: #selector(DetailsViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
@@ -122,7 +122,7 @@ class SymbolListTableViewController: BaseTableViewController {
         // Fetch Request
         Alamofire.request(.POST,url, headers: ServicesHeaders, parameters: body as? [String : AnyObject], encoding: .JSON)
             .validate(statusCode: 200..<300)
-            .responseObject(IndexSymbolsList.self) { response in
+            .responseObject(MainResponse<SymbolListByIndexResponse>.self) { response in
                 
                 switch response.result {
                 case .Success(let symbols):
