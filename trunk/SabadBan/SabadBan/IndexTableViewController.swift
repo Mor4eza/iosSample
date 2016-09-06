@@ -26,11 +26,11 @@ class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
 
         self.tableView.tableFooterView = UIView()
         
-        let titleAttributes = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline), NSForegroundColorAttributeName: UIColor.whiteColor()]
+//        let titleAttributes = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline), NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        let attrText = NSAttributedString(string: "Pull to Refresh", attributes: titleAttributes)
+//        let attrText = NSAttributedString(string: "Pull to Refresh", attributes: titleAttributes)
         refreshControl = UIRefreshControl()
-        refreshControl!.attributedTitle = attrText
+//        refreshControl!.attributedTitle = attrText
         refreshControl!.tintColor = UIColor.whiteColor()
         refreshControl!.addTarget(self, action: #selector(DetailsViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
@@ -139,7 +139,7 @@ class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
         // Fetch Request
         Alamofire.request(.POST,url, headers: ServicesHeaders, parameters: body, encoding: .JSON)
             .validate(statusCode: 200..<300)
-            .responseObject(Indexs.self) { response in
+            .responseObject(MainResponse<Response>.self) { response in
     
                 switch response.result {
                 case .Success(let indexs):
@@ -147,7 +147,6 @@ class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
                     self.indexCode.removeAll()
                     self.indexPrice.removeAll()
                     self.indexPercent.removeAll()
-                    
                     for i in 0  ..< indexs.response.indexDetailsList.count{
                         self.indexNames.append(indexs.response.indexDetailsList[i].nameFa)
                         self.indexPrice.append(Double(indexs.response.indexDetailsList[i].closePrice))

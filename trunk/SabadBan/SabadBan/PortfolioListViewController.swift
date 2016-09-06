@@ -260,7 +260,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         // Fetch Request
         Alamofire.request(.POST, url, headers: headers, parameters: body as? [String : AnyObject], encoding: .JSON)
             .validate(statusCode: 200..<300)
-            .responseObject(symbolListModel.self) { response in
+            .responseObject(MainResponse<SymbolListModelResponse>.self) { response in
                 
                 switch response.result {
                 case .Success(let symbols):
