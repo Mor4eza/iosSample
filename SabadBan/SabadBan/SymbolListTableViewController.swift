@@ -17,6 +17,7 @@ class SymbolListTableViewController: BaseTableViewController {
     var lastTradeChange = [Double]()
     var symbolVolume = [String]()
     var symbolAmount = [Int]()
+    var symbolCode = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,6 +98,10 @@ class SymbolListTableViewController: BaseTableViewController {
         return headerView
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        SelectedSymbolCode = symbolCode[indexPath.row]
+    }
+    
     //MARK: - Service Call
     
     func getSymbolListByIndex (){
@@ -126,13 +131,14 @@ class SymbolListTableViewController: BaseTableViewController {
                     self.lastTradeChange.removeAll()
                     self.symbolVolume.removeAll()
                     self.symbolAmount.removeAll()
-                    
+                    self.symbolCode.removeAll()
                     for i in 0  ..< symbols.response.symbolDetailsList.count{
                         self.symbolName.append(symbols.response.symbolDetailsList[i].symbolNameFa)
                         self.lastTradeValue.append(Double(symbols.response.symbolDetailsList[i].lastTradePrice))
                         self.lastTradeChange.append(Double(symbols.response.symbolDetailsList[i].lastTradePriceChange))
                         self.symbolVolume.append(String(symbols.response.symbolDetailsList[i].transactionVolume))
                         self.symbolAmount.append(Int(symbols.response.symbolDetailsList[i].transactionNumber))
+                        self.symbolCode.append(symbols.response.symbolDetailsList[i].symbolCode)
                         self.tableView.reloadData()
                     }
                     break

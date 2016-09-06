@@ -54,6 +54,11 @@
 			<key>orderHint</key>
 			<integer>11</integer>
 		</dict>
+		<key>SwiftCharts.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>SwiftEventBus.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -73,6 +78,11 @@
 			<true/>
 		</dict>
 		<key>1420D25819F26C3CCEB2F36F6C14E556</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>385E31528CD8901325EC6E940C11A89C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,6 +112,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>81A0F5B8C4B78F0283C75F241A88D071</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9D7FBF9D2ED503892E9303146E9E36D5</key>
 		<dict>
 			<key>primary</key>
@@ -113,6 +128,11 @@
 			<true/>
 		</dict>
 		<key>A330BA5E77CD96953C54716C8671B56C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A542B6940ECC50900244B4C1D124B2C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -138,6 +158,11 @@
 			<true/>
 		</dict>
 		<key>BFBDBABE2652E36E2BCBB02AF2C3E486</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C099A87ED55CA43603FF2EAF6E3AAC44</key>
 		<dict>
 			<key>primary</key>
 			<true/>

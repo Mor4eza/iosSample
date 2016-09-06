@@ -13,9 +13,16 @@ class DataBase{
     var db:Connection!
     //portfolio Table
     var tblPortfolio:Table!
+    var tblSymbolPortfolio:Table!
+    
     let portfolioName = Expression<String?>("portfolioName")
     let portfolioCode = Expression<Int>("portfolioCode")
     let portfolioOwnerId = Expression<Int>("portfolioOwnerUserId")
+    
+    let psCode = Expression<Int>("psCode")
+    let symbolPCode = Expression<Int>("portfolioCode")
+    let symbolCode = Expression<String>("symbolCode")
+    
     
     init(){
         OpenDataBase()
@@ -34,28 +41,62 @@ class DataBase{
         
         //portfolio Table
         
-        tblPortfolio = Table("tbPortfolioSymbol")
+        tblPortfolio = Table("tbPortfolio")
         try! db.run(tblPortfolio.create(ifNotExists : true) { t in
             t.column(portfolioCode, primaryKey: true)
             t.column(portfolioName)
             t.column(portfolioOwnerId)
             })
         
+        //Symbol Table
         
+        tblSymbolPortfolio = Table("tbPortfolioSymbol")
+        try! db.run(tblSymbolPortfolio.create(ifNotExists : true) { t in
+            t.column(psCode, primaryKey: true)
+            t.column(symbolPCode)
+            t.column(symbolCode)
+            })
 
         
     }
     
+    
+    //MARK: - Symbol
+    func addSymbolToPortfolio(sCode:String ,pCode:Int) {
+        
+        let insert = tblSymbolPortfolio.insert(symbolCode <- sCode , symbolPCode <- pCode)
+        try! db.run(insert)
+    }
+    
+    func getSymbolbyPortfolio(pCode:Int) -> [String] {
+       
+        var symbols = [String]()
+        
+        
+        for symbol in try! db.prepare(tblSymbolPortfolio.filter(symbolPCode == pCode)) {
+           
+            print("id: \(symbol[psCode]), pCode: \(symbol[symbolPCode]), \(symbol[symbolCode])")
+            symbols.append(symbol[symbolCode])
+        }
+        return symbols
+    }
+    
+    func deleteSymbolFromPortfoi(sCode:String , pCode:Int) {
+        
+        let symbol = tblSymbolPortfolio.filter(symbolPCode == pCode && symbolCode == sCode)
+        try! db.run(symbol.delete())
+    }
+    
+    
+    //MARK: - Portfolio
     func addPortfolio(pName:String){
         let insert = tblPortfolio.insert(portfolioName <- pName, portfolioOwnerId <- 1)
         try! db.run(insert)
     }
     
     func getPortfolioList(userId:Int)-> [String]{
-        
         var pNames = [String]()
         for portfolio in try! db.prepare(tblPortfolio) {
-            print("id: \(portfolio[portfolioCode]), name: \(portfolio[portfolioName])")
             pNames.append(portfolio[portfolioName]!)
         }
         return pNames
@@ -70,11 +111,15 @@ class DataBase{
         for pn in try!  db.prepare(currentQuery){
             name = pn[portfolioCode]
         }
-        
-//        let name = try! db.prepare("SELECT portfolioCode FROM tbPortfolioSymbol WHERE portfolioName = '\(pName)' ")
-//        name.run(name)
+
         return name
         
+    }
+    
+    func updatePortfolioName(newName:String , pCode:Int) {
+        
+        let portfolio = tblPortfolio.filter(portfolioCode == pCode)
+        try! db.run(portfolio.update(portfolioName <- newName))
     }
     
     func deletePortfolio(id:Int) {

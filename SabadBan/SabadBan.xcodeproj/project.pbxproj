@@ -8,7 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		317FEAE3C8E474C329DFD2C1 /* Pods_SabadBan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E672665F4DD4CD071AFEA5E4 /* Pods_SabadBan.framework */; };
+		941C19BB1D76FD9300DDE96F /* SymbolNamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C19BA1D76FD9300DDE96F /* SymbolNamesCell.swift */; };
 		941E9A2D1D740B5900A472A5 /* indexDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941E9A2C1D740B5900A472A5 /* indexDetailsCell.swift */; };
+		944EF1941D7EC29A00A039BA /* BestLimitDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF1911D7EC29A00A039BA /* BestLimitDataList.swift */; };
+		944EF1951D7EC29A00A039BA /* SymbolBestLimitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF1921D7EC29A00A039BA /* SymbolBestLimitModel.swift */; };
+		944EF1961D7EC29A00A039BA /* SymbolBestLimitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF1931D7EC29A00A039BA /* SymbolBestLimitResponse.swift */; };
+		944EF19B1D7EC4BF00A039BA /* SymbolTradingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF1991D7EC4BF00A039BA /* SymbolTradingModel.swift */; };
+		944EF19C1D7EC4BF00A039BA /* SymbolTradingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */; };
+		9458E1531D7E8976009A211A /* SymbolDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9458E1521D7E8976009A211A /* SymbolDetailsViewController.swift */; };
+		9467D8681D7BEB8700B76A2E /* EditPortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9467D8671D7BEB8700B76A2E /* EditPortfolioViewController.swift */; };
 		947C63871D744F3E00676822 /* IndexSymbolsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C63841D744F3E00676822 /* IndexSymbolsList.swift */; };
 		947C63881D744F3E00676822 /* SymbolDetailsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C63851D744F3E00676822 /* SymbolDetailsList.swift */; };
 		947C63891D744F3E00676822 /* SymbolListByIndexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C63861D744F3E00676822 /* SymbolListByIndexResponse.swift */; };
@@ -17,8 +25,8 @@
 		947C63901D7451EE00676822 /* SymbolListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C638F1D7451EE00676822 /* SymbolListTableViewController.swift */; };
 		947C63921D7453B200676822 /* SymbolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C63911D7453B200676822 /* SymbolCell.swift */; };
 		947C63961D7581D100676822 /* PortfolioListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C63951D7581D100676822 /* PortfolioListViewController.swift */; };
-		947C63981D75ACDA00676822 /* sabadbanDb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 947C63971D75ACDA00676822 /* sabadbanDb.sqlite */; };
 		947C639D1D75BA8C00676822 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C639C1D75BA8C00676822 /* DataBase.swift */; };
+		947EAC101D7AA25100FE43EC /* portfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947EAC0F1D7AA25100FE43EC /* portfolioCell.swift */; };
 		948B46651D76B49500F464C2 /* SearchSeymbolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B46641D76B49500F464C2 /* SearchSeymbolTableView.swift */; };
 		948B46681D76BCDD00F464C2 /* SymbolListModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B46671D76BCDD00F464C2 /* SymbolListModelResponse.swift */; };
 		948B466A1D76BCE500F464C2 /* SymbolsDetailsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B46691D76BCE500F464C2 /* SymbolsDetailsList.swift */; };
@@ -58,7 +66,15 @@
 
 /* Begin PBXFileReference section */
 		32A77BA2E8175860256B2A74 /* Pods-SabadBan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBan/Pods-SabadBan.debug.xcconfig"; sourceTree = "<group>"; };
+		941C19BA1D76FD9300DDE96F /* SymbolNamesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolNamesCell.swift; sourceTree = "<group>"; };
 		941E9A2C1D740B5900A472A5 /* indexDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = indexDetailsCell.swift; sourceTree = "<group>"; };
+		944EF1911D7EC29A00A039BA /* BestLimitDataList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestLimitDataList.swift; sourceTree = "<group>"; };
+		944EF1921D7EC29A00A039BA /* SymbolBestLimitModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolBestLimitModel.swift; sourceTree = "<group>"; };
+		944EF1931D7EC29A00A039BA /* SymbolBestLimitResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolBestLimitResponse.swift; sourceTree = "<group>"; };
+		944EF1991D7EC4BF00A039BA /* SymbolTradingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolTradingModel.swift; sourceTree = "<group>"; };
+		944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolTradingResponse.swift; sourceTree = "<group>"; };
+		9458E1521D7E8976009A211A /* SymbolDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolDetailsViewController.swift; sourceTree = "<group>"; };
+		9467D8671D7BEB8700B76A2E /* EditPortfolioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPortfolioViewController.swift; sourceTree = "<group>"; };
 		947C63841D744F3E00676822 /* IndexSymbolsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexSymbolsList.swift; sourceTree = "<group>"; };
 		947C63851D744F3E00676822 /* SymbolDetailsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolDetailsList.swift; sourceTree = "<group>"; };
 		947C63861D744F3E00676822 /* SymbolListByIndexResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolListByIndexResponse.swift; sourceTree = "<group>"; };
@@ -67,9 +83,9 @@
 		947C638F1D7451EE00676822 /* SymbolListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolListTableViewController.swift; sourceTree = "<group>"; };
 		947C63911D7453B200676822 /* SymbolCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolCell.swift; sourceTree = "<group>"; };
 		947C63951D7581D100676822 /* PortfolioListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioListViewController.swift; sourceTree = "<group>"; };
-		947C63971D75ACDA00676822 /* sabadbanDb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = sabadbanDb.sqlite; sourceTree = "<group>"; };
 		947C63991D75B25D00676822 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		947C639C1D75BA8C00676822 /* DataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		947EAC0F1D7AA25100FE43EC /* portfolioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = portfolioCell.swift; sourceTree = "<group>"; };
 		948B46641D76B49500F464C2 /* SearchSeymbolTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSeymbolTableView.swift; sourceTree = "<group>"; };
 		948B46671D76BCDD00F464C2 /* SymbolListModelResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolListModelResponse.swift; sourceTree = "<group>"; };
 		948B46691D76BCE500F464C2 /* SymbolsDetailsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolsDetailsList.swift; sourceTree = "<group>"; };
@@ -142,6 +158,49 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		944EF1901D7EC28200A039BA /* SymbolDetails */ = {
+			isa = PBXGroup;
+			children = (
+				944EF1981D7EC4B200A039BA /* SymbolTrading */,
+				944EF1971D7EC43500A039BA /* SymbolBestLimit */,
+			);
+			name = SymbolDetails;
+			sourceTree = "<group>";
+		};
+		944EF1971D7EC43500A039BA /* SymbolBestLimit */ = {
+			isa = PBXGroup;
+			children = (
+				944EF1911D7EC29A00A039BA /* BestLimitDataList.swift */,
+				944EF1921D7EC29A00A039BA /* SymbolBestLimitModel.swift */,
+				944EF1931D7EC29A00A039BA /* SymbolBestLimitResponse.swift */,
+			);
+			name = SymbolBestLimit;
+			sourceTree = "<group>";
+		};
+		944EF1981D7EC4B200A039BA /* SymbolTrading */ = {
+			isa = PBXGroup;
+			children = (
+				944EF1991D7EC4BF00A039BA /* SymbolTradingModel.swift */,
+				944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */,
+			);
+			name = SymbolTrading;
+			sourceTree = "<group>";
+		};
+		9458E1511D7E8910009A211A /* Symbols */ = {
+			isa = PBXGroup;
+			children = (
+				9458E1521D7E8976009A211A /* SymbolDetailsViewController.swift */,
+			);
+			name = Symbols;
+			sourceTree = "<group>";
+		};
+		9467D8941D7C4DA200B76A2E /* portfolioDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = portfolioDetails;
+			sourceTree = "<group>";
+		};
 		947C63831D744D2600676822 /* SymbolInIndex */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,21 +211,24 @@
 			name = SymbolInIndex;
 			sourceTree = "<group>";
 		};
-		947C638A1D744F9200676822 /* SymbolList */ = {
+		947C638A1D744F9200676822 /* SymbolDetailsList */ = {
 			isa = PBXGroup;
 			children = (
 				947C638B1D744FD300676822 /* SymbolListHeader.swift */,
 				947C638D1D744FF000676822 /* SymbolListHeader.xib */,
 				947C63911D7453B200676822 /* SymbolCell.swift */,
+				941C19BA1D76FD9300DDE96F /* SymbolNamesCell.swift */,
 			);
-			name = SymbolList;
+			name = SymbolDetailsList;
 			sourceTree = "<group>";
 		};
 		947C63931D756F2200676822 /* Portfolio */ = {
 			isa = PBXGroup;
 			children = (
+				9467D8941D7C4DA200B76A2E /* portfolioDetails */,
 				947C63951D7581D100676822 /* PortfolioListViewController.swift */,
 				948B46641D76B49500F464C2 /* SearchSeymbolTableView.swift */,
+				9467D8671D7BEB8700B76A2E /* EditPortfolioViewController.swift */,
 			);
 			name = Portfolio;
 			sourceTree = "<group>";
@@ -185,6 +247,14 @@
 				947C639C1D75BA8C00676822 /* DataBase.swift */,
 			);
 			name = DataBase;
+			sourceTree = "<group>";
+		};
+		947EAC0E1D7AA1FA00FE43EC /* Portfolio */ = {
+			isa = PBXGroup;
+			children = (
+				947EAC0F1D7AA25100FE43EC /* portfolioCell.swift */,
+			);
+			name = Portfolio;
 			sourceTree = "<group>";
 		};
 		948B46661D76BB6600F464C2 /* SymbolList */ = {
@@ -275,6 +345,7 @@
 		949BEE671D72A741008FA574 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9458E1511D7E8910009A211A /* Symbols */,
 				947C63931D756F2200676822 /* Portfolio */,
 				949BEE9B1D72B30F008FA574 /* Index */,
 				949BEE861D72A877008FA574 /* BaseViews */,
@@ -287,6 +358,7 @@
 		949BEE681D72A74F008FA574 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				944EF1901D7EC28200A039BA /* SymbolDetails */,
 				947C63941D75816400676822 /* Portfolio */,
 				949BEEA31D72CA13008FA574 /* Index */,
 			);
@@ -298,7 +370,6 @@
 			children = (
 				949BEE931D72AB1E008FA574 /* Fonts */,
 				949BEE911D72AABB008FA574 /* Localizable.strings */,
-				947C63971D75ACDA00676822 /* sabadbanDb.sqlite */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -358,7 +429,7 @@
 		949BEE981D72B28F008FA574 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				947C638A1D744F9200676822 /* SymbolList */,
+				947EAC0E1D7AA1FA00FE43EC /* Portfolio */,
 				949BEE9E1D72B5A5008FA574 /* Index */,
 			);
 			name = Views;
@@ -376,6 +447,7 @@
 		949BEE9E1D72B5A5008FA574 /* Index */ = {
 			isa = PBXGroup;
 			children = (
+				947C638A1D744F9200676822 /* SymbolDetailsList */,
 				949BEE9C1D72B46F008FA574 /* IndexHeader.xib */,
 				949BEE9F1D72B5C8008FA574 /* IndexHeader.swift */,
 				949BEEA11D72B9C1008FA574 /* IndexCell.swift */,
@@ -484,7 +556,6 @@
 				949BEE571D72A51C008FA574 /* Main.storyboard in Resources */,
 				949BEE961D72ADB4008FA574 /* IRANSans.ttf in Resources */,
 				949BEE9D1D72B46F008FA574 /* IndexHeader.xib in Resources */,
-				947C63981D75ACDA00676822 /* sabadbanDb.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,21 +614,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				944EF1941D7EC29A00A039BA /* BestLimitDataList.swift in Sources */,
 				947C638C1D744FD300676822 /* SymbolListHeader.swift in Sources */,
 				941E9A2D1D740B5900A472A5 /* indexDetailsCell.swift in Sources */,
 				949BEE811D72A7DA008FA574 /* MyNavigationController.swift in Sources */,
+				947EAC101D7AA25100FE43EC /* portfolioCell.swift in Sources */,
 				947C63871D744F3E00676822 /* IndexSymbolsList.swift in Sources */,
+				9467D8681D7BEB8700B76A2E /* EditPortfolioViewController.swift in Sources */,
 				949BEE851D72A7FE008FA574 /* SettingTableViewController.swift in Sources */,
 				947C63921D7453B200676822 /* SymbolCell.swift in Sources */,
+				944EF19C1D7EC4BF00A039BA /* SymbolTradingResponse.swift in Sources */,
 				947C63901D7451EE00676822 /* SymbolListTableViewController.swift in Sources */,
 				948B46651D76B49500F464C2 /* SearchSeymbolTableView.swift in Sources */,
 				949BEE6F1D72A78A008FA574 /* LinearProgressView.swift in Sources */,
 				949BEE521D72A51C008FA574 /* AppDelegate.swift in Sources */,
 				949BEEB71D731228008FA574 /* ChartViewController.swift in Sources */,
 				949BEEA91D72CA88008FA574 /* Response.swift in Sources */,
+				944EF1951D7EC29A00A039BA /* SymbolBestLimitModel.swift in Sources */,
 				949BEEA81D72CA88008FA574 /* Indexs.swift in Sources */,
 				949BEEAF1D72F7B2008FA574 /* UIColor.swift in Sources */,
 				949BEEA21D72B9C1008FA574 /* IndexCell.swift in Sources */,
+				944EF19B1D7EC4BF00A039BA /* SymbolTradingModel.swift in Sources */,
 				949BEE891D72A883008FA574 /* BaseViewController.swift in Sources */,
 				949BEE821D72A7DA008FA574 /* MyMenuTableViewController.swift in Sources */,
 				947C63881D744F3E00676822 /* SymbolDetailsList.swift in Sources */,
@@ -567,6 +644,7 @@
 				949BEE9A1D72B2FE008FA574 /* IndexTableViewController.swift in Sources */,
 				949BEE771D72A7AD008FA574 /* UIView.swift in Sources */,
 				949BEE6D1D72A78A008FA574 /* Utils.swift in Sources */,
+				941C19BB1D76FD9300DDE96F /* SymbolNamesCell.swift in Sources */,
 				949BEE7C1D72A7C4008FA574 /* ENSideMenu.swift in Sources */,
 				949BEE731D72A799008FA574 /* MyAlert.swift in Sources */,
 				949BEE8A1D72A883008FA574 /* BaseTableViewController.swift in Sources */,
@@ -574,10 +652,12 @@
 				949BEEA01D72B5C8008FA574 /* IndexHeader.swift in Sources */,
 				949BEE7D1D72A7C4008FA574 /* ENSideMenuNavigationController.swift in Sources */,
 				947C639D1D75BA8C00676822 /* DataBase.swift in Sources */,
+				9458E1531D7E8976009A211A /* SymbolDetailsViewController.swift in Sources */,
 				949BEE6E1D72A78A008FA574 /* AppConstants.swift in Sources */,
 				949BEEA71D72CA88008FA574 /* IndexDetailsList.swift in Sources */,
 				948B466C1D76BCEB00F464C2 /* symbolListModel.swift in Sources */,
 				948B46681D76BCDD00F464C2 /* SymbolListModelResponse.swift in Sources */,
+				944EF1961D7EC29A00A039BA /* SymbolBestLimitResponse.swift in Sources */,
 				949BEEB51D7311F7008FA574 /* IndexDetailsTabBarController.swift in Sources */,
 				947C63961D7581D100676822 /* PortfolioListViewController.swift in Sources */,
 			);

@@ -7,29 +7,217 @@
 //
 
 import UIKit
-
+import SwiftCharts
 class ChartViewController: BaseViewController{
 
+    
+    private var chart: Chart? // arc
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let labelSettings = ChartLabelSettings(font: ExamplesDefaults.labelFont)
+        
+        var readFormatter = NSDateFormatter()
+        readFormatter.dateFormat = "dd.MM.yyyy"
+        
+        var displayFormatter = NSDateFormatter()
+        displayFormatter.dateFormat = "MMM dd"
+        
+        let date = {(str: String) -> NSDate in
+            return readFormatter.dateFromString(str)!
+        }
+        
+        let calendar = NSCalendar.currentCalendar()
+        
+        let dateWithComponents = {(day: Int, month: Int, year: Int) -> NSDate in
+            let components = NSDateComponents()
+            components.day = day
+            components.month = month
+            components.year = year
+            return calendar.dateFromComponents(components)!
+        }
+        
+        func filler(date: NSDate) -> ChartAxisValueDate {
+            let filler = ChartAxisValueDate(date: date, formatter: displayFormatter)
+            filler.hidden = true
+            return filler
+        }
+        
+        let chartPoints = [
+            ChartPointCandleStick(date: date("01.10.2015"), formatter: displayFormatter, high: 40, low: 37, open: 39.5, close: 39),
+            ChartPointCandleStick(date: date("02.10.2015"), formatter: displayFormatter, high: 39.8, low: 38, open: 39.5, close: 38.4),
+            ChartPointCandleStick(date: date("03.10.2015"), formatter: displayFormatter, high: 43, low: 39, open: 41.5, close: 42.5),
+            ChartPointCandleStick(date: date("04.10.2015"), formatter: displayFormatter, high: 48, low: 42, open: 44.6, close: 44.5),
+            ChartPointCandleStick(date: date("05.10.2015"), formatter: displayFormatter, high: 45, low: 41.6, open: 43, close: 44),
+            ChartPointCandleStick(date: date("06.10.2015"), formatter: displayFormatter, high: 46, low: 42.6, open: 44, close: 46),
+            ChartPointCandleStick(date: date("07.10.2015"), formatter: displayFormatter, high: 47.5, low: 41, open: 42, close: 45.5),
+            ChartPointCandleStick(date: date("08.10.2015"), formatter: displayFormatter, high: 50, low: 46, open: 46, close: 49),
+            ChartPointCandleStick(date: date("09.10.2015"), formatter: displayFormatter, high: 45, low: 41, open: 44, close: 43.5),
+            ChartPointCandleStick(date: date("11.10.2015"), formatter: displayFormatter, high: 47, low: 35, open: 45, close: 39),
+            ChartPointCandleStick(date: date("12.10.2015"), formatter: displayFormatter, high: 45, low: 33, open: 44, close: 40),
+            ChartPointCandleStick(date: date("13.10.2015"), formatter: displayFormatter, high: 43, low: 36, open: 41, close: 38),
+            ChartPointCandleStick(date: date("14.10.2015"), formatter: displayFormatter, high: 42, low: 31, open: 38, close: 39),
+            ChartPointCandleStick(date: date("15.10.2015"), formatter: displayFormatter, high: 39, low: 34, open: 37, close: 36),
+            ChartPointCandleStick(date: date("16.10.2015"), formatter: displayFormatter, high: 35, low: 32, open: 34, close: 33.5),
+            ChartPointCandleStick(date: date("17.10.2015"), formatter: displayFormatter, high: 32, low: 29, open: 31.5, close: 31),
+            ChartPointCandleStick(date: date("18.10.2015"), formatter: displayFormatter, high: 31, low: 29.5, open: 29.5, close: 30),
+            ChartPointCandleStick(date: date("19.10.2015"), formatter: displayFormatter, high: 29, low: 25, open: 25.5, close: 25),
+            ChartPointCandleStick(date: date("20.10.2015"), formatter: displayFormatter, high: 28, low: 24, open: 26.7, close: 27.5),
+            ChartPointCandleStick(date: date("21.10.2015"), formatter: displayFormatter, high: 28.5, low: 25.3, open: 26, close: 27),
+            ChartPointCandleStick(date: date("22.10.2015"), formatter: displayFormatter, high: 30, low: 28, open: 28, close: 30),
+            ChartPointCandleStick(date: date("25.10.2015"), formatter: displayFormatter, high: 31, low: 29, open: 31, close: 31),
+            ChartPointCandleStick(date: date("26.10.2015"), formatter: displayFormatter, high: 31.5, low: 29.2, open: 29.6, close: 29.6),
+            ChartPointCandleStick(date: date("27.10.2015"), formatter: displayFormatter, high: 30, low: 27, open: 29, close: 28.5),
+            ChartPointCandleStick(date: date("28.10.2015"), formatter: displayFormatter, high: 32, low: 30, open: 31, close: 30.6),
+            ChartPointCandleStick(date: date("29.10.2015"), formatter: displayFormatter, high: 35, low: 31, open: 31, close: 33),
+            ChartPointCandleStick(date: date("01.10.2015"), formatter: displayFormatter, high: 40, low: 37, open: 39.5, close: 39),
+            ChartPointCandleStick(date: date("02.10.2015"), formatter: displayFormatter, high: 39.8, low: 38, open: 39.5, close: 38.4),
+            ChartPointCandleStick(date: date("03.10.2015"), formatter: displayFormatter, high: 43, low: 39, open: 41.5, close: 42.5),
+            ChartPointCandleStick(date: date("04.10.2015"), formatter: displayFormatter, high: 48, low: 42, open: 44.6, close: 44.5),
+            ChartPointCandleStick(date: date("05.10.2015"), formatter: displayFormatter, high: 45, low: 41.6, open: 43, close: 44),
+            ChartPointCandleStick(date: date("06.10.2015"), formatter: displayFormatter, high: 46, low: 42.6, open: 44, close: 46),
+            ChartPointCandleStick(date: date("07.10.2015"), formatter: displayFormatter, high: 47.5, low: 41, open: 42, close: 45.5),
+            ChartPointCandleStick(date: date("08.10.2015"), formatter: displayFormatter, high: 50, low: 46, open: 46, close: 49),
+            ChartPointCandleStick(date: date("09.10.2015"), formatter: displayFormatter, high: 45, low: 41, open: 44, close: 43.5),
+            ChartPointCandleStick(date: date("11.10.2015"), formatter: displayFormatter, high: 47, low: 35, open: 45, close: 39),
+            ChartPointCandleStick(date: date("12.10.2015"), formatter: displayFormatter, high: 45, low: 33, open: 44, close: 40),
+            ChartPointCandleStick(date: date("13.10.2015"), formatter: displayFormatter, high: 43, low: 36, open: 41, close: 38),
+            ChartPointCandleStick(date: date("14.10.2015"), formatter: displayFormatter, high: 42, low: 31, open: 38, close: 39),
+            ChartPointCandleStick(date: date("15.10.2015"), formatter: displayFormatter, high: 39, low: 34, open: 37, close: 36),
+            ChartPointCandleStick(date: date("16.10.2015"), formatter: displayFormatter, high: 35, low: 32, open: 34, close: 33.5),
+            ChartPointCandleStick(date: date("17.10.2015"), formatter: displayFormatter, high: 32, low: 29, open: 31.5, close: 31),
+            ChartPointCandleStick(date: date("18.10.2015"), formatter: displayFormatter, high: 31, low: 29.5, open: 29.5, close: 30),
+            ChartPointCandleStick(date: date("19.10.2015"), formatter: displayFormatter, high: 29, low: 25, open: 25.5, close: 25),
+            ChartPointCandleStick(date: date("20.10.2015"), formatter: displayFormatter, high: 28, low: 24, open: 26.7, close: 27.5),
+            ChartPointCandleStick(date: date("21.10.2015"), formatter: displayFormatter, high: 28.5, low: 25.3, open: 26, close: 27),
+            ChartPointCandleStick(date: date("22.10.2015"), formatter: displayFormatter, high: 30, low: 28, open: 28, close: 30),
+            ChartPointCandleStick(date: date("25.10.2015"), formatter: displayFormatter, high: 31, low: 29, open: 31, close: 31),
+            ChartPointCandleStick(date: date("26.10.2015"), formatter: displayFormatter, high: 31.5, low: 29.2, open: 29.6, close: 29.6),
+            ChartPointCandleStick(date: date("27.10.2015"), formatter: displayFormatter, high: 30, low: 27, open: 29, close: 28.5),
+            ChartPointCandleStick(date: date("28.10.2015"), formatter: displayFormatter, high: 32, low: 30, open: 31, close: 30.6),
+            ChartPointCandleStick(date: date("29.10.2015"), formatter: displayFormatter, high: 35, low: 31, open: 31, close: 33)
+        ]
+        
+        let yValues = 20.stride(through: 55, by: 5).map {ChartAxisValueDouble(Double($0), labelSettings: labelSettings)}
+        
+        func generateDateAxisValues(month: Int, year: Int) -> [ChartAxisValueDate] {
+            let date = dateWithComponents(1, month, year)
+            let calendar = NSCalendar.currentCalendar()
+            let monthDays = calendar.rangeOfUnit(.Day, inUnit: .Month, forDate: date)
+            return Array(monthDays.toRange()!).map {day in
+                let date = dateWithComponents(day, month, year)
+                let axisValue = ChartAxisValueDate(date: date, formatter: displayFormatter, labelSettings: labelSettings)
+                axisValue.hidden = !(day % 5 == 0)
+                return axisValue
+            }
+        }
+        let xValues = generateDateAxisValues(10, year: 2015)
+        
+        let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Axis title", settings: labelSettings))
+        let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Axis title", settings: labelSettings.defaultVertical()))
+        let chartFrame = ExamplesDefaults.chartFrame(self.view.bounds)
+        let coordsSpace = ChartCoordsSpaceRightBottomSingleAxis(chartSettings: ExamplesDefaults.chartSettings, chartFrame: chartFrame, xModel: xModel, yModel: yModel)
+        let (xAxis, yAxis, innerFrame) = (coordsSpace.xAxis, coordsSpace.yAxis, coordsSpace.chartInnerFrame)
+        
+        let chartPointsLineLayer = ChartCandleStickLayer<ChartPointCandleStick>(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, chartPoints: chartPoints, itemWidth: Env.iPad ? 10 : 5, strokeWidth: Env.iPad ? 1 : 0.6)
+        
+        let settings = ChartGuideLinesLayerSettings(linesColor: UIColor.blackColor(), linesWidth: ExamplesDefaults.guidelinesWidth)
+        let guidelinesLayer = ChartGuideLinesLayer(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, settings: settings, onlyVisibleX: true)
+        
+        let dividersSettings =  ChartDividersLayerSettings(linesColor: UIColor.blackColor(), linesWidth: ExamplesDefaults.guidelinesWidth, start: Env.iPad ? 7 : 3, end: 0, onlyVisibleValues: true)
+        let dividersLayer = ChartDividersLayer(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, settings: dividersSettings)
+        
+        let chart = Chart(
+            frame: chartFrame,
+            layers: [
+                xAxis,
+                yAxis,
+                guidelinesLayer,
+                dividersLayer,
+                chartPointsLineLayer
+            ]
+        )
+        
+        self.view.addSubview(chart.view)
+        
+        self.chart = chart
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+struct ExamplesDefaults {
+    
+    static var chartSettings: ChartSettings {
+        if Env.iPad {
+            return self.iPadChartSettings
+        } else {
+            return self.iPhoneChartSettings
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private static var iPadChartSettings: ChartSettings {
+        let chartSettings = ChartSettings()
+        chartSettings.leading = 20
+        chartSettings.top = 20
+        chartSettings.trailing = 20
+        chartSettings.bottom = 90
+        chartSettings.labelsToAxisSpacingX = 10
+        chartSettings.labelsToAxisSpacingY = 10
+        chartSettings.axisTitleLabelsToLabelsSpacing = 5
+        chartSettings.axisStrokeWidth = 1
+        chartSettings.spacingBetweenAxesX = 15
+        chartSettings.spacingBetweenAxesY = 15
+        return chartSettings
     }
-    */
-
+    
+    private static var iPhoneChartSettings: ChartSettings {
+        let chartSettings = ChartSettings()
+        chartSettings.leading = 10
+        chartSettings.top = 10
+        chartSettings.trailing = 10
+        chartSettings.bottom = 10
+        chartSettings.labelsToAxisSpacingX = 5
+        chartSettings.labelsToAxisSpacingY = 5
+        chartSettings.axisTitleLabelsToLabelsSpacing = 4
+        chartSettings.axisStrokeWidth = 0.2
+        chartSettings.spacingBetweenAxesX = 8
+        chartSettings.spacingBetweenAxesY = 8
+        return chartSettings
+    }
+    
+    static func chartFrame(containerBounds: CGRect) -> CGRect {
+        return CGRectMake(0, 20, containerBounds.size.width, containerBounds.size.height - 40)
+    }
+    
+    static var labelSettings: ChartLabelSettings {
+        return ChartLabelSettings(font: ExamplesDefaults.labelFont)
+    }
+    
+    static var labelFont: UIFont {
+        return ExamplesDefaults.fontWithSize(Env.iPad ? 14 : 11)
+    }
+    
+    static var labelFontSmall: UIFont {
+        return ExamplesDefaults.fontWithSize(Env.iPad ? 12 : 10)
+    }
+    
+    static func fontWithSize(size: CGFloat) -> UIFont {
+        return UIFont(name: "Helvetica", size: size) ?? UIFont.systemFontOfSize(size)
+    }
+    
+    static var guidelinesWidth: CGFloat {
+        return Env.iPad ? 0.5 : 0.1
+    }
+    
+    static var minBarSpacing: CGFloat {
+        return Env.iPad ? 10 : 5
+    }
+    
+    
+    
+}
+class Env {
+    
+    static var iPad: Bool {
+        return UIDevice.currentDevice().userInterfaceIdiom == .Pad
+    }
 }

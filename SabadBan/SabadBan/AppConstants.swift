@@ -16,11 +16,13 @@ public let ServicesHeaders = ["Content-Type": "application/json"]
 public let URLS:[String:String] =
     ["IndexListAndDetails":"/services/getIndexListAndDetails",
      "getSymbolListByIndex":"/services/getSymbolListByIndex",
-     "getSymbolListAndDetails":"/services/getSymbolListAndDetails"
+     "getSymbolListAndDetails":"/services/getSymbolListAndDetails",
+     "getBestLimitsBySymbol":"/services/getBestLimitsBySymbol",
+     "getSymbolTradingDetails":"/services/getSymbolTradingDetails"
     ]
 
 public var SelectedIndexCode:String = "0"
-
+public var SelectedSymbolCode:String = "0"
 
 //Mark :- App Style 
 

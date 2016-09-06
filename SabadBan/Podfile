@@ -11,4 +11,5 @@ target 'SabadBan' do
   pod 'BTNavigationDropdownMenu'
   pod 'ActionButton'
   pod 'SQLite.swift'
+  pod 'SwiftCharts'
 end
