@@ -59,6 +59,12 @@
 		949BEEB51D7311F7008FA574 /* IndexDetailsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949BEEB41D7311F7008FA574 /* IndexDetailsTabBarController.swift */; };
 		949BEEB71D731228008FA574 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949BEEB61D731228008FA574 /* ChartViewController.swift */; };
 		949BEEB91D731235008FA574 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949BEEB81D731235008FA574 /* DetailsViewController.swift */; };
+		94A305F31D8033E60062793C /* NewsSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A305F21D8033E60062793C /* NewsSplitViewController.swift */; };
+		94B7722B1D7FE13F002AA618 /* BourseNewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7722A1D7FE13F002AA618 /* BourseNewsTableViewController.swift */; };
+		94B7722D1D7FE18D002AA618 /* ObserverNewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7722C1D7FE18D002AA618 /* ObserverNewsTableViewController.swift */; };
+		94B7722F1D7FE363002AA618 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7722E1D7FE363002AA618 /* NewsCell.swift */; };
+		94B772351D7FEA7D002AA618 /* NewsDetailsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B772331D7FEA7D002AA618 /* NewsDetailsList.swift */; };
+		94B772361D7FEA7D002AA618 /* ObserverNewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B772341D7FEA7D002AA618 /* ObserverNewsResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +124,12 @@
 		949BEEB41D7311F7008FA574 /* IndexDetailsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexDetailsTabBarController.swift; sourceTree = "<group>"; };
 		949BEEB61D731228008FA574 /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		949BEEB81D731235008FA574 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		94A305F21D8033E60062793C /* NewsSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsSplitViewController.swift; sourceTree = "<group>"; };
+		94B7722A1D7FE13F002AA618 /* BourseNewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BourseNewsTableViewController.swift; sourceTree = "<group>"; };
+		94B7722C1D7FE18D002AA618 /* ObserverNewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverNewsTableViewController.swift; sourceTree = "<group>"; };
+		94B7722E1D7FE363002AA618 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		94B772331D7FEA7D002AA618 /* NewsDetailsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailsList.swift; sourceTree = "<group>"; };
+		94B772341D7FEA7D002AA618 /* ObserverNewsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverNewsResponse.swift; sourceTree = "<group>"; };
 		DCC682DC91C3B38F9F01FE3E /* Pods-SabadBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBan/Pods-SabadBan.release.xcconfig"; sourceTree = "<group>"; };
 		E672665F4DD4CD071AFEA5E4 /* Pods_SabadBan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SabadBan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -336,6 +348,7 @@
 		949BEE671D72A741008FA574 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				94B772271D7FE058002AA618 /* News */,
 				9458E1511D7E8910009A211A /* Symbols */,
 				947C63931D756F2200676822 /* Portfolio */,
 				949BEE9B1D72B30F008FA574 /* Index */,
@@ -349,6 +362,7 @@
 		949BEE681D72A74F008FA574 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				94B772311D7FEA65002AA618 /* News */,
 				944EF1901D7EC28200A039BA /* SymbolDetails */,
 				947C63941D75816400676822 /* Portfolio */,
 				949BEEA31D72CA13008FA574 /* Index */,
@@ -421,6 +435,7 @@
 		949BEE981D72B28F008FA574 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				94B772301D7FE36A002AA618 /* News */,
 				947EAC0E1D7AA1FA00FE43EC /* Portfolio */,
 				949BEE9E1D72B5A5008FA574 /* Index */,
 			);
@@ -475,6 +490,41 @@
 				947C638F1D7451EE00676822 /* SymbolListTableViewController.swift */,
 			);
 			name = IndexDetails;
+			sourceTree = "<group>";
+		};
+		94B772271D7FE058002AA618 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				94B7722A1D7FE13F002AA618 /* BourseNewsTableViewController.swift */,
+				94B7722C1D7FE18D002AA618 /* ObserverNewsTableViewController.swift */,
+				94A305F21D8033E60062793C /* NewsSplitViewController.swift */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		94B772301D7FE36A002AA618 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				94B7722E1D7FE363002AA618 /* NewsCell.swift */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		94B772311D7FEA65002AA618 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				94B772321D7FEA6D002AA618 /* ObserverNews */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		94B772321D7FEA6D002AA618 /* ObserverNews */ = {
+			isa = PBXGroup;
+			children = (
+				94B772331D7FEA7D002AA618 /* NewsDetailsList.swift */,
+				94B772341D7FEA7D002AA618 /* ObserverNewsResponse.swift */,
+			);
+			name = ObserverNews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -609,12 +659,15 @@
 				947C638C1D744FD300676822 /* SymbolListHeader.swift in Sources */,
 				941E9A2D1D740B5900A472A5 /* indexDetailsCell.swift in Sources */,
 				949BEE811D72A7DA008FA574 /* MyNavigationController.swift in Sources */,
+				94B7722F1D7FE363002AA618 /* NewsCell.swift in Sources */,
 				947EAC101D7AA25100FE43EC /* portfolioCell.swift in Sources */,
 				9467D8681D7BEB8700B76A2E /* EditPortfolioViewController.swift in Sources */,
 				949BEE851D72A7FE008FA574 /* SettingTableViewController.swift in Sources */,
 				947C63921D7453B200676822 /* SymbolCell.swift in Sources */,
+				94B772361D7FEA7D002AA618 /* ObserverNewsResponse.swift in Sources */,
 				944EF19C1D7EC4BF00A039BA /* SymbolTradingResponse.swift in Sources */,
 				947C63901D7451EE00676822 /* SymbolListTableViewController.swift in Sources */,
+				94B7722B1D7FE13F002AA618 /* BourseNewsTableViewController.swift in Sources */,
 				948B46651D76B49500F464C2 /* SearchSeymbolTableView.swift in Sources */,
 				949BEE6F1D72A78A008FA574 /* LinearProgressView.swift in Sources */,
 				949BEE521D72A51C008FA574 /* AppDelegate.swift in Sources */,
@@ -622,14 +675,17 @@
 				949BEEA91D72CA88008FA574 /* Response.swift in Sources */,
 				949BEEAF1D72F7B2008FA574 /* UIColor.swift in Sources */,
 				949BEEA21D72B9C1008FA574 /* IndexCell.swift in Sources */,
+				94B7722D1D7FE18D002AA618 /* ObserverNewsTableViewController.swift in Sources */,
 				949BEE891D72A883008FA574 /* BaseViewController.swift in Sources */,
 				949BEE821D72A7DA008FA574 /* MyMenuTableViewController.swift in Sources */,
 				947C63881D744F3E00676822 /* SymbolDetailsList.swift in Sources */,
 				948B466A1D76BCE500F464C2 /* SymbolsDetailsList.swift in Sources */,
 				949BEE781D72A7AD008FA574 /* NumbersFormat.swift in Sources */,
+				94B772351D7FEA7D002AA618 /* NewsDetailsList.swift in Sources */,
 				947C63891D744F3E00676822 /* SymbolListByIndexResponse.swift in Sources */,
 				949BEE9A1D72B2FE008FA574 /* IndexTableViewController.swift in Sources */,
 				949BEE771D72A7AD008FA574 /* UIView.swift in Sources */,
+				94A305F31D8033E60062793C /* NewsSplitViewController.swift in Sources */,
 				949BEE6D1D72A78A008FA574 /* Utils.swift in Sources */,
 				941C19BB1D76FD9300DDE96F /* SymbolNamesCell.swift in Sources */,
 				949BEE7C1D72A7C4008FA574 /* ENSideMenu.swift in Sources */,
