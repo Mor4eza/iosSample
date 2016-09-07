@@ -65,12 +65,15 @@ class MyMenuTableViewController: BaseTableViewController {
             cell?.textLabel?.text = "Portfolio".localized()
             break
         case 2:
-             cell?.textLabel?.text = "Setting".localized()
+            cell?.textLabel?.text = "News".localized()
             break
         case 3:
-            cell?.textLabel?.text = "AboutUs".localized()
+             cell?.textLabel?.text = "Setting".localized()
             break
         case 4:
+            cell?.textLabel?.text = "AboutUs".localized()
+            break
+        case 5:
             cell?.textLabel?.text = "ContactUs".localized()
             break
         default:
@@ -109,12 +112,15 @@ class MyMenuTableViewController: BaseTableViewController {
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("PortfolioViewController")
             break
         case 2:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("settingViewController")
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("NewsTabBarController")
             break
         case 3:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("AboutUsViewController")
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("settingViewController")
             break
         case 4:
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("AboutUsViewController")
+            break
+        case 5:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController4") 
             break
         default:

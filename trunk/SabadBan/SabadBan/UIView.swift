@@ -20,7 +20,7 @@ extension UILabel {
     }
     
     func setDefaultFont(){
-        self.font = UIFont(name: AppFontName_IranSans, size:self.font.pointSize)
+        self.font = UIFont(name: AppFontName_IranSans, size:self.font.pointSize )
     }
     
 }
