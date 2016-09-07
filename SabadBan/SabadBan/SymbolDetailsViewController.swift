@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-import Alamofire_Gloss
+
 class SymbolDetailsViewController: BaseTableViewController {
     
     
@@ -125,7 +125,7 @@ class SymbolDetailsViewController: BaseTableViewController {
         // Fetch Request
         Alamofire.request(.POST, url, headers: ServicesHeaders, parameters: body, encoding: .JSON)
             .validate(statusCode: 200..<300)
-            .responseObject(MainResponse<SymbolBestLimitResponse>.self) { response in
+            .responseObjectErrorHadling(MainResponse<SymbolBestLimitResponse>.self) { response in
                 
                 switch response.result {
                 case .Success(let bestLimit):
@@ -176,7 +176,7 @@ class SymbolDetailsViewController: BaseTableViewController {
         // Fetch Request
         Alamofire.request(.POST, url, headers: ServicesHeaders, parameters: body, encoding: .JSON)
             .validate(statusCode: 200..<300)
-            .responseObject(MainResponse<SymbolTradingResponse>.self) { response in
+            .responseObjectErrorHadling(MainResponse<SymbolTradingResponse>.self) { response in
                 
                 switch response.result {
                 case .Success(let trading):
@@ -219,7 +219,7 @@ class SymbolDetailsViewController: BaseTableViewController {
         // Fetch Request
         Alamofire.request(.POST, url, headers: headers, parameters: body as? [String : AnyObject], encoding: .JSON)
             .validate(statusCode: 200..<300)
-            .responseObject(MainResponse<SymbolListByIndexResponse>.self) { response in
+            .responseObjectErrorHadling(MainResponse<SymbolListByIndexResponse>.self) { response in
                 
                 switch response.result {
                 case .Success(let symbol):

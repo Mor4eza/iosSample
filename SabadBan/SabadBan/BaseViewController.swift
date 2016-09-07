@@ -18,7 +18,7 @@ class BaseViewController: UIViewController,ENSideMenuDelegate,DialogClickDelegat
         }
         addMenuButton()
         self.setFontFamily(AppFontName_IranSans, forView: self.view, andSubViews: true)
-
+        
         self.view.backgroundColor = AppMainColor
 
 //        let fontFamilyNames = UIFont.familyNames()

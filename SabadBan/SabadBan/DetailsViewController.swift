@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import Alamofire_Gloss
 
 class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITableViewDelegate  {
     
@@ -129,7 +128,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         // Fetch Request
         Alamofire.request(.POST,url, headers: ServicesHeaders, parameters: body as? [String : AnyObject], encoding: .JSON)
             .validate(statusCode: 200..<300)
-            .responseObject(MainResponse<Response>.self) { response in
+            .responseObjectErrorHadling(MainResponse<Response>.self) { response in
                 switch response.result {
                 case .Success(let indexs):
                     if (indexs.response.indexDetailsList.count > 0) {

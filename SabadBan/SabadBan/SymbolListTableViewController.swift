@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-import Alamofire_Gloss
+
 class SymbolListTableViewController: BaseTableViewController {
     
     
@@ -122,7 +122,7 @@ class SymbolListTableViewController: BaseTableViewController {
         // Fetch Request
         Alamofire.request(.POST,url, headers: ServicesHeaders, parameters: body as? [String : AnyObject], encoding: .JSON)
             .validate(statusCode: 200..<300)
-            .responseObject(MainResponse<SymbolListByIndexResponse>.self) { response in
+            .responseObjectErrorHadling(MainResponse<SymbolListByIndexResponse>.self) { response in
                 
                 switch response.result {
                 case .Success(let symbols):
