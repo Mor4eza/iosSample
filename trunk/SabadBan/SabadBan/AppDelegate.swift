@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
         navigationBarAppearace.barStyle = UIBarStyle.Black
         navigationBarAppearace.tintColor = UIColor.whiteColor()
+//        let alert = MyAlert()
+//        alert.showAlert("ewe", details: "wee", okTitle: "sdsd", cancelTitle: "", onView: (self.window?.maskView)!)
+        
         return true
     }
 

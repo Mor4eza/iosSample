@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		317FEAE3C8E474C329DFD2C1 /* Pods_SabadBan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E672665F4DD4CD071AFEA5E4 /* Pods_SabadBan.framework */; };
+		84A34BF61D7EF5E600B02A8D /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A34BF51D7EF5E600B02A8D /* AlamofireRequest.swift */; };
 		941C19BB1D76FD9300DDE96F /* SymbolNamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C19BA1D76FD9300DDE96F /* SymbolNamesCell.swift */; };
 		941E9A2D1D740B5900A472A5 /* indexDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941E9A2C1D740B5900A472A5 /* indexDetailsCell.swift */; };
 		944EF1941D7EC29A00A039BA /* BestLimitDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF1911D7EC29A00A039BA /* BestLimitDataList.swift */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		32A77BA2E8175860256B2A74 /* Pods-SabadBan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBan/Pods-SabadBan.debug.xcconfig"; sourceTree = "<group>"; };
+		84A34BF51D7EF5E600B02A8D /* AlamofireRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
 		941C19BA1D76FD9300DDE96F /* SymbolNamesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolNamesCell.swift; sourceTree = "<group>"; };
 		941E9A2C1D740B5900A472A5 /* indexDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = indexDetailsCell.swift; sourceTree = "<group>"; };
 		944EF1911D7EC29A00A039BA /* BestLimitDataList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestLimitDataList.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				949BEE751D72A7AD008FA574 /* UIView.swift */,
 				949BEE761D72A7AD008FA574 /* NumbersFormat.swift */,
 				949BEEAE1D72F7B2008FA574 /* UIColor.swift */,
+				84A34BF51D7EF5E600B02A8D /* AlamofireRequest.swift */,
 			);
 			name = Extentions;
 			sourceTree = "<group>";
@@ -481,12 +484,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 949BEE601D72A51C008FA574 /* Build configuration list for PBXNativeTarget "SabadBan" */;
 			buildPhases = (
-				C5D64A95F08DFE760624CE14 /* 📦 Check Pods Manifest.lock */,
+				C5D64A95F08DFE760624CE14 /* [CP] Check Pods Manifest.lock */,
 				949BEE4A1D72A51B008FA574 /* Sources */,
 				949BEE4B1D72A51B008FA574 /* Frameworks */,
 				949BEE4C1D72A51B008FA574 /* Resources */,
-				8081F79439C37156BA5282BE /* 📦 Embed Pods Frameworks */,
-				E613BDBD7D2F1D4A4CE6993B /* 📦 Copy Pods Resources */,
+				8081F79439C37156BA5282BE /* [CP] Embed Pods Frameworks */,
+				E613BDBD7D2F1D4A4CE6993B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -550,14 +553,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8081F79439C37156BA5282BE /* 📦 Embed Pods Frameworks */ = {
+		8081F79439C37156BA5282BE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,14 +568,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBan/Pods-SabadBan-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C5D64A95F08DFE760624CE14 /* 📦 Check Pods Manifest.lock */ = {
+		C5D64A95F08DFE760624CE14 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,14 +583,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E613BDBD7D2F1D4A4CE6993B /* 📦 Copy Pods Resources */ = {
+		E613BDBD7D2F1D4A4CE6993B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -636,6 +639,7 @@
 				949BEEA01D72B5C8008FA574 /* IndexHeader.swift in Sources */,
 				949BEE7D1D72A7C4008FA574 /* ENSideMenuNavigationController.swift in Sources */,
 				947C639D1D75BA8C00676822 /* DataBase.swift in Sources */,
+				84A34BF61D7EF5E600B02A8D /* AlamofireRequest.swift in Sources */,
 				9458E1531D7E8976009A211A /* SymbolDetailsViewController.swift in Sources */,
 				944EF19E1D7EE79400A039BA /* MainResponse.swift in Sources */,
 				949BEE6E1D72A78A008FA574 /* AppConstants.swift in Sources */,
