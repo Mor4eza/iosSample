@@ -64,9 +64,19 @@
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
+		<key>UIScrollView-InfiniteScroll.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>018B0CDF928C79AF630D76F2A22BC50E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>0474AF779B58E2E058F00219D81D1518</key>
 		<dict>
 			<key>primary</key>
@@ -78,6 +88,11 @@
 			<true/>
 		</dict>
 		<key>1420D25819F26C3CCEB2F36F6C14E556</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>35E878E80C7D442F9CCC5059DA9DA05C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -98,6 +113,11 @@
 			<true/>
 		</dict>
 		<key>5B90E3692B4F7597F149344ED314B247</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>60572185FC746732FCFF8BC824D73094</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -172,6 +192,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C7D48A6E41DFCD0CF9B34AEB0870416A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E4F8F106D5788DF2B0D5CB615E42C580</key>
 		<dict>
 			<key>primary</key>
@@ -183,6 +208,11 @@
 			<true/>
 		</dict>
 		<key>E8F5F5117D1ACF5AF5FC21FAD4DF268D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F8DFBB1567905C050B1C0732EB29E467</key>
 		<dict>
 			<key>primary</key>
 			<true/>

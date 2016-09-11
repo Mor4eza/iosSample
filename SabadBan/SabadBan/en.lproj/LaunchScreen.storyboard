@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="IRANSans.ttf">
+            <string>IRANSansMobileFaNum</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -16,7 +21,30 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="yoI-lE-ZNk">
+                                <rect key="frame" x="204" y="179" width="193" height="242"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اولین اپلیکیشن خبری  تحلیلی بورس در ایران" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEp-3b-9eG">
+                                <rect key="frame" x="183" y="429" width="234" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="234" id="jNk-WY-3m8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.16452825090000001" green="0.21934768020000001" blue="0.31888299190000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.16452825090000001" green="0.21934768020000001" blue="0.31888299190000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="SEp-3b-9eG" firstAttribute="top" secondItem="yoI-lE-ZNk" secondAttribute="bottom" constant="8" symbolic="YES" id="89e-Wu-472"/>
+                            <constraint firstItem="yoI-lE-ZNk" firstAttribute="centerX" secondItem="SEp-3b-9eG" secondAttribute="centerX" id="I37-Pi-VVw"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="SEp-3b-9eG" secondAttribute="bottom" constant="112" id="Jy8-mH-9gh"/>
+                            <constraint firstItem="yoI-lE-ZNk" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="R9l-Pf-CMU"/>
+                            <constraint firstItem="yoI-lE-ZNk" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="159" id="SxV-bn-phG"/>
+                            <constraint firstItem="yoI-lE-ZNk" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="xdw-gA-tlf"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +52,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AppLogo" width="193" height="242"/>
+    </resources>
 </document>

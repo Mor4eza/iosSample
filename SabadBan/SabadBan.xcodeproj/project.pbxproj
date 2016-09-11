@@ -16,6 +16,10 @@
 		944EF19C1D7EC4BF00A039BA /* SymbolTradingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */; };
 		944EF19E1D7EE79400A039BA /* MainResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF19D1D7EE79400A039BA /* MainResponse.swift */; };
 		9458E1531D7E8976009A211A /* SymbolDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9458E1521D7E8976009A211A /* SymbolDetailsViewController.swift */; };
+		9465DB611D83D702007F0572 /* BourseNewsDetailsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9465DB5F1D83D702007F0572 /* BourseNewsDetailsList.swift */; };
+		9465DB621D83D702007F0572 /* BourseNewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9465DB601D83D702007F0572 /* BourseNewsResponse.swift */; };
+		9465DB661D83E935007F0572 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9465DB651D83E935007F0572 /* NewsDetailViewController.swift */; };
+		9465DB681D840450007F0572 /* NewsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9465DB671D840450007F0572 /* NewsTabBarController.swift */; };
 		9467D8681D7BEB8700B76A2E /* EditPortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9467D8671D7BEB8700B76A2E /* EditPortfolioViewController.swift */; };
 		947C63881D744F3E00676822 /* SymbolDetailsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C63851D744F3E00676822 /* SymbolDetailsList.swift */; };
 		947C63891D744F3E00676822 /* SymbolListByIndexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C63861D744F3E00676822 /* SymbolListByIndexResponse.swift */; };
@@ -59,7 +63,6 @@
 		949BEEB51D7311F7008FA574 /* IndexDetailsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949BEEB41D7311F7008FA574 /* IndexDetailsTabBarController.swift */; };
 		949BEEB71D731228008FA574 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949BEEB61D731228008FA574 /* ChartViewController.swift */; };
 		949BEEB91D731235008FA574 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949BEEB81D731235008FA574 /* DetailsViewController.swift */; };
-		94A305F31D8033E60062793C /* NewsSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A305F21D8033E60062793C /* NewsSplitViewController.swift */; };
 		94B7722B1D7FE13F002AA618 /* BourseNewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7722A1D7FE13F002AA618 /* BourseNewsTableViewController.swift */; };
 		94B7722D1D7FE18D002AA618 /* ObserverNewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7722C1D7FE18D002AA618 /* ObserverNewsTableViewController.swift */; };
 		94B7722F1D7FE363002AA618 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7722E1D7FE363002AA618 /* NewsCell.swift */; };
@@ -77,6 +80,11 @@
 		944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolTradingResponse.swift; sourceTree = "<group>"; };
 		944EF19D1D7EE79400A039BA /* MainResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainResponse.swift; sourceTree = "<group>"; };
 		9458E1521D7E8976009A211A /* SymbolDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolDetailsViewController.swift; sourceTree = "<group>"; };
+		9465DB5F1D83D702007F0572 /* BourseNewsDetailsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BourseNewsDetailsList.swift; sourceTree = "<group>"; };
+		9465DB601D83D702007F0572 /* BourseNewsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BourseNewsResponse.swift; sourceTree = "<group>"; };
+		9465DB651D83E935007F0572 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		9465DB671D840450007F0572 /* NewsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTabBarController.swift; sourceTree = "<group>"; };
+		9465DB691D84071D007F0572 /* SabadBan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SabadBan-Bridging-Header.h"; sourceTree = "<group>"; };
 		9467D8671D7BEB8700B76A2E /* EditPortfolioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPortfolioViewController.swift; sourceTree = "<group>"; };
 		947C63851D744F3E00676822 /* SymbolDetailsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolDetailsList.swift; sourceTree = "<group>"; };
 		947C63861D744F3E00676822 /* SymbolListByIndexResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolListByIndexResponse.swift; sourceTree = "<group>"; };
@@ -124,7 +132,6 @@
 		949BEEB41D7311F7008FA574 /* IndexDetailsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexDetailsTabBarController.swift; sourceTree = "<group>"; };
 		949BEEB61D731228008FA574 /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		949BEEB81D731235008FA574 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		94A305F21D8033E60062793C /* NewsSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsSplitViewController.swift; sourceTree = "<group>"; };
 		94B7722A1D7FE13F002AA618 /* BourseNewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BourseNewsTableViewController.swift; sourceTree = "<group>"; };
 		94B7722C1D7FE18D002AA618 /* ObserverNewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverNewsTableViewController.swift; sourceTree = "<group>"; };
 		94B7722E1D7FE363002AA618 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
@@ -196,6 +203,15 @@
 				9458E1521D7E8976009A211A /* SymbolDetailsViewController.swift */,
 			);
 			name = Symbols;
+			sourceTree = "<group>";
+		};
+		9465DB5E1D83D6EF007F0572 /* BourseNews */ = {
+			isa = PBXGroup;
+			children = (
+				9465DB5F1D83D702007F0572 /* BourseNewsDetailsList.swift */,
+				9465DB601D83D702007F0572 /* BourseNewsResponse.swift */,
+			);
+			name = BourseNews;
 			sourceTree = "<group>";
 		};
 		9467D8941D7C4DA200B76A2E /* portfolioDetails */ = {
@@ -333,6 +349,7 @@
 			children = (
 				949BEE5D1D72A51C008FA574 /* Info.plist */,
 				949BEE511D72A51C008FA574 /* AppDelegate.swift */,
+				9465DB691D84071D007F0572 /* SabadBan-Bridging-Header.h */,
 			);
 			name = ProjectFiles;
 			sourceTree = "<group>";
@@ -497,7 +514,8 @@
 			children = (
 				94B7722A1D7FE13F002AA618 /* BourseNewsTableViewController.swift */,
 				94B7722C1D7FE18D002AA618 /* ObserverNewsTableViewController.swift */,
-				94A305F21D8033E60062793C /* NewsSplitViewController.swift */,
+				9465DB651D83E935007F0572 /* NewsDetailViewController.swift */,
+				9465DB671D840450007F0572 /* NewsTabBarController.swift */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -513,6 +531,7 @@
 		94B772311D7FEA65002AA618 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				9465DB5E1D83D6EF007F0572 /* BourseNews */,
 				94B772321D7FEA6D002AA618 /* ObserverNews */,
 			);
 			name = News;
@@ -534,12 +553,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 949BEE601D72A51C008FA574 /* Build configuration list for PBXNativeTarget "SabadBan" */;
 			buildPhases = (
+				8312FA5A350B89DD3F034BF3 /* 📦 Check Pods Manifest.lock */,
 				C5D64A95F08DFE760624CE14 /* [CP] Check Pods Manifest.lock */,
 				949BEE4A1D72A51B008FA574 /* Sources */,
 				949BEE4B1D72A51B008FA574 /* Frameworks */,
 				949BEE4C1D72A51B008FA574 /* Resources */,
 				8081F79439C37156BA5282BE /* [CP] Embed Pods Frameworks */,
 				E613BDBD7D2F1D4A4CE6993B /* [CP] Copy Pods Resources */,
+				810F67EBFB187311FA34728F /* 📦 Embed Pods Frameworks */,
+				9C5F1587A697F6BB804C8C3E /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -563,6 +585,14 @@
 					949BEE4D1D72A51B008FA574 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = ME3L9TLYAV;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -618,6 +648,51 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBan/Pods-SabadBan-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		810F67EBFB187311FA34728F /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBan/Pods-SabadBan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8312FA5A350B89DD3F034BF3 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9C5F1587A697F6BB804C8C3E /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBan/Pods-SabadBan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C5D64A95F08DFE760624CE14 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -659,11 +734,13 @@
 				947C638C1D744FD300676822 /* SymbolListHeader.swift in Sources */,
 				941E9A2D1D740B5900A472A5 /* indexDetailsCell.swift in Sources */,
 				949BEE811D72A7DA008FA574 /* MyNavigationController.swift in Sources */,
+				9465DB621D83D702007F0572 /* BourseNewsResponse.swift in Sources */,
 				94B7722F1D7FE363002AA618 /* NewsCell.swift in Sources */,
 				947EAC101D7AA25100FE43EC /* portfolioCell.swift in Sources */,
 				9467D8681D7BEB8700B76A2E /* EditPortfolioViewController.swift in Sources */,
 				949BEE851D72A7FE008FA574 /* SettingTableViewController.swift in Sources */,
 				947C63921D7453B200676822 /* SymbolCell.swift in Sources */,
+				9465DB611D83D702007F0572 /* BourseNewsDetailsList.swift in Sources */,
 				94B772361D7FEA7D002AA618 /* ObserverNewsResponse.swift in Sources */,
 				944EF19C1D7EC4BF00A039BA /* SymbolTradingResponse.swift in Sources */,
 				947C63901D7451EE00676822 /* SymbolListTableViewController.swift in Sources */,
@@ -671,6 +748,8 @@
 				948B46651D76B49500F464C2 /* SearchSeymbolTableView.swift in Sources */,
 				949BEE6F1D72A78A008FA574 /* LinearProgressView.swift in Sources */,
 				949BEE521D72A51C008FA574 /* AppDelegate.swift in Sources */,
+				9465DB681D840450007F0572 /* NewsTabBarController.swift in Sources */,
+				9465DB661D83E935007F0572 /* NewsDetailViewController.swift in Sources */,
 				949BEEB71D731228008FA574 /* ChartViewController.swift in Sources */,
 				949BEEA91D72CA88008FA574 /* Response.swift in Sources */,
 				949BEEAF1D72F7B2008FA574 /* UIColor.swift in Sources */,
@@ -685,7 +764,6 @@
 				947C63891D744F3E00676822 /* SymbolListByIndexResponse.swift in Sources */,
 				949BEE9A1D72B2FE008FA574 /* IndexTableViewController.swift in Sources */,
 				949BEE771D72A7AD008FA574 /* UIView.swift in Sources */,
-				94A305F31D8033E60062793C /* NewsSplitViewController.swift in Sources */,
 				949BEE6D1D72A78A008FA574 /* Utils.swift in Sources */,
 				941C19BB1D76FD9300DDE96F /* SymbolNamesCell.swift in Sources */,
 				949BEE7C1D72A7C4008FA574 /* ENSideMenu.swift in Sources */,
@@ -828,12 +906,17 @@
 			baseConfigurationReference = 32A77BA2E8175860256B2A74 /* Pods-SabadBan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Saeed Bohlooli (24S3U28KLP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SabadBan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SefrYek.SabadBan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zoitek.SabadBan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "982d3072-1339-4802-bd1b-c0c7225a7fbc";
+				SWIFT_OBJC_BRIDGING_HEADER = "SabadBan/SabadBan-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -842,12 +925,16 @@
 			baseConfigurationReference = DCC682DC91C3B38F9F01FE3E /* Pods-SabadBan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Saeed Bohlooli (24S3U28KLP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SabadBan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SefrYek.SabadBan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zoitek.SabadBan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "982d3072-1339-4802-bd1b-c0c7225a7fbc";
+				SWIFT_OBJC_BRIDGING_HEADER = "SabadBan/SabadBan-Bridging-Header.h";
 			};
 			name = Release;
 		};

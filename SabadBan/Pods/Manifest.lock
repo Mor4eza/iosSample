@@ -1,6 +1,6 @@
 PODS:
   - ActionButton (0.1.4)
-  - Alamofire (3.4.1)
+  - Alamofire (3.5.0)
   - Alamofire-Gloss (1.0.1):
     - Alamofire-Gloss/Core (= 1.0.1)
   - Alamofire-Gloss/Core (1.0.1):
@@ -24,7 +24,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   ActionButton: 1b94024013cf57e960d09aa56792f29e1bb545e0
-  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
   Alamofire-Gloss: e22525bc86605d72e8d41b249cd3a5c8ba610dc4
   BTNavigationDropdownMenu: 093f3cbfad1572f2c222bdf8d17584d1e13380d4
   Gloss: d86009ef4d12c221d889c4e3f9e1eb547ee6251d
@@ -35,4 +35,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: c044a92ab108d3039ce4987160ddc80f5f9547c4
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.0.0

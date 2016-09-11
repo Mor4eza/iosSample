@@ -52,6 +52,23 @@ extension UITextField {
     }
 }
 
+
+extension UITextView {
+    
+    func changeDirection() {
+        if (getAppLanguage() == "fa"){
+            self.textAlignment = .Right
+        }else if (getAppLanguage() == "en") {
+            self.textAlignment = .Left
+        }
+    }
+    
+    func setDefaultFont(){
+        self.font = UIFont(name: AppFontName_IranSans, size:self.font!.pointSize )
+    }
+    
+}
+
 extension UIViewController {
     
     func setFontFamily(fontFamily: String, forView view: UIView, andSubViews isSubViews: Bool) {
@@ -61,8 +78,11 @@ extension UIViewController {
         }else if (view is UIButton) {
             let btn = (view as! UIButton)
             btn.titleLabel?.font = UIFont(name: fontFamily, size: btn.titleLabel!.font.pointSize)
+        }else if (view is UITextView) {
+            let txt = (view as! UITextView)
+            txt.font = UIFont(name: fontFamily, size: txt.font!.pointSize)
         }
-
+        
         if isSubViews {
             for sview: UIView in view.subviews {
                 self.setFontFamily(fontFamily, forView: sview, andSubViews: true)
