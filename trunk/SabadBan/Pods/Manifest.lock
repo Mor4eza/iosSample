@@ -15,6 +15,7 @@ PODS:
 
 DEPENDENCIES:
   - ActionButton
+  - Alamofire
   - Alamofire-Gloss
   - BTNavigationDropdownMenu
   - Localize-Swift (~> 1.5)
@@ -33,6 +34,6 @@ SPEC CHECKSUMS:
   SwiftCharts: 84b43d9d70b791459ff5f50ae5a6704326de309d
   SwiftEventBus: d33b51752d4e3e994f0ea7b31873f0beca7eada0
 
-PODFILE CHECKSUM: c044a92ab108d3039ce4987160ddc80f5f9547c4
+PODFILE CHECKSUM: 890109ac7cb5f0ef944b59217bbc23d28547e2f2
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1

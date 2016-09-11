@@ -6,7 +6,8 @@ target 'SabadBan' do
   use_frameworks!
 
   pod 'Localize-Swift', '~> 1.5'
-  pod 'Alamofire-Gloss'
+  pod 'Alamofire-Gloss’
+  pod 'Alamofire’
   pod 'SwiftEventBus'
   pod 'BTNavigationDropdownMenu'
   pod 'ActionButton'
