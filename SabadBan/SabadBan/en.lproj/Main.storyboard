@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3x8-rP-1o7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3x8-rP-1o7">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -565,7 +565,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nsx-IV-q8S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1457" y="766"/>
+            <point key="canvasLocation" x="1457" y="882"/>
         </scene>
         <!--جزییات-->
         <scene sceneID="IDZ-aw-Vhk">
@@ -1463,7 +1463,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3k-pb-nPS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9" y="-758"/>
+            <point key="canvasLocation" x="-481" y="-190"/>
         </scene>
         <!--My Navigation Controller-->
         <scene sceneID="m9U-Ja-N5c">
@@ -1780,10 +1780,10 @@
             </objects>
             <point key="canvasLocation" x="-37" y="4649"/>
         </scene>
-        <!--View Controller-->
+        <!--About Us View Controller-->
         <scene sceneID="nUZ-bn-zCK">
             <objects>
-                <viewController storyboardIdentifier="AboutUsViewController" id="A70-bR-agP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutUsViewController" id="A70-bR-agP" customClass="AboutUsViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WZe-92-j6s"/>
                         <viewControllerLayoutGuide type="bottom" id="6OT-ps-mfw"/>
@@ -1791,12 +1791,65 @@
                     <view key="view" contentMode="scaleToFill" id="Za1-vD-pfb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80d-4j-hna">
+                                <rect key="frame" x="75" y="249" width="450" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pN0-Y3-o9g">
+                                <rect key="frame" x="180" y="60" width="240" height="150"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0m-Wb-bEc">
+                                <rect key="frame" x="75" y="306" width="450" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2WY-7M-8AT">
+                                <rect key="frame" x="75" y="562" width="450" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xw2-nX-wle">
+                                <rect key="frame" x="75" y="424" width="450" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.12941176470588237" green="0.16470588235294117" blue="0.29019607843137257" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="2WY-7M-8AT" firstAttribute="width" secondItem="Za1-vD-pfb" secondAttribute="width" multiplier="3/4" id="1W6-5O-NYq"/>
+                            <constraint firstItem="80d-4j-hna" firstAttribute="top" secondItem="pN0-Y3-o9g" secondAttribute="bottom" constant="39" id="27b-kT-udm"/>
+                            <constraint firstItem="pN0-Y3-o9g" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WZe-92-j6s" secondAttribute="bottom" constant="40" id="5Rx-VM-Qs8"/>
+                            <constraint firstItem="m0m-Wb-bEc" firstAttribute="width" secondItem="Xw2-nX-wle" secondAttribute="width" id="9Cd-jo-LYa"/>
+                            <constraint firstItem="pN0-Y3-o9g" firstAttribute="height" secondItem="Za1-vD-pfb" secondAttribute="height" multiplier="1/4" id="Bg6-0E-SNq"/>
+                            <constraint firstItem="Xw2-nX-wle" firstAttribute="width" secondItem="2WY-7M-8AT" secondAttribute="width" id="FR8-bN-th5"/>
+                            <constraint firstItem="80d-4j-hna" firstAttribute="centerX" secondItem="Za1-vD-pfb" secondAttribute="centerX" id="HY2-UC-4B5"/>
+                            <constraint firstItem="2WY-7M-8AT" firstAttribute="top" secondItem="Xw2-nX-wle" secondAttribute="bottom" constant="120" id="KQl-BG-XK3"/>
+                            <constraint firstItem="2WY-7M-8AT" firstAttribute="centerX" secondItem="Za1-vD-pfb" secondAttribute="centerX" id="Nrq-eS-gA9"/>
+                            <constraint firstItem="80d-4j-hna" firstAttribute="width" secondItem="Xw2-nX-wle" secondAttribute="width" id="aje-Vj-oSd"/>
+                            <constraint firstItem="Xw2-nX-wle" firstAttribute="centerX" secondItem="Za1-vD-pfb" secondAttribute="centerX" id="gtd-WD-X2d"/>
+                            <constraint firstItem="m0m-Wb-bEc" firstAttribute="centerX" secondItem="Za1-vD-pfb" secondAttribute="centerX" id="nCp-mo-Yjd"/>
+                            <constraint firstItem="pN0-Y3-o9g" firstAttribute="centerX" secondItem="Za1-vD-pfb" secondAttribute="centerX" id="nKo-h0-UQ9"/>
+                            <constraint firstItem="m0m-Wb-bEc" firstAttribute="top" secondItem="80d-4j-hna" secondAttribute="bottom" constant="40" id="qDr-es-a1R"/>
+                            <constraint firstItem="6OT-ps-mfw" firstAttribute="top" secondItem="2WY-7M-8AT" secondAttribute="bottom" constant="20" id="s9h-yx-rBD"/>
+                            <constraint firstItem="pN0-Y3-o9g" firstAttribute="top" secondItem="WZe-92-j6s" secondAttribute="bottom" constant="40" id="toh-ie-1HW"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="allRightsReserevedLabel" destination="2WY-7M-8AT" id="FyN-NX-0HQ"/>
+                        <outlet property="releaseDateLabel" destination="m0m-Wb-bEc" id="Za9-oh-StE"/>
+                        <outlet property="updateIntervalNoticeLabel" destination="Xw2-nX-wle" id="89B-AT-iUT"/>
+                        <outlet property="versionLabel" destination="80d-4j-hna" id="D0o-KJ-aO9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nes-e6-bSh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-37" y="5675"/>
+            <point key="canvasLocation" x="-37" y="5775"/>
         </scene>
         <!--اخبار بورس-->
         <scene sceneID="pPw-a7-HeN">
@@ -1940,6 +1993,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AppLogo" width="193" height="242"/>
         <image name="Chart-100-60" width="27" height="60"/>
         <image name="Manager-100" width="33" height="33"/>
         <image name="News-100" width="33" height="33"/>
@@ -1950,7 +2004,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nO4-SB-DDz"/>
+        <segue reference="Bzy-vl-3sW"/>
         <segue reference="cWM-m7-s8C"/>
-        <segue reference="TCW-a9-t2w"/>
     </inferredMetricsTieBreakers>
 </document>

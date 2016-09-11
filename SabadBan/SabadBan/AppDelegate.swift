@@ -7,15 +7,23 @@
 //
 
 import UIKit
-
+import Localize_Swift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        let defaults = NSUserDefaults.standardUserDefaults()
         
+        if defaults.valueForKey("DefaultLanguage") == nil {
+            defaults.setValue("fa", forKey: "DefaultLanguage")
+             Localize.setCurrentLanguage(defaults.stringForKey("DefaultLanguage")!)
+        }
+        debugPrint(NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as? String)
+        
+        //Navigation Color
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = AppBarTintColor
         navigationBarAppearace.barTintColor = AppBarTintColor

@@ -52,3 +52,10 @@
 "AddPortfolio" = "Add Portfolio";
 "DeletePortfolio" = "Delete Portfolio";
 "EnterPortfolioName" = "Enter Portfolio Name:";
+
+//MARK: - AboutUs Strings
+
+"AllrightsReserved" = "All rights resereved for SefrYek Co.";
+"UpdateDataIntervalNotice" = "UpdateDataIntervalNotice";
+"ReleaseDate" = "Release Date:";
+"Version" = "Version";

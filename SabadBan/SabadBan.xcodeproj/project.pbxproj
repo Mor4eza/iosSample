@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		317FEAE3C8E474C329DFD2C1 /* Pods_SabadBan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E672665F4DD4CD071AFEA5E4 /* Pods_SabadBan.framework */; };
+		8477D9051D85440F006BBFCE /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477D9041D85440F006BBFCE /* AboutUsViewController.swift */; };
+		8477D90C1D856D04006BBFCE /* MGBuildDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477D90B1D856D04006BBFCE /* MGBuildDate.m */; };
 		84A34BF61D7EF5E600B02A8D /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A34BF51D7EF5E600B02A8D /* AlamofireRequest.swift */; };
 		941C19BB1D76FD9300DDE96F /* SymbolNamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C19BA1D76FD9300DDE96F /* SymbolNamesCell.swift */; };
 		941E9A2D1D740B5900A472A5 /* indexDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941E9A2C1D740B5900A472A5 /* indexDetailsCell.swift */; };
@@ -72,6 +74,9 @@
 
 /* Begin PBXFileReference section */
 		32A77BA2E8175860256B2A74 /* Pods-SabadBan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBan/Pods-SabadBan.debug.xcconfig"; sourceTree = "<group>"; };
+		8477D9041D85440F006BBFCE /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		8477D90A1D856D04006BBFCE /* MGBuildDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGBuildDate.h; sourceTree = "<group>"; };
+		8477D90B1D856D04006BBFCE /* MGBuildDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGBuildDate.m; sourceTree = "<group>"; };
 		84A34BF51D7EF5E600B02A8D /* AlamofireRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
 		941C19BA1D76FD9300DDE96F /* SymbolNamesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolNamesCell.swift; sourceTree = "<group>"; };
 		941E9A2C1D740B5900A472A5 /* indexDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = indexDetailsCell.swift; sourceTree = "<group>"; };
@@ -169,6 +174,23 @@
 				DCC682DC91C3B38F9F01FE3E /* Pods-SabadBan.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8477D9071D854420006BBFCE /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				8477D9041D85440F006BBFCE /* AboutUsViewController.swift */,
+			);
+			name = AboutUs;
+			sourceTree = "<group>";
+		};
+		8477D9091D856CC0006BBFCE /* BuildDate */ = {
+			isa = PBXGroup;
+			children = (
+				8477D90A1D856D04006BBFCE /* MGBuildDate.h */,
+				8477D90B1D856D04006BBFCE /* MGBuildDate.m */,
+			);
+			name = BuildDate;
 			sourceTree = "<group>";
 		};
 		944EF1901D7EC28200A039BA /* SymbolDetails */ = {
@@ -336,6 +358,7 @@
 		949BEE641D72A71F008FA574 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8477D9091D856CC0006BBFCE /* BuildDate */,
 				949BEE701D72A78F008FA574 /* AlertVIew */,
 				949BEE6A1D72A78A008FA574 /* Utils.swift */,
 				949BEE6B1D72A78A008FA574 /* AppConstants.swift */,
@@ -372,6 +395,7 @@
 				949BEE861D72A877008FA574 /* BaseViews */,
 				949BEE831D72A7E7008FA574 /* Setting */,
 				949BEE7E1D72A7D0008FA574 /* SideMenu */,
+				8477D9071D854420006BBFCE /* AboutUs */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -553,7 +577,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 949BEE601D72A51C008FA574 /* Build configuration list for PBXNativeTarget "SabadBan" */;
 			buildPhases = (
-				8312FA5A350B89DD3F034BF3 /* 📦 Check Pods Manifest.lock */,
+				8312FA5A350B89DD3F034BF3 /* [CP] Check Pods Manifest.lock */,
 				C5D64A95F08DFE760624CE14 /* [CP] Check Pods Manifest.lock */,
 				949BEE4A1D72A51B008FA574 /* Sources */,
 				949BEE4B1D72A51B008FA574 /* Frameworks */,
@@ -663,14 +687,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBan/Pods-SabadBan-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8312FA5A350B89DD3F034BF3 /* 📦 Check Pods Manifest.lock */ = {
+		8312FA5A350B89DD3F034BF3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -740,6 +764,7 @@
 				9467D8681D7BEB8700B76A2E /* EditPortfolioViewController.swift in Sources */,
 				949BEE851D72A7FE008FA574 /* SettingTableViewController.swift in Sources */,
 				947C63921D7453B200676822 /* SymbolCell.swift in Sources */,
+				8477D9051D85440F006BBFCE /* AboutUsViewController.swift in Sources */,
 				9465DB611D83D702007F0572 /* BourseNewsDetailsList.swift in Sources */,
 				94B772361D7FEA7D002AA618 /* ObserverNewsResponse.swift in Sources */,
 				944EF19C1D7EC4BF00A039BA /* SymbolTradingResponse.swift in Sources */,
@@ -753,6 +778,7 @@
 				949BEEB71D731228008FA574 /* ChartViewController.swift in Sources */,
 				949BEEA91D72CA88008FA574 /* Response.swift in Sources */,
 				949BEEAF1D72F7B2008FA574 /* UIColor.swift in Sources */,
+				8477D90C1D856D04006BBFCE /* MGBuildDate.m in Sources */,
 				949BEEA21D72B9C1008FA574 /* IndexCell.swift in Sources */,
 				94B7722D1D7FE18D002AA618 /* ObserverNewsTableViewController.swift in Sources */,
 				949BEE891D72A883008FA574 /* BaseViewController.swift in Sources */,
@@ -907,7 +933,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Saeed Bohlooli (24S3U28KLP)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SabadBan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -926,7 +952,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Saeed Bohlooli (24S3U28KLP)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SabadBan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

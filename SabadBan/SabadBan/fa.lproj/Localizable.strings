@@ -50,3 +50,10 @@
 "AddPortfolio" = "افزودن پرتفوی";
 "DeletePortfolio" = "حذف پرتفوی";
 "EnterPortfolioName" = "نام پرتفوی را وارد  کنید:";
+
+//MARK: - AboutUs Strings
+
+"AllrightsReserved" = "تمامی حقوق مادی و معنوی این نرم افزار متعلق به شرکت صفریک ایده همراه می باشد.";
+"UpdateDataIntervalNotice" = "کاربر گرامی توجه داشته باشید که داده های این برنامه هر ۵ دقیقه یکبار از وب سرویس های سازمان بورس به روز رسانی می شود.";
+"ReleaseDate" = "تاریخ انتشار:";
+"Version" = "نسخه:";
