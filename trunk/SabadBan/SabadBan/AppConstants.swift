@@ -11,6 +11,7 @@ import UIKit
 public let LanguageChangedNotification = "languageChanged"
 public let AppFontName_IranSans = "IRANSansMobileFaNum"
 public let AppTadbirUrl = "http://185.37.52.193:9090"
+public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
 public let ServicesHeaders = ["Content-Type": "application/json"]
 
 public let URLS:[String:String] =
@@ -18,7 +19,9 @@ public let URLS:[String:String] =
      "getSymbolListByIndex":"/services/getSymbolListByIndex",
      "getSymbolListAndDetails":"/services/getSymbolListAndDetails",
      "getBestLimitsBySymbol":"/services/getBestLimitsBySymbol",
-     "getSymbolTradingDetails":"/services/getSymbolTradingDetails"
+     "getSymbolTradingDetails":"/services/getSymbolTradingDetails",
+     "getNewsListAndDetails" : "/services/getNewsListAndDetails",
+     "getBourseNews" : "/api/v1/news/get",
     ]
 
 public var SelectedIndexCode:String = "0"

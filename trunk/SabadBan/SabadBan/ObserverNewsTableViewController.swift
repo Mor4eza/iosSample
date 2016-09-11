@@ -8,14 +8,13 @@
 
 import UIKit
 import Alamofire
-class ObserverNewsTableViewController: BaseTableViewController , UISplitViewControllerDelegate {
+class ObserverNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate  {
     
     var newsModel = [NewsModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.addMenuButton()
         
-        
-      
         
         refreshControl = UIRefreshControl()
         //        refreshControl!.attributedTitle = attrText
@@ -29,16 +28,9 @@ class ObserverNewsTableViewController: BaseTableViewController , UISplitViewCont
         }else {
             self.clearsSelectionOnViewWillAppear = true
         }
-        splitViewController?.delegate = self
     }
     func refresh(sender:AnyObject) {
         sendObserverNewsRequest()
-    }
-    
-    
-    
-    func splitViewController(svc: UISplitViewController, shouldHideViewController vc: UIViewController, inOrientation orientation: UIInterfaceOrientation) -> Bool {
-        return false
     }
     
     // MARK: - Table view data source
@@ -76,18 +68,18 @@ class ObserverNewsTableViewController: BaseTableViewController , UISplitViewCont
         
         refreshControl?.beginRefreshing()
         
+        let url = AppTadbirUrl + URLS["getNewsListAndDetails"]!
         // Add Headers
         let headers = [
             "Content-Type":"application/json",
             ]
         
         let date = NSDate();
-        // "Apr 1, 2015, 8:53 AM" <-- local without seconds
         
         let formatter = NSDateFormatter();
         formatter.dateFormat = "yyyy-MM-dd";
         let time = formatter.stringFromDate(date);
-      
+        
         debugPrint(time)
         // JSON Body
         let body = [
@@ -98,7 +90,7 @@ class ObserverNewsTableViewController: BaseTableViewController , UISplitViewCont
         ]
         
         // Fetch Request
-        Alamofire.request(.POST, "http://185.37.52.193:9090/services/getNewsListAndDetails", headers: headers, parameters: body as? [String : AnyObject], encoding: .JSON)
+        Alamofire.request(.POST, url, headers: headers, parameters: body as? [String : AnyObject], encoding: .JSON)
             .validate(statusCode: 200..<300)
             .responseObjectErrorHadling(MainResponse<ObserverNewsResponse>.self) { response in
                 
@@ -106,7 +98,7 @@ class ObserverNewsTableViewController: BaseTableViewController , UISplitViewCont
                 case .Success(let news):
                     
                     for i in 0..<news.response.newsDetailsList.count {
-                        self.newsModel.append(NewsModel(title: news.response.newsDetailsList[i].newsTitle, details: news.response.newsDetailsList[i].newsReport, date: news.response.newsDetailsList[i].newsTime))
+                        self.newsModel.append(NewsModel(title: news.response.newsDetailsList[i].newsTitle, details: news.response.newsDetailsList[i].newsReport, date: news.response.newsDetailsList[i].newsTime,link: ""))
                     }
                     self.tableView.reloadData()
                 case .Failure(let error):
@@ -117,10 +109,35 @@ class ObserverNewsTableViewController: BaseTableViewController , UISplitViewCont
         
         
     }
+    
+    
+    //MARK:- Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        
+        if (segue.identifier == "NewsDetailsSeguei") {
+            
+            let index = self.tableView.indexPathForSelectedRow!
+            let svc = segue.destinationViewController as! NewsDetailViewController
+            
+            svc.newsTitle = newsModel[index.row].title
+            svc.newsDetails = newsModel[index.row].details
+            svc.newsDate = newsModel[index.row].date
+            svc.newsLink = newsModel[index.row].link
+            
+        }
+    }
+    
+    
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        return false
+    }
+    
 }
-
+//MARK:- News Model
 struct NewsModel {
     var title = String()
     var details = String()
     var date = String()
+    var link = String()
 }

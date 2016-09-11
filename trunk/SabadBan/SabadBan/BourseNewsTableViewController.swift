@@ -7,84 +7,134 @@
 //
 
 import UIKit
-
-class BourseNewsTableViewController: UITableViewController {
-
+import Alamofire
+class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate {
+    
+    var newsModel = [NewsModel]()
+    var newsCount = 0
+    var servicePage = 0
+    var isMore = Bool()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-     
+        super.addMenuButton()
+        isMore = true
+        refreshControl = UIRefreshControl()
+        //        refreshControl!.attributedTitle = attrText
+        refreshControl!.tintColor = UIColor.whiteColor()
+        refreshControl!.addTarget(self, action: #selector(DetailsViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl!)
+        sendBourseNewsRequest(servicePage)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
+    
+    func refresh(sender:AnyObject) {
+        sendBourseNewsRequest(servicePage)
     }
-
+    
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return newsModel.count
     }
-
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("ObserverNewsCell", forIndexPath: indexPath) as! NewsCell
+        
+        cell.lblNewsTitle.text = newsModel[indexPath.row].title
+        cell.lblNewsDetails.text = newsModel[indexPath.row].details
+        cell.lblNewsDate.text = newsModel[indexPath.row].date
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.clearColor()
+        cell.selectedBackgroundView = backgroundView
+        
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.row + 1  >= newsCount {
+            sendBourseNewsRequest(servicePage)
+        }
+        
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    
+    //MARK:- get Bourse News Service
+    func sendBourseNewsRequest(page:Int) {
+        refreshControl?.beginRefreshing()
+        
+        
+        
+        if isMore{
+            debugPrint("page : \(page)")
+            let url = AppNewsURL + URLS["getBourseNews"]!
+            // Add Headers
+            let headers = [
+                "Content-Type":"application/json",
+                ]
+            
+            let body = [
+                "take":10,
+                "api_token": "VyKMDnGUy3lWSICVbPN9GiO019GP6DuDzpKWxofdNSg4HPnf6Gf1jgixvD1G",
+                "page": page
+            ]
+            // Fetch Request
+            Alamofire.request(.POST,url, headers: headers, parameters: body as? [String : AnyObject] , encoding: .JSON)
+                .validate(statusCode: 200..<300)
+                .responseObjectErrorHadling(MainResponse<BourseNewsResponse>.self) { response in
+                    
+                    switch response.result {
+                    case .Success(let news):
+                        for i in 0..<news.response.newsDetailsList.count {
+                            self.newsModel.append(NewsModel(title: news.response.newsDetailsList[i].title, details: news.response.newsDetailsList[i].descriptionField, date: news.response.newsDetailsList[i].createdAt,link: news.response.newsDetailsList[i].reference))
+                        }
+                        self.newsCount += news.response.count
+                        self.servicePage += 1
+                        
+                        debugPrint(" news.response.count : \( news.response.count)")
+                        
+                        if (news.response.count) > 0 {
+                            
+                            self.isMore = true
+                        }else {
+                            self.isMore = false
+                        }
+                        self.tableView.reloadData()
+                    case .Failure(let error):
+                        debugPrint(error)
+                    }
+            }
+        }
+        self.refreshControl?.endRefreshing()
+        
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    //MARK:- Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        
+        if (segue.identifier == "NewsDetailsSeguei") {
+            
+            let index = self.tableView.indexPathForSelectedRow!
+            let svc = segue.destinationViewController as! NewsDetailViewController
+            
+            svc.newsTitle = newsModel[index.row].title
+            svc.newsDetails = newsModel[index.row].details
+            svc.newsDate = newsModel[index.row].date
+            svc.newsLink = newsModel[index.row].link
+            
+        }
     }
-    */
-
+    
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        return false
+    }
 }
+
