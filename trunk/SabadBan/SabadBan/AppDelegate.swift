@@ -68,7 +68,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      //MARK:- Apple Push Notification -->APN
 
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        debugPrint("DEVICE TOKEN = \(deviceToken)")
+        PushToken = String(deviceToken)
+        debugPrint("DEVICE TOKEN = \(PushToken)")
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {

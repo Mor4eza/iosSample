@@ -82,7 +82,7 @@ class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate
             
             let body = [
                 "take":10,
-                "api_token": "VyKMDnGUy3lWSICVbPN9GiO019GP6DuDzpKWxofdNSg4HPnf6Gf1jgixvD1G",
+                "api_token": LoginToken,
                 "page": page
             ]
             // Fetch Request

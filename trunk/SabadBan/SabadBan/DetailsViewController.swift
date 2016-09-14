@@ -37,7 +37,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         segRange.setTitle("Week".localized(), forSegmentAtIndex: 1)
         segRange.setTitle("Month".localized(), forSegmentAtIndex: 2)
         segRange.setTitle( "Year".localized(), forSegmentAtIndex: 3)
-        
+        tblDetails.registerNib(UINib(nibName: "IndexDetailHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "IndexDetailHeader")
         self.tblDetails.dataSource = self
         tblDetails.delegate = self
         tblDetails.tableFooterView = UIView()
@@ -60,6 +60,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
     
     // MARK:-  TableView Delegates
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+       
         return 1
     }
     
@@ -104,6 +105,19 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
     }
     
     
+    
+     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("IndexDetailHeader") as! IndexDetailHeader
+        
+        
+        return headerView
+    }
+    
+
     
     @IBAction func segmentChanged(sender: AnyObject) {
         getIndexDetails(SelectedIndexCode, range:segRange.selectedSegmentIndex )

@@ -13,23 +13,37 @@ class MyMenuTableViewController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.registerNib(UINib(nibName: "menuCell", bundle: nil), forCellReuseIdentifier: "menuCells")
+        tableView.registerNib(UINib(nibName: "menuHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "menuHeader")
+        
+        self.tableView.tableFooterView = UIView()
+        
         // Customize apperance of table view
         tableView.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0) //
         tableView.separatorStyle = .None
         tableView.backgroundColor = UIColor.clearColor()
         tableView.scrollsToTop = false
-    
+        tableView.bounces = false
         // Preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
         
         tableView.selectRowAtIndexPath(NSIndexPath(forRow: selectedMenuItem, inSection: 0), animated: false, scrollPosition: .Middle)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 120
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("menuHeader") as! menuHeader
+        
+        headerView.lblUserName.text = LogedInUserName
+        
+        return headerView
     }
 
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -39,52 +53,58 @@ class MyMenuTableViewController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 5
+        return 7
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCellWithIdentifier("CELL")
+        let cell = tableView.dequeueReusableCellWithIdentifier("menuCells", forIndexPath: indexPath) as! menuCell
         
-        if (cell == nil) {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "CELL")
-            cell!.backgroundColor = UIColor.clearColor()
-            cell!.textLabel?.textColor = UIColor.darkGrayColor()
-            let selectedBackgroundView = UIView(frame: CGRectMake(0, 0, cell!.frame.size.width, cell!.frame.size.height))
+        
+            cell.backgroundColor = UIColor.clearColor()
+            cell.lblMenuName?.textColor = UIColor.darkGrayColor()
+            let selectedBackgroundView = UIView(frame: CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height))
             selectedBackgroundView.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.2)
             selectedBackgroundView.tintColor = UIColor.redColor()
-            cell!.selectedBackgroundView = selectedBackgroundView
+            cell.selectedBackgroundView = selectedBackgroundView
             
-        }
+        
         
         switch indexPath.row {
         case 0:
-            cell?.textLabel?.text = "Index".localized()
+            cell.lblMenuName?.text = "Index".localized()
+            cell.imgMenu.image = UIImage(named: "index")
             break
         case 1:
-            cell?.textLabel?.text = "Portfolio".localized()
+            cell.lblMenuName?.text = "Portfolio".localized()
+            cell.imgMenu.image = UIImage(named: "portfolio")
             break
         case 2:
-            cell?.textLabel?.text = "News".localized()
+            cell.lblMenuName?.text = "News".localized()
+            cell.imgMenu.image = UIImage(named: "News-100")
             break
         case 3:
-             cell?.textLabel?.text = "Setting".localized()
+             cell.lblMenuName?.text = "Setting".localized()
+             cell.imgMenu.image = UIImage(named: "setting")
             break
         case 4:
-            cell?.textLabel?.text = "AboutUs".localized()
+            cell.lblMenuName?.text = "AboutUs".localized()
+            cell.imgMenu.image = UIImage(named: "aboutUs")
             break
         case 5:
-            cell?.textLabel?.text = "ContactUs".localized()
+            cell.lblMenuName?.text = "ContactUs".localized()
+            cell.imgMenu.image = UIImage(named: "contactUs")
             break
         default:
-            cell?.textLabel?.text = "Empty".localized()
+            cell.lblMenuName?.text = "Empty".localized()
+            cell.imgMenu.image = UIImage(named: "exit")
             break
         }
         
-            cell?.textLabel?.changeDirection()
+            cell.lblMenuName?.changeDirection()
     
         
-        return cell!
+        return cell
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

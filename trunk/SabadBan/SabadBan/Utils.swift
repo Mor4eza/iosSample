@@ -14,6 +14,10 @@ public func getAppLanguage() -> String {
     return Localize.currentLanguage()
 }
 
+var isSimulator: Bool {
+    return TARGET_OS_SIMULATOR != 0 // Use this line in Xcode 7 or newer
+}
+
 public class Utils {
     
   

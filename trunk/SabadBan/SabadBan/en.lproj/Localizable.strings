@@ -59,3 +59,13 @@
 "UpdateDataIntervalNotice" = "UpdateDataIntervalNotice";
 "ReleaseDate" = "Release Date:";
 "Version" = "Version";
+
+//MARK: - Login String
+"Email" = "Username";
+"Password" = "Password";
+"RememberMe" = "Remember Me!";
+"Login" = "Login";
+"Register" = "Register";
+"ForgetPassword" = "Forget Password?!";
+"Tell" = "Phone Number";
+"RepeatPass" = "Repeat PassWord";
