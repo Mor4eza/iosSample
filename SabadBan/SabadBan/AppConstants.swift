@@ -14,6 +14,7 @@ public let AppTadbirUrl = "http://185.37.52.193:9090"
 public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
 public let ServicesHeaders = ["Content-Type": "application/json"]
 
+ //MARK: - Urls
 public let URLS:[String:String] =
     ["IndexListAndDetails":"/services/getIndexListAndDetails",
      "getSymbolListByIndex":"/services/getSymbolListByIndex",
@@ -22,12 +23,18 @@ public let URLS:[String:String] =
      "getSymbolTradingDetails":"/services/getSymbolTradingDetails",
      "getNewsListAndDetails" : "/services/getNewsListAndDetails",
      "getBourseNews" : "/api/v1/news/get",
+     "login" : "/api/v1/auth/login",
+     "register" : "/api/v1/auth/register"
     ]
 
-public var SelectedIndexCode:String = "0"
-public var SelectedSymbolCode:String = "0"
+ //MARK:- Constants
+public var SelectedIndexCode:String = ""
+public var SelectedSymbolCode:String = ""
+public var LoginToken:String = ""
+public var PushToken:String = ""
+public var LogedInUserName:String = ""
 
-//Mark :- App Style 
+//MARK: - App Style
 
 public let AppMainColor = UIColor(netHex: 0x172340)
 public let AppBarTintColor = UIColor(netHex:0x2b3a5c)

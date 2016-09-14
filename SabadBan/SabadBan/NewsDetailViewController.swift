@@ -16,6 +16,9 @@ class NewsDetailViewController: UIViewController{
     var newsDetails = String()
     var newsDate = String()
     var newsLink = String()
+ 
+    @IBOutlet weak var btnUrl: UIBarButtonItem!
+    @IBOutlet weak var btnShare: UIBarButtonItem!
     
     @IBOutlet weak var lblTitle: UILabel!
     
@@ -33,6 +36,9 @@ class NewsDetailViewController: UIViewController{
         lblTitle.numberOfLines = 0
         lblTitle.changeDirection()
         fillData()
+        if newsLink.isEmpty {
+           btnUrl.enabled = false
+        }
     }
 
     func fillData (){
@@ -42,7 +48,22 @@ class NewsDetailViewController: UIViewController{
         lblDate.text = newsDate
     }
    
-    
+   
+    @IBAction func btnShareTap(sender: AnyObject) {
+        
+        let appSign = "APP_NAME".localized()
+        let vc = UIActivityViewController(activityItems: [newsTitle,"\n \n" ,newsDetails + "\n \n", appSign], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = btnShare
+        presentViewController(vc, animated: true, completion: nil)
+        
+    }
 
+    @IBAction func btnUrlTap(sender: AnyObject) {
+        
+        if let url = NSURL(string: newsLink) {
+            
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
   
 }

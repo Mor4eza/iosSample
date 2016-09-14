@@ -21,6 +21,7 @@
 "Cancel" = "لغو";
 "Language" = " زبان ";
 "Submit" = "تایید";
+
 //-Mark: Index View Strings
 "Index" = "شاخص";
 "Count" = "مقدار";
@@ -44,6 +45,7 @@
 "Amount" = "تعداد";
 
 //MARK: - Portfolio Strings
+
 "AddSymbol" = "افزودن نماد";
 "EditPortfolio" = "ویرایش پرتفوی";
 "SearchSymbol" = "جستجوی نماد";
@@ -57,3 +59,13 @@
 "UpdateDataIntervalNotice" = "کاربر گرامی توجه داشته باشید که داده های این برنامه هر ۵ دقیقه یکبار از وب سرویس های سازمان بورس به روز رسانی می شود.";
 "ReleaseDate" = "تاریخ انتشار:";
 "Version" = "نسخه:";
+
+//MARK: - Login String
+"Email" = "نام کاربری(ایمیل)";
+"Password" = "کلمه عبور";
+"RememberMe" = "مرا به خاطر بسپار!";
+"Login" = "ورود";
+"Register" = "ثبت نام";
+"ForgetPassword" = "فراموشی رمز عبور!";
+"Tell" = "شماره همراه";
+"RepeatPass" = "تکرار رمز عبور";
