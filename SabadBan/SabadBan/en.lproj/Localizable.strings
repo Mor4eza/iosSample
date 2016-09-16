@@ -44,6 +44,9 @@
 "Volume" = "Volume";
 "Amount" = "Amount";
 
+"indexInfo" = "Index information";
+"marketInfo" = "Market information";
+
 //MARK: - Portfolio Strings
 
 "AddSymbol" = "Add Symbol";

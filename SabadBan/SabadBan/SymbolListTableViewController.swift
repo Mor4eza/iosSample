@@ -11,13 +11,19 @@ import Alamofire
 
 class SymbolListTableViewController: BaseTableViewController {
     
+    //MARK: Properties
+    var numberSortCondiiton = SortCondition.notSorted
+    var volumeSortCondiiton = SortCondition.notSorted
+    var symbolSortCondiiton = SortCondition.notSorted
+    //    var symbolName = [String]()
+    //    var lastTradeValue = [Double]()
+    //    var lastTradeChange = [Double]()
+    //    var symbolVolume = [String]()
+    //    var symbolAmount = [Int]()
+    //    var symbolCode = [String]()
+    var symbolDetailsList = [SymbolDetailsList]()
+    var temp = [String]()
     
-    var symbolName = [String]()
-    var lastTradeValue = [Double]()
-    var lastTradeChange = [Double]()
-    var symbolVolume = [String]()
-    var symbolAmount = [Int]()
-    var symbolCode = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,11 +31,11 @@ class SymbolListTableViewController: BaseTableViewController {
         self.tableView.tableFooterView = UIView()
         
         
-//        let titleAttributes = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline), NSForegroundColorAttributeName: UIColor.whiteColor()]
+        //        let titleAttributes = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline), NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-//        let attrText = NSAttributedString(string: "Pull to Refresh", attributes: titleAttributes)
+        //        let attrText = NSAttributedString(string: "Pull to Refresh", attributes: titleAttributes)
         refreshControl = UIRefreshControl()
-//        refreshControl!.attributedTitle = attrText
+        //        refreshControl!.attributedTitle = attrText
         refreshControl!.tintColor = UIColor.whiteColor()
         refreshControl!.addTarget(self, action: #selector(DetailsViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
@@ -49,20 +55,20 @@ class SymbolListTableViewController: BaseTableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return symbolName.count
+        return symbolDetailsList.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("symbolCell", forIndexPath: indexPath) as! SymbolCell
         
-        let tempVol = Double(symbolVolume[indexPath.row])
-        let tempLastTrader = Int(lastTradeChange[indexPath.row])
-        cell.lblName.text = symbolName[indexPath.row]
-        cell.lblLastTrade.text = lastTradeValue[indexPath.row].currencyFormat()
+        let tempVol = Double(symbolDetailsList[indexPath.row].transactionVolume)
+        let tempLastTrader = Int(symbolDetailsList[indexPath.row].lastTradePriceChange)
+        cell.lblName.text = symbolDetailsList[indexPath.row].symbolNameFa
+        cell.lblLastTrade.text = symbolDetailsList[indexPath.row].lastTradePrice.currencyFormat()
         cell.lblLastTradeChanges.text = String(abs(tempLastTrader))
-        cell.lblVolume.text = tempVol?.suffixNumber()
-        cell.lblAmount.text = String(symbolAmount[indexPath.row])
-        if lastTradeChange[indexPath.row] > 0{
+        cell.lblVolume.text = tempVol.suffixNumber()
+        cell.lblAmount.text = String(symbolDetailsList[indexPath.row].transactionNumber)
+        if symbolDetailsList[indexPath.row].lastTradePriceChange > 0{
             cell.lblLastTradeChanges.backgroundColor = UIColor(netHex: 0x006400)
         }else{
             cell.lblLastTradeChanges.backgroundColor = UIColor.redColor()
@@ -84,6 +90,15 @@ class SymbolListTableViewController: BaseTableViewController {
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("SymbolListHeader") as! SymbolListHeader
         
+        let tapGestureAmount = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
+        let tapGestureVolume = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
+        let tapGestureName = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
+        headerView.lblAmount.addGestureRecognizer(tapGestureAmount)
+        headerView.lblAmount.userInteractionEnabled = true
+        headerView.lblVolume.addGestureRecognizer(tapGestureVolume)
+        headerView.lblVolume.userInteractionEnabled = true
+        headerView.lblName.addGestureRecognizer(tapGestureName)
+        headerView.lblName.userInteractionEnabled = true
         
         headerView.lblName.text = "Symbol".localized()
         headerView.lblLastTrade.text = "Trade".localized()
@@ -99,7 +114,7 @@ class SymbolListTableViewController: BaseTableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        SelectedSymbolCode = symbolCode[indexPath.row]
+        SelectedSymbolCode = symbolDetailsList[indexPath.row].symbolCode
     }
     
     //MARK: - Service Call
@@ -126,19 +141,21 @@ class SymbolListTableViewController: BaseTableViewController {
                 
                 switch response.result {
                 case .Success(let symbols):
-                    self.symbolName.removeAll()
-                    self.lastTradeValue.removeAll()
-                    self.lastTradeChange.removeAll()
-                    self.symbolVolume.removeAll()
-                    self.symbolAmount.removeAll()
-                    self.symbolCode.removeAll()
+                    self.symbolDetailsList.removeAll()
+                    //                    self.symbolName.removeAll()
+                    //                    self.lastTradeValue.removeAll()
+                    //                    self.lastTradeChange.removeAll()
+                    //                    self.symbolVolume.removeAll()
+                    //                    self.symbolAmount.removeAll()
+                    //                    self.symbolCode.removeAll()
                     for i in 0  ..< symbols.response.symbolDetailsList.count{
-                        self.symbolName.append(symbols.response.symbolDetailsList[i].symbolNameFa)
-                        self.lastTradeValue.append(Double(symbols.response.symbolDetailsList[i].lastTradePrice))
-                        self.lastTradeChange.append(Double(symbols.response.symbolDetailsList[i].lastTradePriceChange))
-                        self.symbolVolume.append(String(symbols.response.symbolDetailsList[i].transactionVolume))
-                        self.symbolAmount.append(Int(symbols.response.symbolDetailsList[i].transactionNumber))
-                        self.symbolCode.append(symbols.response.symbolDetailsList[i].symbolCode)
+                        self.symbolDetailsList.append(symbols.response.symbolDetailsList[i])
+                        //                        self.symbolName.append(symbols.response.symbolDetailsList[i].symbolNameFa)
+                        //                        self.lastTradeValue.append(Double(symbols.response.symbolDetailsList[i].lastTradePrice))
+                        //                        self.lastTradeChange.append(Double(symbols.response.symbolDetailsList[i].lastTradePriceChange))
+                        //                        self.symbolVolume.append(String(symbols.response.symbolDetailsList[i].transactionVolume))
+                        //                        self.symbolAmount.append(Int(symbols.response.symbolDetailsList[i].transactionNumber))
+                        //                        self.symbolCode.append(symbols.response.symbolDetailsList[i].symbolCode)
                         self.tableView.reloadData()
                     }
                     break
@@ -149,7 +166,117 @@ class SymbolListTableViewController: BaseTableViewController {
         }
     }
     
+    //MARK: Actions
     
+    func performSort(sender: UITapGestureRecognizer) {
+        switch sender.view!.restorationIdentifier! {
+        case "lblAmount":
+            switch numberSortCondiiton {
+            case .notSorted:
+                self.numberSortCondiiton = .decending
+                self.symbolDetailsList.sortInPlace({
+                    $1.transactionNumber < $0.transactionNumber
+                })
+                break
+            case .decending:
+                self.numberSortCondiiton = .accending
+                self.symbolDetailsList.sortInPlace({
+                    $1.transactionNumber > $0.transactionNumber
+                })
+                break
+            case .accending:
+                self.numberSortCondiiton = .decending
+                self.symbolDetailsList.sortInPlace({
+                    $1.transactionNumber < $0.transactionNumber
+                })
+                break
+            }
+            break
+        case "lblVolume":
+            switch volumeSortCondiiton {
+            case .notSorted:
+                self.volumeSortCondiiton = .decending
+                self.symbolDetailsList.sortInPlace({
+                    $1.transactionVolume < $0.transactionVolume
+                })
+                break
+            case .decending:
+                self.volumeSortCondiiton = .accending
+                self.symbolDetailsList.sortInPlace({
+                    $1.transactionVolume > $0.transactionVolume
+                })
+                break
+            case .accending:
+                self.volumeSortCondiiton = .decending
+                self.symbolDetailsList.sortInPlace({
+                    $1.transactionVolume < $0.transactionVolume
+                })
+                break
+            }
+            break
+        case "lblSymbol":
+            switch symbolSortCondiiton {
+            case .notSorted:
+                self.symbolSortCondiiton = .decending
+                self.symbolDetailsList.sortInPlace({
+                    return persianStringCompare($1.symbolNameFa, value2: $0.symbolNameFa)
+                })
+                break
+            case .decending:
+                self.symbolSortCondiiton = .accending
+                self.symbolDetailsList.sortInPlace({
+                    return persianStringCompare($0.symbolNameFa, value2: $1.symbolNameFa)
+                })
+                break
+            case .accending:
+                self.symbolSortCondiiton = .decending
+                self.symbolDetailsList.sortInPlace({
+                    return persianStringCompare($1.symbolNameFa, value2: $0.symbolNameFa)
+                })
+                break
+            }
+            break
+        default:break
+        }
+        
+        self.tableView.reloadData()
+    }
     
+    func persianStringCompare(value1: String, value2: String) -> Bool {
+        // One string is alphabetically first.
+        // ... True means value1 precedes value2.
+        let unicodeValueList  = [1570, 1575, 1576, 1662, 1578, 1579, 1580, 1670, 1581, 1582, 1583, 1584, 1585, 1586, 1688, 1587, 1588, 1589, 1590, 1591, 1592, 1593, 1594, 1601, 1602, 1705, 1603, 1711, 1604, 1605, 1606, 1608, 1607, 1740, 1610]
+        let biggerLength : String
+        let smallerLength : String
+        if value1.characters.count > value1.characters.count {
+            biggerLength = value1
+            smallerLength = value2
+        } else {
+            biggerLength = value2
+            smallerLength = value1
+        }
+        
+        for i in 0..<smallerLength.characters.count {
+            let word1 : String = smallerLength[i]
+            let word2 : String = biggerLength[i]
+            
+            let indexWord1 = unicodeValueList.indexOf(Int(word1.unicodeScalars[word1.unicodeScalars.startIndex].value))
+            let indexWord2 = unicodeValueList.indexOf(Int(word2.unicodeScalars[word2.unicodeScalars.startIndex].value))
+            
+            if indexWord1 > indexWord2{
+                return true
+            } else if indexWord1 != indexWord2 {
+                return false
+            }
+        }
+        
+        return false;
+    }
     
+}
+
+public enum SortCondition{
+    case accending
+    case decending
+    case notSorted
 }

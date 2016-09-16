@@ -44,6 +44,9 @@
 "Volume" = "حجم";
 "Amount" = "تعداد";
 
+"indexInfo" = "اطلاعات شاخص";
+"marketInfo" = "اطلاعات بازار";
+
 //MARK: - Portfolio Strings
 
 "AddSymbol" = "افزودن نماد";
