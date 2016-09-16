@@ -113,6 +113,8 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
      func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("IndexDetailHeader") as! IndexDetailHeader
         
+        headerView.lblTitle.text = "indexInfo".localized()
+        headerView.lblTitle.setDefaultFont()
         
         return headerView
     }
