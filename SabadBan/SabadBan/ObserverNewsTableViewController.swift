@@ -19,7 +19,7 @@ class ObserverNewsTableViewController: BaseTableViewController ,ENSideMenuDelega
         refreshControl = UIRefreshControl()
         //        refreshControl!.attributedTitle = attrText
         refreshControl!.tintColor = UIColor.whiteColor()
-        refreshControl!.addTarget(self, action: #selector(DetailsViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl!.addTarget(self, action: #selector(ObserverNewsTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
         sendObserverNewsRequest()
         

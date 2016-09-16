@@ -47,6 +47,11 @@
 "indexInfo" = "اطلاعات شاخص";
 "marketInfo" = "اطلاعات بازار";
 
+"NumberOfTransactions" = "تعداد معاملات";
+"ValueOfTransactions" = "ارزش معاملات";
+"VolumeOfTransactions" = "حجم معاملات";
+"ValueOfMarket" = "ارزش بازار";
+
 //MARK: - Portfolio Strings
 
 "AddSymbol" = "افزودن نماد";
