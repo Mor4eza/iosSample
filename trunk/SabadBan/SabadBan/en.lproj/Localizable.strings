@@ -47,6 +47,11 @@
 "indexInfo" = "Index information";
 "marketInfo" = "Market information";
 
+"NumberOfTransactions" = "Number of transactions";
+"ValueOfTransactions" = "Value of transactions";
+"VolumeOfTransactions" = "Volume of transactions";
+"ValueOfMarket" = "Value Of market";
+
 //MARK: - Portfolio Strings
 
 "AddSymbol" = "Add Symbol";

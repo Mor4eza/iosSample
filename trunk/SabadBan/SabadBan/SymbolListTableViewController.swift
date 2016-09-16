@@ -37,7 +37,7 @@ class SymbolListTableViewController: BaseTableViewController {
         refreshControl = UIRefreshControl()
         //        refreshControl!.attributedTitle = attrText
         refreshControl!.tintColor = UIColor.whiteColor()
-        refreshControl!.addTarget(self, action: #selector(DetailsViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl!.addTarget(self, action: #selector(SymbolListTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
         getSymbolListByIndex()
         
@@ -275,7 +275,7 @@ class SymbolListTableViewController: BaseTableViewController {
     
 }
 
-public enum SortCondition{
+public enum SortCondition {
     case accending
     case decending
     case notSorted

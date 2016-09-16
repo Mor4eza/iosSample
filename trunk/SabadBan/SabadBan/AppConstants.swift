@@ -14,7 +14,7 @@ public let AppTadbirUrl = "http://185.37.52.193:9090"
 public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
 public let ServicesHeaders = ["Content-Type": "application/json"]
 
- //MARK: - Urls
+//MARK: - Urls
 public let URLS:[String:String] =
     ["IndexListAndDetails":"/services/getIndexListAndDetails",
      "getSymbolListByIndex":"/services/getSymbolListByIndex",
@@ -22,12 +22,12 @@ public let URLS:[String:String] =
      "getBestLimitsBySymbol":"/services/getBestLimitsBySymbol",
      "getSymbolTradingDetails":"/services/getSymbolTradingDetails",
      "getNewsListAndDetails" : "/services/getNewsListAndDetails",
+     "getMarketActivity" : "/services/getMarketActivity",
      "getBourseNews" : "/api/v1/news/get",
      "login" : "/api/v1/auth/login",
-     "register" : "/api/v1/auth/register"
-    ]
+     "register" : "/api/v1/auth/register"]
 
- //MARK:- Constants
+//MARK:- Constants
 public var SelectedIndexCode:String = ""
 public var SelectedSymbolCode:String = ""
 public var LoginToken:String = ""

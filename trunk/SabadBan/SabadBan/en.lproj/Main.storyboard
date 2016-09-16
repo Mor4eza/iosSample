@@ -350,8 +350,49 @@
                                     <constraint firstItem="bL9-1c-nRc" firstAttribute="leading" secondItem="79e-kH-EDU" secondAttribute="leadingMargin" id="y6o-TQ-37G"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9PZ-zv-VlB">
+                                <rect key="frame" x="20" y="84" width="560" height="201"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="marketDetailsCell" id="2II-vt-9ug" customClass="MarketDetailsCell" customModule="SabadBan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2II-vt-9ug" id="zcV-fV-00A">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usR-WS-Vzq">
+                                                    <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.92486092929999997" green="0.36227035410000002" blue="0.12653421200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWT-GW-88A">
+                                                    <rect key="frame" x="337" y="11" width="215" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="215" id="BzH-ZA-lL5"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="EWT-GW-88A" secondAttribute="trailing" id="59u-2L-hdk"/>
+                                                <constraint firstItem="EWT-GW-88A" firstAttribute="centerY" secondItem="zcV-fV-00A" secondAttribute="centerY" id="Ghq-S3-Yiq"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="usR-WS-Vzq" secondAttribute="leading" id="yQQ-FF-Jo7"/>
+                                                <constraint firstItem="usR-WS-Vzq" firstAttribute="centerY" secondItem="zcV-fV-00A" secondAttribute="centerY" id="ysV-Dm-62j"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblTitle" destination="EWT-GW-88A" id="Ccc-Zi-hss"/>
+                                            <outlet property="lblValue" destination="usR-WS-Vzq" id="t11-jQ-0Ce"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XQB-9f-G26">
-                                <rect key="frame" x="160" y="108" width="281" height="29"/>
+                                <rect key="frame" x="160" y="293" width="281" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="281" id="fCd-q4-VJV"/>
                                 </constraints>
@@ -367,7 +408,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R0x-tC-Hq0">
-                                <rect key="frame" x="20" y="144" width="560" height="399"/>
+                                <rect key="frame" x="20" y="329" width="560" height="214"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="indexDetailsCell" rowHeight="40" id="kX8-wW-kZS" customClass="indexDetailsCell" customModule="SabadBan" customModuleProvider="target">
@@ -413,14 +454,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9PZ-zv-VlB" firstAttribute="centerX" secondItem="bD3-vR-pLy" secondAttribute="centerX" id="2ab-pK-rZQ"/>
+                            <constraint firstItem="XQB-9f-G26" firstAttribute="top" secondItem="9PZ-zv-VlB" secondAttribute="bottom" constant="8" id="4Mr-wM-gL8"/>
                             <constraint firstAttribute="trailing" secondItem="79e-kH-EDU" secondAttribute="trailing" id="CD7-u6-dEw"/>
                             <constraint firstItem="79e-kH-EDU" firstAttribute="top" secondItem="fbe-eE-vaV" secondAttribute="bottom" id="SKO-4x-HQf"/>
                             <constraint firstItem="R0x-tC-Hq0" firstAttribute="centerX" secondItem="XQB-9f-G26" secondAttribute="centerX" id="Syq-6C-7k6"/>
                             <constraint firstItem="79e-kH-EDU" firstAttribute="leading" secondItem="bD3-vR-pLy" secondAttribute="leading" id="YRV-kB-Oyv"/>
                             <constraint firstItem="a26-xe-ChT" firstAttribute="top" secondItem="R0x-tC-Hq0" secondAttribute="bottom" constant="8" symbolic="YES" id="YWn-nj-ZPV"/>
+                            <constraint firstItem="9PZ-zv-VlB" firstAttribute="top" secondItem="fbe-eE-vaV" secondAttribute="bottom" constant="20" id="Yhx-wX-B0a"/>
                             <constraint firstItem="R0x-tC-Hq0" firstAttribute="top" secondItem="XQB-9f-G26" secondAttribute="bottom" constant="8" symbolic="YES" id="ax8-b4-K57"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9PZ-zv-VlB" secondAttribute="trailing" id="eB7-bk-zQN"/>
                             <constraint firstItem="79e-kH-EDU" firstAttribute="centerX" secondItem="XQB-9f-G26" secondAttribute="centerX" id="m0C-0h-PjZ"/>
-                            <constraint firstItem="XQB-9f-G26" firstAttribute="top" secondItem="79e-kH-EDU" secondAttribute="bottom" constant="8" symbolic="YES" id="mXx-vT-BIV"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="9PZ-zv-VlB" secondAttribute="leading" id="nk9-ZL-Ww4"/>
+                            <constraint firstItem="9PZ-zv-VlB" firstAttribute="height" secondItem="bD3-vR-pLy" secondAttribute="height" multiplier="1/3" constant="1" id="yvH-nT-1Kb"/>
                             <constraint firstItem="R0x-tC-Hq0" firstAttribute="leading" secondItem="bD3-vR-pLy" secondAttribute="leadingMargin" id="yxi-Fo-Bkv"/>
                         </constraints>
                     </view>
@@ -433,6 +479,7 @@
                         <outlet property="lblPricePercent" destination="XPd-AO-pdc" id="5O9-Y7-Rgv"/>
                         <outlet property="segRange" destination="XQB-9f-G26" id="Qgw-tH-eFY"/>
                         <outlet property="tblDetails" destination="R0x-tC-Hq0" id="xpO-GK-3Fl"/>
+                        <outlet property="tblMarketDetail" destination="9PZ-zv-VlB" id="QYI-L6-fL7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ysO-8L-Gd5" userLabel="First Responder" sceneMemberID="firstResponder"/>
