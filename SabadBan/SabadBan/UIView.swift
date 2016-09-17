@@ -96,6 +96,8 @@ extension UIViewController {
 
 extension UIView {
     
+    
+    //Round Corners in Interface Biulder
     @IBInspectable var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
@@ -123,5 +125,16 @@ extension UIView {
             layer.borderColor = newValue?.CGColor
         }
     }
+    
+    
+    func roundCorners(corners:UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.CGPath
+        self.layer.mask = mask
+    }
+    
+    
+    
 }
 

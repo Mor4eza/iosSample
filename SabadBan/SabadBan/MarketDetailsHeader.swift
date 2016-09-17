@@ -14,6 +14,8 @@ class MarketDetailsHeader: UITableViewHeaderFooterView {
     
     @IBOutlet weak var lblTitle: UILabel!
     
+    @IBOutlet weak var backView: UIView!
+    
     /*
      // Only override drawRect: if you perform custom drawing.
      // An empty implementation adversely affects performance during animation.
