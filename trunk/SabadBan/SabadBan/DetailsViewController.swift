@@ -169,7 +169,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
     
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 50
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -178,14 +178,14 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
             
             headerView.lblTitle.text = "indexInfo".localized()
             headerView.lblTitle.setDefaultFont()
-            
+            headerView.backView.roundCorners([.TopLeft, .TopRight], radius: 6)
             return headerView
         } else {
             let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("MarketDetailsHeader") as! MarketDetailsHeader
             
             headerView.lblTitle.text = "marketInfo".localized()
             headerView.lblTitle.setDefaultFont()
-            
+            headerView.backView.roundCorners([.TopLeft, .TopRight], radius: 6)
             return headerView
         }
     }

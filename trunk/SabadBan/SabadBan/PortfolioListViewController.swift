@@ -42,6 +42,27 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         }
         initNavigationTitle()
         
+        showHintView()
+    }
+    
+    func showHintView(){
+        
+        let imageName = "tooltip_hand"
+        let image = UIImage(named: imageName)
+        let hintImage = UIImageView(image: image!)
+        hintImage.frame = CGRect(x: view.bounds.midX + 50, y: view.bounds.minY + 100, width: 50, height: 50)
+        view.addSubview(hintImage)
+        
+        UIView.animateWithDuration(2, delay:0, options: .Autoreverse, animations: {
+            
+            hintImage.frame = CGRect(x: self.view.bounds.midX - 50, y: self.view.bounds.minY + 100, width: 50, height: 50)
+            
+            }, completion: {
+                
+                (value: Bool) in
+                hintImage.removeFromSuperview()
+        })
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -85,6 +106,21 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         SelectedSymbolCode = smData[indexPath.row].symbolCode
+    }
+    
+     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?  {
+        // 1
+        let buyInformation = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "BuyInformation".localized() , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            
+            let buyInfo = BuyInformationView()
+            buyInfo.showAlert(self.view)
+            
+        })
+        
+        return [buyInformation]
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     }
     
     func selectedSymbol(notification: NSNotification) {
