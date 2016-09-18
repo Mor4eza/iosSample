@@ -63,7 +63,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="lblCount" destination="NFy-vY-ou8" id="yPR-C8-ZPx"/>
+                <outlet property="lblCount" destination="1Os-WF-jij" id="bHl-Or-2TG"/>
                 <outlet property="lblDate" destination="3Xg-GC-lM3" id="RQD-Nc-AZr"/>
                 <outlet property="lblDelete" destination="9lK-DL-8ek" id="6tA-7t-xYY"/>
                 <outlet property="lblEdit" destination="2Hg-qT-wDR" id="BOQ-32-H1f"/>

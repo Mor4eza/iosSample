@@ -114,6 +114,12 @@ class BuyInformationView: UIView ,UITableViewDelegate ,UITableViewDataSource{
      func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("buyInfoHeader") as! BuyInfoHeader
         
+        headerView.lblDate.text = "Date".localized()
+        headerView.lblPrice.text = "Price".localized()
+        headerView.lblCount.text = "Count".localized()
+        headerView.lblDelete.text = "Delete".localized()
+        headerView.lblEdit.text = "Edit".localized()
+
         return headerView
     }
     
