@@ -61,6 +61,13 @@
 "DeletePortfolio" = "Delete Portfolio";
 "EnterPortfolioName" = "Enter Portfolio Name:";
 "BuyInformation" = "Buy Information";
+"Date" = "Date";
+"Price" = "Price";
+"Count" = "Count";
+"Edit" = "Edit";
+"Delete" = "Delete";
+
+
 //MARK: - AboutUs Strings
 
 "AllrightsReserved" = "All rights resereved for SefrYek Co.";

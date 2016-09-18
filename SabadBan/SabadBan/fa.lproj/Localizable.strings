@@ -61,6 +61,13 @@
 "DeletePortfolio" = "حذف پرتفوی";
 "EnterPortfolioName" = "نام پرتفوی را وارد  کنید:";
 "BuyInformation" = "اطلاعات خرید سهم";
+"Date" = "تاریخ";
+"Price" = "قیمت";
+"Count" = "تعداد";
+"Edit" = "ویرایش";
+"Delete" = "حذف";
+
+
 //MARK: - AboutUs Strings
 
 "AllrightsReserved" = "تمامی حقوق مادی و معنوی این نرم افزار متعلق به شرکت صفریک ایده همراه می باشد.";

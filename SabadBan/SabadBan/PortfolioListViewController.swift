@@ -34,6 +34,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         self.view.backgroundColor = AppBackgroundLight
         tblPortfolio.delegate = self
         tblPortfolio.dataSource = self
+
         portfolios = db.getPortfolioList(1)
         if portfolios.count > 0 {
             currentPortfolio = portfolios[0]
@@ -112,9 +113,9 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         // 1
         let buyInformation = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "BuyInformation".localized() , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             
-            let buyInfo = BuyInformationView()
-            buyInfo.showAlert(self.view)
+            self.performSegueWithIdentifier("buyInfoSegue", sender: nil)
             
+          
         })
         
         return [buyInformation]

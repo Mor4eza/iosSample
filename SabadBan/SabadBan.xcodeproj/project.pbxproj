@@ -41,6 +41,7 @@
 		9478A6401D891BF70087B574 /* menuHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478A63F1D891BF70087B574 /* menuHeader.swift */; };
 		9478A6421D891C0E0087B574 /* menuHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9478A6411D891C0E0087B574 /* menuHeader.xib */; };
 		9478A6451D892ACC0087B574 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9478A6441D892ACC0087B574 /* RegisterViewController.swift */; };
+		947B12B31D8E6F0500E32A3B /* BuyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947B12B21D8E6F0500E32A3B /* BuyInfoViewController.swift */; };
 		947C63881D744F3E00676822 /* SymbolDetailsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C63851D744F3E00676822 /* SymbolDetailsList.swift */; };
 		947C63891D744F3E00676822 /* SymbolListByIndexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C63861D744F3E00676822 /* SymbolListByIndexResponse.swift */; };
 		947C638C1D744FD300676822 /* SymbolListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C638B1D744FD300676822 /* SymbolListHeader.swift */; };
@@ -131,6 +132,7 @@
 		9478A63F1D891BF70087B574 /* menuHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuHeader.swift; sourceTree = "<group>"; };
 		9478A6411D891C0E0087B574 /* menuHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuHeader.xib; sourceTree = "<group>"; };
 		9478A6441D892ACC0087B574 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		947B12B21D8E6F0500E32A3B /* BuyInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyInfoViewController.swift; sourceTree = "<group>"; };
 		947C63851D744F3E00676822 /* SymbolDetailsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolDetailsList.swift; sourceTree = "<group>"; };
 		947C63861D744F3E00676822 /* SymbolListByIndexResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolListByIndexResponse.swift; sourceTree = "<group>"; };
 		947C638B1D744FD300676822 /* SymbolListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolListHeader.swift; sourceTree = "<group>"; };
@@ -350,6 +352,14 @@
 			name = Register;
 			sourceTree = "<group>";
 		};
+		947B12B11D8E6EED00E32A3B /* BuyInfo */ = {
+			isa = PBXGroup;
+			children = (
+				947B12B21D8E6F0500E32A3B /* BuyInfoViewController.swift */,
+			);
+			name = BuyInfo;
+			sourceTree = "<group>";
+		};
 		947C63831D744D2600676822 /* SymbolInIndex */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +385,7 @@
 		947C63931D756F2200676822 /* Portfolio */ = {
 			isa = PBXGroup;
 			children = (
+				947B12B11D8E6EED00E32A3B /* BuyInfo */,
 				9467D8941D7C4DA200B76A2E /* portfolioDetails */,
 				947C63951D7581D100676822 /* PortfolioListViewController.swift */,
 				948B46641D76B49500F464C2 /* SearchSeymbolTableView.swift */,
@@ -972,6 +983,7 @@
 				944EF19E1D7EE79400A039BA /* MainResponse.swift in Sources */,
 				949BEE6E1D72A78A008FA574 /* AppConstants.swift in Sources */,
 				949BEEA71D72CA88008FA574 /* IndexDetailsList.swift in Sources */,
+				947B12B31D8E6F0500E32A3B /* BuyInfoViewController.swift in Sources */,
 				948B46681D76BCDD00F464C2 /* SymbolListModelResponse.swift in Sources */,
 				944EF1961D7EC29A00A039BA /* SymbolBestLimitResponse.swift in Sources */,
 				949BEEB51D7311F7008FA574 /* IndexDetailsTabBarController.swift in Sources */,

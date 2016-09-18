@@ -10,7 +10,7 @@ import UIKit
 
 class BuyInfoHeader: UITableViewHeaderFooterView {
 
-    @IBOutlet weak var lblCount: NSLayoutConstraint!
+    @IBOutlet weak var lblCount: UILabel!
     @IBOutlet weak var lblDate: UILabel!
     
     @IBOutlet weak var lblPrice: UILabel!
