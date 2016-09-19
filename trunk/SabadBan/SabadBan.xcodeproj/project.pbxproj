@@ -93,6 +93,7 @@
 		94B772361D7FEA7D002AA618 /* ObserverNewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B772341D7FEA7D002AA618 /* ObserverNewsResponse.swift */; };
 		94CD629D1D8965D600F7B496 /* IndexDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CD629C1D8965D600F7B496 /* IndexDetailHeader.swift */; };
 		94CD629F1D89661C00F7B496 /* IndexDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94CD629E1D89661C00F7B496 /* IndexDetailHeader.xib */; };
+		94E30E201D8FC4E40052EF59 /* DatePickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E30E1F1D8FC4E40052EF59 /* DatePickerSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -188,6 +189,7 @@
 		94B772341D7FEA7D002AA618 /* ObserverNewsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverNewsResponse.swift; sourceTree = "<group>"; };
 		94CD629C1D8965D600F7B496 /* IndexDetailHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexDetailHeader.swift; sourceTree = "<group>"; };
 		94CD629E1D89661C00F7B496 /* IndexDetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndexDetailHeader.xib; sourceTree = "<group>"; };
+		94E30E1F1D8FC4E40052EF59 /* DatePickerSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerSheet.swift; sourceTree = "<group>"; };
 		DCC682DC91C3B38F9F01FE3E /* Pods-SabadBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBan/Pods-SabadBan.release.xcconfig"; sourceTree = "<group>"; };
 		E672665F4DD4CD071AFEA5E4 /* Pods_SabadBan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SabadBan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -513,6 +515,7 @@
 		949BEE661D72A737008FA574 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				94E30E1E1D8FC4CA0052EF59 /* DatePicker */,
 				949BEE791D72A7BA008FA574 /* SideMenu */,
 			);
 			name = Libs;
@@ -709,6 +712,14 @@
 				94B772341D7FEA7D002AA618 /* ObserverNewsResponse.swift */,
 			);
 			name = ObserverNews;
+			sourceTree = "<group>";
+		};
+		94E30E1E1D8FC4CA0052EF59 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				94E30E1F1D8FC4E40052EF59 /* DatePickerSheet.swift */,
+			);
+			name = DatePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -985,6 +996,7 @@
 				949BEEA71D72CA88008FA574 /* IndexDetailsList.swift in Sources */,
 				947B12B31D8E6F0500E32A3B /* BuyInfoViewController.swift in Sources */,
 				948B46681D76BCDD00F464C2 /* SymbolListModelResponse.swift in Sources */,
+				94E30E201D8FC4E40052EF59 /* DatePickerSheet.swift in Sources */,
 				944EF1961D7EC29A00A039BA /* SymbolBestLimitResponse.swift in Sources */,
 				949BEEB51D7311F7008FA574 /* IndexDetailsTabBarController.swift in Sources */,
 				947C63961D7581D100676822 /* PortfolioListViewController.swift in Sources */,

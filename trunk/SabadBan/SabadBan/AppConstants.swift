@@ -30,6 +30,7 @@ public let URLS:[String:String] =
 //MARK:- Constants
 public var SelectedIndexCode:String = ""
 public var SelectedSymbolCode:String = ""
+public var SelectedSymbolName:String = ""
 public var LoginToken:String = ""
 public var PushToken:String = ""
 public var LogedInUserName:String = ""

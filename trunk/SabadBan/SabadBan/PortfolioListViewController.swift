@@ -34,7 +34,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         self.view.backgroundColor = AppBackgroundLight
         tblPortfolio.delegate = self
         tblPortfolio.dataSource = self
-
+        
         portfolios = db.getPortfolioList(1)
         if portfolios.count > 0 {
             currentPortfolio = portfolios[0]
@@ -63,7 +63,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
                 (value: Bool) in
                 hintImage.removeFromSuperview()
         })
-
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -109,13 +109,14 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         SelectedSymbolCode = smData[indexPath.row].symbolCode
     }
     
-     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?  {
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?  {
         // 1
         let buyInformation = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "BuyInformation".localized() , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-            
+            SelectedSymbolName = self.smData[indexPath.row].symbolNameFa
+            SelectedSymbolCode = self.smData[indexPath.row].symbolCode
             self.performSegueWithIdentifier("buyInfoSegue", sender: nil)
             
-          
+            
         })
         
         return [buyInformation]
@@ -330,8 +331,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         }
         
         
-        if segue.identifier == "editSegue"
-        {
+        if segue.identifier == "editSegue"{
             
             let nav = segue.destinationViewController as! UINavigationController
             
@@ -342,6 +342,13 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             for index in 0..<symbols.count {
                 editController.symbolData.append(symbolsDataForEdit(sName: smData[index].symbolNameFa, sNameEn: smData[index].symbolNameEn, sCode: smData[index].symbolCode))
             }
+            
+            
+        }
+        if segue.identifier == "buyInfoSegue" {
+           
+            let buyInfo = segue.destinationViewController as! BuyInfoViewController
+            buyInfo.portfolioCode = db.getportfolioCodeByName(currentPortfolio)
             
         }
     }

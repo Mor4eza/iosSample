@@ -10,7 +10,13 @@ import UIKit
 
 class BuyInfoCell: UITableViewCell {
     
+    @IBOutlet weak var lblCount: UILabel!
+    @IBOutlet weak var lblDate: UILabel!
 
+    @IBOutlet weak var lblPrice: UILabel!
+    @IBOutlet weak var btnEdit: UIButton!
+    
+    @IBOutlet weak var btnDelete: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
