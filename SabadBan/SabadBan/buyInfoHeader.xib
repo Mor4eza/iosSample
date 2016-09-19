@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YUs-ws-RFX">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YUs-ws-RFX">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                     <color key="backgroundColor" red="0.090196078430000007" green="0.13725490200000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -23,13 +23,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Os-WF-jij">
-                    <rect key="frame" x="180" y="11" width="47" height="21"/>
+                    <rect key="frame" x="157" y="11" width="47" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Hg-qT-wDR">
-                    <rect key="frame" x="34" y="11" width="30" height="21"/>
+                    <rect key="frame" x="36" y="11" width="30" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYf-ML-se3">
-                    <rect key="frame" x="93" y="11" width="39" height="21"/>
+                    <rect key="frame" x="97" y="11" width="39" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -49,16 +49,20 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="3Xg-GC-lM3" firstAttribute="leading" secondItem="1Os-WF-jij" secondAttribute="trailing" constant="29" id="3Ty-Co-Wus"/>
+                <constraint firstItem="3Xg-GC-lM3" firstAttribute="leading" secondItem="1Os-WF-jij" secondAttribute="trailing" constant="52" id="3Ty-Co-Wus"/>
                 <constraint firstItem="2Hg-qT-wDR" firstAttribute="baseline" secondItem="pYf-ML-se3" secondAttribute="baseline" id="5On-1Z-7IZ"/>
+                <constraint firstItem="YUs-ws-RFX" firstAttribute="leading" secondItem="9lK-DL-8ek" secondAttribute="leading" id="7tW-Oq-qVa"/>
+                <constraint firstAttribute="trailing" secondItem="YUs-ws-RFX" secondAttribute="trailing" id="AAN-IQ-80G"/>
                 <constraint firstItem="1Os-WF-jij" firstAttribute="baseline" secondItem="3Xg-GC-lM3" secondAttribute="baseline" id="NFy-vY-ou8"/>
                 <constraint firstItem="3Xg-GC-lM3" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="SOt-mN-lcY"/>
-                <constraint firstItem="2Hg-qT-wDR" firstAttribute="leading" secondItem="9lK-DL-8ek" secondAttribute="trailing" constant="8" symbolic="YES" id="VpA-Lr-qiG"/>
-                <constraint firstItem="pYf-ML-se3" firstAttribute="leading" secondItem="2Hg-qT-wDR" secondAttribute="trailing" constant="29" id="d7K-5Z-9hN"/>
+                <constraint firstItem="2Hg-qT-wDR" firstAttribute="leading" secondItem="9lK-DL-8ek" secondAttribute="trailing" constant="10" id="VpA-Lr-qiG"/>
+                <constraint firstItem="pYf-ML-se3" firstAttribute="leading" secondItem="2Hg-qT-wDR" secondAttribute="trailing" constant="31" id="d7K-5Z-9hN"/>
                 <constraint firstItem="pYf-ML-se3" firstAttribute="baseline" secondItem="1Os-WF-jij" secondAttribute="baseline" id="gei-J4-JxJ"/>
+                <constraint firstItem="YUs-ws-RFX" firstAttribute="centerY" secondItem="1Os-WF-jij" secondAttribute="centerY" id="nIo-t7-3eN"/>
                 <constraint firstItem="9lK-DL-8ek" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="o2g-ec-JqU"/>
                 <constraint firstItem="9lK-DL-8ek" firstAttribute="baseline" secondItem="2Hg-qT-wDR" secondAttribute="baseline" id="qTs-YS-DGd"/>
                 <constraint firstItem="9lK-DL-8ek" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rIJ-5Q-3Qx"/>
+                <constraint firstItem="YUs-ws-RFX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yPz-se-kbJ"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

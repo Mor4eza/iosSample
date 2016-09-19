@@ -1784,27 +1784,12 @@
                                                         <real key="value" value="3"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnDoneTap:" destination="mc2-0A-afa" eventType="touchUpInside" id="nx8-uG-kqn"/>
+                                                </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mU-TH-8ZR">
-                                                <rect key="frame" x="233" y="45" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxI-nq-iao">
-                                                <rect key="frame" x="233" y="83" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zm-Me-9Kb">
-                                                <rect key="frame" x="233" y="121" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zA-Tt-GVT">
-                                                <rect key="frame" x="33" y="45" width="80" height="30"/>
+                                                <rect key="frame" x="58" y="45" width="80" height="30"/>
                                                 <color key="backgroundColor" red="0.91694617150000002" green="0.71196035300000005" blue="0.13549317699999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="viB-6Z-YVp"/>
@@ -1822,7 +1807,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aX6-pR-cdk">
-                                                <rect key="frame" x="33" y="79" width="80" height="30"/>
+                                                <rect key="frame" x="58" y="79" width="80" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.1472621945" blue="0.039924478729999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" red="0.9879675792" green="1" blue="0.9726439939" alpha="1" colorSpace="calibratedRGB"/>
@@ -1835,9 +1820,12 @@
                                                         <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnPriceTap:" destination="mc2-0A-afa" eventType="touchUpInside" id="NZC-qD-pir"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3O-9g-JGT">
-                                                <rect key="frame" x="33" y="117" width="80" height="30"/>
+                                                <rect key="frame" x="58" y="117" width="80" height="30"/>
                                                 <color key="backgroundColor" red="0.92486092929999997" green="0.36227035410000002" blue="0.12653421200000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" red="0.9879675792" green="1" blue="0.9726439939" alpha="1" colorSpace="calibratedRGB"/>
@@ -1847,6 +1835,9 @@
                                                         <real key="value" value="3"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnCountTap:" destination="mc2-0A-afa" eventType="touchUpInside" id="DP1-P4-mue"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekq-sh-qHE">
                                                 <rect key="frame" x="0.0" y="-1" width="23" height="30"/>
@@ -1858,6 +1849,24 @@
                                                     <action selector="btnCloseTap:" destination="mc2-0A-afa" eventType="touchUpInside" id="OlY-vD-4yX"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mU-TH-8ZR">
+                                                <rect key="frame" x="169" y="45" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxI-nq-iao">
+                                                <rect key="frame" x="169" y="83" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zm-Me-9Kb">
+                                                <rect key="frame" x="169" y="121" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1868,11 +1877,11 @@
                                             <constraint firstItem="aX6-pR-cdk" firstAttribute="trailing" secondItem="n3O-9g-JGT" secondAttribute="trailing" id="MGM-q9-DjR"/>
                                             <constraint firstItem="n3O-9g-JGT" firstAttribute="baseline" secondItem="5zm-Me-9Kb" secondAttribute="baseline" id="MRW-vV-uYV"/>
                                             <constraint firstItem="kxI-nq-iao" firstAttribute="leading" secondItem="5zm-Me-9Kb" secondAttribute="leading" id="OC9-u2-PXu"/>
-                                            <constraint firstItem="6zA-Tt-GVT" firstAttribute="leading" secondItem="GLX-du-IdQ" secondAttribute="leadingMargin" constant="25" id="RRW-sa-kzB"/>
+                                            <constraint firstItem="6zA-Tt-GVT" firstAttribute="leading" secondItem="GLX-du-IdQ" secondAttribute="leadingMargin" constant="50" id="RRW-sa-kzB"/>
                                             <constraint firstItem="OEO-1n-950" firstAttribute="centerX" secondItem="ceA-EV-haJ" secondAttribute="centerX" id="VbY-Ud-HXp"/>
                                             <constraint firstItem="aX6-pR-cdk" firstAttribute="leading" secondItem="n3O-9g-JGT" secondAttribute="leading" id="apd-OB-Xgp"/>
                                             <constraint firstItem="6zA-Tt-GVT" firstAttribute="trailing" secondItem="aX6-pR-cdk" secondAttribute="trailing" id="bqH-JR-Q1X"/>
-                                            <constraint firstItem="7mU-TH-8ZR" firstAttribute="trailing" secondItem="GLX-du-IdQ" secondAttribute="trailingMargin" constant="-17" id="dH9-3I-t1y"/>
+                                            <constraint firstItem="7mU-TH-8ZR" firstAttribute="trailing" secondItem="GLX-du-IdQ" secondAttribute="trailingMargin" constant="-81" id="dH9-3I-t1y"/>
                                             <constraint firstItem="ekq-sh-qHE" firstAttribute="leading" secondItem="GLX-du-IdQ" secondAttribute="leading" id="osy-V7-PNt"/>
                                             <constraint firstItem="OEO-1n-950" firstAttribute="centerX" secondItem="GLX-du-IdQ" secondAttribute="centerX" id="qfC-aa-ux2"/>
                                             <constraint firstItem="6zA-Tt-GVT" firstAttribute="leading" secondItem="aX6-pR-cdk" secondAttribute="leading" id="reS-fz-rUY"/>
@@ -1897,6 +1906,11 @@
                                     <constraint firstItem="GLX-du-IdQ" firstAttribute="leading" secondItem="38m-ai-3pz" secondAttribute="leading" id="sYC-mz-ZvV"/>
                                     <constraint firstAttribute="height" constant="431" id="zDj-VW-iQs"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1904,6 +1918,11 @@
                             <constraint firstItem="Lua-iY-IYa" firstAttribute="centerY" secondItem="34I-MW-FeC" secondAttribute="centerY" constant="15.5" id="DMK-NH-lTY"/>
                             <constraint firstItem="Lua-iY-IYa" firstAttribute="centerX" secondItem="34I-MW-FeC" secondAttribute="centerX" id="mXQ-it-HHO"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="btnCount" destination="n3O-9g-JGT" id="cql-g2-TZZ"/>
@@ -1913,6 +1932,7 @@
                         <outlet property="lblCount" destination="5zm-Me-9Kb" id="g7c-Ql-Qea"/>
                         <outlet property="lblDate" destination="7mU-TH-8ZR" id="jbq-9q-WdE"/>
                         <outlet property="lblPrice" destination="kxI-nq-iao" id="2Vp-wS-urP"/>
+                        <outlet property="lblTitle" destination="OEO-1n-950" id="K2k-p7-9ZW"/>
                         <outlet property="tblHistory" destination="38m-ai-3pz" id="yUV-Z1-Z6L"/>
                     </connections>
                 </viewController>
