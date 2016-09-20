@@ -8,8 +8,10 @@
 
 import UIKit
 import Alamofire
-class RegisterViewController: BaseViewController {
+class RegisterViewController: BaseViewController, UITextFieldDelegate {
     
+    
+    //MARK: Properties
     
     @IBOutlet weak var imgAppLogo: UIImageView!
     @IBOutlet weak var mainView: UIView!
@@ -24,6 +26,8 @@ class RegisterViewController: BaseViewController {
     
     @IBOutlet weak var btnRegister: UIButton!
     
+    var defaults  = NSUserDefaults.standardUserDefaults()
+    
     
     var successLogin = false
     override func viewDidLoad() {
@@ -33,9 +37,7 @@ class RegisterViewController: BaseViewController {
         //        lblRememberMe.transform = CGAffineTransformMakeScale(-1, 1)
         // Do any additional setup after loading the view.
         
-        //MARK: - Login String
-        
-        
+        //MARK: - Register String
         
         txtUserName.placeholder = "Email".localized()
         txtPassword.placeholder = "Password".localized()
@@ -46,7 +48,10 @@ class RegisterViewController: BaseViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
-        
+        txtUserName.delegate = self
+        txtPhone.delegate = self
+        txtPassword.delegate = self
+        txtRPassword.delegate = self
         
     }
     
@@ -75,7 +80,21 @@ class RegisterViewController: BaseViewController {
     }
     
     
-    
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        if textField == txtUserName {
+            txtPhone.becomeFirstResponder()
+        } else if textField == txtPhone {
+            txtPassword.becomeFirstResponder()
+        } else if textField == txtPassword {
+            txtRPassword.becomeFirstResponder()
+        } else if textField == txtRPassword {
+            textField.resignFirstResponder()
+            beginRegisterSequence()
+        }
+        
+        return true
+    }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
@@ -84,25 +103,80 @@ class RegisterViewController: BaseViewController {
     //MARK:- Buttons Tap
     
     @IBAction func btnRegisterTap(sender: AnyObject) {
-        
-       // sendRegisterRequest(txtUserName.text!, password:txtPassword.text!, pushToken: PushToken)
-        
+        beginRegisterSequence()
     }
     
+    func beginRegisterSequence() {
+        self.view.endEditing(true)
+        
+        if txtUserName.text == "" {
+            showAlert("pleaseEnterEmail")
+        } else if (!txtUserName.text!.isValidEmail()) {
+            showAlert("emailInvalid")
+        }  else if txtPhone.text == "" {
+            showAlert("pleaseEnterPhoneNumber")
+        } else if txtPhone.text?.characters.count < 11 {
+            showAlert("phoneNumberLengthError")
+        } else if txtPassword.text == "" {
+            showAlert("pleaseEnterPassword")
+        } else if txtUserName.text!.characters.count < 9 {
+            showAlert("passwordLengthError")
+        } else if txtRPassword.text == "" {
+            showAlert("pleaseEnterPasswordRepeat")
+        } else if !(txtRPassword.text == txtPassword.text){
+            showAlert("passwordRepeatNotMatch")
+        } else {
+            if isSimulator {
+                sendRegisterRequest(txtUserName.text!, password:txtPassword.text!, phone:txtPhone.text!, pushToken: "IOS_RUNNING_FROM_SIMULATOR")
+            }else {
+                sendRegisterRequest(txtUserName.text!, password:txtPassword.text!, phone:txtPhone.text!, pushToken: PushToken)
+            }
+        }
+    }
+    
+    func showAlert(message : String) {
+        let alert = MyAlert()
+        alert.showAlert("Attention".localized(), details: message.localized(), okTitle: "Ok".localized(), cancelTitle: "", onView: self.view)
+    }
     
     
     @IBAction func btnLogin(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if textField == txtPhone {
+            guard let text = textField.text else { return true }
+            
+            let newLength = text.utf16.count + string.utf16.count - range.length
+            return newLength <= 11
+        }
+        return true
+    }
+    
+    // MARK: - Navigation
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
+        
+        if identifier == "registerSegue" {
+            if successLogin {
+                return true
+            }else {
+                return false
+            }
+            
+        }
+        return true
+    }
+    
     
     //MARK:- Login Service
     
-    func sendRegisterRequest(email:String , password:String , pushToken:String) {
+    func sendRegisterRequest(email:String , password:String, phone:String, pushToken:String) {
         /**
          Login
          POST http://sabadbannewstest.sefryek.com/api/v1/auth/register
          */
+        
         btnRegister.enabled = false
         let progress:UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
         progress.frame = CGRectMake(btnRegister.bounds.maxX - 30, btnRegister.bounds.maxY - 33, 20, 20)
@@ -115,38 +189,48 @@ class RegisterViewController: BaseViewController {
         let body = [
             "email": email,
             "device_token": pushToken,
+            "phone": phone,
             "password": password
         ]
         
         // Fetch Request
         Alamofire.request(.POST, url, headers: ServicesHeaders, parameters: body, encoding: .JSON)
             .validate(statusCode: 200..<300)
-            .responseObjectErrorHadling(UserManagementModel<LoginResponse>.self) { response in
+            .responseObjectErrorHadling(UserManagementModel<RegisterResponse>.self) { response in
                 
                 switch response.result {
-                case .Success(let login):
+                case .Success(let register):
                     
-                    if login.result != nil {
-                        if login.errorCode == 100 {
-                            LoginToken = login.result.apiToken
+                    if register.result != nil {
+                        if register.errorCode == 100 {
+                            LoginToken = register.result.apiToken!
                             self.successLogin = true
                             LogedInUserName = email
-                           self.dismissViewControllerAnimated(true, completion: nil)
-                            
+                            //                            self.dismissViewControllerAnimated(true, completion: nil)
+                            self.defaults.setValue(email, forKey: "UserName")
+                            self.performSegueWithIdentifier("registerSegue", sender: nil)
                             
                         }
-                        
+                    } else if register.errorCode == 101 {
+                        if (register.error?.unigueEmail != nil) {
+                            self.showAlert("emailRegisterdBefore")
+                        }
+                    } else if register.errorCode == 102 {
+                        self.showAlert("unknownRegisterError")
                     }
+                    
                     self.btnRegister.enabled = true
                     progress.stopAnimating()
+                    
                 case .Failure(let error):
                     debugPrint(error)
                     self.btnRegister.enabled = true
                     progress.stopAnimating()
                 }
-                
         }
+        
     }
+    
     
     
     

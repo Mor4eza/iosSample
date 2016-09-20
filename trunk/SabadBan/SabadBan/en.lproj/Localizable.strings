@@ -84,3 +84,17 @@
 "ForgetPassword" = "Forget Password?!";
 "Tell" = "Phone Number";
 "RepeatPass" = "Repeat PassWord";
+"emailOrPasswordInvalid" = "Email or Password is invalid";
+"Attention" = "Warnining";
+"Ok" = "OK";
+"pleaseEnterEmail" = "Please enter your email address";
+"pleaseEnterPassword" = "Please enter your password";
+"pleaseEnterPasswordRepeat" = "Please enter password repeat";
+"passwordLengthError" = "Password should be more than 8 characters";
+"emailInvalid" = "Email is invalid";
+"pleaseEnterPasswordRepeat" = "Please enter password confirmation";
+"passwordRepeatNotMatch" = "Password does not match the confirm password";
+"pleaseEnterPhoneNumber" = "Please Enter your phone number";
+"phoneNumberLengthError" = "phoneNumberLengthError";
+"emailRegisterdBefore" = "emailRegisterdBefore";
+"unknownRegisterError" = "unknownRegisterError";

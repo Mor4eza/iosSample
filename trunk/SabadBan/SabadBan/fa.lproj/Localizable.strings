@@ -84,3 +84,17 @@
 "ForgetPassword" = "فراموشی رمز عبور!";
 "Tell" = "شماره همراه";
 "RepeatPass" = "تکرار رمز عبور";
+"emailOrPasswordInvalid" = "نام کاربری یا رمز عبور اشتباه است.";
+"Attention" = "توجه";
+"Ok" = "تایید";
+"pleaseEnterEmail" = "لطفا ایمیل را وارد کنید.";
+"pleaseEnterPassword" = "لطفا رمز عبور را وارد کنید.";
+"pleaseEnterPasswordRepeat" = "لطفا تکرار رمز عبور را وارد کنید.";
+"passwordLengthError" = "رمز عبور باید بیشتر از ۸ رقم باشد.";
+"emailInvalid" = "ایمیل نامعتبر است.";
+"pleaseEnterPasswordRepeat" = "لطفا تکرار رمز عبور را وارد کنید.";
+"passwordRepeatNotMatch" = "رمز عبور و تکرار رمز عبور مطابق نیستند.";
+"pleaseEnterPhoneNumber" = "لطفا شماره همراه را وارد کنید.";
+"phoneNumberLengthError" = "لطفا شماره همراه را با ۱۱ رقم وارد کنید.";
+"emailRegisterdBefore" = "قبلا با این ایمیل ثبت نام انجام شده است.";
+"unknownRegisterError" = "در فرآیند ثبت نام خطایی رخ داده است.";
