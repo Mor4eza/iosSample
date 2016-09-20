@@ -8,7 +8,9 @@
 
 import UIKit
 import Alamofire
-class LoginViewController: BaseViewController {
+class LoginViewController: BaseViewController, UITextFieldDelegate {
+    
+    //MARK: Properties
     
     @IBOutlet weak var lblRememberMe: UILabel!
     
@@ -54,7 +56,8 @@ class LoginViewController: BaseViewController {
             txtUserName.text = defaults.stringForKey("UserName")
             txtPassword.text = defaults.stringForKey("Password")
         }
-        
+        txtPassword.delegate = self
+        txtUserName.delegate = self
         
     }
     
@@ -82,8 +85,17 @@ class LoginViewController: BaseViewController {
             }, completion: nil)
     }
     
-    
-    
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        if textField == txtUserName {
+            txtPassword.becomeFirstResponder()
+        } else if textField == txtPassword {
+            textField.resignFirstResponder()
+            beginLoginSequence()
+        }
+        
+        return true
+    }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
@@ -92,19 +104,36 @@ class LoginViewController: BaseViewController {
     //MARK:- Buttons Tap
     
     @IBAction func btnLoginTap(sender: AnyObject) {
-        
-        if isSimulator {
-            sendLoginRequest(txtUserName.text!, password:txtPassword.text!, pushToken: "IOS_RUNNING_FROM_SIMULATOR")
-        }else {
-            sendLoginRequest(txtUserName.text!, password:txtPassword.text!, pushToken: PushToken)
-        }
-        
+        beginLoginSequence()
     }
     
     @IBAction func btnForgetTap(sender: AnyObject) {
         
     }
     
+    func showAlert(message : String) {
+        let alert = MyAlert()
+        alert.showAlert("Attention".localized(), details: message.localized(), okTitle: "Ok".localized(), cancelTitle: "", onView: self.view)
+    }
+    
+    func beginLoginSequence() {
+        if txtUserName.text == "" {
+            showAlert("pleaseEnterEmail")
+        } else if (!txtUserName.text!.isValidEmail()) {
+            showAlert("emailInvalid")
+        } else if txtPassword.text == "" {
+            showAlert("pleaseEnterPassword")
+        } else if txtUserName.text!.characters.count < 9 {
+            showAlert("passwordLengthError")
+        }
+        else {
+            if isSimulator {
+                sendLoginRequest(txtUserName.text!, password:txtPassword.text!, pushToken: "IOS_RUNNING_FROM_SIMULATOR")
+            }else {
+                sendLoginRequest(txtUserName.text!, password:txtPassword.text!, pushToken: PushToken)
+            }
+        }
+    }
     
     
     // MARK: - Navigation
@@ -154,7 +183,7 @@ class LoginViewController: BaseViewController {
                     
                     if login.result != nil {
                         if login.errorCode == 200 {
-                            LoginToken = login.result.apiToken
+                            LoginToken = login.result.apiToken!
                             self.successLogin = true
                             LogedInUserName = email
                             self.performSegueWithIdentifier("loginSegue", sender: nil)
@@ -167,7 +196,9 @@ class LoginViewController: BaseViewController {
                                 self.defaults.setValue(nil, forKey: "Password")
                             }
                         }
-                        
+                    } else if login.errorCode == 202 {
+                        let alert = MyAlert()
+                        alert.showAlert("Attention".localized(), details: "emailOrPasswordInvalid".localized(), okTitle: "Ok".localized(), cancelTitle: "", onView: self.view)
                     }
                     self.btnLogin.enabled = true
                     progress.stopAnimating()
