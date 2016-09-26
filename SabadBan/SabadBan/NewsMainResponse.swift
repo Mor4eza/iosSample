@@ -1,21 +1,20 @@
 //
-//  MainResponse.swift
+//  NewsMainResponse.swift
 //  SabadBan
 //
-//  Created by Morteza Gharedaghi on 9/6/16.
+//  Created by PC22 on 9/26/16.
 //  Copyright © 2016 Sefr Yek. All rights reserved.
 //
 
 import Foundation
 import Gloss
 
-//MARK: - Indexs
-public struct MainResponse<T:Glossy>: Glossy {
-    
+public struct NewsMainResponse<T: Glossy> : Glossy {
     public let errorCode : AnyObject!
     public let errorDescription : AnyObject!
     public let response : T!
-    public let successful : Bool!
+    public let success : Bool?
+    
     
     
     //MARK: Decodable
@@ -23,7 +22,7 @@ public struct MainResponse<T:Glossy>: Glossy {
         errorCode = "errorCode" <~~ json
         errorDescription = "errorDescription" <~~ json
         response = "response" <~~ json
-        successful = "successful" <~~ json
+        success = "success" <~~ json
     }
     
     
@@ -33,8 +32,7 @@ public struct MainResponse<T:Glossy>: Glossy {
             "errorCode" ~~> errorCode,
             "errorDescription" ~~> errorDescription,
             "response" ~~> response,
-            "successful" ~~> successful
+            "success" ~~> success
             ])
     }
-    
 }

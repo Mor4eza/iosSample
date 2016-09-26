@@ -37,8 +37,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         
         //MARK: - Login String
-        
-        get()
+   
         lblRememberMe.text = "RememberMe".localized()
         btnLogin.setTitle("Login".localized(), forState: .Normal)
         txtUserName.placeholder = "Email".localized()
@@ -160,23 +159,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         return true
     }
     
-    
-    func get(){
-        
-        let body = [
-            "email": "1@1.com",
-            "device_token": "test",
-            "password": "12345678"
-        ]
-        
-        
-        let url = AppNewsURL + URLS["login"]!
-        Request.postData(url,body: body) { (response:UserManagementModel<LoginResponse>?, error) in
-            
-            debugPrint("Hello \(response?.error?.email)")
-        }
-    }
-    
+
     //MARK:- Login Service
     
     func sendLoginRequest(email:String , password:String , pushToken:String) {
@@ -193,11 +176,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         let url = AppNewsURL + URLS["login"]!
         
         // JSON Body
-        let body = [
-            "email": email,
-            "device_token": pushToken,
-            "password": password
-        ]
+        let body = LoginRequest(email: email, device_token: pushToken, password: password).getDic()
         
         // Fetch Request
         Request.postData(url,body: body) { (response:UserManagementModel<LoginResponse>?, error) in

@@ -144,9 +144,6 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
     func getSymbolList() {
         
         let url = AppTadbirUrl + URLS["getSymbolListAndDetails"]!
-        let headers = [
-            "Content-Type":"application/json",
-            ]
         
         // JSON Body
         let body = [
@@ -157,26 +154,22 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
         ]
         
         // Fetch Request
-        Alamofire.request(.POST, url, headers: headers, parameters: body, encoding: .JSON)
-            .validate(statusCode: 200..<300)
-            .responseObjectErrorHadling(MainResponse<SymbolListModelResponse>.self) { response in
-                
-                switch response.result {
-                case .Success(let symbols):
-                    for i in 0  ..< symbols.response.symbolDetailsList.count{
-                        if getAppLanguage() == "fa" {
-                            self.symbolsData.append(symbolData(name: symbols.response.symbolDetailsList[i].symbolNameFa, fullName: symbols.response.symbolDetailsList[i].symbolCompleteNameFa, code: symbols.response.symbolDetailsList[i].symbolCode))
-                            
-                        }else if getAppLanguage() == "en" {
-                            self.symbolsData.append(symbolData(name: symbols.response.symbolDetailsList[i].symbolNameEn, fullName: symbols.response.symbolDetailsList[i].symbolCompleteNameFa, code: symbols.response.symbolDetailsList[i].symbolCode))
-                        }
-                        self.tableView.reloadData()
+        Request.postData(url, body: body) { (symbols:MainResponse<SymbolListModelResponse>?, error)  in
+            
+            if ((symbols?.successful) != nil) {
+                for i in 0  ..< symbols!.response.symbolDetailsList.count{
+                    if getAppLanguage() == "fa" {
+                        self.symbolsData.append(symbolData(name: symbols!.response.symbolDetailsList[i].symbolNameFa, fullName: symbols!.response.symbolDetailsList[i].symbolCompleteNameFa, code: symbols!.response.symbolDetailsList[i].symbolCode))
+                        
+                    }else if getAppLanguage() == "en" {
+                        self.symbolsData.append(symbolData(name: symbols!.response.symbolDetailsList[i].symbolNameEn, fullName: symbols!.response.symbolDetailsList[i].symbolCompleteNameFa, code: symbols!.response.symbolDetailsList[i].symbolCode))
                     }
-                    break
-                case .Failure(let error):
-                    debugPrint(error)
+                    self.tableView.reloadData()
                 }
-                self.refreshControl?.endRefreshing()
+            } else {
+                debugPrint(error)
+            }
+            self.refreshControl?.endRefreshing()
         }
     }
 }

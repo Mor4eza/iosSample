@@ -9,6 +9,7 @@
 import UIKit
 
 public let LanguageChangedNotification = "languageChanged"
+public let NetworkErrorAlert = "networkError"
 public let AppFontName_IranSans = "IRANSansMobileFaNum"
 public let AppTadbirUrl = "http://185.37.52.193:9090"
 public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
@@ -40,3 +41,11 @@ public var LogedInUserName:String = ""
 public let AppMainColor = UIColor(netHex: 0x172340)
 public let AppBarTintColor = UIColor(netHex:0x2b3a5c)
 public let AppBackgroundLight = UIColor(netHex:0x2b3a5c)
+
+//MARK: - Enums
+public enum TimeFrameType : Int {
+    case day = 0
+    case week
+    case month
+    case year
+}

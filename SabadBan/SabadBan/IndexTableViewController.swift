@@ -96,7 +96,7 @@ class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
     }
     
     
- 
+    
     
     func setTexts(){
         self.title = "APP_NAME".localized()
@@ -119,34 +119,28 @@ class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
         
         
         // JSON Body
-        let body = [
-            "timeFrameType": "day",
-            "indexCode": "0"
-        ]
+        let body = IndexDetailsRequest(timeFrameType: TimeFrameType.day, indexCode: "0").getDic()
         
         // Fetch Request
-        Alamofire.request(.POST,url, headers: ServicesHeaders, parameters: body, encoding: .JSON)
-            .validate(statusCode: 200..<300)
-            .responseObjectErrorHadling(MainResponse<Response>.self) { response in
-                
-                switch response.result {
-                case .Success(let indexs):
-                    self.indexNames.removeAll()
-                    self.indexCode.removeAll()
-                    self.indexPrice.removeAll()
-                    self.indexPercent.removeAll()
-                    for i in 0  ..< indexs.response.indexDetailsList.count{
-                        self.indexNames.append(indexs.response.indexDetailsList[i].nameFa)
-                        self.indexPrice.append(Double(indexs.response.indexDetailsList[i].closePrice))
-                        self.indexPercent.append(indexs.response.indexDetailsList[i].changePricePercentOnSameTime)
-                        self.indexCode.append(indexs.response.indexDetailsList[i].indexCode)
-                        self.tableView.reloadData()
-                    }
-                    break
-                case .Failure(let error):
-                    debugPrint(error)
+        Request.postData(url, body: body) { (indexs:MainResponse<Response>?, error) in
+            
+            if ((indexs?.successful) != nil) {
+                self.indexNames.removeAll()
+                self.indexCode.removeAll()
+                self.indexPrice.removeAll()
+                self.indexPercent.removeAll()
+                for i in 0  ..< indexs!.response.indexDetailsList.count{
+                    self.indexNames.append(indexs!.response.indexDetailsList[i].nameFa)
+                    self.indexPrice.append(Double(indexs!.response.indexDetailsList[i].closePrice))
+                    self.indexPercent.append(indexs!.response.indexDetailsList[i].changePricePercentOnSameTime)
+                    self.indexCode.append(indexs!.response.indexDetailsList[i].indexCode)
+                    self.tableView.reloadData()
                 }
-                self.refreshControl?.endRefreshing()
+            } else {
+                debugPrint(error)
+            }
+            
+            self.refreshControl?.endRefreshing()
         }
     }
     

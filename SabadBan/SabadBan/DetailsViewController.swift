@@ -208,47 +208,40 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         
         
         // JSON Body
-        let body = [
-            "timeFrameType": range,
-            "indexCode":indexCode
-        ]
+        let body = IndexDetailsRequest(timeFrameType: TimeFrameType(rawValue: range), indexCode: indexCode).getDic()
         
         // Fetch Request
-        Alamofire.request(.POST,url, headers: ServicesHeaders, parameters: body as? [String : AnyObject], encoding: .JSON)
-            .validate(statusCode: 200..<300)
-            .responseObjectErrorHadling(MainResponse<Response>.self) { response in
-                switch response.result {
-                case .Success(let indexs):
-                    if (indexs.response.indexDetailsList.count > 0) {
-                        debugPrint("Count: \(indexs.response.indexDetailsList.count)")
-                        self.maxPrice = Double(indexs.response.indexDetailsList[0].highPrice)
-                        self.minPrice = Double(indexs.response.indexDetailsList[0].lowPrice)
-                        self.lastPrice = Double(indexs.response.indexDetailsList[0].closePrice)
-                        self.priceChanges = Double(indexs.response.indexDetailsList[0].changePriceOnSameTime)
-                        self.priceChangesPercent = Double(indexs.response.indexDetailsList[0].changePricePercentOnSameTime)
-                        self.lblPrice.text = self.lastPrice.currencyFormat()
-                        self.lblPriceChanges.text = self.priceChanges.currencyFormat()
-                        self.lblPricePercent.text  = String(self.priceChangesPercent)
-                        self.tblDetails.reloadData()
-                    }else{
-                        
-                        let alert = FCAlertView()
-                        alert.makeAlertTypeCaution()
-                        alert.colorScheme = UIColor.blueColor()
-                        alert.showAlertInView(self,
-                                        withTitle: "Warning".localized(),
-                                        withSubtitle: "There is no any data for selected range",
-                                        withCustomImage: nil,
-                                        withDoneButtonTitle: "Done".localized(),
-                                        andButtons: nil)
-                    }
-                    break
+        Request.postData(url, body: body) { (indexs:MainResponse<Response>?, error)  in
+            if ((indexs?.successful) != nil) {
+                if (indexs!.response.indexDetailsList.count > 0) {
+                    debugPrint("Count: \(indexs!.response.indexDetailsList.count)")
+                    self.maxPrice = Double(indexs!.response.indexDetailsList[0].highPrice)
+                    self.minPrice = Double(indexs!.response.indexDetailsList[0].lowPrice)
+                    self.lastPrice = Double(indexs!.response.indexDetailsList[0].closePrice)
+                    self.priceChanges = Double(indexs!.response.indexDetailsList[0].changePriceOnSameTime)
+                    self.priceChangesPercent = Double(indexs!.response.indexDetailsList[0].changePricePercentOnSameTime)
+                    self.lblPrice.text = self.lastPrice.currencyFormat()
+                    self.lblPriceChanges.text = self.priceChanges.currencyFormat()
+                    self.lblPricePercent.text  = String(self.priceChangesPercent)
+                    self.tblDetails.reloadData()
+                }else{
                     
-                case .Failure(let error):
-                    debugPrint(error)
+                    let alert = FCAlertView()
+                    alert.makeAlertTypeCaution()
+                    alert.colorScheme = UIColor.blueColor()
+                    alert.showAlertInView(self,
+                                          withTitle: "Warning".localized(),
+                                          withSubtitle: "There is no any data for selected range",
+                                          withCustomImage: nil,
+                                          withDoneButtonTitle: "Done".localized(),
+                                          andButtons: nil)
                 }
                 
-                self.indexDetailsRefreshControl.endRefreshing()
+            } else {
+                debugPrint(error)
+            }
+            
+            self.indexDetailsRefreshControl.endRefreshing()
         }
         
         
@@ -259,26 +252,18 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         let url = AppTadbirUrl + URLS["getMarketActivity"]!
         
         // Fetch Request
-        Alamofire.request(.POST,url, headers: ServicesHeaders, encoding: .JSON)
-            .validate(statusCode: 200..<300)
-            .responseObjectErrorHadling(MainResponse<MarketActivityModel>.self) { response in
-                switch response.result {
-                case .Success(let marketInfo):
-                    
-                    self.marketValue = Double(marketInfo.response.marketValue)
-                    self.numberOfTransactions = marketInfo.response.numberOfTransactions
-                    self.valueOfTransactions = Double(marketInfo.response.valueOfTransactions)
-                    self.volumeOfTransactions = Double(marketInfo.response.volumeOfTransactions)
-                    
-                    self.tblMarketDetail.reloadData()
-                    
-                    break
-                    
-                case .Failure(let error):
-                    debugPrint(error)
-                }
+        Request.postData(url) { (marketInfo:MainResponse<MarketActivityModel>?, error) in
+            if ((marketInfo?.successful) != nil) {
+                self.marketValue = Double(marketInfo!.response.marketValue)
+                self.numberOfTransactions = marketInfo!.response.numberOfTransactions
+                self.valueOfTransactions = Double(marketInfo!.response.valueOfTransactions)
+                self.volumeOfTransactions = Double(marketInfo!.response.volumeOfTransactions)
                 
-                self.marketDetailsRefreshControl.endRefreshing()
+                self.tblMarketDetail.reloadData()
+            } else {
+                debugPrint(error)
+            }
+            self.marketDetailsRefreshControl.endRefreshing()
         }
     }
     

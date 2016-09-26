@@ -135,34 +135,19 @@ class SymbolListTableViewController: BaseTableViewController {
         ]
         
         // Fetch Request
-        Alamofire.request(.POST,url, headers: ServicesHeaders, parameters: body as? [String : AnyObject], encoding: .JSON)
-            .validate(statusCode: 200..<300)
-            .responseObjectErrorHadling(MainResponse<SymbolListByIndexResponse>.self) { response in
-                
-                switch response.result {
-                case .Success(let symbols):
-                    self.symbolDetailsList.removeAll()
-                    //                    self.symbolName.removeAll()
-                    //                    self.lastTradeValue.removeAll()
-                    //                    self.lastTradeChange.removeAll()
-                    //                    self.symbolVolume.removeAll()
-                    //                    self.symbolAmount.removeAll()
-                    //                    self.symbolCode.removeAll()
-                    for i in 0  ..< symbols.response.symbolDetailsList.count{
-                        self.symbolDetailsList.append(symbols.response.symbolDetailsList[i])
-                        //                        self.symbolName.append(symbols.response.symbolDetailsList[i].symbolNameFa)
-                        //                        self.lastTradeValue.append(Double(symbols.response.symbolDetailsList[i].lastTradePrice))
-                        //                        self.lastTradeChange.append(Double(symbols.response.symbolDetailsList[i].lastTradePriceChange))
-                        //                        self.symbolVolume.append(String(symbols.response.symbolDetailsList[i].transactionVolume))
-                        //                        self.symbolAmount.append(Int(symbols.response.symbolDetailsList[i].transactionNumber))
-                        //                        self.symbolCode.append(symbols.response.symbolDetailsList[i].symbolCode)
-                        self.tableView.reloadData()
-                    }
-                    break
-                case .Failure(let error):
-                    debugPrint(error)
+        Request.postData(url, body: body as? [String : AnyObject]) { (symbols:MainResponse<SymbolListByIndexResponse>?, error) in
+            
+            if ((symbols?.successful) != nil) {
+                self.symbolDetailsList.removeAll()
+                for i in 0  ..< symbols!.response.symbolDetailsList.count{
+                    self.symbolDetailsList.append(symbols!.response.symbolDetailsList[i])
+                    self.tableView.reloadData()
                 }
-                self.refreshControl?.endRefreshing()
+            } else {
+                debugPrint(error)
+            }
+            
+            self.refreshControl?.endRefreshing()
         }
     }
     
@@ -242,7 +227,7 @@ class SymbolListTableViewController: BaseTableViewController {
         self.tableView.reloadData()
     }
     
-
+    
     
 }
 
