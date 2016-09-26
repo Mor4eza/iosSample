@@ -96,18 +96,7 @@ class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
     }
     
     
-    
-    func ShowAlert(sender: AnyObject) {
-        
-        
-        let alert: MyAlert = {
-            let alert = MyAlert()
-            return alert
-        }()
-        alert.delegate = self
-        alert.showAlert("hello", details: "This is Alert", okTitle: "Ok", cancelTitle: "cancel", onView: view)
-        
-    }
+ 
     
     func setTexts(){
         self.title = "APP_NAME".localized()

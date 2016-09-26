@@ -10,7 +10,8 @@ target 'SabadBan' do
   pod 'Alamofire’
   pod 'SwiftEventBus'
   pod 'BTNavigationDropdownMenu'
-  pod 'ActionButton'
   pod 'SQLite.swift'
   pod 'SwiftCharts'
+  pod 'FCAlertView'
+  pod "KCFloatingActionButton", :git => 'https://github.com/kciter/KCFloatingActionButton.git', :branch => 'swift2.0'
 end

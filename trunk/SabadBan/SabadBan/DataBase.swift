@@ -11,19 +11,19 @@ import SQLite
 class DataBase{
     
     var db:Connection!
-  
+    
     var tblPortfolio:Table!
     var tblSymbolPortfolio:Table!
     var tblPsBuy:Table!
-      //portfolio Table
+    //portfolio Table
     let portfolioName = Expression<String?>("portfolioName")
     let portfolioCode = Expression<Int>("portfolioCode")
     let portfolioOwnerId = Expression<Int>("portfolioOwnerUserId")
-      //symbol Protfolio
+    //symbol Protfolio
     let psCode = Expression<Int>("psCode")
     let symbolPCode = Expression<Int>("portfolioCode")
     let symbolCode = Expression<String>("symbolCode")
-      //psBuy Table
+    //psBuy Table
     
     let PS_BUY_ID = Expression<Int>("buyId")
     let PS_BUY_PS_CODE = Expression<Int>("buyPSCode")
@@ -64,8 +64,8 @@ class DataBase{
             t.column(symbolPCode)
             t.column(symbolCode)
             })
-
-         //psBuy Table
+        
+        //psBuy Table
         
         
         tblPsBuy = Table("tbPsBuy")
@@ -76,7 +76,7 @@ class DataBase{
             t.column(PS_BUY_QUANTITY)
             t.column(PS_BUY_DATE)
             })
-
+        
     }
     
     
@@ -88,12 +88,12 @@ class DataBase{
     }
     
     func getSymbolbyPortfolio(pCode:Int) -> [String] {
-       
+        
         var symbols = [String]()
         
         
         for symbol in try! db.prepare(tblSymbolPortfolio.filter(symbolPCode == pCode)) {
-           
+            
             print("id: \(symbol[psCode]), pCode: \(symbol[symbolPCode]), \(symbol[symbolCode])")
             symbols.append(symbol[symbolCode])
         }
@@ -103,6 +103,12 @@ class DataBase{
     func deleteSymbolFromPortfoi(sCode:String , pCode:Int) {
         
         let symbol = tblSymbolPortfolio.filter(symbolPCode == pCode && symbolCode == sCode)
+        try! db.run(symbol.delete())
+    }
+    func deleteAllSymbolsInPortfolio(pCode:Int) {
+        
+        debugPrint("PCODE************: \(pCode)")
+        let symbol = tblSymbolPortfolio.filter(symbolPCode == pCode)
         try! db.run(symbol.delete())
     }
     
@@ -124,13 +130,13 @@ class DataBase{
     func getportfolioCodeByName(pName:String)->Int {
         
         var name = Int()
-      let  currentQuery = tblPortfolio.select(portfolioCode)
+        let  currentQuery = tblPortfolio.select(portfolioCode)
             .filter(portfolioName == pName)
         
         for pn in try!  db.prepare(currentQuery){
             name = pn[portfolioCode]
         }
-
+        
         return name
         
     }
@@ -147,7 +153,7 @@ class DataBase{
         }
         
         return pscode
-
+        
         
     }
     
@@ -164,7 +170,7 @@ class DataBase{
     }
     
     
-     //MARK:- psBuy
+    //MARK:- psBuy
     func addPsBuy(psCode:Int , price:Double , count:Double , date:String){
         
         let insert = tblPsBuy.insert(PS_BUY_PS_CODE <- psCode , PS_BUY_PRICE <- price ,  PS_BUY_QUANTITY <- count ,  PS_BUY_DATE <- date)
@@ -193,6 +199,7 @@ class DataBase{
         
         let ps = tblPsBuy.filter(PS_BUY_ID == buyCode )
         try! db.run(ps.delete())
-     
+        
     }
+
 }

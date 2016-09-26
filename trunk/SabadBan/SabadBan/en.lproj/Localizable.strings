@@ -16,6 +16,7 @@
 "Portfolio" = "Portfolio";
 "News" = "News";
 "Done" = "Done";
+"Warning" = "Warning";
 //MARK :- Setting View Controller Strings
 "Language" = " Language ";
 "SwitchLanguage" = "Switch Language";

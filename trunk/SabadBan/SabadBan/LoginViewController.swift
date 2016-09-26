@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import FCAlertView
 class LoginViewController: BaseViewController, UITextFieldDelegate {
     
     //MARK: Properties
@@ -37,7 +38,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         
         //MARK: - Login String
         
-        
+        get()
         lblRememberMe.text = "RememberMe".localized()
         btnLogin.setTitle("Login".localized(), forState: .Normal)
         txtUserName.placeholder = "Email".localized()
@@ -112,8 +113,17 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     }
     
     func showAlert(message : String) {
-        let alert = MyAlert()
-        alert.showAlert("Attention".localized(), details: message.localized(), okTitle: "Ok".localized(), cancelTitle: "", onView: self.view)
+        
+        
+        let alert = FCAlertView()
+        alert.makeAlertTypeCaution()
+        alert.colorScheme = UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1)
+        alert.showAlertInView(self,
+                              withTitle: "Attention".localized(),
+                              withSubtitle: message.localized(),
+                              withCustomImage: nil,
+                              withDoneButtonTitle: "Ok".localized(),
+                              andButtons: nil)
     }
     
     func beginLoginSequence() {
@@ -123,7 +133,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             showAlert("emailInvalid")
         } else if txtPassword.text == "" {
             showAlert("pleaseEnterPassword")
-        } else if txtUserName.text!.characters.count < 9 {
+        } else if txtPassword.text!.characters.count < 8 {
             showAlert("passwordLengthError")
         }
         else {
@@ -151,6 +161,22 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     }
     
     
+    func get(){
+        
+        let body = [
+            "email": "1@1.com",
+            "device_token": "test",
+            "password": "12345678"
+        ]
+        
+        
+        let url = AppNewsURL + URLS["login"]!
+        Request.postData(url,body: body) { (response:UserManagementModel<LoginResponse>?, error) in
+            
+            debugPrint("Hello \(response?.error?.email)")
+        }
+    }
+    
     //MARK:- Login Service
     
     func sendLoginRequest(email:String , password:String , pushToken:String) {
@@ -174,40 +200,38 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         ]
         
         // Fetch Request
-        Alamofire.request(.POST, url, headers: ServicesHeaders, parameters: body, encoding: .JSON)
-            .validate(statusCode: 200..<300)
-            .responseObjectErrorHadling(UserManagementModel<LoginResponse>.self) { response in
+        Request.postData(url,body: body) { (response:UserManagementModel<LoginResponse>?, error) in
+            
+            if ((response?.success) != nil) {
                 
-                switch response.result {
-                case .Success(let login):
-                    
-                    if login.result != nil {
-                        if login.errorCode == 200 {
-                            LoginToken = login.result.apiToken!
-                            self.successLogin = true
-                            LogedInUserName = email
-                            self.performSegueWithIdentifier("loginSegue", sender: nil)
-                            
-                            if self.chkRemember.on == true {
-                                self.defaults.setValue(email, forKey: "UserName")
-                                self.defaults.setValue(password, forKey: "Password")
-                            }else {
-                                self.defaults.setValue(nil, forKey: "UserName")
-                                self.defaults.setValue(nil, forKey: "Password")
-                            }
+                
+                if response!.result != nil {
+                    if response!.errorCode == 200 {
+                        LoginToken = response!.result.apiToken!
+                        self.successLogin = true
+                        LogedInUserName = email
+                        self.performSegueWithIdentifier("loginSegue", sender: nil)
+                        
+                        if self.chkRemember.on == true {
+                            self.defaults.setValue(email, forKey: "UserName")
+                            self.defaults.setValue(password, forKey: "Password")
+                        }else {
+                            self.defaults.setValue(nil, forKey: "UserName")
+                            self.defaults.setValue(nil, forKey: "Password")
                         }
-                    } else if login.errorCode == 202 {
-                        let alert = MyAlert()
-                        alert.showAlert("Attention".localized(), details: "emailOrPasswordInvalid".localized(), okTitle: "Ok".localized(), cancelTitle: "", onView: self.view)
                     }
-                    self.btnLogin.enabled = true
-                    progress.stopAnimating()
-                case .Failure(let error):
-                    debugPrint(error)
-                    self.btnLogin.enabled = true
-                    progress.stopAnimating()
+                } else if response!.errorCode == 202 {
+                    
+                    self.showAlert("emailOrPasswordInvalid".localized())
                 }
-                
+                self.btnLogin.enabled = true
+                progress.stopAnimating()
+            }else {
+                debugPrint(response?.error?.email)
+                self.btnLogin.enabled = true
+                progress.stopAnimating()
+            }
+            
         }
     }
     

@@ -15,7 +15,7 @@
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" image="menu_header" translatesAutoresizingMaskIntoConstraints="NO" id="Kq1-91-VeX">
                     <rect key="frame" x="0.0" y="0.0" width="524" height="229"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbu-b5-JhK">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Vbu-b5-JhK">
                     <rect key="frame" x="8" y="179" width="508" height="42"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="9OG-U4-mxL"/>
