@@ -17,6 +17,15 @@
 		8477D9051D85440F006BBFCE /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477D9041D85440F006BBFCE /* AboutUsViewController.swift */; };
 		8477D90C1D856D04006BBFCE /* MGBuildDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477D90B1D856D04006BBFCE /* MGBuildDate.m */; };
 		84A34BF61D7EF5E600B02A8D /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A34BF51D7EF5E600B02A8D /* AlamofireRequest.swift */; };
+		84C9E2851D992EF000F96EF8 /* BourseNewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2841D992EF000F96EF8 /* BourseNewsRequest.swift */; };
+		84C9E2871D99381300F96EF8 /* NewsMainResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2861D99381300F96EF8 /* NewsMainResponse.swift */; };
+		84C9E2891D993B5E00F96EF8 /* ObserverNewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2881D993B5E00F96EF8 /* ObserverNewsRequest.swift */; };
+		84C9E28D1D993D3E00F96EF8 /* IndexDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E28C1D993D3E00F96EF8 /* IndexDetailsRequest.swift */; };
+		84C9E2901D9970EE00F96EF8 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E28F1D9970EE00F96EF8 /* LoginRequest.swift */; };
+		84C9E2921D99762600F96EF8 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2911D99762600F96EF8 /* RegisterRequest.swift */; };
+		84C9E2941D997A0A00F96EF8 /* SymbolBestLimitRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2931D997A0A00F96EF8 /* SymbolBestLimitRequest.swift */; };
+		84C9E2961D997AE500F96EF8 /* SymbolTradingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2951D997AE500F96EF8 /* SymbolTradingRequest.swift */; };
+		84C9E2981D997B5700F96EF8 /* SymbolListByIndexRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2971D997B5700F96EF8 /* SymbolListByIndexRequest.swift */; };
 		9412F0EE1D857E0D00E94683 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9412F0EC1D857E0D00E94683 /* RegisterResponse.swift */; };
 		9412F0EF1D857E0D00E94683 /* UserManagementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9412F0ED1D857E0D00E94683 /* UserManagementModel.swift */; };
 		9412F0F11D857E3600E94683 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9412F0F01D857E3600E94683 /* LoginResponse.swift */; };
@@ -110,6 +119,15 @@
 		8477D90A1D856D04006BBFCE /* MGBuildDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGBuildDate.h; sourceTree = "<group>"; };
 		8477D90B1D856D04006BBFCE /* MGBuildDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGBuildDate.m; sourceTree = "<group>"; };
 		84A34BF51D7EF5E600B02A8D /* AlamofireRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
+		84C9E2841D992EF000F96EF8 /* BourseNewsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BourseNewsRequest.swift; sourceTree = "<group>"; };
+		84C9E2861D99381300F96EF8 /* NewsMainResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsMainResponse.swift; sourceTree = "<group>"; };
+		84C9E2881D993B5E00F96EF8 /* ObserverNewsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverNewsRequest.swift; sourceTree = "<group>"; };
+		84C9E28C1D993D3E00F96EF8 /* IndexDetailsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexDetailsRequest.swift; sourceTree = "<group>"; };
+		84C9E28F1D9970EE00F96EF8 /* LoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		84C9E2911D99762600F96EF8 /* RegisterRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
+		84C9E2931D997A0A00F96EF8 /* SymbolBestLimitRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolBestLimitRequest.swift; sourceTree = "<group>"; };
+		84C9E2951D997AE500F96EF8 /* SymbolTradingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolTradingRequest.swift; sourceTree = "<group>"; };
+		84C9E2971D997B5700F96EF8 /* SymbolListByIndexRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolListByIndexRequest.swift; sourceTree = "<group>"; };
 		9412F0EC1D857E0D00E94683 /* RegisterResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		9412F0ED1D857E0D00E94683 /* UserManagementModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManagementModel.swift; sourceTree = "<group>"; };
 		9412F0F01D857E3600E94683 /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
@@ -253,6 +271,51 @@
 			name = BuildDate;
 			sourceTree = "<group>";
 		};
+		84C9E27F1D9929BB00F96EF8 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				7CAF1DC31D8C1BAB003E22A4 /* MarketActivity */,
+				9412F0E81D857DE200E94683 /* UserManagement */,
+				94B772311D7FEA65002AA618 /* News */,
+				944EF1901D7EC28200A039BA /* SymbolDetails */,
+				947C63941D75816400676822 /* Portfolio */,
+				949BEEA31D72CA13008FA574 /* Index */,
+				944EF19D1D7EE79400A039BA /* MainResponse.swift */,
+			);
+			name = Response;
+			sourceTree = "<group>";
+		};
+		84C9E2801D9929C800F96EF8 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				84C9E28E1D9970CB00F96EF8 /* UserManagement */,
+				84C9E2811D9929F200F96EF8 /* News */,
+				84C9E28C1D993D3E00F96EF8 /* IndexDetailsRequest.swift */,
+				84C9E2931D997A0A00F96EF8 /* SymbolBestLimitRequest.swift */,
+				84C9E2951D997AE500F96EF8 /* SymbolTradingRequest.swift */,
+				84C9E2971D997B5700F96EF8 /* SymbolListByIndexRequest.swift */,
+			);
+			name = Request;
+			sourceTree = "<group>";
+		};
+		84C9E2811D9929F200F96EF8 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				84C9E2881D993B5E00F96EF8 /* ObserverNewsRequest.swift */,
+				84C9E2841D992EF000F96EF8 /* BourseNewsRequest.swift */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		84C9E28E1D9970CB00F96EF8 /* UserManagement */ = {
+			isa = PBXGroup;
+			children = (
+				84C9E28F1D9970EE00F96EF8 /* LoginRequest.swift */,
+				84C9E2911D99762600F96EF8 /* RegisterRequest.swift */,
+			);
+			name = UserManagement;
+			sourceTree = "<group>";
+		};
 		9412F0E81D857DE200E94683 /* UserManagement */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +403,7 @@
 			children = (
 				9465DB5F1D83D702007F0572 /* BourseNewsDetailsList.swift */,
 				9465DB601D83D702007F0572 /* BourseNewsResponse.swift */,
+				84C9E2861D99381300F96EF8 /* NewsMainResponse.swift */,
 			);
 			name = BourseNews;
 			sourceTree = "<group>";
@@ -547,13 +611,8 @@
 		949BEE681D72A74F008FA574 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7CAF1DC31D8C1BAB003E22A4 /* MarketActivity */,
-				9412F0E81D857DE200E94683 /* UserManagement */,
-				94B772311D7FEA65002AA618 /* News */,
-				944EF1901D7EC28200A039BA /* SymbolDetails */,
-				947C63941D75816400676822 /* Portfolio */,
-				949BEEA31D72CA13008FA574 /* Index */,
-				944EF19D1D7EE79400A039BA /* MainResponse.swift */,
+				84C9E2801D9929C800F96EF8 /* Request */,
+				84C9E27F1D9929BB00F96EF8 /* Response */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -735,7 +794,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 949BEE601D72A51C008FA574 /* Build configuration list for PBXNativeTarget "SabadBan" */;
 			buildPhases = (
-				23E0DAE45421868EF7347EBA /* 📦 Check Pods Manifest.lock */,
+				23E0DAE45421868EF7347EBA /* [CP] Check Pods Manifest.lock */,
 				DA8014AD9787A3B930297CC7 /* [CP] Check Pods Manifest.lock */,
 				8312FA5A350B89DD3F034BF3 /* [CP] Check Pods Manifest.lock */,
 				C5D64A95F08DFE760624CE14 /* [CP] Check Pods Manifest.lock */,
@@ -824,14 +883,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		23E0DAE45421868EF7347EBA /* 📦 Check Pods Manifest.lock */ = {
+		23E0DAE45421868EF7347EBA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -952,6 +1011,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				944EF1941D7EC29A00A039BA /* BestLimitDataList.swift in Sources */,
+				84C9E2981D997B5700F96EF8 /* SymbolListByIndexRequest.swift in Sources */,
 				9478A6451D892ACC0087B574 /* RegisterViewController.swift in Sources */,
 				9412F0EF1D857E0D00E94683 /* UserManagementModel.swift in Sources */,
 				947C638C1D744FD300676822 /* SymbolListHeader.swift in Sources */,
@@ -978,6 +1038,7 @@
 				949BEE521D72A51C008FA574 /* AppDelegate.swift in Sources */,
 				9465DB681D840450007F0572 /* NewsTabBarController.swift in Sources */,
 				9465DB661D83E935007F0572 /* NewsDetailViewController.swift in Sources */,
+				84C9E2901D9970EE00F96EF8 /* LoginRequest.swift in Sources */,
 				949BEEB71D731228008FA574 /* ChartViewController.swift in Sources */,
 				949BEEA91D72CA88008FA574 /* Response.swift in Sources */,
 				9412F0EE1D857E0D00E94683 /* RegisterResponse.swift in Sources */,
@@ -987,8 +1048,11 @@
 				949BEEA21D72B9C1008FA574 /* IndexCell.swift in Sources */,
 				94CD629D1D8965D600F7B496 /* IndexDetailHeader.swift in Sources */,
 				94B7722D1D7FE18D002AA618 /* ObserverNewsTableViewController.swift in Sources */,
+				84C9E2851D992EF000F96EF8 /* BourseNewsRequest.swift in Sources */,
+				84C9E28D1D993D3E00F96EF8 /* IndexDetailsRequest.swift in Sources */,
 				949BEE891D72A883008FA574 /* BaseViewController.swift in Sources */,
 				949BEE821D72A7DA008FA574 /* MyMenuTableViewController.swift in Sources */,
+				84C9E2961D997AE500F96EF8 /* SymbolTradingRequest.swift in Sources */,
 				948776691D882FA9009E358F /* menuCell.swift in Sources */,
 				947C63881D744F3E00676822 /* SymbolDetailsList.swift in Sources */,
 				948B466A1D76BCE500F464C2 /* SymbolsDetailsList.swift in Sources */,
@@ -999,6 +1063,7 @@
 				7CAF1DBE1D8BD66F003E22A4 /* String.swift in Sources */,
 				94B772351D7FEA7D002AA618 /* NewsDetailsList.swift in Sources */,
 				947C63891D744F3E00676822 /* SymbolListByIndexResponse.swift in Sources */,
+				84C9E2941D997A0A00F96EF8 /* SymbolBestLimitRequest.swift in Sources */,
 				949BEE9A1D72B2FE008FA574 /* IndexTableViewController.swift in Sources */,
 				949BEE771D72A7AD008FA574 /* UIView.swift in Sources */,
 				949BEE6D1D72A78A008FA574 /* Utils.swift in Sources */,
@@ -1010,10 +1075,12 @@
 				949BEEB91D731235008FA574 /* DetailsViewController.swift in Sources */,
 				9412F0F11D857E3600E94683 /* LoginResponse.swift in Sources */,
 				949BEEA01D72B5C8008FA574 /* IndexHeader.swift in Sources */,
+				84C9E2871D99381300F96EF8 /* NewsMainResponse.swift in Sources */,
 				949BEE7D1D72A7C4008FA574 /* ENSideMenuNavigationController.swift in Sources */,
 				947C639D1D75BA8C00676822 /* DataBase.swift in Sources */,
 				84A34BF61D7EF5E600B02A8D /* AlamofireRequest.swift in Sources */,
 				9420042F1D8D4AB500B358BC /* BuyInformationView.swift in Sources */,
+				84C9E2921D99762600F96EF8 /* RegisterRequest.swift in Sources */,
 				9458E1531D7E8976009A211A /* SymbolDetailsViewController.swift in Sources */,
 				944EF19E1D7EE79400A039BA /* MainResponse.swift in Sources */,
 				949BEE6E1D72A78A008FA574 /* AppConstants.swift in Sources */,
@@ -1023,6 +1090,7 @@
 				94E30E201D8FC4E40052EF59 /* DatePickerSheet.swift in Sources */,
 				944EF1961D7EC29A00A039BA /* SymbolBestLimitResponse.swift in Sources */,
 				949BEEB51D7311F7008FA574 /* IndexDetailsTabBarController.swift in Sources */,
+				84C9E2891D993B5E00F96EF8 /* ObserverNewsRequest.swift in Sources */,
 				947C63961D7581D100676822 /* PortfolioListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

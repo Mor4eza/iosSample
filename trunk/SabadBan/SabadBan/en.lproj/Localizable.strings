@@ -99,3 +99,6 @@
 "phoneNumberLengthError" = "phoneNumberLengthError";
 "emailRegisterdBefore" = "emailRegisterdBefore";
 "unknownRegisterError" = "unknownRegisterError";
+
+//MARK: - Global String
+"noInternet" = "No Internet connection";

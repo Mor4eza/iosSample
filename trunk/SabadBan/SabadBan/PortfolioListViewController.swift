@@ -226,7 +226,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         self.fab.removeFromSuperview()
         
         
-       
+        
         addPortfolio.icon = UIImage(named: "ic_add_portfolio")
         addPortfolio.title = "AddPortfolio".localized()
         
@@ -311,13 +311,13 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             self.db.deletePortfolio(self.db.getportfolioCodeByName(self.currentPortfolio))
             self.loadSymbolsFromDb()
             self.initNavigationTitle()
-           
+            
         }
         
-       
+        
         
         fab.fabDelegate = self
-       
+        
         fab.removeItem(item: addPortfolio)
         fab.addItem(item: addPortfolio)
         fab.addItem(item: deletePortfolio)
@@ -326,7 +326,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         fab.addItem(item: addSymbol)
         addPortfolio.hidden = true
         self.view.addSubview(fab)
-
+        
     }
     
     
@@ -347,27 +347,22 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         ]
         
         // Fetch Request
-        Alamofire.request(.POST, url, headers: ServicesHeaders, parameters: body as? [String : AnyObject], encoding: .JSON)
-            .validate(statusCode: 200..<300)
-            .responseObjectErrorHadling(MainResponse<SymbolListModelResponse>.self) { response in
+        Request.postData(url, body: body as? [String : AnyObject]) { (symbols:MainResponse<SymbolListModelResponse>?, error)  in
+            
+            if ((symbols?.successful) != nil) {
+                self.smData.removeAll()
                 
-                switch response.result {
-                case .Success(let symbols):
-                    self.smData.removeAll()
+                for i in 0  ..< symbols!.response.symbolDetailsList.count{
                     
-                    for i in 0  ..< symbols.response.symbolDetailsList.count{
-                        
-                        self.smData.append(symData(name: symbols.response.symbolDetailsList[i].symbolNameFa, baseValue: symbols.response.symbolDetailsList[i].baseValue, benchmarkBuy: symbols.response.symbolDetailsList[i].benchmarkBuy, benchmarkSales: symbols.response.symbolDetailsList[i].benchmarkSales, buyValue: symbols.response.symbolDetailsList[i].buyValue, closePrice: symbols.response.symbolDetailsList[i].closePrice, closePriceChange: symbols.response.symbolDetailsList[i].closePriceChange, closePriceYesterday: symbols.response.symbolDetailsList[i].closePriceYesterday, descriptionField: symbols.response.symbolDetailsList[i].descriptionField, eps: symbols.response.symbolDetailsList[i].eps, highPrice: symbols.response.symbolDetailsList[i].highPrice, lastTradeDate: symbols.response.symbolDetailsList[i].lastTradeDate, lastTradePrice: symbols.response.symbolDetailsList[i].lastTradePrice, lastTradePriceChange: symbols.response.symbolDetailsList[i].lastTradePriceChange, lastTradePriceChangePercent: symbols.response.symbolDetailsList[i].lastTradePriceChangePercent, lowPrice: symbols.response.symbolDetailsList[i].lowPrice, marketValue: symbols.response.symbolDetailsList[i].marketValue, openPrice: symbols.response.symbolDetailsList[i].openPrice, pe: symbols.response.symbolDetailsList[i].pe, status: symbols.response.symbolDetailsList[i].status, symbolCode: symbols.response.symbolDetailsList[i].symbolCode, symbolCompleteNameFa: symbols.response.symbolDetailsList[i].symbolCompleteNameFa, symbolNameEn: symbols.response.symbolDetailsList[i].symbolNameEn, symbolNameFa: symbols.response.symbolDetailsList[i].symbolNameFa, todayPrice: symbols.response.symbolDetailsList[i].todayPrice, todayProfit:self.getBuyData(symbols.response.symbolDetailsList[i].symbolCode,price: symbols.response.symbolDetailsList[i].lastTradePrice).today, totalProfit:self.getBuyData(symbols.response.symbolDetailsList[i].symbolCode,price: symbols.response.symbolDetailsList[i].closePrice).overAll, transactionNumber: symbols.response.symbolDetailsList[i].transactionNumber, transactionVolume: symbols.response.symbolDetailsList[i].transactionVolume))
-                    }
-                    
-                    
-                    self.tblPortfolio.reloadData()
-                    self.showHintView()
-                    
-                case .Failure(let error):
-                    debugPrint(error)
+                    self.smData.append(symData(name: symbols!.response.symbolDetailsList[i].symbolNameFa, baseValue: symbols!.response.symbolDetailsList[i].baseValue, benchmarkBuy: symbols!.response.symbolDetailsList[i].benchmarkBuy, benchmarkSales: symbols!.response.symbolDetailsList[i].benchmarkSales, buyValue: symbols!.response.symbolDetailsList[i].buyValue, closePrice: symbols!.response.symbolDetailsList[i].closePrice, closePriceChange: symbols!.response.symbolDetailsList[i].closePriceChange, closePriceYesterday: symbols!.response.symbolDetailsList[i].closePriceYesterday, descriptionField: symbols!.response.symbolDetailsList[i].descriptionField, eps: symbols!.response.symbolDetailsList[i].eps, highPrice: symbols!.response.symbolDetailsList[i].highPrice, lastTradeDate: symbols!.response.symbolDetailsList[i].lastTradeDate, lastTradePrice: symbols!.response.symbolDetailsList[i].lastTradePrice, lastTradePriceChange: symbols!.response.symbolDetailsList[i].lastTradePriceChange, lastTradePriceChangePercent: symbols!.response.symbolDetailsList[i].lastTradePriceChangePercent, lowPrice: symbols!.response.symbolDetailsList[i].lowPrice, marketValue: symbols!.response.symbolDetailsList[i].marketValue, openPrice: symbols!.response.symbolDetailsList[i].openPrice, pe: symbols!.response.symbolDetailsList[i].pe, status: symbols!.response.symbolDetailsList[i].status, symbolCode: symbols!.response.symbolDetailsList[i].symbolCode, symbolCompleteNameFa: symbols!.response.symbolDetailsList[i].symbolCompleteNameFa, symbolNameEn: symbols!.response.symbolDetailsList[i].symbolNameEn, symbolNameFa: symbols!.response.symbolDetailsList[i].symbolNameFa, todayPrice: symbols!.response.symbolDetailsList[i].todayPrice, todayProfit:self.getBuyData(symbols!.response.symbolDetailsList[i].symbolCode,price: symbols!.response.symbolDetailsList[i].lastTradePrice).today, totalProfit:self.getBuyData(symbols!.response.symbolDetailsList[i].symbolCode,price: symbols!.response.symbolDetailsList[i].closePrice).overAll, transactionNumber: symbols!.response.symbolDetailsList[i].transactionNumber, transactionVolume: symbols!.response.symbolDetailsList[i].transactionVolume))
                 }
-                //                self.refreshControll?.endRefreshing()
+                
+                self.tblPortfolio.reloadData()
+                self.showHintView()
+            } else {
+                debugPrint(error)
+            }
+            //                self.refreshControll?.endRefreshing()
         }
     }
     

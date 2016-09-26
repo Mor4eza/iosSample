@@ -99,3 +99,6 @@
 "phoneNumberLengthError" = "لطفا شماره همراه را با ۱۱ رقم وارد کنید.";
 "emailRegisterdBefore" = "قبلا با این ایمیل ثبت نام انجام شده است.";
 "unknownRegisterError" = "در فرآیند ثبت نام خطایی رخ داده است.";
+
+//MARK: - Global String
+"noInternet" = "اتصال اینترنت برقرار نیست!";

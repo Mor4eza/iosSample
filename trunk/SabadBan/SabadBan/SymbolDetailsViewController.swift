@@ -118,42 +118,36 @@ class SymbolDetailsViewController: BaseTableViewController {
         let url = AppTadbirUrl + URLS["getBestLimitsBySymbol"]!
         
         // JSON Body
-        let body = [
-            "symbolCode": sCode
-        ]
+        let body = SymbolBestLimitRequest(symbolCode: sCode).getDic()
         
         // Fetch Request
-        Alamofire.request(.POST, url, headers: ServicesHeaders, parameters: body, encoding: .JSON)
-            .validate(statusCode: 200..<300)
-            .responseObjectErrorHadling(MainResponse<SymbolBestLimitResponse>.self) { response in
-                
-                switch response.result {
-                case .Success(let bestLimit):
-                    if  bestLimit.response.bestLimitDataList.count > 0 {
-                        self.lblBBPValue1.text = bestLimit.response.bestLimitDataList[0].buyPrice.currencyFormat()
-                        self.lblBBPValue2.text = bestLimit.response.bestLimitDataList[1].buyPrice.currencyFormat()
-                        self.lblBBPValue3.text = bestLimit.response.bestLimitDataList[2].buyPrice.currencyFormat()
-                        self.lblBBVValue1.text = bestLimit.response.bestLimitDataList[0].buyValue.currencyFormat()
-                        self.lblBBVValue2.text = bestLimit.response.bestLimitDataList[1].buyValue.currencyFormat()
-                        self.lblBBVValue3.text = bestLimit.response.bestLimitDataList[2].buyValue.currencyFormat()
-                        self.lblBBCValue1.text = bestLimit.response.bestLimitDataList[0].buyNumber.currencyFormat()
-                        self.lblBBCValue2.text = bestLimit.response.bestLimitDataList[1].buyNumber.currencyFormat()
-                        self.lblBBCValue3.text = bestLimit.response.bestLimitDataList[2].buyNumber.currencyFormat()
-                        
-                        self.lblBSPValue1.text = bestLimit.response.bestLimitDataList[0].sellPrice.currencyFormat()
-                        self.lblBSPValue2.text = bestLimit.response.bestLimitDataList[1].sellPrice.currencyFormat()
-                        self.lblBSPValue3.text = bestLimit.response.bestLimitDataList[2].sellPrice.currencyFormat()
-                        self.lblBSVValue1.text = bestLimit.response.bestLimitDataList[0].sellValue.currencyFormat()
-                        self.lblBSVValue2.text = bestLimit.response.bestLimitDataList[1].sellValue.currencyFormat()
-                        self.lblBSVValue3.text = bestLimit.response.bestLimitDataList[2].sellValue.currencyFormat()
-                        self.lblBSCValue1.text = bestLimit.response.bestLimitDataList[0].sellNumber.currencyFormat()
-                        self.lblBSCValue2.text = bestLimit.response.bestLimitDataList[1].sellNumber.currencyFormat()
-                        self.lblBSCValue3.text = bestLimit.response.bestLimitDataList[2].sellNumber.currencyFormat()
-                    }
-                case .Failure(let error):
-                    debugPrint(error)
+        Request.postData(url, body: body) { (bestLimit:MainResponse<SymbolBestLimitResponse>?, error) in
+            
+            if ((bestLimit?.successful) != nil) {
+                if  bestLimit!.response.bestLimitDataList.count > 0 {
+                    self.lblBBPValue1.text = bestLimit!.response.bestLimitDataList[0].buyPrice.currencyFormat()
+                    self.lblBBPValue2.text = bestLimit!.response.bestLimitDataList[1].buyPrice.currencyFormat()
+                    self.lblBBPValue3.text = bestLimit!.response.bestLimitDataList[2].buyPrice.currencyFormat()
+                    self.lblBBVValue1.text = bestLimit!.response.bestLimitDataList[0].buyValue.currencyFormat()
+                    self.lblBBVValue2.text = bestLimit!.response.bestLimitDataList[1].buyValue.currencyFormat()
+                    self.lblBBVValue3.text = bestLimit!.response.bestLimitDataList[2].buyValue.currencyFormat()
+                    self.lblBBCValue1.text = bestLimit!.response.bestLimitDataList[0].buyNumber.currencyFormat()
+                    self.lblBBCValue2.text = bestLimit!.response.bestLimitDataList[1].buyNumber.currencyFormat()
+                    self.lblBBCValue3.text = bestLimit!.response.bestLimitDataList[2].buyNumber.currencyFormat()
+                    
+                    self.lblBSPValue1.text = bestLimit!.response.bestLimitDataList[0].sellPrice.currencyFormat()
+                    self.lblBSPValue2.text = bestLimit!.response.bestLimitDataList[1].sellPrice.currencyFormat()
+                    self.lblBSPValue3.text = bestLimit!.response.bestLimitDataList[2].sellPrice.currencyFormat()
+                    self.lblBSVValue1.text = bestLimit!.response.bestLimitDataList[0].sellValue.currencyFormat()
+                    self.lblBSVValue2.text = bestLimit!.response.bestLimitDataList[1].sellValue.currencyFormat()
+                    self.lblBSVValue3.text = bestLimit!.response.bestLimitDataList[2].sellValue.currencyFormat()
+                    self.lblBSCValue1.text = bestLimit!.response.bestLimitDataList[0].sellNumber.currencyFormat()
+                    self.lblBSCValue2.text = bestLimit!.response.bestLimitDataList[1].sellNumber.currencyFormat()
+                    self.lblBSCValue3.text = bestLimit!.response.bestLimitDataList[2].sellNumber.currencyFormat()
                 }
-                
+            } else {
+                debugPrint(error)
+            }
         }
         
     }
@@ -169,31 +163,25 @@ class SymbolDetailsViewController: BaseTableViewController {
         let url = AppTadbirUrl + URLS["getSymbolTradingDetails"]!
         
         // JSON Body
-        let body = [
-            "symbolCode": sCode
-        ]
+        let body = SymbolTradingRequest(symbolCode: sCode).getDic()
         
         // Fetch Request
-        Alamofire.request(.POST, url, headers: ServicesHeaders, parameters: body, encoding: .JSON)
-            .validate(statusCode: 200..<300)
-            .responseObjectErrorHadling(MainResponse<SymbolTradingResponse>.self) { response in
-                
-                switch response.result {
-                case .Success(let trading):
-                    if trading.response != nil {
-                        self.lblCount1Value.text = trading.response.buyNumberLegal.currencyFormat()
-                        self.lblCount2Value.text = trading.response.buyNumberReal.currencyFormat()
-                        self.lblCount3Value.text = trading.response.sellNumberLegal.currencyFormat()
-                        self.lblCount4Value.text = trading.response.sellNumberReal.currencyFormat()
-                        self.lblVolume1value.text = trading.response.buyVolumeLegal.currencyFormat()
-                        self.lblVolume2value.text = trading.response.buyVolumeReal.currencyFormat()
-                        self.lblVolume3value.text = trading.response.sellVolumeLegal.currencyFormat()
-                        self.lblVolume4value.text = trading.response.sellVolumeReal.currencyFormat()
-                    }
-                case .Failure(let error):
-                    debugPrint(error)
+        Request.postData(url, body: body) { (trading:MainResponse<SymbolTradingResponse>?, error) in
+            
+            if ((trading?.successful) != nil) {
+                if trading!.response != nil {
+                    self.lblCount1Value.text = trading!.response.buyNumberLegal.currencyFormat()
+                    self.lblCount2Value.text = trading!.response.buyNumberReal.currencyFormat()
+                    self.lblCount3Value.text = trading!.response.sellNumberLegal.currencyFormat()
+                    self.lblCount4Value.text = trading!.response.sellNumberReal.currencyFormat()
+                    self.lblVolume1value.text = trading!.response.buyVolumeLegal.currencyFormat()
+                    self.lblVolume2value.text = trading!.response.buyVolumeReal.currencyFormat()
+                    self.lblVolume3value.text = trading!.response.sellVolumeLegal.currencyFormat()
+                    self.lblVolume4value.text = trading!.response.sellVolumeReal.currencyFormat()
                 }
-                
+            } else {
+                debugPrint(error)
+            }
         }
         
     }
@@ -204,39 +192,27 @@ class SymbolDetailsViewController: BaseTableViewController {
     func getSymbolListData(sCode:[String]) {
         
         let url = AppTadbirUrl + URLS["getSymbolListAndDetails"]!
-        let headers = [
-            "Content-Type":"application/json",
-            ]
         
         // JSON Body
-        let body = [
-            "pageNumber": 0,
-            "recordPerPage": 0,
-            "symbolCode": sCode,
-            "supportPaging": false
-        ]
+        let body = SymbolListByIndexRequest(pageNumber: 0, recordPerPage: 0, symbolCode: sCode, supportPaging: false).getDic()
         
         // Fetch Request
-        Alamofire.request(.POST, url, headers: headers, parameters: body as? [String : AnyObject], encoding: .JSON)
-            .validate(statusCode: 200..<300)
-            .responseObjectErrorHadling(MainResponse<SymbolListByIndexResponse>.self) { response in
-                
-                switch response.result {
-                case .Success(let symbol):
-                  
-                    if symbol.response.symbolDetailsList.count > 0 {
-                        self.lblLastPriceValues.text = symbol.response.symbolDetailsList[0].closePrice.currencyFormat()
-                        self.lblLastPriceChanges.text = String(symbol.response.symbolDetailsList[0].closePriceChange)
-                        self.lblLastPriceDate.text = ""
-                        self.lblLastPriceValue.text = symbol.response.symbolDetailsList[0].lastTradePrice.currencyFormat()
-                        self.lblStartPriceValue.text = symbol.response.symbolDetailsList[0].lowPrice.currencyFormat()
-                        self.lblLowPriceValue.text = symbol.response.symbolDetailsList[0].lowPrice.currencyFormat()
-                        self.lblhighPriceValue.text = symbol.response.symbolDetailsList[0].highPrice.currencyFormat()
-                    }
-                case .Failure(let error):
-                    debugPrint(error)
+        Request.postData(url, body: body) { (symbol:MainResponse<SymbolListByIndexResponse>?, error) in
+            
+            if ((symbol?.successful) != nil) {
+                if symbol!.response.symbolDetailsList.count > 0 {
+                    self.lblLastPriceValues.text = symbol!.response.symbolDetailsList[0].closePrice.currencyFormat()
+                    self.lblLastPriceChanges.text = String(symbol!.response.symbolDetailsList[0].closePriceChange)
+                    self.lblLastPriceDate.text = ""
+                    self.lblLastPriceValue.text = symbol!.response.symbolDetailsList[0].lastTradePrice.currencyFormat()
+                    self.lblStartPriceValue.text = symbol!.response.symbolDetailsList[0].lowPrice.currencyFormat()
+                    self.lblLowPriceValue.text = symbol!.response.symbolDetailsList[0].lowPrice.currencyFormat()
+                    self.lblhighPriceValue.text = symbol!.response.symbolDetailsList[0].highPrice.currencyFormat()
                 }
-                //                self.refreshControll?.endRefreshing()
+            } else {
+                debugPrint(error)
+            }
+            //                self.refreshControll?.endRefreshing()
         }
     }
     

@@ -69,10 +69,6 @@ class ObserverNewsTableViewController: BaseTableViewController ,ENSideMenuDelega
         refreshControl?.beginRefreshing()
         
         let url = AppTadbirUrl + URLS["getNewsListAndDetails"]!
-        // Add Headers
-        let headers = [
-            "Content-Type":"application/json",
-            ]
         
         let date = NSDate();
         
@@ -82,29 +78,20 @@ class ObserverNewsTableViewController: BaseTableViewController ,ENSideMenuDelega
         
         debugPrint(time)
         // JSON Body
-        let body = [
-            "newsStartTime": time,
-            "symbolCodeList": [
-                
-            ]
-        ]
+        let body = ObserverNewsRequest(newsStartTime: time, symbolCodeList: []).getDic()
         
         // Fetch Request
-        Alamofire.request(.POST, url, headers: headers, parameters: body as? [String : AnyObject], encoding: .JSON)
-            .validate(statusCode: 200..<300)
-            .responseObjectErrorHadling(MainResponse<ObserverNewsResponse>.self) { response in
-                
-                switch response.result {
-                case .Success(let news):
-                    
-                    for i in 0..<news.response.newsDetailsList.count {
-                        self.newsModel.append(NewsModel(title: news.response.newsDetailsList[i].newsTitle, details: news.response.newsDetailsList[i].newsReport, date: news.response.newsDetailsList[i].newsTime,link: ""))
-                    }
-                    self.tableView.reloadData()
-                case .Failure(let error):
-                    debugPrint(error)
+        Request.postData(url, body: body) { (news:MainResponse<ObserverNewsResponse>?, error)  in
+            
+            if ((news?.successful) != nil) {
+                for i in 0..<news!.response.newsDetailsList.count {
+                    self.newsModel.append(NewsModel(title: news!.response.newsDetailsList[i].newsTitle, details: news!.response.newsDetailsList[i].newsReport, date: news!.response.newsDetailsList[i].newsTime,link: ""))
                 }
-                self.refreshControl?.endRefreshing()
+                self.tableView.reloadData()
+            } else {
+                debugPrint(error)
+            }
+            self.refreshControl?.endRefreshing()
         }
         
         

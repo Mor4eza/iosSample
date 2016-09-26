@@ -76,40 +76,30 @@ class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate
             debugPrint("page : \(page)")
             let url = AppNewsURL + URLS["getBourseNews"]!
             // Add Headers
-            let headers = [
-                "Content-Type":"application/json",
-                ]
             
-            let body = [
-                "take":10,
-                "api_token": LoginToken,
-                "page": page
-            ]
+            let body = BourseNewsRequest(take: 10, api_token: LoginToken, page: page).getDic()
+            
             // Fetch Request
-            Alamofire.request(.POST,url, headers: headers, parameters: body as? [String : AnyObject] , encoding: .JSON)
-                .validate(statusCode: 200..<300)
-                .responseObjectErrorHadling(MainResponse<BourseNewsResponse>.self) { response in
-                    
-                    switch response.result {
-                    case .Success(let news):
-                        for i in 0..<news.response.newsDetailsList.count {
-                            self.newsModel.append(NewsModel(title: news.response.newsDetailsList[i].title, details: news.response.newsDetailsList[i].descriptionField, date: news.response.newsDetailsList[i].createdAt,link: news.response.newsDetailsList[i].reference))
-                        }
-                        self.newsCount += news.response.count
-                        self.servicePage += 1
-                        
-                        debugPrint(" news.response.count : \( news.response.count)")
-                        
-                        if (news.response.count) > 0 {
-                            
-                            self.isMore = true
-                        }else {
-                            self.isMore = false
-                        }
-                        self.tableView.reloadData()
-                    case .Failure(let error):
-                        debugPrint(error)
+            Request.postData(url, body: body) { (news:NewsMainResponse<BourseNewsResponse>?, error) in
+                if ((news?.success) != nil) {
+                    for i in 0..<news!.response.newsDetailsList.count {
+                        self.newsModel.append(NewsModel(title: news!.response.newsDetailsList[i].title, details: news!.response.newsDetailsList[i].descriptionField, date: news!.response.newsDetailsList[i].createdAt,link: news!.response.newsDetailsList[i].reference))
                     }
+                    self.newsCount += news!.response.count
+                    self.servicePage += 1
+                    
+                    debugPrint(" news.response.count : \( news!.response.count)")
+                    
+                    if (news!.response.count) > 0 {
+                        
+                        self.isMore = true
+                    }else {
+                        self.isMore = false
+                    }
+                    self.tableView.reloadData()
+                } else {
+                    debugPrint(error)
+                }
             }
         }
         self.refreshControl?.endRefreshing()

@@ -120,7 +120,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
             showAlert("phoneNumberLengthError")
         } else if txtPassword.text == "" {
             showAlert("pleaseEnterPassword")
-        } else if txtUserName.text!.characters.count < 9 {
+        } else if txtPassword.text!.characters.count < 8 {
             showAlert("passwordLengthError")
         } else if txtRPassword.text == "" {
             showAlert("pleaseEnterPasswordRepeat")
@@ -146,7 +146,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
                               withCustomImage: nil,
                               withDoneButtonTitle: "Ok".localized(),
                               andButtons: nil)
-
+        
     }
     
     
@@ -196,47 +196,37 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         let url = AppNewsURL + URLS["register"]!
         
         // JSON Body
-        let body = [
-            "email": email,
-            "device_token": pushToken,
-            "phone": phone,
-            "password": password
-        ]
+        let body = RegisterRequest(email: email, device_token: pushToken, password: password, phone: phone).getDic()
         
         // Fetch Request
-        Alamofire.request(.POST, url, headers: ServicesHeaders, parameters: body, encoding: .JSON)
-            .validate(statusCode: 200..<300)
-            .responseObjectErrorHadling(UserManagementModel<RegisterResponse>.self) { response in
-                
-                switch response.result {
-                case .Success(let register):
-                    
-                    if register.result != nil {
-                        if register.errorCode == 100 {
-                            LoginToken = register.result.apiToken!
-                            self.successLogin = true
-                            LogedInUserName = email
-                            //                            self.dismissViewControllerAnimated(true, completion: nil)
-                            self.defaults.setValue(email, forKey: "UserName")
-                            self.performSegueWithIdentifier("registerSegue", sender: nil)
-                            
-                        }
-                    } else if register.errorCode == 101 {
-                        if (register.error?.unigueEmail != nil) {
-                            self.showAlert("emailRegisterdBefore")
-                        }
-                    } else if register.errorCode == 102 {
-                        self.showAlert("unknownRegisterError")
+        Request.postData(url, body: body) { (register:UserManagementModel<RegisterResponse>?, error) in
+            
+            if ((register?.success) != nil) {
+                if register!.result != nil {
+                    if register!.errorCode == 100 {
+                        LoginToken = register!.result.apiToken!
+                        self.successLogin = true
+                        LogedInUserName = email
+                        //                            self.dismissViewControllerAnimated(true, completion: nil)
+                        self.defaults.setValue(email, forKey: "UserName")
+                        self.performSegueWithIdentifier("registerSegue", sender: nil)
+                        
                     }
-                    
-                    self.btnRegister.enabled = true
-                    progress.stopAnimating()
-                    
-                case .Failure(let error):
-                    debugPrint(error)
-                    self.btnRegister.enabled = true
-                    progress.stopAnimating()
+                } else if register!.errorCode == 101 {
+                    if (register!.error?.unigueEmail != nil) {
+                        self.showAlert("emailRegisterdBefore")
+                    }
+                } else if register!.errorCode == 102 {
+                    self.showAlert("unknownRegisterError")
                 }
+                
+                self.btnRegister.enabled = true
+                progress.stopAnimating()
+            } else {
+                debugPrint(error)
+                self.btnRegister.enabled = true
+                progress.stopAnimating()
+            }
         }
         
     }
