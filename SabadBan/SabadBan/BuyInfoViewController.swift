@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-class BuyInfoViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource{
+import SwiftEventBus
+class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableViewDataSource{
     
     @IBOutlet weak var tblHistory: UITableView!
     @IBOutlet weak var btnDone: UIButton!
@@ -28,6 +28,7 @@ class BuyInfoViewController: UIViewController ,UITableViewDelegate ,UITableViewD
     var myDatePicker: UIDatePicker = UIDatePicker()
     var editMode = Bool()
     var psIdForEdit = Int()
+    var price = Float()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,7 +43,7 @@ class BuyInfoViewController: UIViewController ,UITableViewDelegate ,UITableViewD
         lblCount.text = "Count".localized() + ":"
         lblTitle.text = SelectedSymbolName
         btnDate.setTitle("", forState: .Normal)
-        btnPrice.setTitle("", forState: .Normal)
+        btnPrice.setTitle(String(price), forState: .Normal)
         btnCount.setTitle("", forState: .Normal)
         btnDone.setTitle("Submit".localized(), forState: .Normal)
         PsBuyCode = db.getPsCodeBySymbolCode(SelectedSymbolCode, pCode: portfolioCode)
@@ -50,14 +51,12 @@ class BuyInfoViewController: UIViewController ,UITableViewDelegate ,UITableViewD
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.view.frame
         self.view.insertSubview(blurEffectView, atIndex: 0)
-        print("***** \(PsBuyCode)")
         editMode = false
         getPsData(PsBuyCode)
+       
         
     }
-    
-    
-    
+ 
     //MARK:- TableView Delegates
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -75,8 +74,8 @@ class BuyInfoViewController: UIViewController ,UITableViewDelegate ,UITableViewD
         let cell = tableView.dequeueReusableCellWithIdentifier("buyInfoCells", forIndexPath: indexPath) as! BuyInfoCell
         
         cell.lblDate.text = psBuyData[indexPath.row].psDate
-        cell.lblCount.text = String(psBuyData[indexPath.row].psCount)
-        cell.lblPrice.text = String(psBuyData[indexPath.row].psPrice)
+        cell.lblCount.text = psBuyData[indexPath.row].psCount.currencyFormat()
+        cell.lblPrice.text = psBuyData[indexPath.row].psPrice.currencyFormat()
         
         
         cell.btnEdit.tag = indexPath.row
@@ -161,7 +160,7 @@ class BuyInfoViewController: UIViewController ,UITableViewDelegate ,UITableViewD
     
     @IBAction func btnPriceTap(sender: AnyObject) {
         
-        let alert = UIAlertController(title: "Price".localized(), message: "Enter a text", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Price".localized(), message: "", preferredStyle: .Alert)
         
         alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
             textField.keyboardType = .NumberPad
@@ -178,7 +177,7 @@ class BuyInfoViewController: UIViewController ,UITableViewDelegate ,UITableViewD
     @IBAction func btnCountTap(sender: AnyObject) {
         
         
-        let alert = UIAlertController(title: "Count".localized(), message: "Enter a text", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Count".localized(), message: "", preferredStyle: .Alert)
         
         alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
             textField.keyboardType = .NumberPad
@@ -214,14 +213,14 @@ class BuyInfoViewController: UIViewController ,UITableViewDelegate ,UITableViewD
             }
             
             btnDate.setTitle("", forState: .Normal)
-            btnPrice.setTitle("", forState: .Normal)
             btnCount.setTitle("", forState: .Normal)
             getPsData(PsBuyCode)
         }
     }
     
     @IBAction func btnCloseTap(sender: AnyObject) {
-        
+//        SwiftEventBus.postToMainThread("BestBuyClosed", sender: nil)
+        SwiftEventBus.post("BestBuyClosed")
         dismissViewControllerAnimated(true, completion: nil)
     }
     

@@ -5,6 +5,15 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="IRANSans.ttf">
+            <string>IRANSansMobileFaNum</string>
+            <string>IRANSansMobileFaNum</string>
+            <string>IRANSansMobileFaNum</string>
+            <string>IRANSansMobileFaNum</string>
+            <string>IRANSansMobileFaNum</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuyInformationView" customModule="SabadBan" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -14,54 +23,58 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YUs-ws-RFX">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Hg-qT-wDR">
+                            <rect key="frame" x="30" y="10" width="26" height="23"/>
+                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
+                            <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Del" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lK-DL-8ek">
+                            <rect key="frame" x="2" y="10" width="22" height="23"/>
+                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
+                            <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Os-WF-jij">
+                            <rect key="frame" x="102" y="10" width="41" height="23"/>
+                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
+                            <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYf-ML-se3">
+                            <rect key="frame" x="178" y="10" width="35" height="23"/>
+                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
+                            <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xg-GC-lM3">
+                            <rect key="frame" x="260" y="10" width="32" height="23"/>
+                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
+                            <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
                     <color key="backgroundColor" red="0.090196078430000007" green="0.13725490200000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="9lK-DL-8ek" firstAttribute="leading" secondItem="YUs-ws-RFX" secondAttribute="leading" constant="2" id="G2S-vx-LCC"/>
+                        <constraint firstItem="1Os-WF-jij" firstAttribute="centerY" secondItem="YUs-ws-RFX" secondAttribute="centerY" id="JLk-OX-NqX"/>
+                        <constraint firstItem="2Hg-qT-wDR" firstAttribute="leading" secondItem="9lK-DL-8ek" secondAttribute="trailing" constant="6" id="Ldi-vo-xyR"/>
+                        <constraint firstItem="pYf-ML-se3" firstAttribute="leading" secondItem="1Os-WF-jij" secondAttribute="trailing" constant="35" id="MQb-OO-BeL"/>
+                        <constraint firstItem="9lK-DL-8ek" firstAttribute="baseline" secondItem="1Os-WF-jij" secondAttribute="baseline" id="Y35-RD-dY4"/>
+                        <constraint firstItem="2Hg-qT-wDR" firstAttribute="baseline" secondItem="3Xg-GC-lM3" secondAttribute="baseline" id="Zcw-6d-I86"/>
+                        <constraint firstItem="2Hg-qT-wDR" firstAttribute="centerY" secondItem="YUs-ws-RFX" secondAttribute="centerY" id="bhX-3G-OY7"/>
+                        <constraint firstAttribute="trailing" secondItem="pYf-ML-se3" secondAttribute="trailing" constant="87" id="gGU-xh-BaJ"/>
+                        <constraint firstItem="3Xg-GC-lM3" firstAttribute="trailing" secondItem="YUs-ws-RFX" secondAttribute="trailingMargin" id="otU-Nv-xNS"/>
+                        <constraint firstItem="1Os-WF-jij" firstAttribute="baseline" secondItem="pYf-ML-se3" secondAttribute="baseline" id="q9X-Uf-gVc"/>
+                    </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xg-GC-lM3">
-                    <rect key="frame" x="256" y="11" width="36" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Os-WF-jij">
-                    <rect key="frame" x="157" y="11" width="47" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Hg-qT-wDR">
-                    <rect key="frame" x="36" y="11" width="30" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Del" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lK-DL-8ek">
-                    <rect key="frame" x="0.0" y="11" width="26" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYf-ML-se3">
-                    <rect key="frame" x="97" y="11" width="39" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="3Xg-GC-lM3" firstAttribute="leading" secondItem="1Os-WF-jij" secondAttribute="trailing" constant="52" id="3Ty-Co-Wus"/>
-                <constraint firstItem="2Hg-qT-wDR" firstAttribute="baseline" secondItem="pYf-ML-se3" secondAttribute="baseline" id="5On-1Z-7IZ"/>
-                <constraint firstItem="YUs-ws-RFX" firstAttribute="leading" secondItem="9lK-DL-8ek" secondAttribute="leading" id="7tW-Oq-qVa"/>
                 <constraint firstAttribute="trailing" secondItem="YUs-ws-RFX" secondAttribute="trailing" id="AAN-IQ-80G"/>
-                <constraint firstItem="1Os-WF-jij" firstAttribute="baseline" secondItem="3Xg-GC-lM3" secondAttribute="baseline" id="NFy-vY-ou8"/>
-                <constraint firstItem="3Xg-GC-lM3" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="SOt-mN-lcY"/>
-                <constraint firstItem="2Hg-qT-wDR" firstAttribute="leading" secondItem="9lK-DL-8ek" secondAttribute="trailing" constant="10" id="VpA-Lr-qiG"/>
-                <constraint firstItem="pYf-ML-se3" firstAttribute="leading" secondItem="2Hg-qT-wDR" secondAttribute="trailing" constant="31" id="d7K-5Z-9hN"/>
-                <constraint firstItem="pYf-ML-se3" firstAttribute="baseline" secondItem="1Os-WF-jij" secondAttribute="baseline" id="gei-J4-JxJ"/>
-                <constraint firstItem="YUs-ws-RFX" firstAttribute="centerY" secondItem="1Os-WF-jij" secondAttribute="centerY" id="nIo-t7-3eN"/>
-                <constraint firstItem="9lK-DL-8ek" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="o2g-ec-JqU"/>
-                <constraint firstItem="9lK-DL-8ek" firstAttribute="baseline" secondItem="2Hg-qT-wDR" secondAttribute="baseline" id="qTs-YS-DGd"/>
-                <constraint firstItem="9lK-DL-8ek" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rIJ-5Q-3Qx"/>
+                <constraint firstAttribute="bottom" secondItem="YUs-ws-RFX" secondAttribute="bottom" id="I2T-Qs-EYz"/>
+                <constraint firstItem="YUs-ws-RFX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ruK-rE-MPP"/>
                 <constraint firstItem="YUs-ws-RFX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yPz-se-kbJ"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

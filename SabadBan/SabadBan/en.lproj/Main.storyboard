@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N2h-Tl-wNj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N2h-Tl-wNj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1825,7 +1825,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3O-9g-JGT">
-                                                <rect key="frame" x="58" y="117" width="80" height="30"/>
+                                                <rect key="frame" x="58" y="112" width="80" height="30"/>
                                                 <color key="backgroundColor" red="0.92486092929999997" green="0.36227035410000002" blue="0.12653421200000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" red="0.9879675792" green="1" blue="0.9726439939" alpha="1" colorSpace="calibratedRGB"/>
@@ -1871,11 +1871,11 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="aX6-pR-cdk" firstAttribute="top" secondItem="6zA-Tt-GVT" secondAttribute="bottom" constant="4" id="6yK-ge-fvP"/>
-                                            <constraint firstAttribute="bottom" secondItem="n3O-9g-JGT" secondAttribute="bottom" constant="61" id="8yS-n3-6N3"/>
+                                            <constraint firstAttribute="bottom" secondItem="n3O-9g-JGT" secondAttribute="bottom" constant="66" id="8yS-n3-6N3"/>
                                             <constraint firstAttribute="bottom" secondItem="ceA-EV-haJ" secondAttribute="bottom" constant="12" id="KtQ-Z0-utU"/>
                                             <constraint firstItem="OEO-1n-950" firstAttribute="top" secondItem="GLX-du-IdQ" secondAttribute="topMargin" id="M6Y-2M-4p0"/>
                                             <constraint firstItem="aX6-pR-cdk" firstAttribute="trailing" secondItem="n3O-9g-JGT" secondAttribute="trailing" id="MGM-q9-DjR"/>
-                                            <constraint firstItem="n3O-9g-JGT" firstAttribute="baseline" secondItem="5zm-Me-9Kb" secondAttribute="baseline" id="MRW-vV-uYV"/>
+                                            <constraint firstItem="n3O-9g-JGT" firstAttribute="baseline" secondItem="5zm-Me-9Kb" secondAttribute="baseline" constant="-5" id="MRW-vV-uYV"/>
                                             <constraint firstItem="kxI-nq-iao" firstAttribute="leading" secondItem="5zm-Me-9Kb" secondAttribute="leading" id="OC9-u2-PXu"/>
                                             <constraint firstItem="6zA-Tt-GVT" firstAttribute="leading" secondItem="GLX-du-IdQ" secondAttribute="leadingMargin" constant="50" id="RRW-sa-kzB"/>
                                             <constraint firstItem="OEO-1n-950" firstAttribute="centerX" secondItem="ceA-EV-haJ" secondAttribute="centerX" id="VbY-Ud-HXp"/>
@@ -1886,7 +1886,7 @@
                                             <constraint firstItem="OEO-1n-950" firstAttribute="centerX" secondItem="GLX-du-IdQ" secondAttribute="centerX" id="qfC-aa-ux2"/>
                                             <constraint firstItem="6zA-Tt-GVT" firstAttribute="leading" secondItem="aX6-pR-cdk" secondAttribute="leading" id="reS-fz-rUY"/>
                                             <constraint firstItem="ekq-sh-qHE" firstAttribute="bottom" secondItem="OEO-1n-950" secondAttribute="bottom" id="rfG-gp-POu"/>
-                                            <constraint firstItem="n3O-9g-JGT" firstAttribute="top" secondItem="aX6-pR-cdk" secondAttribute="bottom" constant="8" symbolic="YES" id="sI2-3p-cVm"/>
+                                            <constraint firstItem="n3O-9g-JGT" firstAttribute="top" secondItem="aX6-pR-cdk" secondAttribute="bottom" constant="3" id="sI2-3p-cVm"/>
                                             <constraint firstItem="aX6-pR-cdk" firstAttribute="baseline" secondItem="kxI-nq-iao" secondAttribute="baseline" id="snb-rF-7q7"/>
                                             <constraint firstItem="7mU-TH-8ZR" firstAttribute="leading" secondItem="kxI-nq-iao" secondAttribute="leading" id="tUB-gU-Czz"/>
                                             <constraint firstItem="6zA-Tt-GVT" firstAttribute="baseline" secondItem="7mU-TH-8ZR" secondAttribute="baseline" constant="4" id="w6C-U5-v1W"/>
@@ -2741,9 +2741,9 @@
         <image name="login_username" width="48" height="46"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="nO4-SB-DDz"/>
         <segue reference="RP5-i4-ySo"/>
         <segue reference="cbY-Qz-fGF"/>
         <segue reference="Bzy-vl-3sW"/>
-        <segue reference="nO4-SB-DDz"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,21 +8,27 @@
 
 import UIKit
 import BTNavigationDropdownMenu
-import ActionButton
 import SQLite
 import SwiftEventBus
 import Alamofire
 import Alamofire_Gloss
-
-class PortfolioListViewController: BaseViewController ,UITableViewDataSource , UITableViewDelegate{
+import KCFloatingActionButton
+class PortfolioListViewController: BaseViewController ,UITableViewDataSource , UITableViewDelegate , KCFloatingActionButtonDelegate{
     let db = DataBase()
-    var actionButton: ActionButton!
     var currentPortfolio = String()
     var portfolios = [String]()
     var symbols = [String]()
     var smData = [symData]()
     var selectedSymbolCode = String()
     var menuView:BTNavigationDropdownMenu!
+    var selectedSymbolPrice = Float()
+    var fab = KCFloatingActionButton()
+    let addPortfolio = KCFloatingActionButtonItem()
+    let editPortfolio = KCFloatingActionButtonItem()
+    let searchSymbol = KCFloatingActionButtonItem()
+    let addSymbol = KCFloatingActionButtonItem()
+    let deletePortfolio = KCFloatingActionButtonItem()
+    
     //    var refreshControll = UIRefreshControl!()
     @IBOutlet weak var tblPortfolio: UITableView!
     let nc = NSNotificationCenter.defaultCenter()
@@ -43,35 +49,62 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         }
         initNavigationTitle()
         
-        showHintView()
+        initFAB()
+        SwiftEventBus.onMainThread(self, name: "BestBuyClosed") { result in
+            self.loadSymbolsFromDb()
+            
+        }
     }
     
     func showHintView(){
-        
-        let imageName = "tooltip_hand"
-        let image = UIImage(named: imageName)
-        let hintImage = UIImageView(image: image!)
-        hintImage.frame = CGRect(x: view.bounds.midX + 50, y: view.bounds.minY + 100, width: 50, height: 50)
-        view.addSubview(hintImage)
-        
-        UIView.animateWithDuration(2, delay:0, options: .Autoreverse, animations: {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.boolForKey("HINT")  == false && smData.count > 0{
             
-            hintImage.frame = CGRect(x: self.view.bounds.midX - 50, y: self.view.bounds.minY + 100, width: 50, height: 50)
+            let imageName = "tooltip_hand"
+            let image = UIImage(named: imageName)
+            let hintImage = UIImageView(image: image!)
+            hintImage.frame = CGRect(x: view.bounds.midX + 50, y: view.bounds.minY + 100, width: 50, height: 50)
+            view.addSubview(hintImage)
             
-            }, completion: {
+            UIView.animateWithDuration(2, delay:0, options: .Autoreverse, animations: {
                 
-                (value: Bool) in
-                hintImage.removeFromSuperview()
-        })
+                hintImage.frame = CGRect(x: self.view.bounds.midX - 50, y: self.view.bounds.minY + 100, width: 50, height: 50)
+                
+                }, completion: {
+                    
+                    (value: Bool) in
+                    hintImage.removeFromSuperview()
+            })
+            
+            defaults.setBool(true, forKey: "HINT")
+        }
         
     }
     
     override func viewWillAppear(animated: Bool) {
         nc.addObserver(self, selector: #selector(selectedSymbol), name: "SYMBOL_SELECTED", object: nil)
-        initFloationButton()
         loadSymbolsFromDb()
+        
+        if portfolios.count == 0 {
+            addPortfolio.hidden = false
+            editPortfolio.hidden = true
+            searchSymbol.hidden = true
+            addSymbol.hidden = true
+            deletePortfolio.hidden = true
+            
+        }else{
+            addPortfolio.hidden = false
+            editPortfolio.hidden = false
+            searchSymbol.hidden = false
+            addSymbol.hidden = false
+            deletePortfolio.hidden = false
+        }
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        SwiftEventBus.unregister(self)
+        
+    }
     //MARK: - TableView Delegate
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -86,14 +119,25 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         let cell = tableView.dequeueReusableCellWithIdentifier("portfolioCell", forIndexPath: indexPath) as! portfolioCell
         
         cell.lblSymbolValue.text = smData[indexPath.row].symbolNameFa
-        cell.lblLastPriceValue.text = String(smData[indexPath.row].lastTradePrice)
-        cell.lblBuyQuotValue.text = String(smData[indexPath.row].benchmarkBuy)
-        cell.lblSellQuotValue.text = String(smData[indexPath.row].benchmarkSales)
-        cell.lblTodayValue.text = String(smData[indexPath.row].todayProfit)
-        cell.lblOverValue.text = String(smData[indexPath.row].marketValue)
-        cell.lblStatusValue.text = smData[indexPath.row].status
-        cell.lblEndValue.text = String(smData[indexPath.row].lastTradePrice)
-        cell.lblEndChanges.text = String(smData[indexPath.row].closePriceChange)
+        cell.lblLastPriceValue.text = smData[indexPath.row].closePrice.currencyFormat()
+        cell.lblBuyQuotValue.text = smData[indexPath.row].benchmarkBuy.currencyFormat()
+        cell.lblSellQuotValue.text = smData[indexPath.row].benchmarkSales.currencyFormat()
+        if smData[indexPath.row].todayProfit > 0 {
+            cell.lblTodayValue.textColor = UIColor.greenColor()
+        }else {
+            cell.lblTodayValue.textColor = UIColor.redColor()
+        }
+        
+        if smData[indexPath.row].totalProfit > 0 {
+            cell.lblOverValue.textColor = UIColor.greenColor()
+        }else {
+            cell.lblOverValue.textColor = UIColor.redColor()
+        }
+        
+        cell.lblTodayValue.text = smData[indexPath.row].todayProfit.currencyFormat()
+        cell.lblOverValue.text = smData[indexPath.row].totalProfit.currencyFormat()
+        cell.lblEndValue.text = smData[indexPath.row].lastTradePrice.currencyFormat()
+        cell.lblEndChanges.text = smData[indexPath.row].closePriceChange.currencyFormat()
         if smData[indexPath.row].status == "IS" {
             cell.lblStatusValue.text = "متوقف"
             cell.viewStatus.backgroundColor = UIColor.redColor()
@@ -114,6 +158,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         let buyInformation = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "BuyInformation".localized() , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             SelectedSymbolName = self.smData[indexPath.row].symbolNameFa
             SelectedSymbolCode = self.smData[indexPath.row].symbolCode
+            self.selectedSymbolPrice = self.smData[indexPath.row].lastTradePrice
             self.performSegueWithIdentifier("buyInfoSegue", sender: nil)
             
             
@@ -175,106 +220,115 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     }
     //MARK:- Floation Button
     
-    func initFloationButton(){
+    
+    func initFAB(){
         
-        if actionButton == nil {
+        self.fab.removeFromSuperview()
+        
+        
+       
+        addPortfolio.icon = UIImage(named: "ic_add_portfolio")
+        addPortfolio.title = "AddPortfolio".localized()
+        
+        editPortfolio.icon = UIImage(named: "ic-edit_portfolio")
+        editPortfolio.title = "EditPortfolio".localized()
+        
+        searchSymbol.icon = UIImage(named: "ic_search")
+        searchSymbol.title = "SearchSymbol".localized()
+        
+        addSymbol.icon = UIImage(named: "ic_add_symbol")
+        addSymbol.title = "AddSymbol".localized()
+        
+        deletePortfolio.icon = UIImage(named: "ic_delete_portfolio")
+        deletePortfolio.title = "DeletePortfolio".localized()
+        
+        addPortfolio.handler = { item in
             
-            let addPortfolio = ActionButtonItem(title: "AddPortfolio".localized(), image: UIImage(named: "ic_add_portfolio"))
-            addPortfolio.action = { item in
+            var tField: UITextField!
+            
+            func configurationTextField(textField: UITextField!)
+            {
+                textField.placeholder = "EnterPortfolioName".localized()
+                textField.changeDirection()
+                tField = textField
+            }
+            
+            func handleCancel(alertView: UIAlertAction!)
+            {
                 
+            }
+            
+            let alert = UIAlertController(title: "AddPortfolio".localized(), message: "", preferredStyle: .Alert)
+            
+            alert.addTextFieldWithConfigurationHandler(configurationTextField)
+            alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .Cancel, handler:handleCancel))
+            alert.addAction(UIAlertAction(title: "Submit".localized(), style: .Default, handler:{ (UIAlertAction) in
                 
-                var tField: UITextField!
-                
-                func configurationTextField(textField: UITextField!)
-                {
-                    textField.placeholder = "EnterPortfolioName".localized()
-                    textField.changeDirection()
-                    tField = textField
-                }
-                
-                func handleCancel(alertView: UIAlertAction!)
-                {
-                }
-                
-                let alert = UIAlertController(title: "AddPortfolio".localized(), message: "", preferredStyle: .Alert)
-                
-                alert.addTextFieldWithConfigurationHandler(configurationTextField)
-                alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .Cancel, handler:handleCancel))
-                alert.addAction(UIAlertAction(title: "Submit".localized(), style: .Default, handler:{ (UIAlertAction) in
+                if !(tField.text?.isEmpty)! {
                     
-                    if !(tField.text?.isEmpty)! {
-                        
-                        for i in 0  ..< self.portfolios.count {
-                            if(tField.text == self.portfolios[i]){
-                                let dialog = MyAlert()
-                                dialog.showAlert("توجه", details: "این پرتفوی قبلا اضافه شده است", okTitle: "باشه", cancelTitle: "", onView: self.view)
-                                return
-                            }
+                    for i in 0  ..< self.portfolios.count {
+                        if(tField.text == self.portfolios[i]){
+                            let dialog = MyAlert()
+                            dialog.showAlert("توجه", details: "این پرتفوی قبلا اضافه شده است", okTitle: "باشه", cancelTitle: "", onView: self.view)
+                            return
                         }
-                        self.db.addPortfolio(tField.text!)
-                        self.actionButton.toggleMenu()
-                        self.portfolios = self.db.getPortfolioList(1)
-                        self.currentPortfolio = self.portfolios.last!
-                        self.initNavigationTitle()
-                        self.menuView.updateItems(self.portfolios)
-                        self.performSegueWithIdentifier("searchSeguei", sender: nil)
-                    }else {
-                        
-                        
                     }
-                }))
-                self.presentViewController(alert, animated: true, completion: nil)
-                
-            }
-            
-            
-            
-            let editPortfolio = ActionButtonItem(title: "EditPortfolio".localized(), image: UIImage(named: "ic-edit_portfolio"))
-            editPortfolio.action = { item in
-                
-                self.performSegueWithIdentifier("editSegue", sender: nil)
-                
-            }
-            
-            let searchSymbol = ActionButtonItem(title: "SearchSymbol".localized(), image: UIImage(named: "ic_search"))
-            searchSymbol.action = { item in
-                
-                self.performSegueWithIdentifier("searchSeguei", sender: nil)
-                self.actionButton.toggleMenu()
-                
-            }
-            
-            
-            let addSymbol = ActionButtonItem(title: "AddSymbol".localized(), image: UIImage(named: "ic_add_symbol"))
-            addSymbol.action = { item in
-                
-                self.performSegueWithIdentifier("searchSeguei", sender: nil)
-                self.actionButton.toggleMenu()
-                
-            }
-            
-            let deletePortfolio = ActionButtonItem(title: "DeletePortfolio".localized(), image: UIImage(named: "ic_delete_portfolio"))
-            deletePortfolio.action = { item in
-                
-                self.db.deletePortfolio(self.db.getportfolioCodeByName(self.currentPortfolio))
-                self.initNavigationTitle()
-                
-            }
-            
-            if portfolios.count == 0{
-                
-                actionButton = ActionButton(attachedToView: view, items: [addPortfolio])
-                actionButton.action = { button in button.toggleMenu() }
-                
-            }else{
-                
-                actionButton = ActionButton(attachedToView: view, items: [addPortfolio, editPortfolio,searchSymbol,addSymbol,deletePortfolio])
-                actionButton.action = { button in button.toggleMenu() }
-            }
+                    self.db.addPortfolio(tField.text!)
+                    self.portfolios = self.db.getPortfolioList(1)
+                    self.currentPortfolio = self.portfolios.last!
+                    self.initNavigationTitle()
+                    self.menuView.updateItems(self.portfolios)
+                    self.performSegueWithIdentifier("searchSeguei", sender: nil)
+                }else {
+                    
+                    
+                }
+            }))
+            self.presentViewController(alert, animated: true, completion: nil)
             
         }
         
+        editPortfolio.handler =  { item in
+            
+            self.performSegueWithIdentifier("editSegue", sender: nil)
+        }
+        
+        
+        addSymbol.handler = { item in
+            
+            self.performSegueWithIdentifier("searchSeguei", sender: nil)
+        }
+        
+        
+        searchSymbol.handler =  { item in
+            
+            self.performSegueWithIdentifier("searchSeguei", sender: nil)
+        }
+        
+        deletePortfolio.handler = { item in
+            
+            self.db.deleteAllSymbolsInPortfolio(self.db.getportfolioCodeByName(self.currentPortfolio))
+            self.db.deletePortfolio(self.db.getportfolioCodeByName(self.currentPortfolio))
+            self.loadSymbolsFromDb()
+            self.initNavigationTitle()
+           
+        }
+        
+       
+        
+        fab.fabDelegate = self
+       
+        fab.removeItem(item: addPortfolio)
+        fab.addItem(item: addPortfolio)
+        fab.addItem(item: deletePortfolio)
+        fab.addItem(item: editPortfolio)
+        fab.addItem(item: searchSymbol)
+        fab.addItem(item: addSymbol)
+        addPortfolio.hidden = true
+        self.view.addSubview(fab)
+
     }
+    
     
     
     
@@ -283,9 +337,6 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     func getSymbolListData(symbols:[String]) {
         
         let url = AppTadbirUrl + URLS["getSymbolListAndDetails"]!
-        let headers = [
-            "Content-Type":"application/json",
-            ]
         
         // JSON Body
         let body = [
@@ -296,21 +347,22 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         ]
         
         // Fetch Request
-        Alamofire.request(.POST, url, headers: headers, parameters: body as? [String : AnyObject], encoding: .JSON)
+        Alamofire.request(.POST, url, headers: ServicesHeaders, parameters: body as? [String : AnyObject], encoding: .JSON)
             .validate(statusCode: 200..<300)
             .responseObjectErrorHadling(MainResponse<SymbolListModelResponse>.self) { response in
                 
                 switch response.result {
                 case .Success(let symbols):
                     self.smData.removeAll()
+                    
                     for i in 0  ..< symbols.response.symbolDetailsList.count{
                         
-                        self.smData.append(symData(name: symbols.response.symbolDetailsList[i].symbolNameFa, baseValue: symbols.response.symbolDetailsList[i].baseValue, benchmarkBuy: symbols.response.symbolDetailsList[i].benchmarkBuy, benchmarkSales: symbols.response.symbolDetailsList[i].benchmarkSales, buyValue: symbols.response.symbolDetailsList[i].buyValue, closePrice: symbols.response.symbolDetailsList[i].closePrice, closePriceChange: symbols.response.symbolDetailsList[i].closePriceChange, closePriceYesterday: symbols.response.symbolDetailsList[i].closePriceYesterday, descriptionField: symbols.response.symbolDetailsList[i].descriptionField, eps: symbols.response.symbolDetailsList[i].eps, highPrice: symbols.response.symbolDetailsList[i].highPrice, lastTradeDate: symbols.response.symbolDetailsList[i].lastTradeDate, lastTradePrice: symbols.response.symbolDetailsList[i].lastTradePrice, lastTradePriceChange: symbols.response.symbolDetailsList[i].lastTradePriceChange, lastTradePriceChangePercent: symbols.response.symbolDetailsList[i].lastTradePriceChangePercent, lowPrice: symbols.response.symbolDetailsList[i].lowPrice, marketValue: symbols.response.symbolDetailsList[i].marketValue, openPrice: symbols.response.symbolDetailsList[i].openPrice, pe: symbols.response.symbolDetailsList[i].pe, status: symbols.response.symbolDetailsList[i].status, symbolCode: symbols.response.symbolDetailsList[i].symbolCode, symbolCompleteNameFa: symbols.response.symbolDetailsList[i].symbolCompleteNameFa, symbolNameEn: symbols.response.symbolDetailsList[i].symbolNameEn, symbolNameFa: symbols.response.symbolDetailsList[i].symbolNameFa, todayPrice: symbols.response.symbolDetailsList[i].todayPrice, todayProfit: symbols.response.symbolDetailsList[i].todayProfit, totalProfit: symbols.response.symbolDetailsList[i].totalProfit, transactionNumber: symbols.response.symbolDetailsList[i].transactionNumber, transactionVolume: symbols.response.symbolDetailsList[i].transactionVolume))
+                        self.smData.append(symData(name: symbols.response.symbolDetailsList[i].symbolNameFa, baseValue: symbols.response.symbolDetailsList[i].baseValue, benchmarkBuy: symbols.response.symbolDetailsList[i].benchmarkBuy, benchmarkSales: symbols.response.symbolDetailsList[i].benchmarkSales, buyValue: symbols.response.symbolDetailsList[i].buyValue, closePrice: symbols.response.symbolDetailsList[i].closePrice, closePriceChange: symbols.response.symbolDetailsList[i].closePriceChange, closePriceYesterday: symbols.response.symbolDetailsList[i].closePriceYesterday, descriptionField: symbols.response.symbolDetailsList[i].descriptionField, eps: symbols.response.symbolDetailsList[i].eps, highPrice: symbols.response.symbolDetailsList[i].highPrice, lastTradeDate: symbols.response.symbolDetailsList[i].lastTradeDate, lastTradePrice: symbols.response.symbolDetailsList[i].lastTradePrice, lastTradePriceChange: symbols.response.symbolDetailsList[i].lastTradePriceChange, lastTradePriceChangePercent: symbols.response.symbolDetailsList[i].lastTradePriceChangePercent, lowPrice: symbols.response.symbolDetailsList[i].lowPrice, marketValue: symbols.response.symbolDetailsList[i].marketValue, openPrice: symbols.response.symbolDetailsList[i].openPrice, pe: symbols.response.symbolDetailsList[i].pe, status: symbols.response.symbolDetailsList[i].status, symbolCode: symbols.response.symbolDetailsList[i].symbolCode, symbolCompleteNameFa: symbols.response.symbolDetailsList[i].symbolCompleteNameFa, symbolNameEn: symbols.response.symbolDetailsList[i].symbolNameEn, symbolNameFa: symbols.response.symbolDetailsList[i].symbolNameFa, todayPrice: symbols.response.symbolDetailsList[i].todayPrice, todayProfit:self.getBuyData(symbols.response.symbolDetailsList[i].symbolCode,price: symbols.response.symbolDetailsList[i].lastTradePrice).today, totalProfit:self.getBuyData(symbols.response.symbolDetailsList[i].symbolCode,price: symbols.response.symbolDetailsList[i].closePrice).overAll, transactionNumber: symbols.response.symbolDetailsList[i].transactionNumber, transactionVolume: symbols.response.symbolDetailsList[i].transactionVolume))
                     }
                     
                     
                     self.tblPortfolio.reloadData()
-                    
+                    self.showHintView()
                     
                 case .Failure(let error):
                     debugPrint(error)
@@ -318,6 +370,34 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
                 //                self.refreshControll?.endRefreshing()
         }
     }
+    
+    
+    func getBuyData(symbolCode:String ,price:Float) -> (today:Double , overAll:Double) {
+        var todayProfit = Double()
+        var overAllProfit  = Double()
+        var psCode = Int()
+        debugPrint("price: \(price)")
+        
+        psCode = db.getPsCodeBySymbolCode(symbolCode, pCode: db.getportfolioCodeByName(currentPortfolio))
+        if db.getPsBuy(psCode).count > 0 {
+            
+            
+            
+            debugPrint("count: \(db.getPsBuy(psCode).count)")
+            
+            
+            for i in 0..<db.getPsBuy(psCode).count{
+                
+                todayProfit += (Double(price) - db.getPsBuy(psCode)[i].psPrice) * db.getPsBuy(psCode)[i].psCount
+                overAllProfit += (Double(price) - db.getPsBuy(psCode)[i].psPrice) * db.getPsBuy(psCode)[i].psCount
+                
+            }
+            
+        }
+        
+        return (todayProfit , overAllProfit)
+    }
+    
     
     //MARK:- Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -346,9 +426,10 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             
         }
         if segue.identifier == "buyInfoSegue" {
-           
+            
             let buyInfo = segue.destinationViewController as! BuyInfoViewController
             buyInfo.portfolioCode = db.getportfolioCodeByName(currentPortfolio)
+            buyInfo.price = self.selectedSymbolPrice
             
         }
     }

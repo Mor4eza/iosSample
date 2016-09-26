@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-
+import FCAlertView
 class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITableViewDelegate  {
     
     //MARK: Properties
@@ -232,8 +232,15 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
                         self.tblDetails.reloadData()
                     }else{
                         
-                        let alert = MyAlert()
-                        alert.showAlert("Warning", details: "No Data For seleced Time Frame", okTitle: "Ok", cancelTitle: "", onView: self.view)
+                        let alert = FCAlertView()
+                        alert.makeAlertTypeCaution()
+                        alert.colorScheme = UIColor.blueColor()
+                        alert.showAlertInView(self,
+                                        withTitle: "Warning".localized(),
+                                        withSubtitle: "There is no any data for selected range",
+                                        withCustomImage: nil,
+                                        withDoneButtonTitle: "Done".localized(),
+                                        andButtons: nil)
                     }
                     break
                     

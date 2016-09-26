@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C099A87ED55CA43603FF2EAF6E3AAC44'
+               BlueprintIdentifier = '23AF640068AA776E4CC6D1050B072612'
                BlueprintName = 'Pods-SabadBan'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods-SabadBan.framework'>

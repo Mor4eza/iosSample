@@ -29,6 +29,7 @@
 		941E9A2D1D740B5900A472A5 /* indexDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941E9A2C1D740B5900A472A5 /* indexDetailsCell.swift */; };
 		9420042D1D8D4A1700B358BC /* BuyInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9420042C1D8D4A1700B358BC /* BuyInformationView.xib */; };
 		9420042F1D8D4AB500B358BC /* BuyInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9420042E1D8D4AB500B358BC /* BuyInformationView.swift */; };
+		942470161D97F1F20035A380 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942470151D97F1F20035A380 /* Request.swift */; };
 		944EF1941D7EC29A00A039BA /* BestLimitDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF1911D7EC29A00A039BA /* BestLimitDataList.swift */; };
 		944EF1961D7EC29A00A039BA /* SymbolBestLimitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF1931D7EC29A00A039BA /* SymbolBestLimitResponse.swift */; };
 		944EF19C1D7EC4BF00A039BA /* SymbolTradingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */; };
@@ -121,6 +122,7 @@
 		941E9A2C1D740B5900A472A5 /* indexDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = indexDetailsCell.swift; sourceTree = "<group>"; };
 		9420042C1D8D4A1700B358BC /* BuyInformationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyInformationView.xib; sourceTree = "<group>"; };
 		9420042E1D8D4AB500B358BC /* BuyInformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyInformationView.swift; sourceTree = "<group>"; };
+		942470151D97F1F20035A380 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		944EF1911D7EC29A00A039BA /* BestLimitDataList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestLimitDataList.swift; sourceTree = "<group>"; };
 		944EF1931D7EC29A00A039BA /* SymbolBestLimitResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolBestLimitResponse.swift; sourceTree = "<group>"; };
 		944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolTradingResponse.swift; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 				8477D9091D856CC0006BBFCE /* BuildDate */,
 				949BEE701D72A78F008FA574 /* AlertVIew */,
 				949BEE6A1D72A78A008FA574 /* Utils.swift */,
+				942470151D97F1F20035A380 /* Request.swift */,
 				949BEE6B1D72A78A008FA574 /* AppConstants.swift */,
 				949BEE6C1D72A78A008FA574 /* LinearProgressView.swift */,
 			);
@@ -732,6 +735,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 949BEE601D72A51C008FA574 /* Build configuration list for PBXNativeTarget "SabadBan" */;
 			buildPhases = (
+				23E0DAE45421868EF7347EBA /* 📦 Check Pods Manifest.lock */,
 				DA8014AD9787A3B930297CC7 /* [CP] Check Pods Manifest.lock */,
 				8312FA5A350B89DD3F034BF3 /* [CP] Check Pods Manifest.lock */,
 				C5D64A95F08DFE760624CE14 /* [CP] Check Pods Manifest.lock */,
@@ -820,6 +824,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		23E0DAE45421868EF7347EBA /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		8081F79439C37156BA5282BE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -949,6 +968,7 @@
 				9465DB611D83D702007F0572 /* BourseNewsDetailsList.swift in Sources */,
 				9478A6401D891BF70087B574 /* menuHeader.swift in Sources */,
 				94B772361D7FEA7D002AA618 /* ObserverNewsResponse.swift in Sources */,
+				942470161D97F1F20035A380 /* Request.swift in Sources */,
 				944EF19C1D7EC4BF00A039BA /* SymbolTradingResponse.swift in Sources */,
 				7CAF1DC71D8C3294003E22A4 /* MarketDetailsHeader.swift in Sources */,
 				947C63901D7451EE00676822 /* SymbolListTableViewController.swift in Sources */,
@@ -1136,9 +1156,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoitek.SabadBan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "982d3072-1339-4802-bd1b-c0c7225a7fbc";
+				PROVISIONING_PROFILE = "dd2ff523-951c-4158-bfb6-86a074481927";
 				SWIFT_OBJC_BRIDGING_HEADER = "SabadBan/SabadBan-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WARNING_CFLAGS = "";
 			};
 			name = Debug;
 		};
@@ -1155,8 +1176,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoitek.SabadBan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "982d3072-1339-4802-bd1b-c0c7225a7fbc";
+				PROVISIONING_PROFILE = "dd2ff523-951c-4158-bfb6-86a074481927";
 				SWIFT_OBJC_BRIDGING_HEADER = "SabadBan/SabadBan-Bridging-Header.h";
+				WARNING_CFLAGS = "";
 			};
 			name = Release;
 		};

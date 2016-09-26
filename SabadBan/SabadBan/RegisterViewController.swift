@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import FCAlertView
 class RegisterViewController: BaseViewController, UITextFieldDelegate {
     
     
@@ -127,7 +128,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
             showAlert("passwordRepeatNotMatch")
         } else {
             if isSimulator {
-                sendRegisterRequest(txtUserName.text!, password:txtPassword.text!, phone:txtPhone.text!, pushToken: "IOS_RUNNING_FROM_SIMULATOR")
+                sendRegisterRequest(txtUserName.text!, password:txtPassword.text!, phone:txtPhone.text!, pushToken: "IOS_RUNNING_IN_SIMULATOR")
             }else {
                 sendRegisterRequest(txtUserName.text!, password:txtPassword.text!, phone:txtPhone.text!, pushToken: PushToken)
             }
@@ -135,8 +136,17 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
     }
     
     func showAlert(message : String) {
-        let alert = MyAlert()
-        alert.showAlert("Attention".localized(), details: message.localized(), okTitle: "Ok".localized(), cancelTitle: "", onView: self.view)
+        
+        let alert = FCAlertView()
+        alert.makeAlertTypeCaution()
+        alert.colorScheme = UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1)
+        alert.showAlertInView(self,
+                              withTitle: "Attention".localized(),
+                              withSubtitle: message.localized(),
+                              withCustomImage: nil,
+                              withDoneButtonTitle: "Ok".localized(),
+                              andButtons: nil)
+
     }
     
     

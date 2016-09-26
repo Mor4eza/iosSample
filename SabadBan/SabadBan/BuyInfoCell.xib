@@ -5,6 +5,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="IRANSans.ttf">
+            <string>IRANSansMobileFaNum</string>
+            <string>IRANSansMobileFaNum</string>
+            <string>IRANSansMobileFaNum</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -16,49 +23,49 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfg-JX-AqQ">
-                        <rect key="frame" x="270" y="11" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="272" y="10" width="40" height="24"/>
+                        <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="15"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8X-4d-BdU">
-                        <rect key="frame" x="95" y="11" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="112" y="10" width="40" height="24"/>
+                        <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="15"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66X-Mt-doS">
-                        <rect key="frame" x="40" y="2" width="30" height="37"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="30" id="L2g-E1-prK"/>
-                        </constraints>
-                        <state key="normal" image="Edit"/>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u72-lp-xTb">
-                        <rect key="frame" x="157" y="11" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="200" y="10" width="40" height="24"/>
+                        <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="15"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyI-rp-T5Q">
-                        <rect key="frame" x="4" y="2" width="30" height="37"/>
+                        <rect key="frame" x="4" y="3" width="25" height="35"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="ofZ-8V-hFO"/>
+                            <constraint firstAttribute="width" constant="25" id="ofZ-8V-hFO"/>
                         </constraints>
                         <state key="normal" image="Delete"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66X-Mt-doS">
+                        <rect key="frame" x="42" y="4" width="25" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="L2g-E1-prK"/>
+                        </constraints>
+                        <state key="normal" image="Edit"/>
                     </button>
                 </subviews>
                 <color key="backgroundColor" red="0.16862745100000001" green="0.2274509804" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="u8X-4d-BdU" firstAttribute="leading" secondItem="66X-Mt-doS" secondAttribute="trailing" constant="25" id="EYd-H6-7pW"/>
+                    <constraint firstItem="u8X-4d-BdU" firstAttribute="leading" secondItem="66X-Mt-doS" secondAttribute="trailing" constant="45" id="EYd-H6-7pW"/>
                     <constraint firstItem="xfg-JX-AqQ" firstAttribute="trailing" secondItem="iuB-G9-LyX" secondAttribute="trailingMargin" id="Opi-NX-lhC"/>
-                    <constraint firstItem="66X-Mt-doS" firstAttribute="leading" secondItem="fyI-rp-T5Q" secondAttribute="trailing" constant="6" id="RK4-c4-GQ7"/>
-                    <constraint firstItem="fyI-rp-T5Q" firstAttribute="top" secondItem="66X-Mt-doS" secondAttribute="top" id="UCs-Dp-WK1"/>
-                    <constraint firstItem="fyI-rp-T5Q" firstAttribute="centerY" secondItem="66X-Mt-doS" secondAttribute="centerY" id="VnT-XC-Svf"/>
-                    <constraint firstItem="66X-Mt-doS" firstAttribute="top" secondItem="iuB-G9-LyX" secondAttribute="topMargin" constant="-6" id="XqM-EU-5LW"/>
+                    <constraint firstItem="66X-Mt-doS" firstAttribute="leading" secondItem="fyI-rp-T5Q" secondAttribute="trailing" constant="13" id="RK4-c4-GQ7"/>
+                    <constraint firstItem="fyI-rp-T5Q" firstAttribute="top" secondItem="66X-Mt-doS" secondAttribute="top" constant="-1" id="UCs-Dp-WK1"/>
+                    <constraint firstItem="fyI-rp-T5Q" firstAttribute="centerY" secondItem="66X-Mt-doS" secondAttribute="centerY" constant="-1" id="VnT-XC-Svf"/>
+                    <constraint firstItem="66X-Mt-doS" firstAttribute="top" secondItem="iuB-G9-LyX" secondAttribute="topMargin" constant="-4" id="XqM-EU-5LW"/>
                     <constraint firstItem="u72-lp-xTb" firstAttribute="baseline" secondItem="xfg-JX-AqQ" secondAttribute="baseline" id="a0q-uV-xO2"/>
                     <constraint firstItem="66X-Mt-doS" firstAttribute="centerY" secondItem="u8X-4d-BdU" secondAttribute="centerY" constant="-1" id="cug-QM-Qst"/>
-                    <constraint firstItem="u72-lp-xTb" firstAttribute="leading" secondItem="u8X-4d-BdU" secondAttribute="trailing" constant="20" id="jbB-m1-APq"/>
+                    <constraint firstItem="u72-lp-xTb" firstAttribute="leading" secondItem="u8X-4d-BdU" secondAttribute="trailing" constant="48" id="jbB-m1-APq"/>
                     <constraint firstItem="fyI-rp-T5Q" firstAttribute="centerY" secondItem="iuB-G9-LyX" secondAttribute="centerY" constant="-1" id="joq-v7-SG7"/>
                     <constraint firstItem="u8X-4d-BdU" firstAttribute="baseline" secondItem="u72-lp-xTb" secondAttribute="baseline" id="qV9-KU-dGh"/>
                     <constraint firstItem="fyI-rp-T5Q" firstAttribute="leading" secondItem="iuB-G9-LyX" secondAttribute="leading" constant="4" id="sGj-Pj-DV7"/>
