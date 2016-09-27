@@ -8,6 +8,8 @@
 
 import UIKit
 import Localize_Swift
+import Firebase
+import FirebaseMessaging
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -34,7 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.barStyle = UIBarStyle.Black
         navigationBarAppearace.tintColor = UIColor.whiteColor()
 
+//        
         
+        FIRApp.configure()
         let notificationTypes: UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound]
         let pushNotificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
         application.registerUserNotificationSettings(pushNotificationSettings)
@@ -69,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         PushToken = String(deviceToken)
-        debugPrint("DEVICE TOKEN = \(PushToken)")
+        //debugPrint("DEVICE TOKEN = \(PushToken)")
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
@@ -77,6 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        debugPrint("GCM_TOKEN: \(userInfo["gcm_message_id"])")
         print(userInfo)
     }
 }

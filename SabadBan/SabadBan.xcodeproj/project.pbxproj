@@ -40,6 +40,7 @@
 		9420042D1D8D4A1700B358BC /* BuyInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9420042C1D8D4A1700B358BC /* BuyInformationView.xib */; };
 		9420042F1D8D4AB500B358BC /* BuyInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9420042E1D8D4AB500B358BC /* BuyInformationView.swift */; };
 		942470161D97F1F20035A380 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942470151D97F1F20035A380 /* Request.swift */; };
+		942CE0141D992F390026CE16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 942CE0131D992F390026CE16 /* GoogleService-Info.plist */; };
 		944EF1941D7EC29A00A039BA /* BestLimitDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF1911D7EC29A00A039BA /* BestLimitDataList.swift */; };
 		944EF1961D7EC29A00A039BA /* SymbolBestLimitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF1931D7EC29A00A039BA /* SymbolBestLimitResponse.swift */; };
 		944EF19C1D7EC4BF00A039BA /* SymbolTradingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */; };
@@ -103,6 +104,9 @@
 		94B7722F1D7FE363002AA618 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7722E1D7FE363002AA618 /* NewsCell.swift */; };
 		94B772351D7FEA7D002AA618 /* NewsDetailsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B772331D7FEA7D002AA618 /* NewsDetailsList.swift */; };
 		94B772361D7FEA7D002AA618 /* ObserverNewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B772341D7FEA7D002AA618 /* ObserverNewsResponse.swift */; };
+		94C59CCA1D9A51900036CF4A /* CallUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C59CC91D9A51900036CF4A /* CallUsViewController.swift */; };
+		94C59CCC1D9A52120036CF4A /* TotemStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C59CCB1D9A52120036CF4A /* TotemStyles.swift */; };
+		94C59CCE1D9A52270036CF4A /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C59CCD1D9A52270036CF4A /* VerticalSlider.swift */; };
 		94CD629D1D8965D600F7B496 /* IndexDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CD629C1D8965D600F7B496 /* IndexDetailHeader.swift */; };
 		94CD629F1D89661C00F7B496 /* IndexDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94CD629E1D89661C00F7B496 /* IndexDetailHeader.xib */; };
 		94E30E201D8FC4E40052EF59 /* DatePickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E30E1F1D8FC4E40052EF59 /* DatePickerSheet.swift */; };
@@ -143,6 +147,7 @@
 		9420042C1D8D4A1700B358BC /* BuyInformationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyInformationView.xib; sourceTree = "<group>"; };
 		9420042E1D8D4AB500B358BC /* BuyInformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyInformationView.swift; sourceTree = "<group>"; };
 		942470151D97F1F20035A380 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		942CE0131D992F390026CE16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		944EF1911D7EC29A00A039BA /* BestLimitDataList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestLimitDataList.swift; sourceTree = "<group>"; };
 		944EF1931D7EC29A00A039BA /* SymbolBestLimitResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolBestLimitResponse.swift; sourceTree = "<group>"; };
 		944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolTradingResponse.swift; sourceTree = "<group>"; };
@@ -211,6 +216,9 @@
 		94B7722E1D7FE363002AA618 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		94B772331D7FEA7D002AA618 /* NewsDetailsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailsList.swift; sourceTree = "<group>"; };
 		94B772341D7FEA7D002AA618 /* ObserverNewsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverNewsResponse.swift; sourceTree = "<group>"; };
+		94C59CC91D9A51900036CF4A /* CallUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallUsViewController.swift; sourceTree = "<group>"; };
+		94C59CCB1D9A52120036CF4A /* TotemStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotemStyles.swift; sourceTree = "<group>"; };
+		94C59CCD1D9A52270036CF4A /* VerticalSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalSlider.swift; sourceTree = "<group>"; };
 		94CD629C1D8965D600F7B496 /* IndexDetailHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexDetailHeader.swift; sourceTree = "<group>"; };
 		94CD629E1D89661C00F7B496 /* IndexDetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndexDetailHeader.xib; sourceTree = "<group>"; };
 		94E30E1F1D8FC4E40052EF59 /* DatePickerSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerSheet.swift; sourceTree = "<group>"; };
@@ -539,8 +547,8 @@
 				949BEE691D72A756008FA574 /* Resources */,
 				947C639B1D75BA6000676822 /* DataBase */,
 				949BEE661D72A737008FA574 /* Libs */,
-				949BEE681D72A74F008FA574 /* Models */,
 				949BEE981D72B28F008FA574 /* Views */,
+				949BEE681D72A74F008FA574 /* Models */,
 				949BEE671D72A741008FA574 /* ViewControllers */,
 				949BEE651D72A72E008FA574 /* ProjectFiles */,
 				949BEE551D72A51C008FA574 /* Main.storyboard */,
@@ -578,6 +586,7 @@
 		949BEE651D72A72E008FA574 /* ProjectFiles */ = {
 			isa = PBXGroup;
 			children = (
+				942CE0131D992F390026CE16 /* GoogleService-Info.plist */,
 				949BEE5D1D72A51C008FA574 /* Info.plist */,
 				949BEE511D72A51C008FA574 /* AppDelegate.swift */,
 				9465DB691D84071D007F0572 /* SabadBan-Bridging-Header.h */,
@@ -606,6 +615,7 @@
 				949BEE861D72A877008FA574 /* BaseViews */,
 				949BEE831D72A7E7008FA574 /* Setting */,
 				949BEE7E1D72A7D0008FA574 /* SideMenu */,
+				94C59CC81D9A514C0036CF4A /* CallUs */,
 				8477D9071D854420006BBFCE /* AboutUs */,
 			);
 			name = ViewControllers;
@@ -782,6 +792,16 @@
 			name = ObserverNews;
 			sourceTree = "<group>";
 		};
+		94C59CC81D9A514C0036CF4A /* CallUs */ = {
+			isa = PBXGroup;
+			children = (
+				94C59CCD1D9A52270036CF4A /* VerticalSlider.swift */,
+				94C59CCB1D9A52120036CF4A /* TotemStyles.swift */,
+				94C59CC91D9A51900036CF4A /* CallUsViewController.swift */,
+			);
+			name = CallUs;
+			sourceTree = "<group>";
+		};
 		94E30E1E1D8FC4CA0052EF59 /* DatePicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -875,6 +895,7 @@
 				94144E9C1D8D61A50008F602 /* buyInfoHeader.xib in Resources */,
 				949BEE571D72A51C008FA574 /* Main.storyboard in Resources */,
 				7CAF1DC91D8C3362003E22A4 /* MarketDetailsHeader.xib in Resources */,
+				942CE0141D992F390026CE16 /* GoogleService-Info.plist in Resources */,
 				949BEE961D72ADB4008FA574 /* IRANSans.ttf in Resources */,
 				9487766A1D882FA9009E358F /* menuCell.xib in Resources */,
 				949BEE9D1D72B46F008FA574 /* IndexHeader.xib in Resources */,
@@ -1042,6 +1063,7 @@
 				9467D8681D7BEB8700B76A2E /* EditPortfolioViewController.swift in Sources */,
 				949BEE851D72A7FE008FA574 /* SettingTableViewController.swift in Sources */,
 				947C63921D7453B200676822 /* SymbolCell.swift in Sources */,
+				94C59CCA1D9A51900036CF4A /* CallUsViewController.swift in Sources */,
 				94144E951D8D5CB40008F602 /* BuyInfoCell.swift in Sources */,
 				8477D9051D85440F006BBFCE /* AboutUsViewController.swift in Sources */,
 				9465DB611D83D702007F0572 /* BourseNewsDetailsList.swift in Sources */,
@@ -1087,10 +1109,12 @@
 				949BEE9A1D72B2FE008FA574 /* IndexTableViewController.swift in Sources */,
 				949BEE771D72A7AD008FA574 /* UIView.swift in Sources */,
 				949BEE6D1D72A78A008FA574 /* Utils.swift in Sources */,
+				94C59CCE1D9A52270036CF4A /* VerticalSlider.swift in Sources */,
 				7CAF1DC51D8C1BCE003E22A4 /* MarketActivityModel.swift in Sources */,
 				941C19BB1D76FD9300DDE96F /* SymbolNamesCell.swift in Sources */,
 				949BEE7C1D72A7C4008FA574 /* ENSideMenu.swift in Sources */,
 				949BEE731D72A799008FA574 /* MyAlert.swift in Sources */,
+				94C59CCC1D9A52120036CF4A /* TotemStyles.swift in Sources */,
 				949BEE8A1D72A883008FA574 /* BaseTableViewController.swift in Sources */,
 				949BEEB91D731235008FA574 /* DetailsViewController.swift in Sources */,
 				9412F0F11D857E3600E94683 /* LoginResponse.swift in Sources */,
@@ -1239,12 +1263,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SabadBan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoitek.SabadBan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dd2ff523-951c-4158-bfb6-86a074481927";
+				PROVISIONING_PROFILE = "ff66dd2b-761d-4fc3-96f0-f1764317bb5e";
 				SWIFT_OBJC_BRIDGING_HEADER = "SabadBan/SabadBan-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WARNING_CFLAGS = "";
@@ -1259,12 +1284,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SabadBan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoitek.SabadBan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dd2ff523-951c-4158-bfb6-86a074481927";
+				PROVISIONING_PROFILE = "ff66dd2b-761d-4fc3-96f0-f1764317bb5e";
 				SWIFT_OBJC_BRIDGING_HEADER = "SabadBan/SabadBan-Bridging-Header.h";
 				WARNING_CFLAGS = "";
 			};

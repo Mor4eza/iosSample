@@ -2391,6 +2391,41 @@
             </objects>
             <point key="canvasLocation" x="748" y="4882"/>
         </scene>
+        <!--Call Us View Controller-->
+        <scene sceneID="XGT-wM-X3e">
+            <objects>
+                <viewController storyboardIdentifier="viewController5" id="kIt-8H-hlk" customClass="CallUsViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Osb-Jp-EFh"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cch-qh-ZVQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6QC-U0-NDW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sWd-SH-Tjo" customClass="VerticalSlider" customModule="SabadBan" customModuleProvider="target">
+                                <rect key="frame" x="161" y="159" width="240" height="249"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minValue">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentValue">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DyI-Ao-p8U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-37" y="6045"/>
+        </scene>
         <!--News Detail View Controller-->
         <scene sceneID="DUq-s3-zZD">
             <objects>
