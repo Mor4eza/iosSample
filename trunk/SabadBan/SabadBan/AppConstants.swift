@@ -50,3 +50,9 @@ public enum TimeFrameType : Int {
     case month
     case year
 }
+
+public enum SortCondition {
+    case accending
+    case decending
+    case notSorted
+}

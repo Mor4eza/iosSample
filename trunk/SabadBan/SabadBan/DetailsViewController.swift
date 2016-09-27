@@ -43,10 +43,12 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        segRange.setTitle("Day".localized(), forSegmentAtIndex: 0)
-        segRange.setTitle("Week".localized(), forSegmentAtIndex: 1)
-        segRange.setTitle("Month".localized(), forSegmentAtIndex: 2)
-        segRange.setTitle( "Year".localized(), forSegmentAtIndex: 3)
+        segRange.setTitle("Day".localized(), forSegmentAtIndex: 3)
+        segRange.setTitle("Week".localized(), forSegmentAtIndex: 2)
+        segRange.setTitle("Month".localized(), forSegmentAtIndex: 1)
+        segRange.setTitle( "Year".localized(), forSegmentAtIndex: 0)
+        segRange.selectedSegmentIndex = 3
+        
         tblDetails.registerNib(UINib(nibName: "IndexDetailHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "IndexDetailHeader")
         self.tblDetails.dataSource = self
         tblDetails.delegate = self
@@ -106,13 +108,13 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
             switch indexPath.row {
             case 0:
                 cell.lblTitle.text = "MaxPrice".localized()
-                cell.lblValue.text = maxPrice.currencyFormat()
+                cell.lblValue.text = maxPrice.currencyFormat(2)
             case 1:
                 cell.lblTitle.text = "MinPrice".localized()
-                cell.lblValue.text = minPrice.currencyFormat()
+                cell.lblValue.text = minPrice.currencyFormat(2)
             case 2:
                 cell.lblTitle.text = "LastPrice".localized()
-                cell.lblValue.text = lastPrice.currencyFormat()
+                cell.lblValue.text = lastPrice.currencyFormat(2)
             case 3:
                 cell.lblTitle.text = "PriceChanges".localized()
                 cell.lblValue.text = String(priceChanges)
@@ -139,7 +141,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
             switch indexPath.row {
             case 0:
                 cell.lblTitle.text = "NumberOfTransactions".localized()
-                cell.lblValue.text = numberOfTransactions.currencyFormat()
+                cell.lblValue.text = numberOfTransactions.currencyFormat(2)
             case 1:
                 cell.lblTitle.text = "ValueOfTransactions".localized()
                 cell.lblValue.text = valueOfTransactions.suffixNumber()
@@ -169,7 +171,11 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
     
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 30
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 35
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -208,7 +214,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         
         
         // JSON Body
-        let body = IndexDetailsRequest(timeFrameType: TimeFrameType(rawValue: range), indexCode: indexCode).getDic()
+        let body = IndexDetailsRequest(timeFrameType: TimeFrameType(rawValue: (3 - range)), indexCode: indexCode).getDic()
         
         // Fetch Request
         Request.postData(url, body: body) { (indexs:MainResponse<Response>?, error)  in
@@ -220,8 +226,8 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
                     self.lastPrice = Double(indexs!.response.indexDetailsList[0].closePrice)
                     self.priceChanges = Double(indexs!.response.indexDetailsList[0].changePriceOnSameTime)
                     self.priceChangesPercent = Double(indexs!.response.indexDetailsList[0].changePricePercentOnSameTime)
-                    self.lblPrice.text = self.lastPrice.currencyFormat()
-                    self.lblPriceChanges.text = self.priceChanges.currencyFormat()
+                    self.lblPrice.text = self.lastPrice.currencyFormat(2)
+                    self.lblPriceChanges.text = self.priceChanges.currencyFormat(2)
                     self.lblPricePercent.text  = String(self.priceChangesPercent)
                     self.tblDetails.reloadData()
                 }else{

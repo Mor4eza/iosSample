@@ -62,8 +62,8 @@ class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
             cell.imgIndex.image = UIImage(named: "ic_decrease")
         }
         let price:NSNumber = indexPrice[indexPath.row]
-        cell.lblIndexCount.text = price.currencyFormat()
-        cell.lblIndexPercent.text = "%" + String(indexPercent[indexPath.row])
+        cell.lblIndexCount.text = price.currencyFormat(2)
+        cell.lblIndexPercent.text = "%" + indexPercent[indexPath.row].currencyFormat(2)
         cell.lblIndexName.sizeToFit()
         cell.lblIndexCount.sizeToFit()
         

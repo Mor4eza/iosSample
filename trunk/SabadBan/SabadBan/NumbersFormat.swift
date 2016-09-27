@@ -10,14 +10,22 @@ import Foundation
 
 extension NSNumber {
     
-    func currencyFormat() -> String {
+    func currencyFormat(decimalDigits : Int) -> String {
         let formatter = NSNumberFormatter()
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         formatter.currencySymbol = ""
-        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
-        formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = 2
+//        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
+        var decimalPart = self as Double
+        decimalPart = decimalPart - Double(Int(decimalPart))
+        
+        if (decimalPart == 0) {
+            formatter.minimumFractionDigits = 0
+        } else {
+            formatter.minimumFractionDigits = 1
+        }
+        
+        formatter.maximumFractionDigits = decimalDigits
         let priceString = formatter.stringFromNumber(self)
         return priceString!
     }
@@ -26,14 +34,14 @@ extension NSNumber {
 
 extension Int {
     
-    func currencyFormat() -> String {
+    func currencyFormat(decimalDigits : Int) -> String {
         let formatter = NSNumberFormatter()
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         formatter.currencySymbol = ""
-        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
+//        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
         formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = 2
+        formatter.maximumFractionDigits = 1
         let priceString = formatter.stringFromNumber(self)
         return priceString!
     }
@@ -41,14 +49,22 @@ extension Int {
 
 extension Float {
     
-    func currencyFormat() -> String {
+    func currencyFormat(decimalDigits : Int) -> String {
         let formatter = NSNumberFormatter()
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         formatter.currencySymbol = ""
-        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
-        formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = 2
+//        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
+        
+        let decimalPart = self - Float(Int(self))
+        
+        if (decimalPart == 0) {
+            formatter.minimumFractionDigits = 0
+        } else {
+            formatter.minimumFractionDigits = 1
+        }
+        
+        formatter.maximumFractionDigits = decimalDigits
         let priceString = formatter.stringFromNumber(self)
         return priceString!
     }
@@ -56,14 +72,22 @@ extension Float {
 
 extension Double {
     
-    func currencyFormat() -> String {
+    func currencyFormat(decimalDigits : Int) -> String {
         let formatter = NSNumberFormatter()
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         formatter.currencySymbol = ""
-        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
-        formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = 2
+//        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
+        
+        let decimalPart = self - Double(Int(self))
+        
+        if (decimalPart == 0) {
+            formatter.minimumFractionDigits = 0
+        } else {
+            formatter.minimumFractionDigits = 1
+        }
+        
+        formatter.maximumFractionDigits = decimalDigits
         let priceString = formatter.stringFromNumber(self)
         return priceString!
     }
@@ -81,11 +105,15 @@ extension Double {
             return "\(sign)\(num)";
         }
         
-        let exp:Int = Int(log10(num) / 3.0 ); //log10(1000));
+        var exp:Int = Int(log10(num) / 3.0 ); //log10(1000));
         
         let units:[String] = ["K","M","B","T","P","E"];
         
-        let roundedNum:Double = round(10 * num / pow(1000.0,Double(exp))) / 10;
+        if (exp > 3) {
+            exp = 3
+        }
+        
+        let roundedNum = (num / pow(1000.0,Double(exp))).currencyFormat(3)
         
         return "\(sign)\(roundedNum)\(units[exp-1])";
     }

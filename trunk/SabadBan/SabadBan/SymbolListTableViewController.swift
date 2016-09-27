@@ -15,12 +15,10 @@ class SymbolListTableViewController: BaseTableViewController {
     var numberSortCondiiton = SortCondition.notSorted
     var volumeSortCondiiton = SortCondition.notSorted
     var symbolSortCondiiton = SortCondition.notSorted
-    //    var symbolName = [String]()
-    //    var lastTradeValue = [Double]()
-    //    var lastTradeChange = [Double]()
-    //    var symbolVolume = [String]()
-    //    var symbolAmount = [Int]()
-    //    var symbolCode = [String]()
+    
+    var headerView : SymbolListHeader!
+    
+    
     var symbolDetailsList = [SymbolDetailsList]()
     var temp = [String]()
     
@@ -64,13 +62,13 @@ class SymbolListTableViewController: BaseTableViewController {
         let tempVol = Double(symbolDetailsList[indexPath.row].transactionVolume)
         let tempLastTrader = Int(symbolDetailsList[indexPath.row].lastTradePriceChange)
         cell.lblName.text = symbolDetailsList[indexPath.row].symbolNameFa
-        cell.lblLastTrade.text = symbolDetailsList[indexPath.row].lastTradePrice.currencyFormat()
-        cell.lblLastTradeChanges.text = String(abs(tempLastTrader))
+        cell.lblLastTrade.text = symbolDetailsList[indexPath.row].lastTradePrice.currencyFormat(2)
+        cell.lblLastTradeChanges.text = abs(tempLastTrader).currencyFormat(2)
         cell.lblVolume.text = tempVol.suffixNumber()
-        cell.lblAmount.text = String(symbolDetailsList[indexPath.row].transactionNumber)
-        if symbolDetailsList[indexPath.row].lastTradePriceChange > 0{
+        cell.lblAmount.text = symbolDetailsList[indexPath.row].transactionNumber.currencyFormat(2)
+        if symbolDetailsList[indexPath.row].lastTradePriceChange > 0 {
             cell.lblLastTradeChanges.backgroundColor = UIColor(netHex: 0x006400)
-        }else{
+        } else if symbolDetailsList[indexPath.row].lastTradePriceChange < 0 {
             cell.lblLastTradeChanges.backgroundColor = UIColor.redColor()
         }
         
@@ -88,17 +86,29 @@ class SymbolListTableViewController: BaseTableViewController {
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("SymbolListHeader") as! SymbolListHeader
+        self.headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("SymbolListHeader") as! SymbolListHeader
         
         let tapGestureAmount = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
         let tapGestureVolume = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
         let tapGestureName = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
+        let tapGestureImgName = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
+        let tapGestureImgAmount = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
+        let tapGestureImgVolume = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
+        
         headerView.lblAmount.addGestureRecognizer(tapGestureAmount)
         headerView.lblAmount.userInteractionEnabled = true
+        headerView.imgSortAmount.addGestureRecognizer(tapGestureImgAmount)
+        headerView.imgSortAmount.userInteractionEnabled = true
+        
         headerView.lblVolume.addGestureRecognizer(tapGestureVolume)
         headerView.lblVolume.userInteractionEnabled = true
+        headerView.imgSortVolume.addGestureRecognizer(tapGestureImgVolume)
+        headerView.imgSortVolume.userInteractionEnabled = true
+        
         headerView.lblName.addGestureRecognizer(tapGestureName)
         headerView.lblName.userInteractionEnabled = true
+        headerView.imgSortName.addGestureRecognizer(tapGestureImgName)
+        headerView.imgSortName.userInteractionEnabled = true
         
         headerView.lblName.text = "Symbol".localized()
         headerView.lblLastTrade.text = "Trade".localized()
@@ -148,85 +158,91 @@ class SymbolListTableViewController: BaseTableViewController {
     //MARK: Actions
     
     func performSort(sender: UITapGestureRecognizer) {
-        switch sender.view!.restorationIdentifier! {
-        case "lblAmount":
+        var sortImg: UIImageView
+        let identifier = sender.view!.restorationIdentifier!
+        if (identifier == "lblAmount" || identifier == "imgSortAmount") {
+            sortImg = headerView.imgSortAmount
             switch numberSortCondiiton {
             case .notSorted:
+                rotateWithAnimation(sortImg, angle: M_PI)
                 self.numberSortCondiiton = .decending
                 self.symbolDetailsList.sortInPlace({
                     $1.transactionNumber < $0.transactionNumber
                 })
                 break
             case .decending:
+                rotateWithAnimation(sortImg, angle: 0)
                 self.numberSortCondiiton = .accending
                 self.symbolDetailsList.sortInPlace({
                     $1.transactionNumber > $0.transactionNumber
                 })
                 break
             case .accending:
+                rotateWithAnimation(sortImg, angle: M_PI)
                 self.numberSortCondiiton = .decending
                 self.symbolDetailsList.sortInPlace({
                     $1.transactionNumber < $0.transactionNumber
                 })
                 break
             }
-            break
-        case "lblVolume":
+        } else if (identifier == "lblVolume" || identifier == "imgSortVolume") {
+            sortImg = headerView.imgSortVolume
             switch volumeSortCondiiton {
             case .notSorted:
+                rotateWithAnimation(sortImg, angle: M_PI)
                 self.volumeSortCondiiton = .decending
                 self.symbolDetailsList.sortInPlace({
                     $1.transactionVolume < $0.transactionVolume
                 })
                 break
             case .decending:
+                rotateWithAnimation(sortImg, angle: 0)
                 self.volumeSortCondiiton = .accending
                 self.symbolDetailsList.sortInPlace({
                     $1.transactionVolume > $0.transactionVolume
                 })
                 break
             case .accending:
+                rotateWithAnimation(sortImg, angle: M_PI)
                 self.volumeSortCondiiton = .decending
                 self.symbolDetailsList.sortInPlace({
                     $1.transactionVolume < $0.transactionVolume
                 })
                 break
             }
-            break
-        case "lblSymbol":
+        } else if (identifier == "lblSymbol" || identifier == "imgSortName" ){
+            sortImg = headerView.imgSortName
             switch symbolSortCondiiton {
             case .notSorted:
+                rotateWithAnimation(sortImg, angle: M_PI)
                 self.symbolSortCondiiton = .decending
                 self.symbolDetailsList.sortInPlace({
                     return persianStringCompare($1.symbolNameFa, value2: $0.symbolNameFa)
                 })
                 break
             case .decending:
+                rotateWithAnimation(sortImg, angle: 0)
                 self.symbolSortCondiiton = .accending
                 self.symbolDetailsList.sortInPlace({
                     return persianStringCompare($0.symbolNameFa, value2: $1.symbolNameFa)
                 })
                 break
             case .accending:
+                rotateWithAnimation(sortImg, angle: M_PI)
                 self.symbolSortCondiiton = .decending
                 self.symbolDetailsList.sortInPlace({
                     return persianStringCompare($1.symbolNameFa, value2: $0.symbolNameFa)
                 })
                 break
             }
-            break
-        default:break
         }
         
         self.tableView.reloadData()
     }
     
-    
-    
-}
-
-public enum SortCondition {
-    case accending
-    case decending
-    case notSorted
+    func rotateWithAnimation(target: UIImageView, angle: Double) {
+        UIView.animateWithDuration(0.25, animations: {
+            target.transform = CGAffineTransformMakeRotation(CGFloat(angle))
+        })
+    }
 }

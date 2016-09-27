@@ -16,6 +16,9 @@ class SymbolListHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var lblLastTrade: UILabel!
     @IBOutlet weak var lblName: UILabel!
     
+    @IBOutlet weak var imgSortName: UIImageView!
+    @IBOutlet weak var imgSortAmount: UIImageView!
+    @IBOutlet weak var imgSortVolume: UIImageView!
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

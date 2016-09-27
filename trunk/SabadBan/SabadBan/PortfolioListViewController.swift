@@ -121,9 +121,9 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         let cell = tableView.dequeueReusableCellWithIdentifier("portfolioCell", forIndexPath: indexPath) as! portfolioCell
         
         cell.lblSymbolValue.text = smData[indexPath.row].symbolNameFa
-        cell.lblLastPriceValue.text = smData[indexPath.row].closePrice.currencyFormat()
-        cell.lblBuyQuotValue.text = smData[indexPath.row].benchmarkBuy.currencyFormat()
-        cell.lblSellQuotValue.text = smData[indexPath.row].benchmarkSales.currencyFormat()
+        cell.lblLastPriceValue.text = smData[indexPath.row].closePrice.currencyFormat(2)
+        cell.lblBuyQuotValue.text = smData[indexPath.row].benchmarkBuy.currencyFormat(2)
+        cell.lblSellQuotValue.text = smData[indexPath.row].benchmarkSales.currencyFormat(2)
         if smData[indexPath.row].todayProfit > 0 {
             cell.lblTodayValue.textColor = UIColor.greenColor()
         }else {
@@ -136,10 +136,10 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             cell.lblOverValue.textColor = UIColor.redColor()
         }
         
-        cell.lblTodayValue.text = smData[indexPath.row].todayProfit.currencyFormat()
-        cell.lblOverValue.text = smData[indexPath.row].totalProfit.currencyFormat()
-        cell.lblEndValue.text = smData[indexPath.row].lastTradePrice.currencyFormat()
-        cell.lblEndChanges.text = smData[indexPath.row].closePriceChange.currencyFormat()
+        cell.lblTodayValue.text = smData[indexPath.row].todayProfit.currencyFormat(2)
+        cell.lblOverValue.text = smData[indexPath.row].totalProfit.currencyFormat(2)
+        cell.lblEndValue.text = smData[indexPath.row].lastTradePrice.currencyFormat(2)
+        cell.lblEndChanges.text = smData[indexPath.row].closePriceChange.currencyFormat(2)
         if smData[indexPath.row].status == "IS" {
             cell.lblStatusValue.text = "متوقف"
             cell.viewStatus.backgroundColor = UIColor.redColor()
