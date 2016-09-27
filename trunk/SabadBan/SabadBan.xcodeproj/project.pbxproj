@@ -14,6 +14,7 @@
 		7CAF1DC71D8C3294003E22A4 /* MarketDetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF1DC61D8C3294003E22A4 /* MarketDetailsHeader.swift */; };
 		7CAF1DC91D8C3362003E22A4 /* MarketDetailsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CAF1DC81D8C3362003E22A4 /* MarketDetailsHeader.xib */; };
 		7CE4AB271D9192E2003332F6 /* RegisterErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4AB261D9192E2003332F6 /* RegisterErrorModel.swift */; };
+		8411E6321D9A50FF009A78DA /* SymbolListAndDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8411E6311D9A50FF009A78DA /* SymbolListAndDetailsRequest.swift */; };
 		8477D9051D85440F006BBFCE /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477D9041D85440F006BBFCE /* AboutUsViewController.swift */; };
 		8477D90C1D856D04006BBFCE /* MGBuildDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477D90B1D856D04006BBFCE /* MGBuildDate.m */; };
 		84A34BF61D7EF5E600B02A8D /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A34BF51D7EF5E600B02A8D /* AlamofireRequest.swift */; };
@@ -115,6 +116,7 @@
 		7CAF1DC61D8C3294003E22A4 /* MarketDetailsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketDetailsHeader.swift; sourceTree = "<group>"; };
 		7CAF1DC81D8C3362003E22A4 /* MarketDetailsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarketDetailsHeader.xib; sourceTree = "<group>"; };
 		7CE4AB261D9192E2003332F6 /* RegisterErrorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterErrorModel.swift; sourceTree = "<group>"; };
+		8411E6311D9A50FF009A78DA /* SymbolListAndDetailsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolListAndDetailsRequest.swift; sourceTree = "<group>"; };
 		8477D9041D85440F006BBFCE /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		8477D90A1D856D04006BBFCE /* MGBuildDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGBuildDate.h; sourceTree = "<group>"; };
 		8477D90B1D856D04006BBFCE /* MGBuildDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGBuildDate.m; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				84C9E2931D997A0A00F96EF8 /* SymbolBestLimitRequest.swift */,
 				84C9E2951D997AE500F96EF8 /* SymbolTradingRequest.swift */,
 				84C9E2971D997B5700F96EF8 /* SymbolListByIndexRequest.swift */,
+				8411E6311D9A50FF009A78DA /* SymbolListAndDetailsRequest.swift */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -794,6 +797,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 949BEE601D72A51C008FA574 /* Build configuration list for PBXNativeTarget "SabadBan" */;
 			buildPhases = (
+				9070F80B11578457AFAFB70F /* 📦 Check Pods Manifest.lock */,
 				23E0DAE45421868EF7347EBA /* [CP] Check Pods Manifest.lock */,
 				DA8014AD9787A3B930297CC7 /* [CP] Check Pods Manifest.lock */,
 				8312FA5A350B89DD3F034BF3 /* [CP] Check Pods Manifest.lock */,
@@ -943,6 +947,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		9070F80B11578457AFAFB70F /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		9C5F1587A697F6BB804C8C3E /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1051,6 +1070,7 @@
 				84C9E2851D992EF000F96EF8 /* BourseNewsRequest.swift in Sources */,
 				84C9E28D1D993D3E00F96EF8 /* IndexDetailsRequest.swift in Sources */,
 				949BEE891D72A883008FA574 /* BaseViewController.swift in Sources */,
+				8411E6321D9A50FF009A78DA /* SymbolListAndDetailsRequest.swift in Sources */,
 				949BEE821D72A7DA008FA574 /* MyMenuTableViewController.swift in Sources */,
 				84C9E2961D997AE500F96EF8 /* SymbolTradingRequest.swift in Sources */,
 				948776691D882FA9009E358F /* menuCell.swift in Sources */,

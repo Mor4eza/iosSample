@@ -146,12 +146,7 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
         let url = AppTadbirUrl + URLS["getSymbolListAndDetails"]!
         
         // JSON Body
-        let body = [
-            "pageNumber": 0,
-            "recordPerPage": 0,
-            "symbolCode": [],
-            "supportPaging": false
-        ]
+        let body = SymbolListAndDetailsRequest(pageNumber: 0, recordPerPage: 0, symbolCode: [], supportPaging: false).getDic()
         
         // Fetch Request
         Request.postData(url, body: body) { (symbols:MainResponse<SymbolListModelResponse>?, error)  in

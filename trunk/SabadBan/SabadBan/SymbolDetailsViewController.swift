@@ -194,7 +194,7 @@ class SymbolDetailsViewController: BaseTableViewController {
         let url = AppTadbirUrl + URLS["getSymbolListAndDetails"]!
         
         // JSON Body
-        let body = SymbolListByIndexRequest(pageNumber: 0, recordPerPage: 0, symbolCode: sCode, supportPaging: false).getDic()
+        let body = SymbolListAndDetailsRequest(pageNumber: 0, recordPerPage: 0, symbolCode: sCode, supportPaging: false).getDic()
         
         // Fetch Request
         Request.postData(url, body: body) { (symbol:MainResponse<SymbolListByIndexResponse>?, error) in
