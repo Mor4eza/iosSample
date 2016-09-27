@@ -51,7 +51,28 @@ func persianStringCompare(value1: String, value2: String) -> Bool {
 }
 
 
+
+import FCAlertView
 public class Utils {
-    
-  
+
+   public static func ShowAlert(inView:UIViewController, title:String , details:String ,image:UIImage? = nil ,btnOkTitle:String? = nil , btnTitles:[String]? = nil ,tag:Int? = nil,delegate:FCAlertViewDelegate? = nil)  {
+        
+        let alert = FCAlertView();
+        alert.makeAlertTypeCaution()
+        alert.colorScheme = UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1)
+        if tag != nil {
+            alert.tag = tag!
+        }
+        alert.delegate = delegate
+        alert.showAlertInView(inView,
+                              withTitle:title,
+                              withSubtitle:details,
+                              withCustomImage:image,
+                              withDoneButtonTitle:btnOkTitle,
+                              andButtons:btnTitles) // Set your button titles here
+        
+    }
 }
+
+
+

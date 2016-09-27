@@ -14,9 +14,14 @@
 "ContactUs" = "تماس با ما";
 "Index" = "شاخص";
 "Portfolio" = "پرتفوی";
+"Exit" = "خروج";
 "News" = "اخبار";
 "Done" = "تایید";
 "Warning" = "هشدار";
+"Back" = "بازگشت";
+"Yes" = "بله";
+"No" = "خیر";
+"RealyWantToDelete" = "پرتفوی حذف شود؟";
 //-Mark : Setting View Controlle Strings
 "SwitchLanguage" = "تغییر زبان";
 "Cancel" = "لغو";

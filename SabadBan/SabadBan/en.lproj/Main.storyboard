@@ -1462,10 +1462,10 @@
             </objects>
             <point key="canvasLocation" x="1457" y="-77"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Symbol Details Tab Bar-->
         <scene sceneID="TpI-B0-AQl">
             <objects>
-                <tabBarController id="aU8-zy-qG6" sceneMemberID="viewController">
+                <tabBarController id="aU8-zy-qG6" customClass="SymbolDetailsTabBar" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="pDj-9E-Ik0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2150,7 +2150,7 @@
                                             <outlet property="lblTodayValue" destination="0wW-Kg-1aa" id="aJX-zU-aAn"/>
                                             <outlet property="lblsymbolTitle" destination="YEK-ek-OcM" id="UFg-RL-kEU"/>
                                             <outlet property="viewStatus" destination="fuF-OE-CLv" id="SEY-PI-QWj"/>
-                                            <segue destination="aU8-zy-qG6" kind="show" id="RP5-i4-ySo"/>
+                                            <segue destination="aU8-zy-qG6" kind="show" identifier="symbolDetailsSegue" id="RP5-i4-ySo"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2402,23 +2402,6 @@
                     <view key="view" contentMode="scaleToFill" id="6QC-U0-NDW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sWd-SH-Tjo" customClass="VerticalSlider" customModule="SabadBan" customModuleProvider="target">
-                                <rect key="frame" x="161" y="159" width="240" height="249"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="minValue">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                        <real key="value" value="100"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="currentValue">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
@@ -2776,9 +2759,9 @@
         <image name="login_username" width="48" height="46"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nO4-SB-DDz"/>
         <segue reference="RP5-i4-ySo"/>
+        <segue reference="TCW-a9-t2w"/>
+        <segue reference="nO4-SB-DDz"/>
         <segue reference="cbY-Qz-fGF"/>
-        <segue reference="Bzy-vl-3sW"/>
     </inferredMetricsTieBreakers>
 </document>

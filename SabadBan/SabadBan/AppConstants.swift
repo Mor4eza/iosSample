@@ -10,6 +10,7 @@ import UIKit
 
 public let LanguageChangedNotification = "languageChanged"
 public let NetworkErrorAlert = "networkError"
+public let PortfolioEdited = "PortfolioEdited"
 public let AppFontName_IranSans = "IRANSansMobileFaNum"
 public let AppTadbirUrl = "http://185.37.52.193:9090"
 public let AppNewsURL = "http://sabadbannewstest.sefryek.com"

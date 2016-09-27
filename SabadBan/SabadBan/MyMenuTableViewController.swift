@@ -96,7 +96,7 @@ class MyMenuTableViewController: BaseTableViewController {
             cell.imgMenu.image = UIImage(named: "contactUs")
             break
         default:
-            cell.lblMenuName?.text = "Empty".localized()
+            cell.lblMenuName?.text = "Exit".localized()
             cell.imgMenu.image = UIImage(named: "exit")
             break
         }

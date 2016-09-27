@@ -13,7 +13,8 @@ import SwiftEventBus
 import Alamofire
 import Alamofire_Gloss
 import KCFloatingActionButton
-class PortfolioListViewController: BaseViewController ,UITableViewDataSource , UITableViewDelegate , KCFloatingActionButtonDelegate{
+import FCAlertView
+class PortfolioListViewController: BaseViewController ,UITableViewDataSource , UITableViewDelegate , KCFloatingActionButtonDelegate , FCAlertViewDelegate{
     let db = DataBase()
     var currentPortfolio = String()
     var portfolios = [String]()
@@ -40,13 +41,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         self.view.backgroundColor = AppBackgroundLight
         tblPortfolio.delegate = self
         tblPortfolio.dataSource = self
-        
-        portfolios = db.getPortfolioList(1)
-        if portfolios.count > 0 {
-            currentPortfolio = portfolios[0]
-        }else {
-            currentPortfolio = ""
-        }
+        getCurrentPortfolio()
         initNavigationTitle()
         
         initFAB()
@@ -54,6 +49,8 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             self.loadSymbolsFromDb()
             
         }
+        
+       
     }
     
     func showHintView(){
@@ -83,6 +80,11 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     
     override func viewWillAppear(animated: Bool) {
         nc.addObserver(self, selector: #selector(selectedSymbol), name: "SYMBOL_SELECTED", object: nil)
+        SwiftEventBus.onMainThread(self, name: PortfolioEdited) { result in
+            debugPrint("Edited")
+            self.initNavigationTitle()
+        }
+        
         loadSymbolsFromDb()
         
         if portfolios.count == 0 {
@@ -192,6 +194,16 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     }
     
     //MARK:- Navigation Title
+    
+    func getCurrentPortfolio(){
+        
+        portfolios = db.getPortfolioList(1)
+        if portfolios.count > 0 {
+            currentPortfolio = portfolios[0]
+        }else {
+            currentPortfolio = ""
+        }
+    }
     
     func initNavigationTitle(){
         
@@ -307,10 +319,8 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         
         deletePortfolio.handler = { item in
             
-            self.db.deleteAllSymbolsInPortfolio(self.db.getportfolioCodeByName(self.currentPortfolio))
-            self.db.deletePortfolio(self.db.getportfolioCodeByName(self.currentPortfolio))
-            self.loadSymbolsFromDb()
-            self.initNavigationTitle()
+            Utils.ShowAlert(self, title: "Attention".localized(), details: "RealyWantToDelete".localized(), btnOkTitle: "Yes".localized(), btnTitles: ["No".localized()],delegate: self)
+        
             
         }
         
@@ -395,7 +405,16 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         
         
         if segue.identifier == "symbolDetailsSegue" {
+            
             let indexPath = tblPortfolio.indexPathForSelectedRow!
+         
+            SelectedSymbolName = smData[indexPath.row].symbolNameFa
+            
+           
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back".localized()
+            navigationItem.backBarButtonItem = backItem 
+
             SelectedSymbolCode = smData[indexPath.row].symbolCode
             
         }
@@ -408,7 +427,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             let editController = nav.topViewController as! EditPortfolioViewController
             
             editController.portfolioName = currentPortfolio
-            
+            editController.portfolios = self.portfolios
             for index in 0..<symbols.count {
                 editController.symbolData.append(symbolsDataForEdit(sName: smData[index].symbolNameFa, sNameEn: smData[index].symbolNameEn, sCode: smData[index].symbolCode))
             }
@@ -422,6 +441,18 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             buyInfo.price = self.selectedSymbolPrice
             
         }
+    }
+    
+    
+     //MARK:- AlertView Delegates
+    
+    func FCAlertDoneButtonClicked(alertView: FCAlertView){
+        
+        db.deleteAllSymbolsInPortfolio(self.db.getportfolioCodeByName(self.currentPortfolio))
+        db.deletePortfolio(self.db.getportfolioCodeByName(self.currentPortfolio))
+        getCurrentPortfolio()
+        loadSymbolsFromDb()
+        initNavigationTitle()
     }
 }
 
