@@ -114,15 +114,12 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     func showAlert(message : String) {
         
         
-        let alert = FCAlertView()
-        alert.makeAlertTypeCaution()
-        alert.colorScheme = UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1)
-        alert.showAlertInView(self,
-                              withTitle: "Attention".localized(),
-                              withSubtitle: message.localized(),
-                              withCustomImage: nil,
-                              withDoneButtonTitle: "Ok".localized(),
-                              andButtons: nil)
+       
+        Utils.ShowAlert(self,
+                        title: "Attention".localized(),
+                        details: message.localized(),
+                        btnOkTitle: "Ok".localized()
+                        )
     }
     
     func beginLoginSequence() {

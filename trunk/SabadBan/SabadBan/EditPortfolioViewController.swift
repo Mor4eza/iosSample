@@ -7,13 +7,14 @@
     //
     
     import UIKit
-    
+    import SwiftEventBus
     class EditPortfolioViewController: BaseTableViewController {
         
         @IBOutlet weak var etTitle: UITextField!
         var portfolioName = String()
         var db = DataBase()
         var symbolData = [symbolsDataForEdit]()
+        var portfolios = [String]()
         override func viewDidLoad() {
             super.viewDidLoad()
             self.title = "EditPortfolio".localized()
@@ -29,11 +30,22 @@
             self.navigationItem.leftBarButtonItem = rightBarButton
             
             setEditing(true, animated: true)
-
+            
         }
         
         func doneClicked()  {
+            
+            for i in 0  ..< self.portfolios.count {
+                if etTitle.text != portfolioName {
+                    if(etTitle.text == self.portfolios[i]){
+                        Utils.ShowAlert(self, title:"Attention".localized() , details: "نام پرتفوی تکراری است.",btnOkTitle:"Ok".localized())
+                        return
+                    }
+                }
+            }
+            
             db.updatePortfolioName(etTitle.text!, pCode: db.getportfolioCodeByName(portfolioName))
+            SwiftEventBus.postToMainThread(PortfolioEdited)
             dismissViewControllerAnimated(true, completion: nil)
         }
         

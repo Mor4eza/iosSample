@@ -27,7 +27,6 @@ class Request :BaseViewController{
                     return
                 }
                 if let responseObject = response.result.value{
-                    print(responseObject)
                     completion(responseObject, nil)
                 }
         }

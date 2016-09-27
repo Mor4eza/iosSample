@@ -14,15 +14,19 @@
 "ContactUs" = "Contact Us";
 "Index" = "Index";
 "Portfolio" = "Portfolio";
+"Exit" = "Exit";
 "News" = "News";
 "Done" = "Done";
 "Warning" = "Warning";
+"Back" = "Back";
 //MARK :- Setting View Controller Strings
 "Language" = " Language ";
 "SwitchLanguage" = "Switch Language";
 "Cancel" = "Cancel";
 "Submit" = "Submit";
-
+"Yes" = "Yes";
+"No" = "No";
+"RealyWantToDelete" = "Realy wants to delete this portfolio?";
 //MARK:- Index View Strings
 "Index" = "Index";
 "Count" = "Count";
