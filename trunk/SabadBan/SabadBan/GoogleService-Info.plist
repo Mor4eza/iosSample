@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>578748409911-pounpn8h77goijai4qteq6ct1vcunvq7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.578748409911-pounpn8h77goijai4qteq6ct1vcunvq7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA8ZCnqQd_QNbuJX__NBWl5NSrA_dZw9CI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>578748409911</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.zoitek.SabadBan</string>
+	<key>PROJECT_ID</key>
+	<string>sabadban-709d7</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sabadban-709d7.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:578748409911:ios:59233b48f92a156b</string>
+	<key>DATABASE_URL</key>
+	<string>https://sabadban-709d7.firebaseio.com</string>
+</dict>
+</plist>
