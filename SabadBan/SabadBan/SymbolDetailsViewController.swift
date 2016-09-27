@@ -125,25 +125,25 @@ class SymbolDetailsViewController: BaseTableViewController {
             
             if ((bestLimit?.successful) != nil) {
                 if  bestLimit!.response.bestLimitDataList.count > 0 {
-                    self.lblBBPValue1.text = bestLimit!.response.bestLimitDataList[0].buyPrice.currencyFormat()
-                    self.lblBBPValue2.text = bestLimit!.response.bestLimitDataList[1].buyPrice.currencyFormat()
-                    self.lblBBPValue3.text = bestLimit!.response.bestLimitDataList[2].buyPrice.currencyFormat()
-                    self.lblBBVValue1.text = bestLimit!.response.bestLimitDataList[0].buyValue.currencyFormat()
-                    self.lblBBVValue2.text = bestLimit!.response.bestLimitDataList[1].buyValue.currencyFormat()
-                    self.lblBBVValue3.text = bestLimit!.response.bestLimitDataList[2].buyValue.currencyFormat()
-                    self.lblBBCValue1.text = bestLimit!.response.bestLimitDataList[0].buyNumber.currencyFormat()
-                    self.lblBBCValue2.text = bestLimit!.response.bestLimitDataList[1].buyNumber.currencyFormat()
-                    self.lblBBCValue3.text = bestLimit!.response.bestLimitDataList[2].buyNumber.currencyFormat()
+                    self.lblBBPValue1.text = bestLimit!.response.bestLimitDataList[0].buyPrice.currencyFormat(2)
+                    self.lblBBPValue2.text = bestLimit!.response.bestLimitDataList[1].buyPrice.currencyFormat(2)
+                    self.lblBBPValue3.text = bestLimit!.response.bestLimitDataList[2].buyPrice.currencyFormat(2)
+                    self.lblBBVValue1.text = bestLimit!.response.bestLimitDataList[0].buyValue.currencyFormat(2)
+                    self.lblBBVValue2.text = bestLimit!.response.bestLimitDataList[1].buyValue.currencyFormat(2)
+                    self.lblBBVValue3.text = bestLimit!.response.bestLimitDataList[2].buyValue.currencyFormat(2)
+                    self.lblBBCValue1.text = bestLimit!.response.bestLimitDataList[0].buyNumber.currencyFormat(2)
+                    self.lblBBCValue2.text = bestLimit!.response.bestLimitDataList[1].buyNumber.currencyFormat(2)
+                    self.lblBBCValue3.text = bestLimit!.response.bestLimitDataList[2].buyNumber.currencyFormat(2)
                     
-                    self.lblBSPValue1.text = bestLimit!.response.bestLimitDataList[0].sellPrice.currencyFormat()
-                    self.lblBSPValue2.text = bestLimit!.response.bestLimitDataList[1].sellPrice.currencyFormat()
-                    self.lblBSPValue3.text = bestLimit!.response.bestLimitDataList[2].sellPrice.currencyFormat()
-                    self.lblBSVValue1.text = bestLimit!.response.bestLimitDataList[0].sellValue.currencyFormat()
-                    self.lblBSVValue2.text = bestLimit!.response.bestLimitDataList[1].sellValue.currencyFormat()
-                    self.lblBSVValue3.text = bestLimit!.response.bestLimitDataList[2].sellValue.currencyFormat()
-                    self.lblBSCValue1.text = bestLimit!.response.bestLimitDataList[0].sellNumber.currencyFormat()
-                    self.lblBSCValue2.text = bestLimit!.response.bestLimitDataList[1].sellNumber.currencyFormat()
-                    self.lblBSCValue3.text = bestLimit!.response.bestLimitDataList[2].sellNumber.currencyFormat()
+                    self.lblBSPValue1.text = bestLimit!.response.bestLimitDataList[0].sellPrice.currencyFormat(2)
+                    self.lblBSPValue2.text = bestLimit!.response.bestLimitDataList[1].sellPrice.currencyFormat(2)
+                    self.lblBSPValue3.text = bestLimit!.response.bestLimitDataList[2].sellPrice.currencyFormat(2)
+                    self.lblBSVValue1.text = bestLimit!.response.bestLimitDataList[0].sellValue.currencyFormat(2)
+                    self.lblBSVValue2.text = bestLimit!.response.bestLimitDataList[1].sellValue.currencyFormat(2)
+                    self.lblBSVValue3.text = bestLimit!.response.bestLimitDataList[2].sellValue.currencyFormat(2)
+                    self.lblBSCValue1.text = bestLimit!.response.bestLimitDataList[0].sellNumber.currencyFormat(2)
+                    self.lblBSCValue2.text = bestLimit!.response.bestLimitDataList[1].sellNumber.currencyFormat(2)
+                    self.lblBSCValue3.text = bestLimit!.response.bestLimitDataList[2].sellNumber.currencyFormat(2)
                 }
             } else {
                 debugPrint(error)
@@ -170,14 +170,14 @@ class SymbolDetailsViewController: BaseTableViewController {
             
             if ((trading?.successful) != nil) {
                 if trading!.response != nil {
-                    self.lblCount1Value.text = trading!.response.buyNumberLegal.currencyFormat()
-                    self.lblCount2Value.text = trading!.response.buyNumberReal.currencyFormat()
-                    self.lblCount3Value.text = trading!.response.sellNumberLegal.currencyFormat()
-                    self.lblCount4Value.text = trading!.response.sellNumberReal.currencyFormat()
-                    self.lblVolume1value.text = trading!.response.buyVolumeLegal.currencyFormat()
-                    self.lblVolume2value.text = trading!.response.buyVolumeReal.currencyFormat()
-                    self.lblVolume3value.text = trading!.response.sellVolumeLegal.currencyFormat()
-                    self.lblVolume4value.text = trading!.response.sellVolumeReal.currencyFormat()
+                    self.lblCount1Value.text = trading!.response.buyNumberLegal.currencyFormat(2)
+                    self.lblCount2Value.text = trading!.response.buyNumberReal.currencyFormat(2)
+                    self.lblCount3Value.text = trading!.response.sellNumberLegal.currencyFormat(2)
+                    self.lblCount4Value.text = trading!.response.sellNumberReal.currencyFormat(2)
+                    self.lblVolume1value.text = trading!.response.buyVolumeLegal.currencyFormat(2)
+                    self.lblVolume2value.text = trading!.response.buyVolumeReal.currencyFormat(2)
+                    self.lblVolume3value.text = trading!.response.sellVolumeLegal.currencyFormat(2)
+                    self.lblVolume4value.text = trading!.response.sellVolumeReal.currencyFormat(2)
                 }
             } else {
                 debugPrint(error)
@@ -201,13 +201,13 @@ class SymbolDetailsViewController: BaseTableViewController {
             
             if ((symbol?.successful) != nil) {
                 if symbol!.response.symbolDetailsList.count > 0 {
-                    self.lblLastPriceValues.text = symbol!.response.symbolDetailsList[0].closePrice.currencyFormat()
+                    self.lblLastPriceValues.text = symbol!.response.symbolDetailsList[0].closePrice.currencyFormat(2)
                     self.lblLastPriceChanges.text = String(symbol!.response.symbolDetailsList[0].closePriceChange)
                     self.lblLastPriceDate.text = ""
-                    self.lblLastPriceValue.text = symbol!.response.symbolDetailsList[0].lastTradePrice.currencyFormat()
-                    self.lblStartPriceValue.text = symbol!.response.symbolDetailsList[0].lowPrice.currencyFormat()
-                    self.lblLowPriceValue.text = symbol!.response.symbolDetailsList[0].lowPrice.currencyFormat()
-                    self.lblhighPriceValue.text = symbol!.response.symbolDetailsList[0].highPrice.currencyFormat()
+                    self.lblLastPriceValue.text = symbol!.response.symbolDetailsList[0].lastTradePrice.currencyFormat(2)
+                    self.lblStartPriceValue.text = symbol!.response.symbolDetailsList[0].lowPrice.currencyFormat(2)
+                    self.lblLowPriceValue.text = symbol!.response.symbolDetailsList[0].lowPrice.currencyFormat(2)
+                    self.lblhighPriceValue.text = symbol!.response.symbolDetailsList[0].highPrice.currencyFormat(2)
                 }
             } else {
                 debugPrint(error)

@@ -74,8 +74,8 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
         let cell = tableView.dequeueReusableCellWithIdentifier("buyInfoCells", forIndexPath: indexPath) as! BuyInfoCell
         
         cell.lblDate.text = psBuyData[indexPath.row].psDate
-        cell.lblCount.text = psBuyData[indexPath.row].psCount.currencyFormat()
-        cell.lblPrice.text = psBuyData[indexPath.row].psPrice.currencyFormat()
+        cell.lblCount.text = psBuyData[indexPath.row].psCount.currencyFormat(2)
+        cell.lblPrice.text = psBuyData[indexPath.row].psPrice.currencyFormat(2)
         
         
         cell.btnEdit.tag = indexPath.row
