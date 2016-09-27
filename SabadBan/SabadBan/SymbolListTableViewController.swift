@@ -126,16 +126,10 @@ class SymbolListTableViewController: BaseTableViewController {
         
         
         // JSON Body
-        let body = [
-            "timeFrameType": "day",
-            "pageNumber": 0,
-            "supportPaging": false,
-            "recordPerPage": 0,
-            "indexCode": SelectedIndexCode
-        ]
+        let body = SymbolListByIndexRequest(pageNumber: 0, recordPerPage: 0, indexCode: SelectedIndexCode, supportPaging: false, timeFrameType: TimeFrameType.day.rawValue).getDic()
         
         // Fetch Request
-        Request.postData(url, body: body as? [String : AnyObject]) { (symbols:MainResponse<SymbolListByIndexResponse>?, error) in
+        Request.postData(url, body: body) { (symbols:MainResponse<SymbolListByIndexResponse>?, error) in
             
             if ((symbols?.successful) != nil) {
                 self.symbolDetailsList.removeAll()

@@ -339,15 +339,10 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         let url = AppTadbirUrl + URLS["getSymbolListAndDetails"]!
         
         // JSON Body
-        let body = [
-            "pageNumber": 0,
-            "recordPerPage": 0,
-            "symbolCode": symbols,
-            "supportPaging": false
-        ]
+        let body = SymbolListAndDetailsRequest(pageNumber: 0, recordPerPage: 0, symbolCode: symbols, supportPaging: false).getDic()
         
         // Fetch Request
-        Request.postData(url, body: body as? [String : AnyObject]) { (symbols:MainResponse<SymbolListModelResponse>?, error)  in
+        Request.postData(url, body: body) { (symbols:MainResponse<SymbolListModelResponse>?, error)  in
             
             if ((symbols?.successful) != nil) {
                 self.smData.removeAll()
@@ -435,9 +430,9 @@ struct symData {
     
     var name = String()
     var baseValue : Double!
-    var benchmarkBuy : Float!
-    var benchmarkSales : Float!
-    var buyValue : Float!
+    var benchmarkBuy : Double!
+    var benchmarkSales : Double!
+    var buyValue : Double!
     var closePrice : Float!
     var closePriceChange : Double!
     var closePriceYesterday : Float!
@@ -447,7 +442,7 @@ struct symData {
     var lastTradeDate : String!
     var lastTradePrice : Float!
     var lastTradePriceChange : Float!
-    var lastTradePriceChangePercent : Float!
+    var lastTradePriceChangePercent : Double!
     var lowPrice : Float!
     var marketValue : Double!
     var openPrice : Float!
