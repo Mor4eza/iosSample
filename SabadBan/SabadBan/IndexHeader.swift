@@ -17,8 +17,7 @@ class IndexHeader: UITableViewHeaderFooterView {
         // Drawing code
     }
     */
-    
-    
+
     @IBOutlet weak var lblIndex: UILabel!
 
     @IBOutlet weak var lblPercent: UILabel!

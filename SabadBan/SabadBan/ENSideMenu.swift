@@ -27,7 +27,7 @@ public enum ENSideMenuAnimation : Int {
 }
 /**
  The position of the side view on the screen.
- 
+
  - Left:  Left side of the screen
  - Right: Right side of the screen
  */
@@ -53,21 +53,20 @@ public extension UIViewController {
      Shows the side menu view.
      */
     public func showSideMenuView () {
-        
+
         sideMenuController()?.sideMenu?.showSideMenu()
     }
-    
+
     /**
      Returns a Boolean value indicating whether the side menu is showed.
-     
+
      :returns: BOOL value
      */
     public func isSideMenuOpen () -> Bool {
         let sieMenuOpen = self.sideMenuController()?.sideMenu?.isMenuOpen
         return sieMenuOpen!
     }
-    
-    
+
     /**
      * You must call this method from viewDidLayoutSubviews in your content view controlers so it fixes size and position of the side menu when the screen
      * rotates.
@@ -80,7 +79,7 @@ public extension UIViewController {
     }
     /**
      Returns a view controller containing a side menu
-     
+
      :returns: A `UIViewController`responding to `ENSideMenuProtocol` protocol
      */
     public func sideMenuController () -> ENSideMenuProtocol? {
@@ -97,10 +96,10 @@ public extension UIViewController {
                 iteration = nil
             }
         } while (iteration != nil)
-        
+
         return iteration as? ENSideMenuProtocol
     }
-    
+
     internal func topMostController () -> ENSideMenuProtocol? {
         var topController : UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController
         if (topController is UITabBarController) {
@@ -113,7 +112,7 @@ public extension UIViewController {
             }
             topController = topController?.presentedViewController
         }
-        
+
         if (lastMenuProtocol != nil) {
             return lastMenuProtocol
         }
@@ -132,7 +131,7 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
             updateFrame()
         }
     }
-    
+
     public var outterView = UIView()
     public var menuPosition:ENSideMenuPosition = .Left
     private var blurStyle: UIBlurEffectStyle = .Light
@@ -154,13 +153,13 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
     public var allowRightSwipe : Bool = true
     public var allowPanGesture : Bool = true
     private var panRecognizer : UIPanGestureRecognizer?
-    
+
     /**
      Initializes an instance of a `ENSideMenu` object.
-     
+
      :param: sourceView   The parent view of the side menu view.
      :param: menuPosition The position of the side menu view.
-     
+
      :returns: An initialized `ENSideMenu` object, added to the specified view.
      */
     public init(sourceView: UIView, menuPosition: ENSideMenuPosition, blurStyle: UIBlurEffectStyle = .Light) {
@@ -169,42 +168,41 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
         self.menuPosition = menuPosition
         self.blurStyle = blurStyle
         self.setupMenuView()
-        
-        
+
         outterView = UIView(frame: CGRectMake(sideMenuContainerView.frame.width, 0,
             sourceView.frame.width - sideMenuContainerView.frame.width,
             sourceView.frame.height))
         outterView.backgroundColor = UIColor.clearColor()
         let tapRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ENSideMenu.hideSideMenu))
-        
+
         if menuPosition == ENSideMenuPosition.Right {
             tapRecognizer.direction = .Right
-            
+
         }else {
             tapRecognizer.direction = .Left
-            
+
         }
         outterView.addGestureRecognizer(tapRecognizer)
         outterView.userInteractionEnabled = false
         sourceView.addSubview(outterView)
-        
+
         animator = UIDynamicAnimator(referenceView:sourceView)
         animator.delegate = self
-        
+
         self.panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ENSideMenu.handlePan(_:)))
         panRecognizer!.delegate = self
         sourceView.addGestureRecognizer(panRecognizer!)
-        
+
         // Add right swipe gesture recognizer
         let rightSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ENSideMenu.handleGesture(_:)))
         rightSwipeGestureRecognizer.delegate = self
         rightSwipeGestureRecognizer.direction =  UISwipeGestureRecognizerDirection.Right
-        
+
         // Add left swipe gesture recognizer
         let leftSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ENSideMenu.handleGesture(_:)))
         leftSwipeGestureRecognizer.delegate = self
         leftSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Left
-        
+
         if (menuPosition == .Left) {
             sourceView.addGestureRecognizer(rightSwipeGestureRecognizer)
             sideMenuContainerView.addGestureRecognizer(leftSwipeGestureRecognizer)
@@ -213,15 +211,15 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
             sideMenuContainerView.addGestureRecognizer(rightSwipeGestureRecognizer)
             sourceView.addGestureRecognizer(leftSwipeGestureRecognizer)
         }
-        
+
     }
     /**
      Initializes an instance of a `ENSideMenu` object.
-     
+
      :param: sourceView         The parent view of the side menu view.
      :param: menuViewController A menu view controller object which will be placed in the side menu view.
      :param: menuPosition       The position of the side menu view.
-     
+
      :returns: An initialized `ENSideMenu` object, added to the specified view, containing the specified menu view controller.
      */
     public convenience init(sourceView: UIView, menuViewController: UITableViewController, menuPosition: ENSideMenuPosition, blurStyle: UIBlurEffectStyle = .Light) {
@@ -247,7 +245,7 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
         var width:CGFloat
         var height:CGFloat
         (width, height) = adjustFrameDimensions( sourceView.frame.size.width , height: sourceView.frame.size.height)
-        
+
         let menuFrame = CGRectMake(
             (menuPosition == .Left) ?
                 isMenuOpen ? 0 : -menuWidth-1.0 :
@@ -258,7 +256,7 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
         )
         sideMenuContainerView.frame = menuFrame
     }
-    
+
     private func adjustFrameDimensions( width: CGFloat, height: CGFloat ) -> (CGFloat,CGFloat) {
         if floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1 &&
             (UIApplication.sharedApplication().statusBarOrientation == UIInterfaceOrientation.LandscapeRight ||
@@ -269,14 +267,14 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
         else {
             return (width, height)
         }
-        
+
     }
-    
+
     private func setupMenuView() {
-        
+
         // Configure side menu container
         updateFrame()
-        
+
         sideMenuContainerView.backgroundColor = UIColor.clearColor()
         sideMenuContainerView.clipsToBounds = false
         sideMenuContainerView.layer.masksToBounds = false
@@ -284,9 +282,9 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
         sideMenuContainerView.layer.shadowRadius = 1.0
         sideMenuContainerView.layer.shadowOpacity = 0.125
         sideMenuContainerView.layer.shadowPath = UIBezierPath(rect: sideMenuContainerView.bounds).CGPath
-        
+
         sourceView.addSubview(sideMenuContainerView)
-        
+
         if (NSClassFromString("UIVisualEffectView") != nil) {
             // Add blur view
             let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: blurStyle)) as UIVisualEffectView
@@ -298,7 +296,7 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
             // TODO: add blur for ios 7
         }
     }
-    
+
     private func toggleMenu (shouldOpen: Bool) {
         if (shouldOpen && delegate?.sideMenuShouldOpenSideMenu?() == false) {
             return
@@ -310,14 +308,14 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
         var height:CGFloat
         (width, height) = adjustFrameDimensions( sourceView.frame.size.width , height: sourceView.frame.size.height)
         if (bouncingEnabled) {
-            
+
             animator.removeAllBehaviors()
-            
+
             var gravityDirectionX: CGFloat
             var pushMagnitude: CGFloat
             var boundaryPointX: CGFloat
             var boundaryPointY: CGFloat
-            
+
             if (menuPosition == .Left) {
                 // Left side menu
                 gravityDirectionX = (shouldOpen) ? 1 : -1
@@ -332,24 +330,24 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
                 boundaryPointX = (shouldOpen) ? width-menuWidth : width+menuWidth+2
                 boundaryPointY =  -25
             }
-            
+
             let gravityBehavior = UIGravityBehavior(items: [sideMenuContainerView])
             gravityBehavior.gravityDirection = CGVectorMake(gravityDirectionX,  0)
             animator.addBehavior(gravityBehavior)
-            
+
             let collisionBehavior = UICollisionBehavior(items: [sideMenuContainerView])
             collisionBehavior.addBoundaryWithIdentifier("menuBoundary", fromPoint: CGPointMake(boundaryPointX, boundaryPointY),
                                                         toPoint: CGPointMake(boundaryPointX, height))
             animator.addBehavior(collisionBehavior)
-            
+
             let pushBehavior = UIPushBehavior(items: [sideMenuContainerView], mode: UIPushBehaviorMode.Instantaneous)
             pushBehavior.magnitude = pushMagnitude
             animator.addBehavior(pushBehavior)
-            
+
             let menuViewBehavior = UIDynamicItemBehavior(items: [sideMenuContainerView])
             menuViewBehavior.elasticity = 0.25
             animator.addBehavior(menuViewBehavior)
-            
+
         }
         else {
             var destFrame :CGRect
@@ -362,7 +360,7 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
                                        menuWidth,
                                        height)
             }
-            
+
             UIView.animateWithDuration(
                 animationDuration,
                 animations: { () -> Void in
@@ -376,20 +374,20 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
                     }
             })
         }
-        
+
         if (shouldOpen) {
             delegate?.sideMenuWillOpen?()
         } else {
             delegate?.sideMenuWillClose?()
         }
     }
-    
+
     public func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-        
+
         if delegate?.sideMenuShouldOpenSideMenu?() == false {
             return false
         }
-        
+
         if gestureRecognizer is UISwipeGestureRecognizer {
             let swipeGestureRecognizer = gestureRecognizer as! UISwipeGestureRecognizer
             if !self.allowLeftSwipe {
@@ -397,7 +395,7 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
                     return false
                 }
             }
-            
+
             if !self.allowRightSwipe {
                 if swipeGestureRecognizer.direction == .Right {
                     return false
@@ -434,31 +432,31 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
                     }
                 }
             }
-            
+
             return false
         }
         return true
     }
-    
+
     internal func handleGesture(gesture: UISwipeGestureRecognizer) {
         toggleMenu((self.menuPosition == .Right && gesture.direction == .Left)
             || (self.menuPosition == .Left && gesture.direction == .Right))
     }
-    
+
     internal func handlePan(recognizer : UIPanGestureRecognizer){
-        
+
         let leftToRight = recognizer.velocityInView(recognizer.view).x > 0
-        
+
         switch recognizer.state {
         case .Began:
-            
+
             break
-            
+
         case .Changed:
-            
+
             let translation = recognizer.translationInView(sourceView).x
             let xPoint : CGFloat = sideMenuContainerView.center.x + translation + (menuPosition == .Left ? 1 : -1) * menuWidth / 2
-            
+
             if menuPosition == .Left {
                 if xPoint <= 0 || xPoint > CGRectGetWidth(self.sideMenuContainerView.frame) {
                     return
@@ -469,30 +467,30 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
                     return
                 }
             }
-            
+
             sideMenuContainerView.center.x = sideMenuContainerView.center.x + translation
             recognizer.setTranslation(CGPointZero, inView: sourceView)
-            
+
         default:
-            
+
             let shouldClose = menuPosition == .Left ? !leftToRight && CGRectGetMaxX(sideMenuContainerView.frame) < menuWidth : leftToRight && CGRectGetMinX(sideMenuContainerView.frame) >  (sourceView.frame.size.width - menuWidth)
-            
+
             toggleMenu(!shouldClose)
-            
+
         }
     }
-    
+
     private func updateSideMenuApperanceIfNeeded () {
         if (needUpdateApperance) {
             var frame = sideMenuContainerView.frame
             frame.size.width = menuWidth
             sideMenuContainerView.frame = frame
             sideMenuContainerView.layer.shadowPath = UIBezierPath(rect: sideMenuContainerView.bounds).CGPath
-            
+
             needUpdateApperance = false
         }
     }
-    
+
     /**
      Toggles the state of the side menu.
      */
@@ -532,4 +530,3 @@ extension ENSideMenu: UIDynamicAnimatorDelegate {
         }
     }
 }
-

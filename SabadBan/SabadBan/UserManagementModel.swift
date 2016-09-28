@@ -1,3 +1,4 @@
+
 //
 //	UserManagementModel.swift
 //
@@ -13,15 +14,13 @@ import Gloss
 
 //MARK: - UserManagementModel
 public struct UserManagementModel<T:Glossy>: Glossy {
-    
+
     public let errorCode : Int!
     public let message : String!
     public let result : T!
     public let success : Bool!
     public let error : RegisterErrorModel?
-    
-    
-    
+
     //MARK: Decodable
     public init?(json: JSON){
         error = "error" <~~ json
@@ -30,8 +29,7 @@ public struct UserManagementModel<T:Glossy>: Glossy {
         result = "result" <~~ json
         success = "success" <~~ json
     }
-    
-    
+
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
@@ -42,5 +40,5 @@ public struct UserManagementModel<T:Glossy>: Glossy {
             "success" ~~> success,
             ])
     }
-    
+
 }

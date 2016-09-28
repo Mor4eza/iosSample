@@ -12,10 +12,10 @@ public struct LoginRequest {
     let email: String!
     let device_token: String!
     let password: String!
-    
+
     func getDic() -> [String : AnyObject] {
         let dic : [String : AnyObject]
-    
+
         dic = [
             "email": email,
             "device_token": device_token,

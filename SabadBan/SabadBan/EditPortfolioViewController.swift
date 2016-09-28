@@ -5,11 +5,11 @@
     //  Created by Morteza Gharedaghi on 9/4/16.
     //  Copyright © 2016 Sefr Yek. All rights reserved.
     //
-    
+
     import UIKit
     import SwiftEventBus
     class EditPortfolioViewController: BaseTableViewController {
-        
+
         @IBOutlet weak var etTitle: UITextField!
         var portfolioName = String()
         var db = DataBase()
@@ -28,13 +28,13 @@
             btnDone.addTarget(self, action: #selector(doneClicked), forControlEvents: .TouchUpInside)
             let rightBarButton = UIBarButtonItem(customView: btnDone)
             self.navigationItem.leftBarButtonItem = rightBarButton
-            
+
             setEditing(true, animated: true)
-            
+
         }
-        
+
         func doneClicked()  {
-            
+
             for i in 0  ..< self.portfolios.count {
                 if etTitle.text != portfolioName {
                     if(etTitle.text == self.portfolios[i]){
@@ -43,54 +43,50 @@
                     }
                 }
             }
-            
+
             db.updatePortfolioName(etTitle.text!, pCode: db.getportfolioCodeByName(portfolioName))
             SwiftEventBus.postToMainThread(PortfolioEdited)
             dismissViewControllerAnimated(true, completion: nil)
         }
-        
+
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
         }
-        
+
         // MARK: - Table view data source
-        
+
         override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
             // #warning Incomplete implementation, return the number of sections
             return 1
         }
-        
+
         override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             // #warning Incomplete implementation, return the number of rows
             return symbolData.count
         }
-        
-        
+
         override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCellWithIdentifier("editPortfolioCell", forIndexPath: indexPath)
-            
+
             if getAppLanguage() == "fa"{
                 cell.textLabel?.text = symbolData[indexPath.row].sName
             }else if getAppLanguage() == "en" {
                 cell.textLabel?.text = symbolData[indexPath.row].sNameEn
-                
+
             }
             cell.backgroundColor = AppMainColor
             cell.textLabel?.textColor = UIColor.whiteColor()
             cell.textLabel?.changeDirection()
             return cell
         }
-        
-        
-        
+
         // Override to support conditional editing of the table view.
         override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
             // Return false if you do not want the specified item to be editable.
             return true
         }
-        
-        
+
         override func setEditing(editing: Bool, animated: Bool) {
             super.setEditing(editing, animated: animated)
         }
@@ -101,13 +97,12 @@
                 db.deleteSymbolFromPortfoi(symbolData[indexPath.row].sCode, pCode: db.getportfolioCodeByName(portfolioName))
                 symbolData.removeAtIndex(indexPath.row)
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                
+
             }
         }
-        
-        
+
     }
-    
+
     struct symbolsDataForEdit {
         var sName = String()
         var sNameEn = String()

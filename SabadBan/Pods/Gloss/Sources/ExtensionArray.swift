@@ -28,58 +28,58 @@ import Foundation
 // MARK: - Decodable
 
 public extension Array where Element: Decodable {
-    
+
     // MARK: Public functions
-    
+
     /**
      Returns array of new objects created from provided JSON array.
-     
+
      Note: The returned array will have only objects that successfully
      decoded.
-     
+
      - parameter jsonArray: Array of JSON representations of objects.
-     
+
      - returns: Array of objects created from JSON.
      */
     static func fromJSONArray(jsonArray: [JSON]) -> [Element] {
         var models: [Element] = []
-        
+
         for json in jsonArray {
             let model = Element(json: json)
-            
+
             if let model = model {
                 models.append(model)
             }
         }
-        
+
         return models
     }
-    
+
 }
 
 // MARK: - Encodable
 
 public extension Array where Element: Encodable {
-    
+
     // MARK: Public functions
-    
+
     /**
      Encodes array of objects as JSON array.
-     
+
      Note: The returned array will have only JSON from objects
      that were successfully encoded.
-     
+
      - returns: Array of JSON created from objects.
      */
     func toJSONArray() -> [JSON]? {
         var jsonArray: [JSON] = []
-        
+
         for json in self {
             if let json = json.toJSON() {
                 jsonArray.append(json)
             }
         }
-        
+
         return jsonArray
     }
 }

@@ -8,7 +8,7 @@
 //	The "Swift - Struct - Gloss" support has been made available by CodeEagle
 //	More about him/her can be found at his/her website: https://github.com/CodeEagle
 
-import Foundation 
+import Foundation
 import Gloss
 
 //MARK: - SymbolBestLimitResponse
@@ -17,14 +17,11 @@ public struct SymbolBestLimitResponse: Glossy {
 	public let bestLimitDataList : [BestLimitDataList]!
 	public let symbolCode : String!
 
-
-
 	//MARK: Decodable
 	public init?(json: JSON){
 		bestLimitDataList = "bestLimitDataList" <~~ json
 		symbolCode = "symbolCode" <~~ json
 	}
-
 
 	//MARK: Encodable
 	public func toJSON() -> JSON? {

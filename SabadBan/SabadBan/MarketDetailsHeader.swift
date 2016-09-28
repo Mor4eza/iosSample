@@ -9,13 +9,13 @@
 import UIKit
 
 class MarketDetailsHeader: UITableViewHeaderFooterView {
-    
+
     //MARK: Properties
-    
+
     @IBOutlet weak var lblTitle: UILabel!
-    
+
     @IBOutlet weak var backView: UIView!
-    
+
     /*
      // Only override drawRect: if you perform custom drawing.
      // An empty implementation adversely affects performance during animation.
@@ -23,5 +23,5 @@ class MarketDetailsHeader: UITableViewHeaderFooterView {
      // Drawing code
      }
      */
-    
+
 }

@@ -10,8 +10,7 @@ import UIKit
 import Alamofire
 
 class SymbolDetailsViewController: BaseTableViewController {
-    
-    
+
     @IBOutlet weak var lblBuyTitle: UILabel!
     @IBOutlet weak var lblCellTitle: UILabel!
     @IBOutlet weak var lblkindTitle: UILabel!
@@ -67,7 +66,7 @@ class SymbolDetailsViewController: BaseTableViewController {
     @IBOutlet weak var lblBSCValue1: UILabel!
     @IBOutlet weak var lblBSCValue2: UILabel!
     @IBOutlet weak var lblBSCValue3: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
@@ -76,22 +75,19 @@ class SymbolDetailsViewController: BaseTableViewController {
         getSymbolTradingDetailsService(SelectedSymbolCode)
         getSymbolListData([SelectedSymbolCode])
     }
-    
-    
+
     // MARK: - Table view data source
-    
+
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 3
     }
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
-    
-    
-    
+
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
         let headerView = UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, 50))
@@ -102,27 +98,27 @@ class SymbolDetailsViewController: BaseTableViewController {
             headerView.text = "سه مظنه برتر فروش"
             headerView.backgroundColor = UIColor.redColor()
         }
-        
+
         headerView.textColor = UIColor.whiteColor()
         headerView.changeDirection()
         return headerView
     }
     //MARK:- Symbol Best Limit service
-    
+
     func getSymbolBestLimitService(sCode:String){
         /**
          getBestLimitsBySymbol
          POST http://185.37.52.193:9090/services/getBestLimitsBySymbol
          */
-        
+
         let url = AppTadbirUrl + URLS["getBestLimitsBySymbol"]!
-        
+
         // JSON Body
         let body = SymbolBestLimitRequest(symbolCode: sCode).getDic()
-        
+
         // Fetch Request
         Request.postData(url, body: body) { (bestLimit:MainResponse<SymbolBestLimitResponse>?, error) in
-            
+
             if ((bestLimit?.successful) != nil) {
                 if  bestLimit!.response.bestLimitDataList.count > 0 {
                     self.lblBBPValue1.text = bestLimit!.response.bestLimitDataList[0].buyPrice.currencyFormat(2)
@@ -134,7 +130,7 @@ class SymbolDetailsViewController: BaseTableViewController {
                     self.lblBBCValue1.text = bestLimit!.response.bestLimitDataList[0].buyNumber.currencyFormat(2)
                     self.lblBBCValue2.text = bestLimit!.response.bestLimitDataList[1].buyNumber.currencyFormat(2)
                     self.lblBBCValue3.text = bestLimit!.response.bestLimitDataList[2].buyNumber.currencyFormat(2)
-                    
+
                     self.lblBSPValue1.text = bestLimit!.response.bestLimitDataList[0].sellPrice.currencyFormat(2)
                     self.lblBSPValue2.text = bestLimit!.response.bestLimitDataList[1].sellPrice.currencyFormat(2)
                     self.lblBSPValue3.text = bestLimit!.response.bestLimitDataList[2].sellPrice.currencyFormat(2)
@@ -149,25 +145,23 @@ class SymbolDetailsViewController: BaseTableViewController {
                 debugPrint(error)
             }
         }
-        
+
     }
-    
-    
-    
+
     func getSymbolTradingDetailsService(sCode:String){
         /**
          getBestLimitsBySymbol
          POST http://185.37.52.193:9090/services/getBestLimitsBySymbol
          */
-        
+
         let url = AppTadbirUrl + URLS["getSymbolTradingDetails"]!
-        
+
         // JSON Body
         let body = SymbolTradingRequest(symbolCode: sCode).getDic()
-        
+
         // Fetch Request
         Request.postData(url, body: body) { (trading:MainResponse<SymbolTradingResponse>?, error) in
-            
+
             if ((trading?.successful) != nil) {
                 if trading!.response != nil {
                     self.lblCount1Value.text = trading!.response.buyNumberLegal.currencyFormat(2)
@@ -183,22 +177,19 @@ class SymbolDetailsViewController: BaseTableViewController {
                 debugPrint(error)
             }
         }
-        
+
     }
-    
-    
-    
-    
+
     func getSymbolListData(sCode:[String]) {
-        
+
         let url = AppTadbirUrl + URLS["getSymbolListAndDetails"]!
-        
+
         // JSON Body
         let body = SymbolListAndDetailsRequest(pageNumber: 0, recordPerPage: 0, symbolCode: sCode, supportPaging: false).getDic()
-        
+
         // Fetch Request
         Request.postData(url, body: body) { (symbol:MainResponse<SymbolListByIndexResponse>?, error) in
-            
+
             if ((symbol?.successful) != nil) {
                 if symbol!.response.symbolDetailsList.count > 0 {
                     self.lblLastPriceValues.text = symbol!.response.symbolDetailsList[0].closePrice.currencyFormat(2)
@@ -215,11 +206,9 @@ class SymbolDetailsViewController: BaseTableViewController {
             //                self.refreshControll?.endRefreshing()
         }
     }
-    
-    
-    
+
     func setUpViews(){
-        
+
         lblBuyTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
         lblCellTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
         lblkindTitle.font  = UIFont(name: AppFontName_IranSans, size: 14.0)
@@ -273,12 +262,12 @@ class SymbolDetailsViewController: BaseTableViewController {
         lblBSCValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
         lblBSCValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
         lblBSCValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        
+
         lblLastPriceTitle.text = "قیمت آخرین معامله"
         lblEndPriceTitle.text = "قیمت پایانی"
         lblStartPriceTitle.text = "قیمت آغازین"
         lblLowPriceTitle.text = "کمترین قیمت"
         lblHighPriceTitle.text = "بیشترین قیمت"
     }
-    
+
 }

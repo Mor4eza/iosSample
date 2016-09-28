@@ -8,7 +8,7 @@
 //	The "Swift - Struct - Gloss" support has been made available by CodeEagle
 //	More about him/her can be found at his/her website: https://github.com/CodeEagle
 
-import Foundation 
+import Foundation
 import Gloss
 
 //MARK: - Response
@@ -17,14 +17,11 @@ public struct BourseNewsResponse: Glossy {
 	public let count : Int!
 	public let newsDetailsList : [BourseNewsDetailsList]!
 
-
-
 	//MARK: Decodable
 	public init?(json: JSON){
 		count = "count" <~~ json
 		newsDetailsList = "newsDetailsList" <~~ json
 	}
-
 
 	//MARK: Encodable
 	public func toJSON() -> JSON? {

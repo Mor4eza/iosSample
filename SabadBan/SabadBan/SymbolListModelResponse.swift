@@ -8,7 +8,7 @@
 //	The "Swift - Struct - Gloss" support has been made available by CodeEagle
 //	More about him/her can be found at his/her website: https://github.com/CodeEagle
 
-import Foundation 
+import Foundation
 import Gloss
 
 //MARK: - Response
@@ -23,9 +23,7 @@ public struct SymbolListModelResponse: Glossy {
     public let symbolDetailsList : [SymbolDetailsList]!
     public let timeFrameType : String!
     public let totalPages : Int!
-    
-    
-    
+
     //MARK: Decodable
     public init?(json: JSON){
         indexCode = "indexCode" <~~ json
@@ -38,8 +36,7 @@ public struct SymbolListModelResponse: Glossy {
         timeFrameType = "timeFrameType" <~~ json
         totalPages = "totalPages" <~~ json
     }
-    
-    
+
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([

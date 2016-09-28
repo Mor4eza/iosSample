@@ -10,22 +10,22 @@ import UIKit
 import Alamofire
 import FCAlertView
 class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITableViewDelegate  {
-    
+
     //MARK: Properties
-    
+
     @IBOutlet weak var lblPrice: UILabel!
-    
+
     @IBOutlet weak var lblPriceChanges: UILabel!
-    
+
     @IBOutlet weak var imgPriceChanges: UIImageView!
     @IBOutlet weak var lblPricePercent: UILabel!
-    
+
     @IBOutlet weak var imgPercentChanges: UIImageView!
-    
+
     @IBOutlet weak var segRange: UISegmentedControl!
     @IBOutlet weak var tblDetails: UITableView!
     @IBOutlet weak var tblMarketDetail: UITableView!
-    
+
     var maxPrice = Double()
     var minPrice = Double()
     var lastPrice = Double()
@@ -34,12 +34,12 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
     var range = String()
     var indexDetailsRefreshControl: UIRefreshControl!
     var marketDetailsRefreshControl: UIRefreshControl!
-    
+
     var marketValue = Double()
     var numberOfTransactions = Double()
     var valueOfTransactions = Double()
     var volumeOfTransactions = Double()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -48,16 +48,16 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         segRange.setTitle("Month".localized(), forSegmentAtIndex: 1)
         segRange.setTitle( "Year".localized(), forSegmentAtIndex: 0)
         segRange.selectedSegmentIndex = 3
-        
+
         tblDetails.registerNib(UINib(nibName: "IndexDetailHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "IndexDetailHeader")
         self.tblDetails.dataSource = self
         tblDetails.delegate = self
         tblDetails.tableFooterView = UIView()
-        
+
         tblMarketDetail.registerNib(UINib(nibName: "MarketDetailsHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "MarketDetailsHeader")
         tblMarketDetail.dataSource = self
         tblMarketDetail.delegate = self
-        
+
         //        let titleAttributes = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline), NSForegroundColorAttributeName: UIColor.whiteColor()]
         //
         //        let attrText = NSAttributedString(string: "Pull to Refresh", attributes: titleAttributes)
@@ -66,31 +66,31 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         indexDetailsRefreshControl.tintColor = UIColor.whiteColor()
         indexDetailsRefreshControl.addTarget(self, action: #selector(DetailsViewController.refreshIndexDetails(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tblDetails.addSubview(indexDetailsRefreshControl)
-        
+
         marketDetailsRefreshControl = UIRefreshControl()
         marketDetailsRefreshControl.tintColor = UIColor.whiteColor()
         marketDetailsRefreshControl.addTarget(self, action: #selector(DetailsViewController.refreshMarketDetails(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tblMarketDetail.addSubview(marketDetailsRefreshControl)
-        
+
         getIndexDetails(SelectedIndexCode, range:segRange.selectedSegmentIndex )
         getMarketActivity()
-        
+
     }
-    
+
     func refreshIndexDetails(sender:AnyObject) {
         getIndexDetails(SelectedIndexCode, range:segRange.selectedSegmentIndex )
     }
-    
+
     func refreshMarketDetails(sender:AnyObject) {
         getMarketActivity()
     }
-    
+
     // MARK:-  TableView Delegates
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
+
         return 1
     }
-    
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == tblDetails{
             return 5
@@ -99,12 +99,11 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         }
         return 5
     }
-    
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if tableView == tblDetails {
             let cell = tableView.dequeueReusableCellWithIdentifier("indexDetailsCell", forIndexPath: indexPath) as! indexDetailsCell
-            
-            
+
             switch indexPath.row {
             case 0:
                 cell.lblTitle.text = "MaxPrice".localized()
@@ -133,11 +132,11 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
             }else {
                 cell.backgroundColor = AppMainColor
             }
-            
+
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("marketDetailsCell", forIndexPath: indexPath) as! MarketDetailsCell
-            
+
             switch indexPath.row {
             case 0:
                 cell.lblTitle.text = "NumberOfTransactions".localized()
@@ -163,59 +162,54 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
             }else {
                 cell.backgroundColor = AppMainColor
             }
-            
+
             return cell
         }
     }
-    
-    
-    
+
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
-    
+
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 35
     }
-    
+
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if tableView == tblDetails {
             let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("IndexDetailHeader") as! IndexDetailHeader
-            
+
             headerView.lblTitle.text = "indexInfo".localized()
             headerView.lblTitle.setDefaultFont()
             headerView.backView.roundCorners([.TopLeft, .TopRight], radius: 6)
             return headerView
         } else {
             let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("MarketDetailsHeader") as! MarketDetailsHeader
-            
+
             headerView.lblTitle.text = "marketInfo".localized()
             headerView.lblTitle.setDefaultFont()
             headerView.backView.roundCorners([.TopLeft, .TopRight], radius: 6)
             return headerView
         }
     }
-    
-    
-    
+
     @IBAction func segmentChanged(sender: AnyObject) {
         getIndexDetails(SelectedIndexCode, range:segRange.selectedSegmentIndex )
         getMarketActivity()
-        
+
     }
-    
+
     // MARK:- Service Methods
-    
+
     func getIndexDetails(indexCode:String , range:Int){
-        
+
         indexDetailsRefreshControl.beginRefreshing()
         let url = AppTadbirUrl + URLS["IndexListAndDetails"]!
         // Add Headers
-        
-        
+
         // JSON Body
         let body = IndexDetailsRequest(timeFrameType: TimeFrameType(rawValue: (3 - range)), indexCode: indexCode).getDic()
-        
+
         // Fetch Request
         Request.postData(url, body: body) { (indexs:MainResponse<Response>?, error)  in
             if ((indexs?.successful) != nil) {
@@ -231,7 +225,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
                     self.lblPricePercent.text  = String(self.priceChangesPercent)
                     self.tblDetails.reloadData()
                 }else{
-                    
+
                     let alert = FCAlertView()
                     alert.makeAlertTypeCaution()
                     alert.colorScheme = UIColor.blueColor()
@@ -242,21 +236,20 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
                                           withDoneButtonTitle: "Done".localized(),
                                           andButtons: nil)
                 }
-                
+
             } else {
                 debugPrint(error)
             }
-            
+
             self.indexDetailsRefreshControl.endRefreshing()
         }
-        
-        
+
     }
-    
+
     func getMarketActivity() {
         marketDetailsRefreshControl.beginRefreshing()
         let url = AppTadbirUrl + URLS["getMarketActivity"]!
-        
+
         // Fetch Request
         Request.postData(url) { (marketInfo:MainResponse<MarketActivityModel>?, error) in
             if ((marketInfo?.successful) != nil) {
@@ -264,7 +257,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
                 self.numberOfTransactions = marketInfo!.response.numberOfTransactions
                 self.valueOfTransactions = Double(marketInfo!.response.valueOfTransactions)
                 self.volumeOfTransactions = Double(marketInfo!.response.volumeOfTransactions)
-                
+
                 self.tblMarketDetail.reloadData()
             } else {
                 debugPrint(error)
@@ -272,7 +265,5 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
             self.marketDetailsRefreshControl.endRefreshing()
         }
     }
-    
-    
-    
+
 }

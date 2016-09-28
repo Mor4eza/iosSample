@@ -9,15 +9,14 @@
 import UIKit
 
 class NewsTabBarController: UITabBarController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addMenuButton()
         // Do any additional setup after loading the view.
         self.title = "News".localized()
     }
-    
-    
+
     func addMenuButton() {
         self.navigationItem.rightBarButtonItem = nil
         self.navigationItem.leftBarButtonItem = nil
@@ -37,5 +36,5 @@ class NewsTabBarController: UITabBarController {
     func openMenu() {
         self.toggleSideMenuView()
     }
-    
+
 }

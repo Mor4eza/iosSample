@@ -13,22 +13,19 @@ import Gloss
 
 //MARK: - LoginResponse
 public struct RegisterResponse: Glossy {
-    
+
     public let apiToken : String!
-    
-    
-    
+
     //MARK: Decodable
     public init?(json: JSON){
         apiToken = "api_token" <~~ json
     }
-    
-    
+
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
             "api_token" ~~> apiToken,
             ])
     }
-    
+
 }

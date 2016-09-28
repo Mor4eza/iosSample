@@ -8,7 +8,7 @@
 //	The "Swift - Struct - Gloss" support has been made available by CodeEagle
 //	More about him/her can be found at his/her website: https://github.com/CodeEagle
 
-import Foundation 
+import Foundation
 import Gloss
 
 //MARK: - NewsDetailsList
@@ -28,8 +28,6 @@ public struct BourseNewsDetailsList: Glossy {
 	public let updatedAt : String!
 	public let userId : Int!
 
-
-
 	//MARK: Decodable
 	public init?(json: JSON){
 		categoryId = "category_id" <~~ json
@@ -46,7 +44,6 @@ public struct BourseNewsDetailsList: Glossy {
 		updatedAt = "updated_at" <~~ json
 		userId = "user_id" <~~ json
 	}
-
 
 	//MARK: Encodable
 	public func toJSON() -> JSON? {

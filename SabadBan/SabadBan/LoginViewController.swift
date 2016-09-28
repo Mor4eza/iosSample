@@ -10,34 +10,34 @@ import UIKit
 import Alamofire
 import FCAlertView
 class LoginViewController: BaseViewController, UITextFieldDelegate {
-    
+
     //MARK: Properties
-    
+
     @IBOutlet weak var lblRememberMe: UILabel!
-    
+
     @IBOutlet weak var imgAppLogo: UIImageView!
     @IBOutlet weak var mainView: UIView!
-    
+
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var txtUserName: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var chkRemember: UISwitch!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    
+
     @IBOutlet weak var btnRegister: UIButton!
-    
+
     @IBOutlet weak var btnForgetPass: UIButton!
     var successLogin = false
     var defaults  = NSUserDefaults.standardUserDefaults()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //        self.view.transform = CGAffineTransformMakeScale(-1, 1)
         //        lblRememberMe.transform = CGAffineTransformMakeScale(-1, 1)
         // Do any additional setup after loading the view.
-        
+
         //MARK: - Login String
-   
+
         lblRememberMe.text = "RememberMe".localized()
         btnLogin.setTitle("Login".localized(), forState: .Normal)
         txtUserName.placeholder = "Email".localized()
@@ -46,45 +46,42 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         btnForgetPass.setTitle("ForgetPassword".localized(), forState: .Normal)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-        
+
         debugPrint(defaults.stringForKey("UserName"))
         if defaults.stringForKey("UserName") != nil {
             chkRemember.setOn(true, animated: true)
         }
-        
+
         if chkRemember.on == true {
             txtUserName.text = defaults.stringForKey("UserName")
             txtPassword.text = defaults.stringForKey("Password")
         }
         txtPassword.delegate = self
         txtUserName.delegate = self
-        
+
     }
-    
-    
+
     func keyboardWillShow(notification: NSNotification) {
-        
+
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            
+
             UIView.animateWithDuration(1, delay: 0, options: .CurveEaseIn, animations: {
-                
+
                 self.bottomConstraint.constant = keyboardSize.height
                 self.view.layoutIfNeeded()
                 }, completion: nil)
         }
-        
+
     }
-    
-    
-    
+
     func keyboardWillHide(notification: NSNotification) {
         UIView.animateWithDuration(1, delay: 0, options: .CurveEaseIn, animations: {
-            
+
             self.bottomConstraint.constant = 100
             self.view.layoutIfNeeded()
             }, completion: nil)
     }
-    
+
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         if textField == txtUserName {
@@ -93,35 +90,33 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             textField.resignFirstResponder()
             beginLoginSequence()
         }
-        
+
         return true
     }
-    
+
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
+
     //MARK:- Buttons Tap
-    
+
     @IBAction func btnLoginTap(sender: AnyObject) {
         beginLoginSequence()
     }
-    
+
     @IBAction func btnForgetTap(sender: AnyObject) {
-        
+
     }
-    
+
     func showAlert(message : String) {
-        
-        
-       
+
         Utils.ShowAlert(self,
                         title: "Attention".localized(),
                         details: message.localized(),
                         btnOkTitle: "Ok".localized()
                         )
     }
-    
+
     func beginLoginSequence() {
         if txtUserName.text == "" {
             showAlert("pleaseEnterEmail")
@@ -140,25 +135,23 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             }
         }
     }
-    
-    
+
     // MARK: - Navigation
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
-        
+
         if identifier == "loginSegue" {
             if successLogin {
                 return true
             }else {
                 return false
             }
-            
+
         }
         return true
     }
-    
 
     //MARK:- Login Service
-    
+
     func sendLoginRequest(email:String , password:String , pushToken:String) {
         /**
          Login
@@ -171,23 +164,22 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         btnLogin.addSubview(progress)
         progress.hidesWhenStopped = true
         let url = AppNewsURL + URLS["login"]!
-        
+
         // JSON Body
         let body = LoginRequest(email: email, device_token: pushToken, password: password).getDic()
-        
+
         // Fetch Request
         Request.postData(url,body: body) { (response:UserManagementModel<LoginResponse>?, error) in
-            
+
             if ((response?.success) != nil) {
-                
-                
+
                 if response!.result != nil {
                     if response!.errorCode == 200 {
                         LoginToken = response!.result.apiToken!
                         self.successLogin = true
                         LogedInUserName = email
                         self.performSegueWithIdentifier("loginSegue", sender: nil)
-                        
+
                         if self.chkRemember.on == true {
                             self.defaults.setValue(email, forKey: "UserName")
                             self.defaults.setValue(password, forKey: "Password")
@@ -197,7 +189,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
                         }
                     }
                 } else if response!.errorCode == 202 {
-                    
+
                     self.showAlert("emailOrPasswordInvalid".localized())
                 }
                 self.btnLogin.enabled = true
@@ -207,8 +199,8 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
                 self.btnLogin.enabled = true
                 progress.stopAnimating()
             }
-            
+
         }
     }
-    
+
 }

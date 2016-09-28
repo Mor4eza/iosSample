@@ -8,7 +8,7 @@
 //	The "Swift - Struct - Gloss" support has been made available by CodeEagle
 //	More about him/her can be found at his/her website: https://github.com/CodeEagle
 
-import Foundation 
+import Foundation
 import Gloss
 
 //MARK: - SymbolTradingResponse
@@ -31,8 +31,6 @@ public struct SymbolTradingResponse: Glossy {
 	public let symbolNameEn : String!
 	public let symbolNameFa : String!
 
-
-
 	//MARK: Decodable
 	public init?(json: JSON){
 		buyNumberLegal = "buyNumberLegal" <~~ json
@@ -52,7 +50,6 @@ public struct SymbolTradingResponse: Glossy {
 		symbolNameEn = "symbolNameEn" <~~ json
 		symbolNameFa = "symbolNameFa" <~~ json
 	}
-
 
 	//MARK: Encodable
 	public func toJSON() -> JSON? {

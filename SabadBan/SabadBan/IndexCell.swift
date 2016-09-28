@@ -10,15 +10,14 @@ import UIKit
 
 class IndexCell: UITableViewCell {
 
-    
     @IBOutlet weak var imgIndex: UIImageView!
     @IBOutlet weak var lblIndexCount: UILabel!
-    
+
     @IBOutlet weak var lblIndexPercent: UILabel!
     @IBOutlet weak var lblIndexName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-    
+
         lblIndexCount.setDefaultFont()
         lblIndexPercent.setDefaultFont()
         lblIndexName.setDefaultFont()

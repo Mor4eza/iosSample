@@ -11,19 +11,16 @@ import Gloss
 
 //MARK: - Error
 public struct RegisterErrorModel: Glossy {
-    
+
     public let email : [String]!
     public let unigueEmail : Bool!
-    
-    
-    
+
     //MARK: Decodable
     public init?(json: JSON){
         email = "email" <~~ json
         unigueEmail = "unigueEmail" <~~ json
     }
-    
-    
+
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
@@ -31,5 +28,5 @@ public struct RegisterErrorModel: Glossy {
             "unigueEmail" ~~> unigueEmail,
             ])
     }
-    
+
 }
