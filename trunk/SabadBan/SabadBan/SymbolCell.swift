@@ -18,7 +18,7 @@ class SymbolCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+
         lblAmount.setDefaultFont()
         lblVolume.setDefaultFont()
         lblLastTrade.setDefaultFont()

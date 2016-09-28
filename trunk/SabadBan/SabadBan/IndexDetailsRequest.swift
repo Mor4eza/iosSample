@@ -11,7 +11,7 @@ import Foundation
 public struct IndexDetailsRequest {
     let timeFrameType : TimeFrameType!
     let indexCode : String!
-    
+
     func getDic() -> [String : AnyObject] {
         let dic = [
             "timeFrameType": timeFrameType.rawValue,
@@ -20,4 +20,3 @@ public struct IndexDetailsRequest {
         return dic as! [String : AnyObject]
     }
 }
-

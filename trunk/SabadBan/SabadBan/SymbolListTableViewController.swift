@@ -10,27 +10,25 @@ import UIKit
 import Alamofire
 
 class SymbolListTableViewController: BaseTableViewController {
-    
+
     //MARK: Properties
     var numberSortCondiiton = SortCondition.notSorted
     var volumeSortCondiiton = SortCondition.notSorted
     var symbolSortCondiiton = SortCondition.notSorted
-    
+
     var headerView : SymbolListHeader!
-    
-    
+
     var symbolDetailsList = [SymbolDetailsList]()
     var temp = [String]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tableView.registerNib(UINib(nibName: "SymbolListHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "SymbolListHeader")
         self.tableView.tableFooterView = UIView()
-        
-        
+
         //        let titleAttributes = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline), NSForegroundColorAttributeName: UIColor.whiteColor()]
-        
+
         //        let attrText = NSAttributedString(string: "Pull to Refresh", attributes: titleAttributes)
         refreshControl = UIRefreshControl()
         //        refreshControl!.attributedTitle = attrText
@@ -38,27 +36,27 @@ class SymbolListTableViewController: BaseTableViewController {
         refreshControl!.addTarget(self, action: #selector(SymbolListTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
         getSymbolListByIndex()
-        
+
     }
     func refresh(sender:AnyObject) {
         getSymbolListByIndex()
     }
-    
+
     // MARK: - Table view data source
-    
+
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return symbolDetailsList.count
     }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("symbolCell", forIndexPath: indexPath) as! SymbolCell
-        
+
         let tempVol = Double(symbolDetailsList[indexPath.row].transactionVolume)
         let tempLastTrader = Int(symbolDetailsList[indexPath.row].lastTradePriceChange)
         cell.lblName.text = symbolDetailsList[indexPath.row].symbolNameFa
@@ -73,76 +71,75 @@ class SymbolListTableViewController: BaseTableViewController {
         } else {
             cell.lblLastTradeChanges.backgroundColor = UIColor.clearColor()
         }
-        
+
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = AppBarTintColor
         }else {
             cell.backgroundColor = AppMainColor
         }
-        
+
         return cell
     }
-    
+
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
-    
+
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         self.headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("SymbolListHeader") as! SymbolListHeader
-        
+
         let tapGestureAmount = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
         let tapGestureVolume = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
         let tapGestureName = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
         let tapGestureImgName = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
         let tapGestureImgAmount = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
         let tapGestureImgVolume = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
-        
+
         headerView.lblAmount.addGestureRecognizer(tapGestureAmount)
         headerView.lblAmount.userInteractionEnabled = true
         headerView.imgSortAmount.addGestureRecognizer(tapGestureImgAmount)
         headerView.imgSortAmount.userInteractionEnabled = true
-        
+
         headerView.lblVolume.addGestureRecognizer(tapGestureVolume)
         headerView.lblVolume.userInteractionEnabled = true
         headerView.imgSortVolume.addGestureRecognizer(tapGestureImgVolume)
         headerView.imgSortVolume.userInteractionEnabled = true
-        
+
         headerView.lblName.addGestureRecognizer(tapGestureName)
         headerView.lblName.userInteractionEnabled = true
         headerView.imgSortName.addGestureRecognizer(tapGestureImgName)
         headerView.imgSortName.userInteractionEnabled = true
-        
+
         headerView.lblName.text = "Symbol".localized()
         headerView.lblLastTrade.text = "Trade".localized()
         headerView.lblAmount.text = "Amount".localized()
         headerView.lblVolume.text = "Volume".localized()
-        
+
         headerView.lblName.setDefaultFont()
         headerView.lblLastTrade.setDefaultFont()
         headerView.lblAmount.setDefaultFont()
         headerView.lblVolume.setDefaultFont()
-        
+
         return headerView
     }
-    
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         SelectedSymbolCode = symbolDetailsList[indexPath.row].symbolCode
     }
-    
+
     //MARK: - Service Call
-    
+
     func getSymbolListByIndex (){
-        
+
         refreshControl?.beginRefreshing()
         let url = AppTadbirUrl + URLS["getSymbolListByIndex"]!
-        
-        
+
         // JSON Body
         let body = SymbolListByIndexRequest(pageNumber: 0, recordPerPage: 0, indexCode: SelectedIndexCode, supportPaging: false, timeFrameType: TimeFrameType.day.rawValue).getDic()
-        
+
         // Fetch Request
         Request.postData(url, body: body) { (symbols:MainResponse<SymbolListByIndexResponse>?, error) in
-            
+
             if ((symbols?.successful) != nil) {
                 self.symbolDetailsList.removeAll()
                 for i in 0  ..< symbols!.response.symbolDetailsList.count{
@@ -152,13 +149,13 @@ class SymbolListTableViewController: BaseTableViewController {
             } else {
                 debugPrint(error)
             }
-            
+
             self.refreshControl?.endRefreshing()
         }
     }
-    
+
     //MARK: Actions
-    
+
     func performSort(sender: UITapGestureRecognizer) {
         var sortImg: UIImageView
         let identifier = sender.view!.restorationIdentifier!
@@ -238,10 +235,10 @@ class SymbolListTableViewController: BaseTableViewController {
                 break
             }
         }
-        
+
         self.tableView.reloadData()
     }
-    
+
     func rotateWithAnimation(target: UIImageView, angle: Double) {
         UIView.animateWithDuration(0.25, animations: {
             target.transform = CGAffineTransformMakeRotation(CGFloat(angle))

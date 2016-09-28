@@ -1,3 +1,4 @@
+
 //
 //  IndexDetailsTabBarController.swift
 //  SabadBan
@@ -10,7 +11,6 @@ import UIKit
 
 class IndexDetailsTabBarController: UITabBarController {
 
-    
     var selectedIndexName = String()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,6 @@ class IndexDetailsTabBarController: UITabBarController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation

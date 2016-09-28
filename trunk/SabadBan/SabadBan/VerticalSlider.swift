@@ -3,7 +3,7 @@ import UIKit
 
 @IBDesignable
 class VerticalSlider: UIControl {
-    
+
     @IBInspectable var minValue: CGFloat = 0
     @IBInspectable var maxValue: CGFloat = 100 {
         didSet {
@@ -12,7 +12,7 @@ class VerticalSlider: UIControl {
     }
     @IBInspectable var currentValue: CGFloat = 50 {
         didSet {
-            
+
             if currentValue < 0 {
                 currentValue = 0
             }
@@ -22,7 +22,7 @@ class VerticalSlider: UIControl {
             setupView()
         }
     }
-    
+
     let knobSize = CGSize(width: 36, height: 27)
     let barMargin:CGFloat = 15.0
     var knobRect: CGRect!
@@ -36,12 +36,12 @@ extension VerticalSlider {
         super.awakeFromNib()
         setupView()
     }
-    
+
     func setupView() {
         knobRect = CGRect(x: 0, y: convertValueToY(currentValue) - (knobSize.height / 2), width: knobSize.width, height: knobSize.height)
         barLength = bounds.height - (barMargin * 2)
     }
-    
+
     override func drawRect(rect: CGRect) {
         TotemStyles.drawVerticalSlider(controlFrame: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height), knobRect: knobRect)
     }
@@ -74,14 +74,14 @@ extension VerticalSlider {
             isSliding = true
         }
     }
-    
+
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
          let touch  = touches.first
         let rawY = touch!.locationInView(self).y
-        
+
         if isSliding {
             let value = convertYToValue(rawY)
-            
+
             if value != minValue || value != maxValue {
                 currentValue = value
                 print(currentValue)
@@ -89,7 +89,7 @@ extension VerticalSlider {
             }
         }
     }
-    
+
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         isSliding = false
     }

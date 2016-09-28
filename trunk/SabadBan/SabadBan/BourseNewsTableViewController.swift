@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate {
-    
+
     var newsModel = [NewsModel]()
     var newsCount = 0
     var servicePage = 0
@@ -25,60 +25,54 @@ class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate
         self.tableView.addSubview(refreshControl!)
         sendBourseNewsRequest(servicePage)
     }
-    
+
     func refresh(sender:AnyObject) {
         sendBourseNewsRequest(servicePage)
     }
-    
-    
+
     // MARK: - Table view data source
-    
+
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsModel.count
     }
-    
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ObserverNewsCell", forIndexPath: indexPath) as! NewsCell
-        
+
         cell.lblNewsTitle.text = newsModel[indexPath.row].title
         cell.lblNewsDetails.text = newsModel[indexPath.row].details
         cell.lblNewsDate.text = newsModel[indexPath.row].date
-        
+
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clearColor()
         cell.selectedBackgroundView = backgroundView
-        
+
         return cell
     }
-    
-    
+
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
+
         if indexPath.row + 1  >= newsCount {
             sendBourseNewsRequest(servicePage)
         }
-        
+
     }
-    
-    
+
     //MARK:- get Bourse News Service
     func sendBourseNewsRequest(page:Int) {
         refreshControl?.beginRefreshing()
-        
-        
-        
+
         if isMore{
             debugPrint("page : \(page)")
             let url = AppNewsURL + URLS["getBourseNews"]!
             // Add Headers
-            
+
             let body = BourseNewsRequest(take: 10, api_token: LoginToken, page: page).getDic()
-            
+
             // Fetch Request
             Request.postData(url, body: body) { (news:NewsMainResponse<BourseNewsResponse>?, error) in
                 if ((news?.success) != nil) {
@@ -87,11 +81,9 @@ class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate
                     }
                     self.newsCount += news!.response.count
                     self.servicePage += 1
-                    
-                    debugPrint(" news.response.count : \( news!.response.count)")
-                    
+
                     if (news!.response.count) > 0 {
-                        
+
                         self.isMore = true
                     }else {
                         self.isMore = false
@@ -103,28 +95,26 @@ class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate
             }
         }
         self.refreshControl?.endRefreshing()
-        
+
     }
-    
+
     //MARK:- Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        
+
         if (segue.identifier == "NewsDetailsSeguei") {
-            
+
             let index = self.tableView.indexPathForSelectedRow!
             let svc = segue.destinationViewController as! NewsDetailViewController
-            
+
             svc.newsTitle = newsModel[index.row].title
             svc.newsDetails = newsModel[index.row].details
             svc.newsDate = newsModel[index.row].date
             svc.newsLink = newsModel[index.row].link
-            
+
         }
     }
-    
+
     func sideMenuShouldOpenSideMenu() -> Bool {
         return false
     }
 }
-

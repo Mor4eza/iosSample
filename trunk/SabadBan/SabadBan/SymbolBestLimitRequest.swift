@@ -10,10 +10,10 @@ import Foundation
 
 public struct SymbolBestLimitRequest {
     let symbolCode: String!
-    
+
     func getDic() -> [String : AnyObject] {
         let dic : [String : AnyObject]
-        
+
         dic = [
             "symbolCode": symbolCode
         ]

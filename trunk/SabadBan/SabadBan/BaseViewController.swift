@@ -13,13 +13,13 @@ class BaseViewController: UIViewController,ENSideMenuDelegate,DialogClickDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         SwiftEventBus.onMainThread(self, name: LanguageChangedNotification) { result in
             self.addMenuButton()
         }
         addMenuButton()
         self.setFontFamily(AppFontName_IranSans, forView: self.view, andSubViews: true)
-        
+
         self.view.backgroundColor = AppMainColor
 
 //        let fontFamilyNames = UIFont.familyNames()
@@ -30,7 +30,7 @@ class BaseViewController: UIViewController,ENSideMenuDelegate,DialogClickDelegat
 //            print("Font Names = [\(names)]")
 //        }
         // Do any additional setup after loading the view.
-        
+
         SwiftEventBus.onMainThread(self, name: NetworkErrorAlert) { result in
             self.showNetworkAlert("noInternet")
         }
@@ -40,11 +40,9 @@ class BaseViewController: UIViewController,ENSideMenuDelegate,DialogClickDelegat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
+
     func showNetworkAlert(message : String) {
-        
-        
+
         let alert = FCAlertView()
         alert.makeAlertTypeCaution()
         alert.colorScheme = UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1)
@@ -55,9 +53,7 @@ class BaseViewController: UIViewController,ENSideMenuDelegate,DialogClickDelegat
                               withDoneButtonTitle: "Ok".localized(),
                               andButtons: nil)
     }
-    
 
-    
     func addMenuButton() {
         self.navigationItem.rightBarButtonItem = nil
         self.navigationItem.leftBarButtonItem = nil
@@ -82,12 +78,12 @@ class BaseViewController: UIViewController,ENSideMenuDelegate,DialogClickDelegat
         super.viewWillDisappear(true)
         SwiftEventBus.unregister(self)
     }
-    
+
     func dialogOkButtonClicked(){
-        
+
     }
-    
+
     func dialogCancelButtonClicked(){
-    
+
     }
 }

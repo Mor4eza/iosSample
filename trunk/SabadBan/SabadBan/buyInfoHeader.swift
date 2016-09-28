@@ -12,11 +12,11 @@ class BuyInfoHeader: UITableViewHeaderFooterView {
 
     @IBOutlet weak var lblCount: UILabel!
     @IBOutlet weak var lblDate: UILabel!
-    
+
     @IBOutlet weak var lblPrice: UILabel!
-    
+
     @IBOutlet weak var lblEdit: UILabel!
-    
+
     @IBOutlet weak var lblDelete: UILabel!
     /*
     // Only override drawRect: if you perform custom drawing.

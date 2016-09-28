@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable
 public class LinearProgressView: UIView {
-    
+
     @IBInspectable public var barColor: UIColor = UIColor.greenColor()
     @IBInspectable public var trackColor: UIColor = UIColor.yellowColor()
     @IBInspectable public var rightColor: UIColor = UIColor.greenColor()
@@ -27,24 +27,24 @@ public class LinearProgressView: UIView {
             setNeedsDisplay()
         }
     }
-    
+
     private var trackHeight: CGFloat {
         return barThickness + trackPadding
     }
-    
+
     private var trackOffset: CGFloat {
         return trackHeight / 2
     }
-    
+
     public override func drawRect(rect: CGRect) {
         drawProgressView()
     }
-    
+
     // Draws the progress bar and track
     func drawProgressView() {
         let context = UIGraphicsGetCurrentContext()
         CGContextSaveGState(context)
-        
+
         // Progres Bar Track
         CGContextSetStrokeColorWithColor(context, trackColor.CGColor)
         CGContextBeginPath(context)
@@ -53,7 +53,7 @@ public class LinearProgressView: UIView {
         CGContextAddLineToPoint(context, frame.size.width - barPadding - trackOffset, frame.size.height / 2)
         CGContextSetLineCap(context, CGLineCap.Round)
         CGContextStrokePath(context)
-        
+
         // Progress Bar
         CGContextSetStrokeColorWithColor(context, barColor.CGColor)
         CGContextSetLineWidth(context, barThickness)
@@ -62,7 +62,7 @@ public class LinearProgressView: UIView {
         CGContextAddLineToPoint(context, barPadding + trackOffset + calcualtePercentage() , frame.size.height / 2)
         CGContextSetLineCap(context, CGLineCap.Round)
         CGContextStrokePath(context)
-        
+
         //end color
         CGContextSetStrokeColorWithColor(context, rightColor.CGColor)
         CGContextSetLineWidth(context, barThickness)
@@ -71,13 +71,13 @@ public class LinearProgressView: UIView {
         CGContextAddLineToPoint(context, barPadding + trackOffset + calcualtePercentage() , frame.size.height / 2)
         CGContextSetLineCap(context, CGLineCap.Round)
         CGContextStrokePath(context)
-        
+
         CGContextRestoreGState(context)
     }
-    
+
     /**
      Calculates the percent value of the progress bar
-     
+
      - returns: The percentage of progress
      */
     func calcualtePercentage() -> CGFloat {

@@ -9,46 +9,44 @@
 import UIKit
 
 class portfolioCell: UITableViewCell {
-    
-    
+
     @IBOutlet weak var lblsymbolTitle: UILabel!
-    
+
     @IBOutlet weak var lblSymbolValue: UILabel!
-    
+
     @IBOutlet weak var lblLastValueTitle: UILabel!
-    
+
     @IBOutlet weak var lblLastPriceValue: UILabel!
-    
+
     @IBOutlet weak var lblBuyQuotTitle: UILabel!
-    
+
     @IBOutlet weak var lblBuyQuotValue: UILabel!
-    
+
     @IBOutlet weak var lblOverTitle: UILabel!
-    
+
     @IBOutlet weak var lblOverValue: UILabel!
-    
+
     @IBOutlet weak var lblEndTitle: UILabel!
     @IBOutlet weak var lblEndValue: UILabel!
-    
+
     @IBOutlet weak var lblEndChanges: UILabel!
     @IBOutlet weak var lblSellQuotTitle: UILabel!
 
     @IBOutlet weak var lblSellQuotValue: UILabel!
-    
+
     @IBOutlet weak var lblTodayValue: UILabel!
-    
+
     @IBOutlet weak var lblTodayTitle: UILabel!
-    
+
     @IBOutlet weak var viewStatus: UIView!
-    
-    
+
     @IBOutlet weak var lblStatusTitle: UILabel!
-    
+
     @IBOutlet weak var lblStatusValue: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         lblsymbolTitle.setDefaultFont()
         lblSymbolValue.setDefaultFont()
         lblLastValueTitle.setDefaultFont()
@@ -66,10 +64,10 @@ class portfolioCell: UITableViewCell {
         lblTodayTitle.setDefaultFont()
         lblStatusTitle.setDefaultFont()
         lblStatusValue.setDefaultFont()
-        
+
         viewStatus.layer.cornerRadius = 6
         viewStatus.layer.masksToBounds = true
-        
+
         // Initialization code
     }
 

@@ -11,7 +11,7 @@ import Gloss
 
 //MARK: - Response
 public struct MarketActivityModel: Glossy {
-    
+
     public let marketDateTime : String!
     public let marketStatusEn : String!
     public let marketStatusFa : String!
@@ -19,9 +19,7 @@ public struct MarketActivityModel: Glossy {
     public let numberOfTransactions : Double!
     public let valueOfTransactions : Double!
     public let volumeOfTransactions : Double!
-    
-    
-    
+
     //MARK: Decodable
     public init?(json: JSON){
         marketDateTime = "marketDateTime" <~~ json
@@ -32,8 +30,7 @@ public struct MarketActivityModel: Glossy {
         valueOfTransactions = "valueOfTransactions" <~~ json
         volumeOfTransactions = "volumeOfTransactions" <~~ json
     }
-    
-    
+
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
@@ -46,5 +43,5 @@ public struct MarketActivityModel: Glossy {
             "volumeOfTransactions" ~~> volumeOfTransactions,
             ])
     }
-    
+
 }

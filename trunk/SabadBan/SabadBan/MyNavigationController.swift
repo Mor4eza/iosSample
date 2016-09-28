@@ -9,7 +9,7 @@ import UIKit
 import Localize_Swift
 import SwiftEventBus
 public class MyNavigationController: ENSideMenuNavigationController, ENSideMenuDelegate {
-    
+
     override public func viewDidLoad() {
         super.viewDidLoad()
         SwiftEventBus.onMainThread(self, name: LanguageChangedNotification) { result in
@@ -17,16 +17,15 @@ public class MyNavigationController: ENSideMenuNavigationController, ENSideMenuD
             self.initMenu()
         }
         var menuPosition:ENSideMenuPosition!
-        
+
         if getAppLanguage() == "fa"{
             menuPosition = ENSideMenuPosition.Right
         }else {
             menuPosition = ENSideMenuPosition.Left
         }
-        
-        
+
         sideMenu = ENSideMenu(sourceView: self.view, menuViewController: MyMenuTableViewController(), menuPosition: menuPosition,blurStyle: .ExtraLight)
-        
+
         sideMenu?.animationDuration = 0.24
         sideMenu?.menuWidth = 280 // optional, default is 160
         sideMenu?.bouncingEnabled = false
@@ -35,17 +34,17 @@ public class MyNavigationController: ENSideMenuNavigationController, ENSideMenuD
             sideMenu?.showSideMenu()
             sideMenu?.hideSideMenu()
         }
-        
+
         view.bringSubviewToFront(navigationBar)
     }
-    
+
     override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     // MARK: - ENSideMenu Delegate
-    
+
     func initMenu(){
         var menuPosition:ENSideMenuPosition!
         if getAppLanguage() == "fa"{
@@ -58,7 +57,7 @@ public class MyNavigationController: ENSideMenuNavigationController, ENSideMenuD
         sideMenu?.hideSideMenu()
         SwiftEventBus.unregister(self)
     }
-    
+
     func addMenuButton() {
         let btnName = UIButton()
         btnName.setImage(UIImage(named: "Menu"), forState: .Normal)
@@ -76,5 +75,5 @@ public class MyNavigationController: ENSideMenuNavigationController, ENSideMenuD
     func openMenu() {
         self.toggleSideMenuView()
     }
-    
+
 }

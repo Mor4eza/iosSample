@@ -1,3 +1,4 @@
+
 //
 //  ChartViewController.swift
 //  SabadBan
@@ -10,26 +11,25 @@ import UIKit
 import SwiftCharts
 class ChartViewController: BaseViewController{
 
-    
     private var chart: Chart? // arc
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let labelSettings = ChartLabelSettings(font: ExamplesDefaults.labelFont)
-        
+
         var readFormatter = NSDateFormatter()
         readFormatter.dateFormat = "dd.MM.yyyy"
-        
+
         var displayFormatter = NSDateFormatter()
         displayFormatter.dateFormat = "MMM dd"
-        
+
         let date = {(str: String) -> NSDate in
             return readFormatter.dateFromString(str)!
         }
-        
+
         let calendar = NSCalendar.currentCalendar()
-        
+
         let dateWithComponents = {(day: Int, month: Int, year: Int) -> NSDate in
             let components = NSDateComponents()
             components.day = day
@@ -37,13 +37,13 @@ class ChartViewController: BaseViewController{
             components.year = year
             return calendar.dateFromComponents(components)!
         }
-        
+
         func filler(date: NSDate) -> ChartAxisValueDate {
             let filler = ChartAxisValueDate(date: date, formatter: displayFormatter)
             filler.hidden = true
             return filler
         }
-        
+
         let chartPoints = [
             ChartPointCandleStick(date: date("01.10.2015"), formatter: displayFormatter, high: 40, low: 37, open: 39.5, close: 39),
             ChartPointCandleStick(date: date("02.10.2015"), formatter: displayFormatter, high: 39.8, low: 38, open: 39.5, close: 38.4),
@@ -98,9 +98,9 @@ class ChartViewController: BaseViewController{
             ChartPointCandleStick(date: date("28.10.2015"), formatter: displayFormatter, high: 32, low: 30, open: 31, close: 30.6),
             ChartPointCandleStick(date: date("29.10.2015"), formatter: displayFormatter, high: 35, low: 31, open: 31, close: 33)
         ]
-        
+
         let yValues = 20.stride(through: 55, by: 5).map {ChartAxisValueDouble(Double($0), labelSettings: labelSettings)}
-        
+
         func generateDateAxisValues(month: Int, year: Int) -> [ChartAxisValueDate] {
             let date = dateWithComponents(1, month, year)
             let calendar = NSCalendar.currentCalendar()
@@ -113,21 +113,21 @@ class ChartViewController: BaseViewController{
             }
         }
         let xValues = generateDateAxisValues(10, year: 2015)
-        
+
         let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Axis title", settings: labelSettings))
         let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Axis title", settings: labelSettings.defaultVertical()))
         let chartFrame = ExamplesDefaults.chartFrame(self.view.bounds)
         let coordsSpace = ChartCoordsSpaceRightBottomSingleAxis(chartSettings: ExamplesDefaults.chartSettings, chartFrame: chartFrame, xModel: xModel, yModel: yModel)
         let (xAxis, yAxis, innerFrame) = (coordsSpace.xAxis, coordsSpace.yAxis, coordsSpace.chartInnerFrame)
-        
+
         let chartPointsLineLayer = ChartCandleStickLayer<ChartPointCandleStick>(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, chartPoints: chartPoints, itemWidth: Env.iPad ? 10 : 5, strokeWidth: Env.iPad ? 1 : 0.6)
-        
+
         let settings = ChartGuideLinesLayerSettings(linesColor: UIColor.blackColor(), linesWidth: ExamplesDefaults.guidelinesWidth)
         let guidelinesLayer = ChartGuideLinesLayer(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, settings: settings, onlyVisibleX: true)
-        
+
         let dividersSettings =  ChartDividersLayerSettings(linesColor: UIColor.blackColor(), linesWidth: ExamplesDefaults.guidelinesWidth, start: Env.iPad ? 7 : 3, end: 0, onlyVisibleValues: true)
         let dividersLayer = ChartDividersLayer(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, settings: dividersSettings)
-        
+
         let chart = Chart(
             frame: chartFrame,
             layers: [
@@ -138,14 +138,14 @@ class ChartViewController: BaseViewController{
                 chartPointsLineLayer
             ]
         )
-        
+
         self.view.addSubview(chart.view)
-        
+
         self.chart = chart
     }
 }
 struct ExamplesDefaults {
-    
+
     static var chartSettings: ChartSettings {
         if Env.iPad {
             return self.iPadChartSettings
@@ -153,7 +153,7 @@ struct ExamplesDefaults {
             return self.iPhoneChartSettings
         }
     }
-    
+
     private static var iPadChartSettings: ChartSettings {
         let chartSettings = ChartSettings()
         chartSettings.leading = 20
@@ -168,7 +168,7 @@ struct ExamplesDefaults {
         chartSettings.spacingBetweenAxesY = 15
         return chartSettings
     }
-    
+
     private static var iPhoneChartSettings: ChartSettings {
         let chartSettings = ChartSettings()
         chartSettings.leading = 10
@@ -183,40 +183,38 @@ struct ExamplesDefaults {
         chartSettings.spacingBetweenAxesY = 8
         return chartSettings
     }
-    
+
     static func chartFrame(containerBounds: CGRect) -> CGRect {
         return CGRectMake(0, 20, containerBounds.size.width, containerBounds.size.height - 40)
     }
-    
+
     static var labelSettings: ChartLabelSettings {
         return ChartLabelSettings(font: ExamplesDefaults.labelFont)
     }
-    
+
     static var labelFont: UIFont {
         return ExamplesDefaults.fontWithSize(Env.iPad ? 14 : 11)
     }
-    
+
     static var labelFontSmall: UIFont {
         return ExamplesDefaults.fontWithSize(Env.iPad ? 12 : 10)
     }
-    
+
     static func fontWithSize(size: CGFloat) -> UIFont {
         return UIFont(name: "Helvetica", size: size) ?? UIFont.systemFontOfSize(size)
     }
-    
+
     static var guidelinesWidth: CGFloat {
         return Env.iPad ? 0.5 : 0.1
     }
-    
+
     static var minBarSpacing: CGFloat {
         return Env.iPad ? 10 : 5
     }
-    
-    
-    
+
 }
 class Env {
-    
+
     static var iPad: Bool {
         return UIDevice.currentDevice().userInterfaceIdiom == .Pad
     }

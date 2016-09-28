@@ -11,13 +11,12 @@ import Gloss
 
 //MARK: - Indexs
 public struct MainResponse<T:Glossy>: Glossy {
-    
+
     public let errorCode : AnyObject!
     public let errorDescription : AnyObject!
     public let response : T!
     public let successful : Bool!
-    
-    
+
     //MARK: Decodable
     public init?(json: JSON){
         errorCode = "errorCode" <~~ json
@@ -25,8 +24,7 @@ public struct MainResponse<T:Glossy>: Glossy {
         response = "response" <~~ json
         successful = "successful" <~~ json
     }
-    
-    
+
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
@@ -36,5 +34,5 @@ public struct MainResponse<T:Glossy>: Glossy {
             "successful" ~~> successful
             ])
     }
-    
+
 }

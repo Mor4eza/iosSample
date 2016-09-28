@@ -12,7 +12,7 @@ public struct BourseNewsRequest {
     public let take : Int!
     public let api_token : String!
     public let page : Int!
-    
+
     func getDic() -> [String : AnyObject] {
         let dic = [
         "take" : self.take,

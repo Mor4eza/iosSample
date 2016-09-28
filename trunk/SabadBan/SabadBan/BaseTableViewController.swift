@@ -1,3 +1,4 @@
+
 //
 //  BaseTableViewController.swift
 //  HamrahTraderPro
@@ -21,7 +22,7 @@ class BaseTableViewController: UITableViewController {
         self.tableView.backgroundColor = AppMainColor
         // Do any additional setup after loading the view.
     }
-    
+
     func addMenuButton() {
         self.navigationItem.rightBarButtonItem = nil
         self.navigationItem.leftBarButtonItem = nil
@@ -41,12 +42,12 @@ class BaseTableViewController: UITableViewController {
     func openMenu() {
         self.toggleSideMenuView()
     }
-    
+
     // MARK: - TableView Delegates
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         cell.textLabel?.font = UIFont(name: AppFontName_IranSans, size: (cell.textLabel?.font.pointSize)!)
     }
-    
+
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if (view is UILabel){
             let lable = (view as! UILabel)

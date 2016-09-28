@@ -1,3 +1,4 @@
+
 //
 //	Response.swift
 //
@@ -8,7 +9,7 @@
 //	The "Swift - Struct - Gloss" support has been made available by CodeEagle
 //	More about him/her can be found at his/her website: https://github.com/CodeEagle
 
-import Foundation 
+import Foundation
 import Gloss
 
 //MARK: - Response
@@ -17,14 +18,11 @@ public struct Response: Glossy {
 	public let indexDetailsList : [IndexDetailsList]!
 	public let timeFrameType : String!
 
-
-
 	//MARK: Decodable
 	public init?(json: JSON){
 		indexDetailsList = "indexDetailsList" <~~ json
 		timeFrameType = "timeFrameType" <~~ json
 	}
-
 
 	//MARK: Encodable
 	public func toJSON() -> JSON? {

@@ -14,9 +14,7 @@ public struct NewsMainResponse<T: Glossy> : Glossy {
     public let errorDescription : AnyObject!
     public let response : T!
     public let success : Bool?
-    
-    
-    
+
     //MARK: Decodable
     public init?(json: JSON){
         errorCode = "errorCode" <~~ json
@@ -24,8 +22,7 @@ public struct NewsMainResponse<T: Glossy> : Glossy {
         response = "response" <~~ json
         success = "success" <~~ json
     }
-    
-    
+
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([

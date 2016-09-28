@@ -13,7 +13,7 @@ public struct SymbolListAndDetailsRequest {
     let recordPerPage : Int!
     let symbolCode : [String]!
     let supportPaging : Bool!
-    
+
     func getDic() -> [String : AnyObject] {
         let dic = [
             "pageNumber": pageNumber,

@@ -8,7 +8,7 @@
 //	The "Swift - Struct - Gloss" support has been made available by CodeEagle
 //	More about him/her can be found at his/her website: https://github.com/CodeEagle
 
-import Foundation 
+import Foundation
 import Gloss
 
 //MARK: - BestLimitDataList
@@ -22,8 +22,6 @@ public struct BestLimitDataList: Glossy {
 	public let sellPrice : Int!
 	public let sellValue : Int!
 
-
-
 	//MARK: Decodable
 	public init?(json: JSON){
 		buyNumber = "buyNumber" <~~ json
@@ -34,7 +32,6 @@ public struct BestLimitDataList: Glossy {
 		sellPrice = "sellPrice" <~~ json
 		sellValue = "sellValue" <~~ json
 	}
-
 
 	//MARK: Encodable
 	public func toJSON() -> JSON? {

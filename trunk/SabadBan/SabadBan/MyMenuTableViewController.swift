@@ -12,12 +12,12 @@ class MyMenuTableViewController: BaseTableViewController {
     var selectedMenuItem : Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tableView.registerNib(UINib(nibName: "menuCell", bundle: nil), forCellReuseIdentifier: "menuCells")
         tableView.registerNib(UINib(nibName: "menuHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "menuHeader")
-        
+
         self.tableView.tableFooterView = UIView()
-        
+
         // Customize apperance of table view
         tableView.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0) //
         tableView.separatorStyle = .None
@@ -26,24 +26,22 @@ class MyMenuTableViewController: BaseTableViewController {
         tableView.bounces = false
         // Preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
-        
+
         tableView.selectRowAtIndexPath(NSIndexPath(forRow: selectedMenuItem, inSection: 0), animated: false, scrollPosition: .Middle)
     }
-
 
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 120
     }
-    
+
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("menuHeader") as! menuHeader
-        
+
         headerView.lblUserName.text = LogedInUserName
-        
+
         return headerView
     }
 
-    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -57,19 +55,16 @@ class MyMenuTableViewController: BaseTableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+
         let cell = tableView.dequeueReusableCellWithIdentifier("menuCells", forIndexPath: indexPath) as! menuCell
-        
-        
+
             cell.backgroundColor = UIColor.clearColor()
             cell.lblMenuName?.textColor = UIColor.darkGrayColor()
             let selectedBackgroundView = UIView(frame: CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height))
             selectedBackgroundView.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.2)
             selectedBackgroundView.tintColor = UIColor.redColor()
             cell.selectedBackgroundView = selectedBackgroundView
-            
-        
-        
+
         switch indexPath.row {
         case 0:
             cell.lblMenuName?.text = "Index".localized()
@@ -100,27 +95,26 @@ class MyMenuTableViewController: BaseTableViewController {
             cell.imgMenu.image = UIImage(named: "exit")
             break
         }
-        
+
             cell.lblMenuName?.changeDirection()
-    
-        
+
         return cell
     }
-    
+
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50.0
     }
-    
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+
         print("did select row: \(indexPath.row)")
-        
+
         if (indexPath.row == selectedMenuItem) {
             return
         }
-        
+
         selectedMenuItem = indexPath.row
-        
+
         //Present new view controller
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
         var destViewController : UIViewController
@@ -141,7 +135,7 @@ class MyMenuTableViewController: BaseTableViewController {
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("AboutUsViewController")
             break
         case 5:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController4") 
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController4")
             break
         default:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("viewController5")
@@ -149,20 +143,17 @@ class MyMenuTableViewController: BaseTableViewController {
         }
         sideMenuController()?.setContentViewController(destViewController)
     }
-    
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setTexts), name: LCLLanguageChangeNotification, object: nil)
     }
-    
+
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-    
-    
-    
+
     func setTexts() {
         self.tableView.reloadData()
     }

@@ -27,7 +27,6 @@ var buildDate:NSDate
     return NSDate()
 }
 
-
 func persianStringCompare(value1: String, value2: String) -> Bool {
     // One string is alphabetically first.
     // ... True means value1 precedes value2.
@@ -41,31 +40,29 @@ func persianStringCompare(value1: String, value2: String) -> Bool {
         biggerLength = value2
         smallerLength = value1
     }
-    
+
     for i in 0..<smallerLength.characters.count {
         let word1 : String = smallerLength[i]
         let word2 : String = biggerLength[i]
-        
+
         let indexWord1 = unicodeValueList.indexOf(Int(word1.unicodeScalars[word1.unicodeScalars.startIndex].value))
         let indexWord2 = unicodeValueList.indexOf(Int(word2.unicodeScalars[word2.unicodeScalars.startIndex].value))
-        
+
         if indexWord1 > indexWord2{
             return true
         } else if indexWord1 != indexWord2 {
             return false
         }
     }
-    
+
     return false;
 }
-
-
 
 import FCAlertView
 public class Utils {
 
    public static func ShowAlert(inView:UIViewController, title:String , details:String ,image:UIImage? = nil ,btnOkTitle:String? = nil , btnTitles:[String]? = nil ,tag:Int? = nil,delegate:FCAlertViewDelegate? = nil)  {
-        
+
         let alert = FCAlertView();
         alert.makeAlertTypeCaution()
         alert.colorScheme = UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1)
@@ -79,9 +76,6 @@ public class Utils {
                               withCustomImage:image,
                               withDoneButtonTitle:btnOkTitle,
                               andButtons:btnTitles) // Set your button titles here
-        
+
     }
 }
-
-
-

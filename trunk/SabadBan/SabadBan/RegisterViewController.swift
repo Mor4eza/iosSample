@@ -10,36 +10,34 @@ import UIKit
 import Alamofire
 import FCAlertView
 class RegisterViewController: BaseViewController, UITextFieldDelegate {
-    
-    
+
     //MARK: Properties
-    
+
     @IBOutlet weak var imgAppLogo: UIImageView!
     @IBOutlet weak var mainView: UIView!
-    
+
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var txtUserName: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtPhone: UITextField!
-    
+
     @IBOutlet weak var txtRPassword: UITextField!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    
+
     @IBOutlet weak var btnRegister: UIButton!
-    
+
     var defaults  = NSUserDefaults.standardUserDefaults()
-    
-    
+
     var successLogin = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //        self.view.transform = CGAffineTransformMakeScale(-1, 1)
         //        lblRememberMe.transform = CGAffineTransformMakeScale(-1, 1)
         // Do any additional setup after loading the view.
-        
+
         //MARK: - Register String
-        
+
         txtUserName.placeholder = "Email".localized()
         txtPassword.placeholder = "Password".localized()
         btnRegister.setTitle("Register".localized(), forState: .Normal)
@@ -48,39 +46,35 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         btnLogin.setTitle("Login".localized(), forState: .Normal)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-        
+
         txtUserName.delegate = self
         txtPhone.delegate = self
         txtPassword.delegate = self
         txtRPassword.delegate = self
-        
+
     }
-    
-    
+
     func keyboardWillShow(notification: NSNotification) {
-        
+
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            
+
             UIView.animateWithDuration(1, delay: 0, options: .CurveEaseIn, animations: {
-                
+
                 self.bottomConstraint.constant = keyboardSize.height
                 self.view.layoutIfNeeded()
                 }, completion: nil)
         }
-        
+
     }
-    
-    
-    
+
     func keyboardWillHide(notification: NSNotification) {
         UIView.animateWithDuration(1, delay: 0, options: .CurveEaseIn, animations: {
-            
+
             self.bottomConstraint.constant = 45
             self.view.layoutIfNeeded()
             }, completion: nil)
     }
-    
-    
+
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         if textField == txtUserName {
@@ -93,23 +87,23 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
             textField.resignFirstResponder()
             beginRegisterSequence()
         }
-        
+
         return true
     }
-    
+
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
+
     //MARK:- Buttons Tap
-    
+
     @IBAction func btnRegisterTap(sender: AnyObject) {
         beginRegisterSequence()
     }
-    
+
     func beginRegisterSequence() {
         self.view.endEditing(true)
-        
+
         if txtUserName.text == "" {
             showAlert("pleaseEnterEmail")
         } else if (!txtUserName.text!.isValidEmail()) {
@@ -134,9 +128,9 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
             }
         }
     }
-    
+
     func showAlert(message : String) {
-        
+
         let alert = FCAlertView()
         alert.makeAlertTypeCaution()
         alert.colorScheme = UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1)
@@ -146,47 +140,45 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
                               withCustomImage: nil,
                               withDoneButtonTitle: "Ok".localized(),
                               andButtons: nil)
-        
+
     }
-    
-    
+
     @IBAction func btnLogin(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
+
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if textField == txtPhone {
             guard let text = textField.text else { return true }
-            
+
             let newLength = text.utf16.count + string.utf16.count - range.length
             return newLength <= 11
         }
         return true
     }
-    
+
     // MARK: - Navigation
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
-        
+
         if identifier == "registerSegue" {
             if successLogin {
                 return true
             }else {
                 return false
             }
-            
+
         }
         return true
     }
-    
-    
+
     //MARK:- Login Service
-    
+
     func sendRegisterRequest(email:String , password:String, phone:String, pushToken:String) {
         /**
          Login
          POST http://sabadbannewstest.sefryek.com/api/v1/auth/register
          */
-        
+
         btnRegister.enabled = false
         let progress:UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
         progress.frame = CGRectMake(btnRegister.bounds.maxX - 30, btnRegister.bounds.maxY - 33, 20, 20)
@@ -194,13 +186,13 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         btnRegister.addSubview(progress)
         progress.hidesWhenStopped = true
         let url = AppNewsURL + URLS["register"]!
-        
+
         // JSON Body
         let body = RegisterRequest(email: email, device_token: pushToken, password: password, phone: phone).getDic()
-        
+
         // Fetch Request
         Request.postData(url, body: body) { (register:UserManagementModel<RegisterResponse>?, error) in
-            
+
             if ((register?.success) != nil) {
                 if register!.result != nil {
                     if register!.errorCode == 100 {
@@ -210,7 +202,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
                         //                            self.dismissViewControllerAnimated(true, completion: nil)
                         self.defaults.setValue(email, forKey: "UserName")
                         self.performSegueWithIdentifier("registerSegue", sender: nil)
-                        
+
                     }
                 } else if register!.errorCode == 101 {
                     if (register!.error?.unigueEmail != nil) {
@@ -219,7 +211,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
                 } else if register!.errorCode == 102 {
                     self.showAlert("unknownRegisterError")
                 }
-                
+
                 self.btnRegister.enabled = true
                 progress.stopAnimating()
             } else {
@@ -228,11 +220,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
                 progress.stopAnimating()
             }
         }
-        
+
     }
-    
-    
-    
-    
-    
+
 }

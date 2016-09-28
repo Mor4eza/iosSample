@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>578748409911-pounpn8h77goijai4qteq6ct1vcunvq7.apps.googleusercontent.com</string>
+	<string>266338300987-7e237svgi15qobcn7dvr6mtn0e1uk7t9.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.578748409911-pounpn8h77goijai4qteq6ct1vcunvq7</string>
+	<string>com.googleusercontent.apps.266338300987-7e237svgi15qobcn7dvr6mtn0e1uk7t9</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA8ZCnqQd_QNbuJX__NBWl5NSrA_dZw9CI</string>
+	<string>AIzaSyBDOeNFePgKh3a_OTuUuIQXKYtNBwqmu4c</string>
 	<key>GCM_SENDER_ID</key>
-	<string>578748409911</string>
+	<string>266338300987</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.zoitek.SabadBan</string>
 	<key>PROJECT_ID</key>
-	<string>sabadban-709d7</string>
+	<string>sabadban-c0888</string>
 	<key>STORAGE_BUCKET</key>
-	<string>sabadban-709d7.appspot.com</string>
+	<string>sabadban-c0888.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:578748409911:ios:59233b48f92a156b</string>
+	<string>1:266338300987:ios:59233b48f92a156b</string>
 	<key>DATABASE_URL</key>
-	<string>https://sabadban-709d7.firebaseio.com</string>
+	<string>https://sabadban-c0888.firebaseio.com</string>
 </dict>
 </plist>

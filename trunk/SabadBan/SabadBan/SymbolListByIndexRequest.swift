@@ -14,7 +14,7 @@ public struct SymbolListByIndexRequest {
     let indexCode : String!
     let supportPaging : Bool!
     let timeFrameType : Int!
-    
+
     func getDic() -> [String : AnyObject] {
         let dic = [
             "pageNumber": pageNumber,

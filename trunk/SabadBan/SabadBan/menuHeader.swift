@@ -10,7 +10,6 @@ import UIKit
 
 class menuHeader: UITableViewHeaderFooterView {
 
-    
     @IBOutlet weak var lblUserName: UILabel!
-    
+
 }

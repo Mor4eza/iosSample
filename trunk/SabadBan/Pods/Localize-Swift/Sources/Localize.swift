@@ -42,10 +42,10 @@ public func Localized(string: String, arguments: CVarArgType...) -> String {
 
 /**
  Swift 1.x friendly plural localization syntax with a format argument
- 
+
  - parameter string:   String to be formatted
  - parameter argument: Argument to determine pluralisation
- 
+
  - returns: Pluralized localized string.
  */
 public func LocalizedPlural(string: String, argument: CVarArgType) -> String {
@@ -75,12 +75,12 @@ public extension String {
     func localizedFormat(arguments: CVarArgType...) -> String {
         return String(format: localized(), arguments: arguments)
     }
-    
+
     /**
      Swift 2 friendly plural localization syntax with a format argument
-     
+
      - parameter argument: Argument to determine pluralisation
-     
+
      - returns: Pluralized localized string.
      */
     func localizedPlural(argument: CVarArgType) -> String {
@@ -93,7 +93,7 @@ public extension String {
 // MARK: Language Setting Functions
 
 public class Localize: NSObject {
-    
+
     /**
      List available languages
      - Returns: Array of available languages.
@@ -106,7 +106,7 @@ public class Localize: NSObject {
         }
         return availableLanguages
     }
-    
+
     /**
      Current language
      - Returns: The current language. String.
@@ -117,7 +117,7 @@ public class Localize: NSObject {
         }
         return defaultLanguage()
     }
-    
+
     /**
      Change the current language
      - Parameter language: Desired language.
@@ -130,7 +130,7 @@ public class Localize: NSObject {
             NSNotificationCenter.defaultCenter().postNotificationName(LCLLanguageChangeNotification, object: nil)
         }
     }
-    
+
     /**
      Default language
      - Returns: The app's default language. String.
@@ -149,14 +149,14 @@ public class Localize: NSObject {
         }
         return defaultLanguage
     }
-    
+
     /**
      Resets the current language to the default
      */
     public class func resetCurrentLanguageToDefault() {
         setCurrentLanguage(self.defaultLanguage())
     }
-    
+
     /**
      Get the current language's display name for a language.
      - Parameter language: Desired language.
