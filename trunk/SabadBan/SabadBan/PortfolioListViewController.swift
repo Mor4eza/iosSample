@@ -29,7 +29,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     let searchSymbol = KCFloatingActionButtonItem()
     let addSymbol = KCFloatingActionButtonItem()
     let deletePortfolio = KCFloatingActionButtonItem()
-    
+    var searchableSymbols = Bool()
     //    var refreshControll = UIRefreshControl!()
     @IBOutlet weak var tblPortfolio: UITableView!
     let nc = NSNotificationCenter.defaultCenter()
@@ -280,8 +280,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
                     
                     for i in 0  ..< self.portfolios.count {
                         if(tField.text == self.portfolios[i]){
-                            let dialog = MyAlert()
-                            dialog.showAlert("توجه", details: "این پرتفوی قبلا اضافه شده است", okTitle: "باشه", cancelTitle: "", onView: self.view)
+                        Utils.ShowAlert(self, title:"Attention".localized() , details: "نام پرتفوی تکراری است.",btnOkTitle:"Ok".localized())
                             return
                         }
                     }
@@ -308,13 +307,17 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         
         addSymbol.handler = { item in
             
+            self.searchableSymbols = false
             self.performSegueWithIdentifier("searchSeguei", sender: nil)
+            
         }
         
         
         searchSymbol.handler =  { item in
             
+            self.searchableSymbols = true
             self.performSegueWithIdentifier("searchSeguei", sender: nil)
+            
         }
         
         deletePortfolio.handler = { item in
@@ -440,6 +443,12 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             buyInfo.portfolioCode = db.getportfolioCodeByName(currentPortfolio)
             buyInfo.price = self.selectedSymbolPrice
             
+        }
+        if segue.identifier == "searchSeguei" {
+            let nav = segue.destinationViewController as! UINavigationController
+            let addVC =  nav.topViewController as! SearchSeymbolTableView
+            addVC.isSearch = searchableSymbols
+            addVC.symbols = symbols
         }
     }
     
