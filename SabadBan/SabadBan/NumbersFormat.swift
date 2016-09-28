@@ -15,7 +15,8 @@ extension NSNumber {
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         formatter.currencySymbol = ""
-//        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
+        formatter.currencyDecimalSeparator = "."
+        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
         var decimalPart = self as Double
         decimalPart = decimalPart - Double(Int(decimalPart))
         
@@ -39,11 +40,16 @@ extension Int {
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         formatter.currencySymbol = ""
-//        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
+        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
+        formatter.currencyDecimalSeparator = "."
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 1
         let priceString = formatter.stringFromNumber(self)
         return priceString!
+    }
+    
+    func addZero() -> String {
+        return (self < 10 ? "0\(self)" : "\(self)")
     }
 }
 
@@ -54,7 +60,8 @@ extension Float {
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         formatter.currencySymbol = ""
-//        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
+        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
+        formatter.currencyDecimalSeparator = "."
         
         let decimalPart = self - Float(Int(self))
         
@@ -77,7 +84,8 @@ extension Double {
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         formatter.currencySymbol = ""
-//        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
+        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
+        formatter.currencyDecimalSeparator = "."
         
         let decimalPart = self - Double(Int(self))
         
