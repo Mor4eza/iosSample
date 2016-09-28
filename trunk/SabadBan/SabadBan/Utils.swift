@@ -18,6 +18,15 @@ var isSimulator: Bool {
     return TARGET_OS_SIMULATOR != 0 // Use this line in Xcode 7 or newer
 }
 
+var buildDate:NSDate
+{
+    if let infoPath = NSBundle.mainBundle().pathForResource("Info.plist", ofType: nil),
+        let infoAttr = try? NSFileManager.defaultManager().attributesOfItemAtPath(infoPath),
+        let infoDate = infoAttr["NSFileCreationDate"] as? NSDate
+    { return infoDate }
+    return NSDate()
+}
+
 
 func persianStringCompare(value1: String, value2: String) -> Bool {
     // One string is alphabetically first.

@@ -70,6 +70,8 @@ class SymbolListTableViewController: BaseTableViewController {
             cell.lblLastTradeChanges.backgroundColor = UIColor(netHex: 0x006400)
         } else if symbolDetailsList[indexPath.row].lastTradePriceChange < 0 {
             cell.lblLastTradeChanges.backgroundColor = UIColor.redColor()
+        } else {
+            cell.lblLastTradeChanges.backgroundColor = UIColor.clearColor()
         }
         
         if indexPath.row % 2 == 0 {
