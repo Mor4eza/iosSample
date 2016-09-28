@@ -17,6 +17,8 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
     var symbolsData = [symbolData]()
     var filteredSymbol = [symbolData]()
     var selectedSCode = String()
+    var isSearch = Bool()
+    var symbols = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView()
@@ -80,13 +82,44 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        if isSearch {
+            
+            if shouldShowSearchResults {
+                
+                SelectedSymbolCode = filteredSymbol[indexPath.row].code
+                SelectedSymbolName = filteredSymbol[indexPath.row].name
+                
+            }else{
+                
+                SelectedSymbolCode = symbolsData[indexPath.row].code
+                SelectedSymbolName = symbolsData[indexPath.row].name
+                
+            }
+            
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back".localized()
+            navigationItem.backBarButtonItem = backItem
+            
+            return
+        }
+        
         let nc = NSNotificationCenter.defaultCenter()
         
         var selected = String()
+        
         if shouldShowSearchResults {
             selected = filteredSymbol[indexPath.row].code
         }else{
             selected = symbolsData[indexPath.row].code
+        }
+        
+        
+        for i in 0 ..< symbols.count {
+            if selected == symbols[i] {
+                
+                Utils.ShowAlert(self, title:"Attention".localized() , details: "این نماد در پرتفوی فعلی وجود دارد",btnOkTitle:"Ok".localized())
+                return
+            }
         }
         
         let sendSelected = ["selectedSymbol":selected]
@@ -166,6 +199,24 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
             }
             self.refreshControl?.endRefreshing()
         }
+    }
+    
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
+        if identifier == "symDetailsSegue" {
+            
+            if (!isSearch) {
+                
+                return false
+            }
+                
+            else {
+                return true
+            }
+        }
+        
+        // by default, transition
+        return true
     }
 }
 
