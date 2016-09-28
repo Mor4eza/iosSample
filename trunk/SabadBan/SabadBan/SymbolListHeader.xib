@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,35 +15,35 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEZ-DL-8iW">
                     <rect key="frame" x="0.0" y="0.0" width="571" height="57"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Last Trade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Oh-8J-rIN">
-                            <rect key="frame" x="245" y="18" width="81" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" horizontalCompressionResistancePriority="200" verticalCompressionResistancePriority="250" text="Last Trade" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Oh-8J-rIN">
+                            <rect key="frame" x="148" y="18" width="323" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="lblVolume" text="حجم" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LX3-in-ySQ">
-                            <rect key="frame" x="110" y="18" width="28" height="21"/>
+                            <rect key="frame" x="110" y="0.0" width="28" height="57"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="lblSymbol" text="Symbol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipg-PT-9mx">
-                            <rect key="frame" x="505" y="18" width="58" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" restorationIdentifier="lblSymbol" text="Symbol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipg-PT-9mx">
+                            <rect key="frame" x="505" y="0.0" width="58" height="57"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="imgSortName" image="ic_sort_aes" translatesAutoresizingMaskIntoConstraints="NO" id="kFY-vB-y25">
-                            <rect key="frame" x="481" y="17" width="24" height="24"/>
+                            <rect key="frame" x="481" y="0.0" width="24" height="57"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="imgSortVolume" image="ic_sort_aes" translatesAutoresizingMaskIntoConstraints="NO" id="lg1-k5-QpQ">
-                            <rect key="frame" x="86" y="17" width="24" height="24"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="imgSortVolume" image="ic_sort_aes" translatesAutoresizingMaskIntoConstraints="NO" id="lg1-k5-QpQ">
+                            <rect key="frame" x="86" y="0.0" width="24" height="57"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="imgSortAmount" image="ic_sort_aes" translatesAutoresizingMaskIntoConstraints="NO" id="9SI-U7-rbq">
-                            <rect key="frame" x="0.0" y="17" width="24" height="24"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="imgSortAmount" image="ic_sort_aes" translatesAutoresizingMaskIntoConstraints="NO" id="9SI-U7-rbq">
+                            <rect key="frame" x="0.0" y="0.0" width="24" height="57"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="lblAmount" text="amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDa-BC-9GV">
-                            <rect key="frame" x="24" y="18" width="58" height="21"/>
+                            <rect key="frame" x="24" y="0.0" width="58" height="57"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -51,24 +52,32 @@
                     <color key="backgroundColor" red="0.16452825090000001" green="0.21934768020000001" blue="0.31888299190000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="ipg-PT-9mx" firstAttribute="centerY" secondItem="OEZ-DL-8iW" secondAttribute="centerY" id="1Xl-rZ-bNR"/>
+                        <constraint firstItem="kFY-vB-y25" firstAttribute="height" secondItem="OEZ-DL-8iW" secondAttribute="height" id="2cZ-Pj-2ZI"/>
                         <constraint firstItem="lg1-k5-QpQ" firstAttribute="height" secondItem="kFY-vB-y25" secondAttribute="height" id="3yF-FL-Lse"/>
                         <constraint firstItem="lg1-k5-QpQ" firstAttribute="width" secondItem="kFY-vB-y25" secondAttribute="width" id="64o-to-PUn"/>
                         <constraint firstItem="XDa-BC-9GV" firstAttribute="leading" secondItem="9SI-U7-rbq" secondAttribute="trailing" id="8zn-JP-koy"/>
                         <constraint firstItem="XDa-BC-9GV" firstAttribute="leading" secondItem="OEZ-DL-8iW" secondAttribute="leading" constant="8" id="EVg-gW-yiF"/>
+                        <constraint firstItem="LX3-in-ySQ" firstAttribute="height" secondItem="OEZ-DL-8iW" secondAttribute="height" id="L37-Zc-GRS"/>
                         <constraint firstItem="8Oh-8J-rIN" firstAttribute="centerX" secondItem="OEZ-DL-8iW" secondAttribute="centerX" priority="750" id="QY0-r3-4Sj"/>
+                        <constraint firstItem="9SI-U7-rbq" firstAttribute="height" secondItem="OEZ-DL-8iW" secondAttribute="height" id="T5O-t3-4Lz"/>
                         <constraint firstItem="ipg-PT-9mx" firstAttribute="leading" secondItem="kFY-vB-y25" secondAttribute="trailing" id="TFs-1y-mKk"/>
                         <constraint firstItem="XDa-BC-9GV" firstAttribute="centerY" secondItem="OEZ-DL-8iW" secondAttribute="centerY" id="Tqo-37-tUT"/>
+                        <constraint firstItem="ipg-PT-9mx" firstAttribute="height" secondItem="OEZ-DL-8iW" secondAttribute="height" id="Wrb-va-uCW"/>
                         <constraint firstItem="kFY-vB-y25" firstAttribute="leading" secondItem="8Oh-8J-rIN" secondAttribute="trailing" constant="25" id="b3t-PD-ZPN"/>
                         <constraint firstItem="XDa-BC-9GV" firstAttribute="leading" secondItem="9SI-U7-rbq" secondAttribute="trailing" id="cMx-wF-Lo6"/>
                         <constraint firstItem="LX3-in-ySQ" firstAttribute="leading" secondItem="OEZ-DL-8iW" secondAttribute="leading" constant="82" id="cua-hZ-joJ"/>
-                        <constraint firstItem="8Oh-8J-rIN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LX3-in-ySQ" secondAttribute="trailing" constant="10" id="dTb-d8-li8"/>
+                        <constraint firstItem="8Oh-8J-rIN" firstAttribute="leading" secondItem="LX3-in-ySQ" secondAttribute="trailing" constant="10" id="dTb-d8-li8"/>
                         <constraint firstItem="LX3-in-ySQ" firstAttribute="leading" secondItem="lg1-k5-QpQ" secondAttribute="trailing" id="hzF-01-Lm3"/>
+                        <constraint firstItem="kFY-vB-y25" firstAttribute="leading" secondItem="8Oh-8J-rIN" secondAttribute="trailing" constant="10" id="iJ6-YI-od7"/>
+                        <constraint firstItem="8Oh-8J-rIN" firstAttribute="width" secondItem="OEZ-DL-8iW" secondAttribute="width" multiplier="0.23" id="ilm-bN-mbe"/>
                         <constraint firstItem="8Oh-8J-rIN" firstAttribute="centerY" secondItem="OEZ-DL-8iW" secondAttribute="centerY" id="mZc-Vk-eJD"/>
+                        <constraint firstItem="XDa-BC-9GV" firstAttribute="height" secondItem="OEZ-DL-8iW" secondAttribute="height" id="n5U-T1-6yv"/>
                         <constraint firstItem="LX3-in-ySQ" firstAttribute="centerY" secondItem="OEZ-DL-8iW" secondAttribute="centerY" id="oNu-mY-gg5"/>
                         <constraint firstItem="lg1-k5-QpQ" firstAttribute="centerY" secondItem="OEZ-DL-8iW" secondAttribute="centerY" id="pK2-1Y-qfN"/>
                         <constraint firstAttribute="trailing" secondItem="ipg-PT-9mx" secondAttribute="trailing" constant="8" id="qXj-vG-wtJ"/>
                         <constraint firstItem="kFY-vB-y25" firstAttribute="centerY" secondItem="ipg-PT-9mx" secondAttribute="centerY" id="tXg-U7-ETr"/>
                         <constraint firstItem="9SI-U7-rbq" firstAttribute="leading" secondItem="OEZ-DL-8iW" secondAttribute="leading" id="tbR-E6-zrX"/>
+                        <constraint firstItem="lg1-k5-QpQ" firstAttribute="height" secondItem="OEZ-DL-8iW" secondAttribute="height" id="uS2-Ha-Idk"/>
                         <constraint firstItem="lg1-k5-QpQ" firstAttribute="leading" secondItem="XDa-BC-9GV" secondAttribute="trailing" constant="4" id="xgR-To-dLc"/>
                         <constraint firstItem="9SI-U7-rbq" firstAttribute="centerY" secondItem="OEZ-DL-8iW" secondAttribute="centerY" id="zio-jp-qFq"/>
                     </constraints>
@@ -77,6 +86,7 @@
                             <exclude reference="EVg-gW-yiF"/>
                             <exclude reference="cMx-wF-Lo6"/>
                             <exclude reference="cua-hZ-joJ"/>
+                            <exclude reference="ilm-bN-mbe"/>
                             <exclude reference="b3t-PD-ZPN"/>
                         </mask>
                     </variation>
