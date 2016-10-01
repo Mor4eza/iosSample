@@ -48,6 +48,7 @@
 		944EF19C1D7EC4BF00A039BA /* SymbolTradingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */; };
 		944EF19E1D7EE79400A039BA /* MainResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF19D1D7EE79400A039BA /* MainResponse.swift */; };
 		9458E1531D7E8976009A211A /* SymbolDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9458E1521D7E8976009A211A /* SymbolDetailsViewController.swift */; };
+		945E61531D9FF63500FDB549 /* ContactUsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E61521D9FF63500FDB549 /* ContactUsRequest.swift */; };
 		9465DB611D83D702007F0572 /* BourseNewsDetailsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9465DB5F1D83D702007F0572 /* BourseNewsDetailsList.swift */; };
 		9465DB621D83D702007F0572 /* BourseNewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9465DB601D83D702007F0572 /* BourseNewsResponse.swift */; };
 		9465DB661D83E935007F0572 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9465DB651D83E935007F0572 /* NewsDetailViewController.swift */; };
@@ -158,6 +159,7 @@
 		944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolTradingResponse.swift; sourceTree = "<group>"; };
 		944EF19D1D7EE79400A039BA /* MainResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainResponse.swift; sourceTree = "<group>"; };
 		9458E1521D7E8976009A211A /* SymbolDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolDetailsViewController.swift; sourceTree = "<group>"; };
+		945E61521D9FF63500FDB549 /* ContactUsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsRequest.swift; sourceTree = "<group>"; };
 		9465DB5F1D83D702007F0572 /* BourseNewsDetailsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BourseNewsDetailsList.swift; sourceTree = "<group>"; };
 		9465DB601D83D702007F0572 /* BourseNewsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BourseNewsResponse.swift; sourceTree = "<group>"; };
 		9465DB651D83E935007F0572 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				84C9E28E1D9970CB00F96EF8 /* UserManagement */,
 				84C9E2811D9929F200F96EF8 /* News */,
 				84C9E28C1D993D3E00F96EF8 /* IndexDetailsRequest.swift */,
+				945E61521D9FF63500FDB549 /* ContactUsRequest.swift */,
 				84C9E2931D997A0A00F96EF8 /* SymbolBestLimitRequest.swift */,
 				84C9E2951D997AE500F96EF8 /* SymbolTradingRequest.swift */,
 				84C9E2971D997B5700F96EF8 /* SymbolListByIndexRequest.swift */,
@@ -838,7 +841,7 @@
 				E613BDBD7D2F1D4A4CE6993B /* [CP] Copy Pods Resources */,
 				810F67EBFB187311FA34728F /* 📦 Embed Pods Frameworks */,
 				9C5F1587A697F6BB804C8C3E /* 📦 Copy Pods Resources */,
-				940FB9431D9BF10700919DE3 /* ShellScript */,
+				940FB9431D9BF10700919DE3 /* Remove Empty lines in *.Swift files */,
 			);
 			buildRules = (
 			);
@@ -993,18 +996,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		940FB9431D9BF10700919DE3 /* ShellScript */ = {
+		940FB9431D9BF10700919DE3 /* Remove Empty lines in *.Swift files */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Remove Empty lines in *.Swift files";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\n#Remove 2 or more Empty lines in files\n\nsed -i '' '/^$/N;/^\\n$/D' `find ./SabadBan -name *.swift -o -name *.m -not \\( -name .svn -prune -o -name .git -prune \\) -type f`";
+			shellScript = "\n#Remove 2 or more Empty lines in files\nexit 0\nsed -i '' '/^$/N;/^\\n$/D' `find ./SabadBan -name *.swift -o -name *.m -not \\( -name .svn -prune -o -name .git -prune \\) -type f`";
 		};
 		9C5F1587A697F6BB804C8C3E /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1141,6 +1145,7 @@
 				949BEE731D72A799008FA574 /* MyAlert.swift in Sources */,
 				94C59CCC1D9A52120036CF4A /* TotemStyles.swift in Sources */,
 				949BEE8A1D72A883008FA574 /* BaseTableViewController.swift in Sources */,
+				945E61531D9FF63500FDB549 /* ContactUsRequest.swift in Sources */,
 				949BEEB91D731235008FA574 /* DetailsViewController.swift in Sources */,
 				9412F0F11D857E3600E94683 /* LoginResponse.swift in Sources */,
 				949BEEA01D72B5C8008FA574 /* IndexHeader.swift in Sources */,
@@ -1295,7 +1300,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoitek.SabadBan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ff66dd2b-761d-4fc3-96f0-f1764317bb5e";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SabadBan/SabadBan-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WARNING_CFLAGS = "";
@@ -1316,7 +1321,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoitek.SabadBan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ff66dd2b-761d-4fc3-96f0-f1764317bb5e";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SabadBan/SabadBan-Bridging-Header.h";
 				WARNING_CFLAGS = "";
 			};
