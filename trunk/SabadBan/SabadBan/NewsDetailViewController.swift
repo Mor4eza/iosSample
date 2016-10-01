@@ -48,7 +48,7 @@ class NewsDetailViewController: UIViewController{
 
     @IBAction func btnShareTap(sender: AnyObject) {
 
-        let appSign = "APP_NAME".localized()
+        let appSign = Strings.appName.localized()
         let vc = UIActivityViewController(activityItems: [newsTitle,"\n \n" ,newsDetails + "\n \n", appSign], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = btnShare
         presentViewController(vc, animated: true, completion: nil)

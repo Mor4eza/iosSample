@@ -12,9 +12,9 @@ import Localize_Swift
 extension UILabel {
 
     func changeDirection() {
-        if (getAppLanguage() == "fa"){
+        if (getAppLanguage() == Language.fa.rawValue){
             self.textAlignment = .Right
-        }else if (getAppLanguage() == "en") {
+        }else if (getAppLanguage() == Language.en.rawValue) {
             self.textAlignment = .Left
         }
     }
@@ -28,9 +28,9 @@ extension UILabel {
 extension UIButton {
 
     func changeDirection() {
-        if (getAppLanguage() == "fa"){
+        if (getAppLanguage() == Language.fa.rawValue){
             self.titleLabel!.textAlignment = .Right
-        }else if (getAppLanguage() == "en") {
+        }else if (getAppLanguage() == Language.en.rawValue) {
             self.titleLabel!.textAlignment = .Left
         }
     }
@@ -43,9 +43,9 @@ extension UIButton {
 extension UITextField {
 
     func changeDirection() {
-        if (getAppLanguage() == "fa"){
+        if (getAppLanguage() == Language.fa.rawValue){
             self.textAlignment = .Right
-        }else if (getAppLanguage() == "en") {
+        }else if (getAppLanguage() == Language.en.rawValue) {
             self.textAlignment = .Left
         }
 
@@ -55,9 +55,9 @@ extension UITextField {
 extension UITextView {
 
     func changeDirection() {
-        if (getAppLanguage() == "fa"){
+        if (getAppLanguage() == Language.fa.rawValue){
             self.textAlignment = .Right
-        }else if (getAppLanguage() == "en") {
+        }else if (getAppLanguage() == Language.en.rawValue) {
             self.textAlignment = .Left
         }
     }

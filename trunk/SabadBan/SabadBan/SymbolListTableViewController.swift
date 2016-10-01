@@ -24,7 +24,7 @@ class SymbolListTableViewController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.registerNib(UINib(nibName: "SymbolListHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "SymbolListHeader")
+        tableView.registerNib(UINib(nibName: UIConstants.SymbolListHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.SymbolListHeader)
         self.tableView.tableFooterView = UIView()
 
         //        let titleAttributes = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline), NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -55,7 +55,7 @@ class SymbolListTableViewController: BaseTableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("symbolCell", forIndexPath: indexPath) as! SymbolCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.symbolCell, forIndexPath: indexPath) as! SymbolCell
 
         let tempVol = Double(symbolDetailsList[indexPath.row].transactionVolume)
         let tempLastTrader = Int(symbolDetailsList[indexPath.row].lastTradePriceChange)
@@ -86,7 +86,7 @@ class SymbolListTableViewController: BaseTableViewController {
     }
 
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        self.headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("SymbolListHeader") as! SymbolListHeader
+        self.headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.SymbolListHeader) as! SymbolListHeader
 
         let tapGestureAmount = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
         let tapGestureVolume = UITapGestureRecognizer(target: self, action: #selector(SymbolListTableViewController.performSort(_:)))
@@ -110,10 +110,10 @@ class SymbolListTableViewController: BaseTableViewController {
         headerView.imgSortName.addGestureRecognizer(tapGestureImgName)
         headerView.imgSortName.userInteractionEnabled = true
 
-        headerView.lblName.text = "Symbol".localized()
-        headerView.lblLastTrade.text = "Trade".localized()
-        headerView.lblAmount.text = "Amount".localized()
-        headerView.lblVolume.text = "Volume".localized()
+        headerView.lblName.text = Strings.Symbol.localized()
+        headerView.lblLastTrade.text = Strings.Trade.localized()
+        headerView.lblAmount.text = Strings.Amount.localized()
+        headerView.lblVolume.text = Strings.Volume.localized()
 
         headerView.lblName.setDefaultFont()
         headerView.lblLastTrade.setDefaultFont()
@@ -159,7 +159,7 @@ class SymbolListTableViewController: BaseTableViewController {
     func performSort(sender: UITapGestureRecognizer) {
         var sortImg: UIImageView
         let identifier = sender.view!.restorationIdentifier!
-        if (identifier == "lblAmount" || identifier == "imgSortAmount") {
+        if (identifier == UIConstants.lblAmount || identifier == UIConstants.imgSortAmount) {
             sortImg = headerView.imgSortAmount
             switch numberSortCondiiton {
             case .notSorted:
@@ -184,7 +184,7 @@ class SymbolListTableViewController: BaseTableViewController {
                 })
                 break
             }
-        } else if (identifier == "lblVolume" || identifier == "imgSortVolume") {
+        } else if (identifier == UIConstants.lblVolume || identifier == UIConstants.imgSortVolume) {
             sortImg = headerView.imgSortVolume
             switch volumeSortCondiiton {
             case .notSorted:
@@ -209,7 +209,7 @@ class SymbolListTableViewController: BaseTableViewController {
                 })
                 break
             }
-        } else if (identifier == "lblSymbol" || identifier == "imgSortName" ){
+        } else if (identifier == UIConstants.lblSymbol || identifier == UIConstants.imgSortName ){
             sortImg = headerView.imgSortName
             switch symbolSortCondiiton {
             case .notSorted:

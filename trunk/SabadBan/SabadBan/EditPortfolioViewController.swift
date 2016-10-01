@@ -17,13 +17,13 @@
         var portfolios = [String]()
         override func viewDidLoad() {
             super.viewDidLoad()
-            self.title = "EditPortfolio".localized()
+            self.title = Strings.EditPortfolio.localized()
             self.navigationItem.rightBarButtonItem = nil
             self.navigationItem.leftBarButtonItem = nil
             etTitle.text = portfolioName
             etTitle.changeDirection()
             let btnDone = UIButton()
-            btnDone.setTitle("Done".localized(), forState: .Normal)
+            btnDone.setTitle(Strings.Done.localized(), forState: .Normal)
             btnDone.frame = CGRectMake(0, 0, 45, 45)
             btnDone.addTarget(self, action: #selector(doneClicked), forControlEvents: .TouchUpInside)
             let rightBarButton = UIBarButtonItem(customView: btnDone)
@@ -38,7 +38,7 @@
             for i in 0  ..< self.portfolios.count {
                 if etTitle.text != portfolioName {
                     if(etTitle.text == self.portfolios[i]){
-                        Utils.ShowAlert(self, title:"Attention".localized() , details: "نام پرتفوی تکراری است.",btnOkTitle:"Ok".localized())
+                        Utils.ShowAlert(self, title:Strings.Attention.localized() , details: Strings.nameDuplicate.localized(),btnOkTitle:Strings.Ok.localized())
                         return
                     }
                 }
@@ -67,11 +67,11 @@
         }
 
         override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCellWithIdentifier("editPortfolioCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.editPortfolioCell, forIndexPath: indexPath)
 
-            if getAppLanguage() == "fa"{
+            if getAppLanguage() == Language.fa.rawValue{
                 cell.textLabel?.text = symbolData[indexPath.row].sName
-            }else if getAppLanguage() == "en" {
+            }else if getAppLanguage() == Language.en.rawValue {
                 cell.textLabel?.text = symbolData[indexPath.row].sNameEn
 
             }

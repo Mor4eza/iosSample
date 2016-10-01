@@ -43,7 +43,7 @@ class ObserverNewsTableViewController: BaseTableViewController ,ENSideMenuDelega
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ObserverNewsCell", forIndexPath: indexPath) as! NewsCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.ObserverNewsCell, forIndexPath: indexPath) as! NewsCell
 
         cell.lblNewsTitle.text = newsModel[indexPath.row].title
         cell.lblNewsDetails.text = newsModel[indexPath.row].details
@@ -96,7 +96,7 @@ class ObserverNewsTableViewController: BaseTableViewController ,ENSideMenuDelega
     //MARK:- Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
-        if (segue.identifier == "NewsDetailsSeguei") {
+        if (segue.identifier == UIConstants.NewsDetailsSeguei) {
 
             let index = self.tableView.indexPathForSelectedRow!
             let svc = segue.destinationViewController as! NewsDetailViewController

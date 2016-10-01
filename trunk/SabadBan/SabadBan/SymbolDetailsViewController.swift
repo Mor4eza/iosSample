@@ -92,10 +92,10 @@ class SymbolDetailsViewController: BaseTableViewController {
     {
         let headerView = UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, 50))
         if (section == 1) {
-            headerView.text = "سه مظنه برتر خرید"
+            headerView.text = Strings.bestBuyTitle.localized()
             headerView.backgroundColor = UIColor(netHex: 0x2e9220)
         } else if (section == 2) {
-            headerView.text = "سه مظنه برتر فروش"
+            headerView.text = Strings.bestSellTitle.localized()
             headerView.backgroundColor = UIColor.redColor()
         }
 
@@ -263,11 +263,11 @@ class SymbolDetailsViewController: BaseTableViewController {
         lblBSCValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
         lblBSCValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
 
-        lblLastPriceTitle.text = "قیمت آخرین معامله"
-        lblEndPriceTitle.text = "قیمت پایانی"
-        lblStartPriceTitle.text = "قیمت آغازین"
-        lblLowPriceTitle.text = "کمترین قیمت"
-        lblHighPriceTitle.text = "بیشترین قیمت"
+        lblLastPriceTitle.text = Strings.LastPriceTitle.localized()
+        lblEndPriceTitle.text = Strings.EndPriceTitle.localized()
+        lblStartPriceTitle.text = Strings.StartPriceTitle.localized()
+        lblLowPriceTitle.text = Strings.LowPriceTitle.localized()
+        lblHighPriceTitle.text = Strings.HighPriceTitle.localized()
     }
 
 }

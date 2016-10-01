@@ -18,7 +18,7 @@ public class MyNavigationController: ENSideMenuNavigationController, ENSideMenuD
         }
         var menuPosition:ENSideMenuPosition!
 
-        if getAppLanguage() == "fa"{
+        if getAppLanguage() == Language.fa.rawValue{
             menuPosition = ENSideMenuPosition.Right
         }else {
             menuPosition = ENSideMenuPosition.Left
@@ -30,7 +30,7 @@ public class MyNavigationController: ENSideMenuNavigationController, ENSideMenuD
         sideMenu?.menuWidth = 280 // optional, default is 160
         sideMenu?.bouncingEnabled = false
         sideMenu?.allowPanGesture = true
-        if getAppLanguage() == "en" {
+        if getAppLanguage() == Language.en.rawValue {
             sideMenu?.showSideMenu()
             sideMenu?.hideSideMenu()
         }
@@ -47,7 +47,7 @@ public class MyNavigationController: ENSideMenuNavigationController, ENSideMenuD
 
     func initMenu(){
         var menuPosition:ENSideMenuPosition!
-        if getAppLanguage() == "fa"{
+        if getAppLanguage() == Language.fa.rawValue{
             menuPosition = ENSideMenuPosition.Right
         }else {
             menuPosition = ENSideMenuPosition.Left
@@ -60,11 +60,11 @@ public class MyNavigationController: ENSideMenuNavigationController, ENSideMenuD
 
     func addMenuButton() {
         let btnName = UIButton()
-        btnName.setImage(UIImage(named: "Menu"), forState: .Normal)
+        btnName.setImage(UIImage(named: UIConstants.Menu), forState: .Normal)
         btnName.frame = CGRectMake(0, 0, 30, 30)
         btnName.addTarget(self, action: #selector(openMenu), forControlEvents: .TouchUpInside)
         //.... Set Right/Left Bar Button item
-        if (getAppLanguage() == "fa"){
+        if (getAppLanguage() == Language.fa.rawValue){
             let rightBarButton = UIBarButtonItem(customView: btnName)
             self.navigationItem.rightBarButtonItem = rightBarButton
         }else {

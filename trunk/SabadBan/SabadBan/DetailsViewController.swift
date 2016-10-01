@@ -43,18 +43,20 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        segRange.setTitle("Day".localized(), forSegmentAtIndex: 3)
-        segRange.setTitle("Week".localized(), forSegmentAtIndex: 2)
-        segRange.setTitle("Month".localized(), forSegmentAtIndex: 1)
-        segRange.setTitle( "Year".localized(), forSegmentAtIndex: 0)
+        segRange.setTitle(Strings.Day.localized(), forSegmentAtIndex: 3)
+        segRange.setTitle(Strings.Week.localized(), forSegmentAtIndex: 2)
+        segRange.setTitle(Strings.Month.localized(), forSegmentAtIndex: 1)
+        segRange.setTitle( Strings.Year.localized(), forSegmentAtIndex: 0)
         segRange.selectedSegmentIndex = 3
 
-        tblDetails.registerNib(UINib(nibName: "IndexDetailHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "IndexDetailHeader")
+        tblDetails.registerNib(UINib(nibName: UIConstants
+            .IndexDetailHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants
+                .IndexDetailHeader)
         self.tblDetails.dataSource = self
         tblDetails.delegate = self
         tblDetails.tableFooterView = UIView()
 
-        tblMarketDetail.registerNib(UINib(nibName: "MarketDetailsHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "MarketDetailsHeader")
+        tblMarketDetail.registerNib(UINib(nibName: UIConstants.MarketDetailsHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.MarketDetailsHeader)
         tblMarketDetail.dataSource = self
         tblMarketDetail.delegate = self
 
@@ -102,23 +104,23 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if tableView == tblDetails {
-            let cell = tableView.dequeueReusableCellWithIdentifier("indexDetailsCell", forIndexPath: indexPath) as! indexDetailsCell
+            let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.indexDetailsCell, forIndexPath: indexPath) as! indexDetailsCell
 
             switch indexPath.row {
             case 0:
-                cell.lblTitle.text = "MaxPrice".localized()
+                cell.lblTitle.text = Strings.MaxPrice.localized()
                 cell.lblValue.text = maxPrice.currencyFormat(2)
             case 1:
-                cell.lblTitle.text = "MinPrice".localized()
+                cell.lblTitle.text = Strings.MinPrice.localized()
                 cell.lblValue.text = minPrice.currencyFormat(2)
             case 2:
-                cell.lblTitle.text = "LastPrice".localized()
+                cell.lblTitle.text = Strings.LastPrice.localized()
                 cell.lblValue.text = lastPrice.currencyFormat(2)
             case 3:
-                cell.lblTitle.text = "PriceChanges".localized()
+                cell.lblTitle.text = Strings.PriceChanges.localized()
                 cell.lblValue.text = String(priceChanges)
             case 4:
-                cell.lblTitle.text = "PriceChangesPercent".localized()
+                cell.lblTitle.text = Strings.PriceChangesPercent.localized()
                 cell.lblValue.text = "%" + String(priceChangesPercent)
             default:
                 cell.lblTitle.text = "."
@@ -135,20 +137,20 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
 
             return cell
         } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("marketDetailsCell", forIndexPath: indexPath) as! MarketDetailsCell
+            let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.marketDetailsCell, forIndexPath: indexPath) as! MarketDetailsCell
 
             switch indexPath.row {
             case 0:
-                cell.lblTitle.text = "NumberOfTransactions".localized()
+                cell.lblTitle.text = Strings.NumberOfTransactions.localized()
                 cell.lblValue.text = numberOfTransactions.currencyFormat(2)
             case 1:
-                cell.lblTitle.text = "ValueOfTransactions".localized()
+                cell.lblTitle.text = Strings.ValueOfTransactions.localized()
                 cell.lblValue.text = valueOfTransactions.suffixNumber()
             case 2:
-                cell.lblTitle.text = "VolumeOfTransactions".localized()
+                cell.lblTitle.text = Strings.VolumeOfTransactions.localized()
                 cell.lblValue.text = volumeOfTransactions.suffixNumber()
             case 3:
-                cell.lblTitle.text = "ValueOfMarket".localized()
+                cell.lblTitle.text = Strings.ValueOfMarket.localized()
                 cell.lblValue.text = marketValue.suffixNumber()
             default:
                 cell.lblTitle.text = "."
@@ -177,16 +179,16 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
 
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if tableView == tblDetails {
-            let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("IndexDetailHeader") as! IndexDetailHeader
+            let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.IndexDetailHeader) as! IndexDetailHeader
 
-            headerView.lblTitle.text = "indexInfo".localized()
+            headerView.lblTitle.text = Strings.indexInfo.localized()
             headerView.lblTitle.setDefaultFont()
             headerView.backView.roundCorners([.TopLeft, .TopRight], radius: 6)
             return headerView
         } else {
-            let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("MarketDetailsHeader") as! MarketDetailsHeader
+            let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.MarketDetailsHeader) as! MarketDetailsHeader
 
-            headerView.lblTitle.text = "marketInfo".localized()
+            headerView.lblTitle.text = Strings.marketInfo.localized()
             headerView.lblTitle.setDefaultFont()
             headerView.backView.roundCorners([.TopLeft, .TopRight], radius: 6)
             return headerView
@@ -230,10 +232,10 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
                     alert.makeAlertTypeCaution()
                     alert.colorScheme = UIColor.blueColor()
                     alert.showAlertInView(self,
-                                          withTitle: "Warning".localized(),
-                                          withSubtitle: "There is no any data for selected range",
+                                          withTitle: Strings.Warning.localized(),
+                                          withSubtitle: Strings.noData.localized(),
                                           withCustomImage: nil,
-                                          withDoneButtonTitle: "Done".localized(),
+                                          withDoneButtonTitle: Strings.Done.localized(),
                                           andButtons: nil)
                 }
 

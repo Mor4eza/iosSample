@@ -27,11 +27,11 @@ class BaseTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = nil
         self.navigationItem.leftBarButtonItem = nil
         let btnMenu = UIButton()
-        btnMenu.setImage(UIImage(named: "Menu"), forState: .Normal)
+        btnMenu.setImage(UIImage(named: UIConstants.Menu), forState: .Normal)
         btnMenu.frame = CGRectMake(0, 0, 30, 30)
         btnMenu.addTarget(self, action: #selector(openMenu), forControlEvents: .TouchUpInside)
         //.... Set Right/Left Bar Button item
-        if (getAppLanguage() == "fa"){
+        if (getAppLanguage() == Language.fa.rawValue){
             let rightBarButton = UIBarButtonItem(customView: btnMenu)
             self.navigationItem.rightBarButtonItem = rightBarButton
         }else {

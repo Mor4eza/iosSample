@@ -45,7 +45,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         initNavigationTitle()
 
         initFAB()
-        SwiftEventBus.onMainThread(self, name: "BestBuyClosed") { result in
+        SwiftEventBus.onMainThread(self, name: BestBuyClosed) { result in
             self.loadSymbolsFromDb()
 
         }
@@ -54,9 +54,9 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
     func showHintView(){
         let defaults = NSUserDefaults.standardUserDefaults()
-        if defaults.boolForKey("HINT")  == false && smData.count > 0{
+        if defaults.boolForKey(HINT)  == false && smData.count > 0{
 
-            let imageName = "tooltip_hand"
+            let imageName = UIConstants.tooltipHand
             let image = UIImage(named: imageName)
             let hintImage = UIImageView(image: image!)
             hintImage.frame = CGRect(x: view.bounds.midX + 50, y: view.bounds.minY + 100, width: 50, height: 50)
@@ -72,13 +72,13 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
                     hintImage.removeFromSuperview()
             })
 
-            defaults.setBool(true, forKey: "HINT")
+            defaults.setBool(true, forKey: HINT)
         }
 
     }
 
     override func viewWillAppear(animated: Bool) {
-        nc.addObserver(self, selector: #selector(selectedSymbol), name: "SYMBOL_SELECTED", object: nil)
+        nc.addObserver(self, selector: #selector(selectedSymbol), name: symbolSelected, object: nil)
         SwiftEventBus.onMainThread(self, name: PortfolioEdited) { result in
             debugPrint("Edited")
             self.initNavigationTitle()
@@ -117,7 +117,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("portfolioCell", forIndexPath: indexPath) as! portfolioCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.portfolioCell, forIndexPath: indexPath) as! portfolioCell
 
         cell.lblSymbolValue.text = smData[indexPath.row].symbolNameFa
         cell.lblLastPriceValue.text = smData[indexPath.row].closePrice.currencyFormat(2)
@@ -140,10 +140,10 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         cell.lblEndValue.text = smData[indexPath.row].lastTradePrice.currencyFormat(2)
         cell.lblEndChanges.text = smData[indexPath.row].closePriceChange.currencyFormat(2)
         if smData[indexPath.row].status == "IS" {
-            cell.lblStatusValue.text = "متوقف"
+            cell.lblStatusValue.text = Strings.stopped.localized()
             cell.viewStatus.backgroundColor = UIColor.redColor()
         }else {
-            cell.lblStatusValue.text = "مجاز"
+            cell.lblStatusValue.text = Strings.allowed.localized()
             cell.viewStatus.backgroundColor = UIColor(netHex: 0x024b30)
         }
         return cell
@@ -156,11 +156,11 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?  {
         // 1
-        let buyInformation = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "BuyInformation".localized() , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+        let buyInformation = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: Strings.BuyInformation.localized() , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             SelectedSymbolName = self.smData[indexPath.row].symbolNameFa
             SelectedSymbolCode = self.smData[indexPath.row].symbolCode
             self.selectedSymbolPrice = self.smData[indexPath.row].lastTradePrice
-            self.performSegueWithIdentifier("buyInfoSegue", sender: nil)
+            self.performSegueWithIdentifier(UIConstants.buyInfoSegue, sender: nil)
 
         })
 
@@ -207,7 +207,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
         portfolios = db.getPortfolioList(1)
         if portfolios.count == 0 {
-            menuView = BTNavigationDropdownMenu(title: "Portfolio".localized(), items: portfolios)
+            menuView = BTNavigationDropdownMenu(title: Strings.Portfolio.localized(), items: portfolios)
             currentPortfolio = ""
         }else {
             menuView = BTNavigationDropdownMenu(title:currentPortfolio, items: portfolios)
@@ -231,20 +231,20 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
         self.fab.removeFromSuperview()
 
-        addPortfolio.icon = UIImage(named: "ic_add_portfolio")
-        addPortfolio.title = "AddPortfolio".localized()
+        addPortfolio.icon = UIImage(named: UIConstants.icAddPortfolio)
+        addPortfolio.title = Strings.AddPortfolio.localized()
 
-        editPortfolio.icon = UIImage(named: "ic-edit_portfolio")
-        editPortfolio.title = "EditPortfolio".localized()
+        editPortfolio.icon = UIImage(named: UIConstants.icEditPortfolio)
+        editPortfolio.title = Strings.EditPortfolio.localized()
 
-        searchSymbol.icon = UIImage(named: "ic_search")
-        searchSymbol.title = "SearchSymbol".localized()
+        searchSymbol.icon = UIImage(named: UIConstants.icSearch)
+        searchSymbol.title = Strings.SearchSymbol.localized()
 
-        addSymbol.icon = UIImage(named: "ic_add_symbol")
-        addSymbol.title = "AddSymbol".localized()
+        addSymbol.icon = UIImage(named: UIConstants.icAddSymbol)
+        addSymbol.title = Strings.AddSymbol.localized()
 
-        deletePortfolio.icon = UIImage(named: "ic_delete_portfolio")
-        deletePortfolio.title = "DeletePortfolio".localized()
+        deletePortfolio.icon = UIImage(named: UIConstants.icDeletePortfolio)
+        deletePortfolio.title = Strings.DeletePortfolio.localized()
 
         addPortfolio.handler = { item in
 
@@ -252,7 +252,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
             func configurationTextField(textField: UITextField!)
             {
-                textField.placeholder = "EnterPortfolioName".localized()
+                textField.placeholder = Strings.EnterPortfolioName.localized()
                 textField.changeDirection()
                 tField = textField
             }
@@ -262,17 +262,17 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
             }
 
-            let alert = UIAlertController(title: "AddPortfolio".localized(), message: "", preferredStyle: .Alert)
+            let alert = UIAlertController(title: Strings.AddPortfolio.localized(), message: "", preferredStyle: .Alert)
 
             alert.addTextFieldWithConfigurationHandler(configurationTextField)
-            alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .Cancel, handler:handleCancel))
-            alert.addAction(UIAlertAction(title: "Submit".localized(), style: .Default, handler:{ (UIAlertAction) in
+            alert.addAction(UIAlertAction(title: Strings.Cancel.localized(), style: .Cancel, handler:handleCancel))
+            alert.addAction(UIAlertAction(title: Strings.Submit.localized(), style: .Default, handler:{ (UIAlertAction) in
 
                 if !(tField.text?.isEmpty)! {
 
                     for i in 0  ..< self.portfolios.count {
                         if(tField.text == self.portfolios[i]){
-                        Utils.ShowAlert(self, title:"Attention".localized() , details: "نام پرتفوی تکراری است.",btnOkTitle:"Ok".localized())
+                        Utils.ShowAlert(self, title:Strings.Attention.localized() , details: "نام پرتفوی تکراری است.",btnOkTitle:Strings.Ok.localized())
                             return
                         }
                     }
@@ -281,7 +281,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
                     self.currentPortfolio = self.portfolios.last!
                     self.initNavigationTitle()
                     self.menuView.updateItems(self.portfolios)
-                    self.performSegueWithIdentifier("searchSeguei", sender: nil)
+                    self.performSegueWithIdentifier(UIConstants.searchSeguei, sender: nil)
                 }else {
 
                 }
@@ -291,26 +291,26 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
         editPortfolio.handler =  { item in
 
-            self.performSegueWithIdentifier("editSegue", sender: nil)
+            self.performSegueWithIdentifier(UIConstants.editSegue, sender: nil)
         }
 
         addSymbol.handler = { item in
 
             self.searchableSymbols = false
-            self.performSegueWithIdentifier("searchSeguei", sender: nil)
+            self.performSegueWithIdentifier(UIConstants.searchSeguei, sender: nil)
 
         }
 
         searchSymbol.handler =  { item in
 
             self.searchableSymbols = true
-            self.performSegueWithIdentifier("searchSeguei", sender: nil)
+            self.performSegueWithIdentifier(UIConstants.searchSeguei, sender: nil)
 
         }
 
         deletePortfolio.handler = { item in
 
-            Utils.ShowAlert(self, title: "Attention".localized(), details: "RealyWantToDelete".localized(), btnOkTitle: "Yes".localized(), btnTitles: ["No".localized()],delegate: self)
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.RealyWantToDelete.localized(), btnOkTitle: Strings.Yes.localized(), btnTitles: [Strings.No.localized()],delegate: self)
 
         }
 
@@ -382,21 +382,21 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     //MARK:- Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
-        if segue.identifier == "symbolDetailsSegue" {
+        if segue.identifier == UIConstants.symbolDetailsSegue {
 
             let indexPath = tblPortfolio.indexPathForSelectedRow!
 
             SelectedSymbolName = smData[indexPath.row].symbolNameFa
 
             let backItem = UIBarButtonItem()
-            backItem.title = "Back".localized()
+            backItem.title = Strings.Back.localized()
             navigationItem.backBarButtonItem = backItem
 
             SelectedSymbolCode = smData[indexPath.row].symbolCode
 
         }
 
-        if segue.identifier == "editSegue"{
+        if segue.identifier == UIConstants.editSegue {
 
             let nav = segue.destinationViewController as! UINavigationController
 
@@ -409,14 +409,14 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             }
 
         }
-        if segue.identifier == "buyInfoSegue" {
+        if segue.identifier == UIConstants.buyInfoSegue {
 
             let buyInfo = segue.destinationViewController as! BuyInfoViewController
             buyInfo.portfolioCode = db.getportfolioCodeByName(currentPortfolio)
             buyInfo.price = self.selectedSymbolPrice
 
         }
-        if segue.identifier == "searchSeguei" {
+        if segue.identifier == UIConstants.searchSeguei {
             let nav = segue.destinationViewController as! UINavigationController
             let addVC =  nav.topViewController as! SearchSeymbolTableView
             addVC.isSearch = searchableSymbols

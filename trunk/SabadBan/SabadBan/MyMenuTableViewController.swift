@@ -13,8 +13,8 @@ class MyMenuTableViewController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.registerNib(UINib(nibName: "menuCell", bundle: nil), forCellReuseIdentifier: "menuCells")
-        tableView.registerNib(UINib(nibName: "menuHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "menuHeader")
+        tableView.registerNib(UINib(nibName: UIConstants.menuCell, bundle: nil), forCellReuseIdentifier: UIConstants.menuCells)
+        tableView.registerNib(UINib(nibName: UIConstants.menuHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.menuHeader)
 
         self.tableView.tableFooterView = UIView()
 
@@ -35,7 +35,7 @@ class MyMenuTableViewController: BaseTableViewController {
     }
 
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("menuHeader") as! menuHeader
+        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.menuHeader) as! menuHeader
 
         headerView.lblUserName.text = LogedInUserName
 
@@ -56,7 +56,8 @@ class MyMenuTableViewController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("menuCells", forIndexPath: indexPath) as! menuCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.menuCells
+        , forIndexPath: indexPath) as! menuCell
 
             cell.backgroundColor = UIColor.clearColor()
             cell.lblMenuName?.textColor = UIColor.darkGrayColor()
@@ -67,32 +68,32 @@ class MyMenuTableViewController: BaseTableViewController {
 
         switch indexPath.row {
         case 0:
-            cell.lblMenuName?.text = "Index".localized()
-            cell.imgMenu.image = UIImage(named: "index")
+            cell.lblMenuName?.text = Strings.Index.localized()
+            cell.imgMenu.image = UIImage(named: UIConstants.index)
             break
         case 1:
-            cell.lblMenuName?.text = "Portfolio".localized()
-            cell.imgMenu.image = UIImage(named: "portfolio")
+            cell.lblMenuName?.text = Strings.Portfolio.localized()
+            cell.imgMenu.image = UIImage(named: UIConstants.portfolio)
             break
         case 2:
-            cell.lblMenuName?.text = "News".localized()
-            cell.imgMenu.image = UIImage(named: "News-100")
+            cell.lblMenuName?.text = Strings.News.localized()
+            cell.imgMenu.image = UIImage(named: UIConstants.NewsImg)
             break
         case 3:
-             cell.lblMenuName?.text = "Setting".localized()
-             cell.imgMenu.image = UIImage(named: "setting")
+             cell.lblMenuName?.text = Strings.Setting.localized()
+             cell.imgMenu.image = UIImage(named: UIConstants.setting)
             break
         case 4:
-            cell.lblMenuName?.text = "AboutUs".localized()
-            cell.imgMenu.image = UIImage(named: "aboutUs")
+            cell.lblMenuName?.text = Strings.AboutUs.localized()
+            cell.imgMenu.image = UIImage(named: UIConstants.aboutUs)
             break
         case 5:
-            cell.lblMenuName?.text = "ContactUs".localized()
-            cell.imgMenu.image = UIImage(named: "contactUs")
+            cell.lblMenuName?.text = Strings.ContactUs.localized()
+            cell.imgMenu.image = UIImage(named: UIConstants.contactUs)
             break
         default:
-            cell.lblMenuName?.text = "Exit".localized()
-            cell.imgMenu.image = UIImage(named: "exit")
+            cell.lblMenuName?.text = Strings.Exit.localized()
+            cell.imgMenu.image = UIImage(named: UIConstants.exit)
             break
         }
 
@@ -116,29 +117,29 @@ class MyMenuTableViewController: BaseTableViewController {
         selectedMenuItem = indexPath.row
 
         //Present new view controller
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: UIConstants.Main,bundle: nil)
         var destViewController : UIViewController
         switch (indexPath.row) {
         case 0:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("indexTableViewController")
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.indexTableViewController)
             break
         case 1:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("PortfolioViewController")
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.PortfolioViewController)
             break
         case 2:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("NewsTabBarController")
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.NewsTabBarController)
             break
         case 3:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("settingViewController")
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.settingViewController)
             break
         case 4:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("AboutUsViewController")
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.AboutUsViewController)
             break
         case 5:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController4")
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.ViewController4)
             break
         default:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("viewController5")
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.viewController5)
             break
         }
         sideMenuController()?.setContentViewController(destViewController)

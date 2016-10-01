@@ -285,7 +285,7 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
 
         sourceView.addSubview(sideMenuContainerView)
 
-        if (NSClassFromString("UIVisualEffectView") != nil) {
+        if (NSClassFromString(UIConstants.UIVisualEffectView) != nil) {
             // Add blur view
             let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: blurStyle)) as UIVisualEffectView
             visualEffectView.frame = sideMenuContainerView.bounds
@@ -336,7 +336,7 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
             animator.addBehavior(gravityBehavior)
 
             let collisionBehavior = UICollisionBehavior(items: [sideMenuContainerView])
-            collisionBehavior.addBoundaryWithIdentifier("menuBoundary", fromPoint: CGPointMake(boundaryPointX, boundaryPointY),
+            collisionBehavior.addBoundaryWithIdentifier(UIConstants.menuBoundary, fromPoint: CGPointMake(boundaryPointX, boundaryPointY),
                                                         toPoint: CGPointMake(boundaryPointX, height))
             animator.addBehavior(collisionBehavior)
 

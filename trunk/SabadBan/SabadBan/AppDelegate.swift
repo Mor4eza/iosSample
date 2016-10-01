@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaults = NSUserDefaults.standardUserDefaults()
 
         if defaults.valueForKey("DefaultLanguage") == nil {
-            defaults.setValue("fa", forKey: "DefaultLanguage")
+            defaults.setValue(Language.fa.rawValue, forKey: "DefaultLanguage")
              Localize.setCurrentLanguage(defaults.stringForKey("DefaultLanguage")!)
         }
         debugPrint(NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as? String)

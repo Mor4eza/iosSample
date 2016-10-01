@@ -51,7 +51,7 @@ class BuyInformationView: UIView ,UITableViewDelegate ,UITableViewDataSource{
      */
     func loadViewFromXibFile() -> UIView {
         let bundle = NSBundle(forClass: self.dynamicType)
-        let nib = UINib(nibName: "BuyInformationView", bundle: bundle)
+        let nib = UINib(nibName: UIConstants.BuyInformationView, bundle: bundle)
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         return view
     }
@@ -79,8 +79,8 @@ class BuyInformationView: UIView ,UITableViewDelegate ,UITableViewDataSource{
         visualEffectView.layer.cornerRadius = 4.0
         tblHistory.dataSource = self
         tblHistory.delegate = self
-        tblHistory.registerNib(UINib(nibName: "BuyInfoCell", bundle: nil), forCellReuseIdentifier: "buyInfoCells")
-        tblHistory.registerNib(UINib(nibName: "buyInfoHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "buyInfoHeader")
+        tblHistory.registerNib(UINib(nibName: UIConstants.BuyInfoCell, bundle: nil), forCellReuseIdentifier: UIConstants.BuyInfoCell)
+        tblHistory.registerNib(UINib(nibName: UIConstants.buyInfoHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.buyInfoHeaderId)
 
     }
 
@@ -95,7 +95,7 @@ class BuyInformationView: UIView ,UITableViewDelegate ,UITableViewDataSource{
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("buyInfoCells", forIndexPath: indexPath) as! BuyInfoCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.buyInfoCells, forIndexPath: indexPath) as! BuyInfoCell
 
         return cell
     }
@@ -105,13 +105,13 @@ class BuyInformationView: UIView ,UITableViewDelegate ,UITableViewDataSource{
     }
 
      func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("buyInfoHeader") as! BuyInfoHeader
+        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.buyInfoHeader) as! BuyInfoHeader
 
-        headerView.lblDate.text = "Date".localized()
-        headerView.lblPrice.text = "Price".localized()
-        headerView.lblCount.text = "Count".localized()
-        headerView.lblDelete.text = "Delete".localized()
-        headerView.lblEdit.text = "Edit".localized()
+        headerView.lblDate.text = Strings.Date.localized()
+        headerView.lblPrice.text = Strings.Price.localized()
+        headerView.lblCount.text = Strings.Count.localized()
+        headerView.lblDelete.text = Strings.Delete.localized()
+        headerView.lblEdit.text = Strings.Edit.localized()
 
         return headerView
     }

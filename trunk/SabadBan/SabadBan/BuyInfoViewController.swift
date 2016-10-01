@@ -35,17 +35,17 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
         tblHistory.backgroundColor = AppMainColor
         tblHistory.dataSource = self
         tblHistory.delegate = self
-        tblHistory.registerNib(UINib(nibName: "BuyInfoCell", bundle: nil), forCellReuseIdentifier: "buyInfoCells")
-        tblHistory.registerNib(UINib(nibName: "buyInfoHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "buyInfoHeader")
+        tblHistory.registerNib(UINib(nibName: UIConstants.BuyInfoCell, bundle: nil), forCellReuseIdentifier: UIConstants.buyInfoCells)
+        tblHistory.registerNib(UINib(nibName: UIConstants.buyInfoHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.buyInfoHeader)
         tblHistory.tableFooterView = UIView()
-        lblDate.text = "Date".localized() + ":"
-        lblPrice.text = "Price".localized() + ":"
-        lblCount.text = "Count".localized() + ":"
+        lblDate.text = Strings.Date.localized() + ":"
+        lblPrice.text = Strings.Price.localized() + ":"
+        lblCount.text = Strings.Count.localized() + ":"
         lblTitle.text = SelectedSymbolName
         btnDate.setTitle("", forState: .Normal)
         btnPrice.setTitle(String(price), forState: .Normal)
         btnCount.setTitle("", forState: .Normal)
-        btnDone.setTitle("Submit".localized(), forState: .Normal)
+        btnDone.setTitle(Strings.Submit.localized(), forState: .Normal)
         PsBuyCode = db.getPsCodeBySymbolCode(SelectedSymbolCode, pCode: portfolioCode)
         let blurEffect = UIBlurEffect(style: .Light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -67,7 +67,7 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("buyInfoCells", forIndexPath: indexPath) as! BuyInfoCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.buyInfoCells, forIndexPath: indexPath) as! BuyInfoCell
 
         cell.lblDate.text = psBuyData[indexPath.row].psDate
         cell.lblCount.text = psBuyData[indexPath.row].psCount.currencyFormat(2)
@@ -89,7 +89,7 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
             self.btnDate.setTitle(psBuyData[indexPath].psDate, forState: .Normal)
             self.btnCount.setTitle(String(psBuyData[indexPath].psCount), forState: .Normal)
             self.btnPrice.setTitle(String(psBuyData[indexPath].psPrice), forState: .Normal)
-            self.btnDone.setTitle("Edit".localized(), forState: .Normal)
+            self.btnDone.setTitle(Strings.Edit.localized(), forState: .Normal)
             psIdForEdit = psBuyData[indexPath].psId
             editMode = true
         }
@@ -110,13 +110,13 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
     }
 
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("buyInfoHeader") as! BuyInfoHeader
+        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.buyInfoHeader) as! BuyInfoHeader
 
-        headerView.lblDate.text = "Date".localized()
-        headerView.lblPrice.text = "Price".localized()
-        headerView.lblCount.text = "Count".localized()
-        headerView.lblDelete.text = "Delete".localized()
-        headerView.lblEdit.text = "Edit".localized()
+        headerView.lblDate.text = Strings.Date.localized()
+        headerView.lblPrice.text = Strings.Price.localized()
+        headerView.lblCount.text = Strings.Count.localized()
+        headerView.lblDelete.text = Strings.Delete.localized()
+        headerView.lblEdit.text = Strings.Edit.localized()
 
         return headerView
     }
@@ -135,7 +135,7 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
     //MARK:- Buttons Taps
     @IBAction func btnDateTap(sender: AnyObject) {
 
-        DatePickerSheet().show("Select Date", doneButtonTitle: "Ok", cancelButtonTitle: "cancell", datePickerMode: .Date){date -> Void in
+        DatePickerSheet().show(Strings.SelectDate.localized(), doneButtonTitle: Strings.Ok.localized(), cancelButtonTitle: Strings.Cancel.localized(), datePickerMode: .Date){date -> Void in
 
             let dateFormat = NSDateFormatter()
             dateFormat.dateStyle = NSDateFormatterStyle.ShortStyle
@@ -149,13 +149,13 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
 
     @IBAction func btnPriceTap(sender: AnyObject) {
 
-        let alert = UIAlertController(title: "Price".localized(), message: "", preferredStyle: .Alert)
+        let alert = UIAlertController(title: Strings.Price.localized(), message: "", preferredStyle: .Alert)
 
         alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
             textField.keyboardType = .NumberPad
         })
 
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+        alert.addAction(UIAlertAction(title: Strings.Ok.localized(), style: .Default, handler: { (action) -> Void in
             let textField = alert.textFields![0] as UITextField
             self.btnPrice.setTitle(textField.text, forState: .Normal)
         }))
@@ -165,13 +165,13 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
 
     @IBAction func btnCountTap(sender: AnyObject) {
 
-        let alert = UIAlertController(title: "Count".localized(), message: "", preferredStyle: .Alert)
+        let alert = UIAlertController(title: Strings.Count.localized(), message: "", preferredStyle: .Alert)
 
         alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
             textField.keyboardType = .NumberPad
         })
 
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+        alert.addAction(UIAlertAction(title: Strings.Ok.localized(), style: .Default, handler: { (action) -> Void in
             let textField = alert.textFields![0] as UITextField
             self.btnCount.setTitle(textField.text, forState: .Normal)
         }))
@@ -193,7 +193,7 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
                 db.updatePsBuy(psIdForEdit, newPrice: price, newCount: count, newDate: date!)
                 editMode = false
 
-                btnDone.setTitle("Submit".localized(), forState: .Normal)
+                btnDone.setTitle(Strings.Submit.localized(), forState: .Normal)
             }else {
                 AddPsBuy(PsBuyCode, price:price , count: count, date:  date!)
             }
@@ -206,7 +206,7 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
 
     @IBAction func btnCloseTap(sender: AnyObject) {
 //        SwiftEventBus.postToMainThread("BestBuyClosed", sender: nil)
-        SwiftEventBus.post("BestBuyClosed")
+        SwiftEventBus.post(BestBuyClosed)
         dismissViewControllerAnimated(true, completion: nil)
     }
 
