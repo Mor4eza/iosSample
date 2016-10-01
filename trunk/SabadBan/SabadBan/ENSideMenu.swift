@@ -169,20 +169,28 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
         self.blurStyle = blurStyle
         self.setupMenuView()
 
-        outterView = UIView(frame: CGRectMake(sideMenuContainerView.frame.width, 0,
-            sourceView.frame.width - sideMenuContainerView.frame.width,
-            sourceView.frame.height))
-        outterView.backgroundColor = UIColor.clearColor()
-        let tapRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ENSideMenu.hideSideMenu))
+        if menuPosition == .Left {
 
-        if menuPosition == ENSideMenuPosition.Right {
-            tapRecognizer.direction = .Right
+            outterView.frame = CGRectMake(280, 0,sourceView.frame.width ,sourceView.frame.height)
 
         }else {
-            tapRecognizer.direction = .Left
+            outterView.frame = CGRectMake(0, 0,sourceView.frame.width - 280 ,sourceView.frame.height)
 
         }
-        outterView.addGestureRecognizer(tapRecognizer)
+        outterView.backgroundColor = UIColor.clearColor()
+        let swipGesture = UISwipeGestureRecognizer(target: self, action: #selector(ENSideMenu.hideSideMenu))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ENSideMenu.hideSideMenu))
+
+        if menuPosition == ENSideMenuPosition.Right {
+            swipGesture.direction = .Right
+
+        }else {
+            swipGesture.direction = .Left
+
+        }
+
+        outterView.addGestureRecognizer(tapGesture)
+        outterView.addGestureRecognizer(swipGesture)
         outterView.userInteractionEnabled = false
         sourceView.addSubview(outterView)
 
@@ -514,7 +522,9 @@ public class ENSideMenu : NSObject, UIGestureRecognizerDelegate {
     /**
      Hides the side menu if the menu is showed.
      */
+
     public func hideSideMenu () {
+
         if (isMenuOpen) {
             toggleMenu(false)
         }

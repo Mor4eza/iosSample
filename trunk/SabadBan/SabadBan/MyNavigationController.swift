@@ -49,10 +49,14 @@ public class MyNavigationController: ENSideMenuNavigationController, ENSideMenuD
         var menuPosition:ENSideMenuPosition!
         if getAppLanguage() == Language.fa.rawValue{
             menuPosition = ENSideMenuPosition.Right
+            sideMenu?.outterView.frame = CGRectMake(0, 0,self.view.frame.width - 280 ,self.view.frame.height)
         }else {
             menuPosition = ENSideMenuPosition.Left
+            sideMenu?.outterView.frame = CGRectMake(280, 0,self.view.frame.width ,self.view.frame.height)
+
         }
         sideMenu?.menuPosition = menuPosition
+
         sideMenu?.showSideMenu()
         sideMenu?.hideSideMenu()
         SwiftEventBus.unregister(self)

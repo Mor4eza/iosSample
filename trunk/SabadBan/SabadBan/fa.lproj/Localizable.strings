@@ -22,6 +22,7 @@
 "Yes" = "بله";
 "No" = "خیر";
 "RealyWantToDelete" = "پرتفوی حذف شود؟";
+"Successful" = "با موفقیت ارسال شد.";
 //-Mark : Setting View Controlle Strings
 "SwitchLanguage" = "تغییر زبان";
 "Cancel" = "لغو";
@@ -123,3 +124,12 @@
 
 //MARK - Date Picker
 "SelectDate" = "انتخاب تاریخ";
+
+//MARK: - ContactUs Strings
+
+"SenderName" = "نام فرستنده";
+"SenderEmail" = "ایمیل فرستنده";
+"EmailSubject" = "موضوع پیام";
+"EmailMessage" = "پیشنهاد و سوال";
+"Send" = "ارسال";
+"ContactInfo" = "اطلاعات تماس";

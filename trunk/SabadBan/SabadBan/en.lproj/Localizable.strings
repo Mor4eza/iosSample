@@ -19,6 +19,7 @@
 "Done" = "Done";
 "Warning" = "Warning";
 "Back" = "Back";
+"Successful" = "Successful";
 //MARK :- Setting View Controller Strings
 "Language" = " Language ";
 "SwitchLanguage" = "Switch Language";
@@ -123,3 +124,15 @@
 
 //MARK - Date Picker
 "SelectDate" = "Select Date";
+
+
+//MARK: - ContactUs Strings
+
+"SenderName" = "SenderName";
+"SenderEmail" = "SenderEmail";
+"EmailSubject" = "EmailSubject";
+"EmailMessage" = "EmailMessage";
+"Send" = "Send";
+"ContactInfo" = "ContactInfo";
+
+

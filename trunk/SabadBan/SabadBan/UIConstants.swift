@@ -81,7 +81,7 @@ struct UIConstants {
     static let aboutUs = "aboutUs"
     static let contactUs = "contactUs"
     static let exit = "exit"
-    
+    static let selectPicture = "contact_us_upload_picture"
     //MARK: View Controller Identifier
     static let Main = "Main"
     static let indexTableViewController = "indexTableViewController"

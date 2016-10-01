@@ -20,7 +20,8 @@ struct Strings {
     static let Done = "Done"
     static let Warning = "Warning"
     static let Back = "Back"
-    
+    static let Successful = "Successful"
+
     //MARK :- Setting View Controller Strings
     
     static let Language = "Language"
@@ -128,4 +129,14 @@ struct Strings {
     
     //MARK: - Date Picker
     static let SelectDate = "SelectDate"
+
+
+     //MARK: - ContactUs Strings
+
+    static let SenderName = "SenderName"
+    static let SenderEmail = "SenderEmail"
+    static let EmailSubject = "EmailSubject"
+    static let EmailMessage = "EmailMessage"
+    static let Send = "Send"
+    static let ContactInfo = "ContactInfo"
 }

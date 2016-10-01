@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = AppBarTintColor
         navigationBarAppearace.barTintColor = AppBarTintColor
+
         // change navigation item title color
         navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
@@ -35,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.barStyle = UIBarStyle.Black
         navigationBarAppearace.tintColor = UIColor.whiteColor()
 
-//
+        //FCM
 
         FIRApp.configure()
         let notificationTypes: UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound]
@@ -71,17 +72,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      //MARK:- Apple Push Notification -->APN
 
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-//        PushToken = String(deviceToken)
-        debugPrint("DEVICE TOKEN = \(PushToken)")
+        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Sandbox)
+        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Prod)
+
+        PushToken = FIRInstanceID.instanceID().token()!
+        print("REAL_TOKEN: \(PushToken)")
+        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+        var tokenString = ""
+        for i in 0..<deviceToken.length {
+            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+        }
+
+//        print("tokenString: \(tokenString)")
     }
 
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        debugPrint(error)
+        print(error)
     }
 
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        PushToken = userInfo["gcm_message_id"] as! String
-        print("GCM_TOKEN: \(PushToken)")
+//        PushToken = userInfo["gcm_message_id"] as! String
+//        print("GCM_TOKEN: \(PushToken)")
         print(userInfo)
     }
 }

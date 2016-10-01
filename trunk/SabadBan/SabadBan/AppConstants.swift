@@ -29,7 +29,8 @@ public let URLS:[String:String] =
      "getMarketActivity" : "/services/getMarketActivity",
      "getBourseNews" : "/api/v1/news/get",
      "login" : "/api/v1/auth/login",
-     "register" : "/api/v1/auth/register"]
+     "register" : "/api/v1/auth/register",
+     "sendContactUs" : "/api/v1/tools/contact_us"]
 
 //MARK:- Constants
 public var SelectedIndexCode:String = ""
