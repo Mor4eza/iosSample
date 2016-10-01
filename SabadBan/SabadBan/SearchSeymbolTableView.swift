@@ -23,12 +23,12 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView()
         getSymbolList()
-        self.title = "SearchSymbol".localized()
+        self.title = Strings.SearchSymbol.localized()
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
-        searchController.searchBar.placeholder = "SearchSymbol".localized()
+        searchController.searchBar.placeholder = Strings.SearchSymbol.localized()
         searchController.searchBar.delegate = self
         self.tableView.tableHeaderView = searchController.searchBar
         self.navigationItem.rightBarButtonItem = nil
@@ -65,7 +65,7 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SymbolsCell", forIndexPath: indexPath) as! SymbolNamesCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.SymbolsCell, forIndexPath: indexPath) as! SymbolNamesCell
 
         if shouldShowSearchResults {
             cell.lblName?.text = filteredSymbol[indexPath.row].name
@@ -95,7 +95,7 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
             }
 
             let backItem = UIBarButtonItem()
-            backItem.title = "Back".localized()
+            backItem.title = Strings.Back.localized()
             navigationItem.backBarButtonItem = backItem
 
             return
@@ -114,13 +114,13 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
         for i in 0 ..< symbols.count {
             if selected == symbols[i] {
 
-                Utils.ShowAlert(self, title:"Attention".localized() , details: "این نماد در پرتفوی فعلی وجود دارد",btnOkTitle:"Ok".localized())
+                Utils.ShowAlert(self, title:Strings.Attention.localized() , details: Strings.symbolExists.localized(),btnOkTitle:Strings.Ok.localized())
                 return
             }
         }
 
         let sendSelected = ["selectedSymbol":selected]
-        nc.postNotificationName("SYMBOL_SELECTED", object: nil , userInfo: sendSelected)
+        nc.postNotificationName(symbolSelected, object: nil , userInfo: sendSelected)
         dismissViewControllerAnimated(true, completion: nil)
     }
     //MARK : - Search Controller
@@ -180,10 +180,10 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
 
             if ((symbols?.successful) != nil) {
                 for i in 0  ..< symbols!.response.symbolDetailsList.count{
-                    if getAppLanguage() == "fa" {
+                    if getAppLanguage() == Language.fa.rawValue {
                         self.symbolsData.append(symbolData(name: symbols!.response.symbolDetailsList[i].symbolNameFa, fullName: symbols!.response.symbolDetailsList[i].symbolCompleteNameFa, code: symbols!.response.symbolDetailsList[i].symbolCode))
 
-                    }else if getAppLanguage() == "en" {
+                    }else if getAppLanguage() == Language.en.rawValue {
                         self.symbolsData.append(symbolData(name: symbols!.response.symbolDetailsList[i].symbolNameEn, fullName: symbols!.response.symbolDetailsList[i].symbolCompleteNameFa, code: symbols!.response.symbolDetailsList[i].symbolCode))
                     }
                     self.tableView.reloadData()
@@ -196,7 +196,7 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
     }
 
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
-        if identifier == "symDetailsSegue" {
+        if identifier == UIConstants.symDetailsSegue {
 
             if (!isSearch) {
 

@@ -38,12 +38,12 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
 
         //MARK: - Register String
 
-        txtUserName.placeholder = "Email".localized()
-        txtPassword.placeholder = "Password".localized()
-        btnRegister.setTitle("Register".localized(), forState: .Normal)
-        txtPhone.placeholder = "Tell".localized()
-        txtRPassword.placeholder = "RepeatPass".localized()
-        btnLogin.setTitle("Login".localized(), forState: .Normal)
+        txtUserName.placeholder = Strings.Email.localized()
+        txtPassword.placeholder = Strings.Password.localized()
+        btnRegister.setTitle(Strings.Register.localized(), forState: .Normal)
+        txtPhone.placeholder = Strings.Tell.localized()
+        txtRPassword.placeholder = Strings.RepeatPass.localized()
+        btnLogin.setTitle(Strings.Login.localized(), forState: .Normal)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
 
@@ -105,21 +105,21 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         self.view.endEditing(true)
 
         if txtUserName.text == "" {
-            showAlert("pleaseEnterEmail")
+            showAlert(Strings.pleaseEnterEmail)
         } else if (!txtUserName.text!.isValidEmail()) {
-            showAlert("emailInvalid")
+            showAlert(Strings.emailInvalid)
         }  else if txtPhone.text == "" {
-            showAlert("pleaseEnterPhoneNumber")
+            showAlert(Strings.pleaseEnterPhoneNumber)
         } else if txtPhone.text?.characters.count < 11 {
-            showAlert("phoneNumberLengthError")
+            showAlert(Strings.phoneNumberLengthError)
         } else if txtPassword.text == "" {
-            showAlert("pleaseEnterPassword")
+            showAlert(Strings.pleaseEnterPassword)
         } else if txtPassword.text!.characters.count < 8 {
-            showAlert("passwordLengthError")
+            showAlert(Strings.passwordLengthError)
         } else if txtRPassword.text == "" {
-            showAlert("pleaseEnterPasswordRepeat")
+            showAlert(Strings.pleaseEnterPasswordRepeat)
         } else if !(txtRPassword.text == txtPassword.text){
-            showAlert("passwordRepeatNotMatch")
+            showAlert(Strings.passwordRepeatNotMatch)
         } else {
             if isSimulator {
                 sendRegisterRequest(txtUserName.text!, password:txtPassword.text!, phone:txtPhone.text!, pushToken: "IOS_RUNNING_IN_SIMULATOR")
@@ -135,10 +135,10 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         alert.makeAlertTypeCaution()
         alert.colorScheme = UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1)
         alert.showAlertInView(self,
-                              withTitle: "Attention".localized(),
+                              withTitle: Strings.Attention.localized(),
                               withSubtitle: message.localized(),
                               withCustomImage: nil,
-                              withDoneButtonTitle: "Ok".localized(),
+                              withDoneButtonTitle: Strings.Ok.localized(),
                               andButtons: nil)
 
     }
@@ -160,7 +160,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
     // MARK: - Navigation
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
 
-        if identifier == "registerSegue" {
+        if identifier == UIConstants.registerSegue {
             if successLogin {
                 return true
             }else {
@@ -200,16 +200,16 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
                         self.successLogin = true
                         LogedInUserName = email
                         //                            self.dismissViewControllerAnimated(true, completion: nil)
-                        self.defaults.setValue(email, forKey: "UserName")
-                        self.performSegueWithIdentifier("registerSegue", sender: nil)
+                        self.defaults.setValue(email, forKey: UserName)
+                        self.performSegueWithIdentifier(UIConstants.registerSegue, sender: nil)
 
                     }
                 } else if register!.errorCode == 101 {
                     if (register!.error?.unigueEmail != nil) {
-                        self.showAlert("emailRegisterdBefore")
+                        self.showAlert(Strings.emailRegisterdBefore)
                     }
                 } else if register!.errorCode == 102 {
-                    self.showAlert("unknownRegisterError")
+                    self.showAlert(Strings.unknownRegisterError)
                 }
 
                 self.btnRegister.enabled = true

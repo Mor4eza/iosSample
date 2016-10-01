@@ -38,23 +38,23 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
 
         //MARK: - Login String
 
-        lblRememberMe.text = "RememberMe".localized()
-        btnLogin.setTitle("Login".localized(), forState: .Normal)
-        txtUserName.placeholder = "Email".localized()
-        txtPassword.placeholder = "Password".localized()
-        btnRegister.setTitle("Register".localized(), forState: .Normal)
-        btnForgetPass.setTitle("ForgetPassword".localized(), forState: .Normal)
+        lblRememberMe.text = Strings.RememberMe.localized()
+        btnLogin.setTitle(Strings.Login.localized(), forState: .Normal)
+        txtUserName.placeholder = Strings.Email.localized()
+        txtPassword.placeholder = Strings.Password.localized()
+        btnRegister.setTitle(Strings.Register.localized(), forState: .Normal)
+        btnForgetPass.setTitle(Strings.ForgetPassword.localized(), forState: .Normal)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
 
-        debugPrint(defaults.stringForKey("UserName"))
-        if defaults.stringForKey("UserName") != nil {
+        debugPrint(defaults.stringForKey(UserName))
+        if defaults.stringForKey(UserName) != nil {
             chkRemember.setOn(true, animated: true)
         }
 
         if chkRemember.on == true {
-            txtUserName.text = defaults.stringForKey("UserName")
-            txtPassword.text = defaults.stringForKey("Password")
+            txtUserName.text = defaults.stringForKey(UserName)
+            txtPassword.text = defaults.stringForKey(Password)
         }
         txtPassword.delegate = self
         txtUserName.delegate = self
@@ -111,21 +111,21 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     func showAlert(message : String) {
 
         Utils.ShowAlert(self,
-                        title: "Attention".localized(),
+                        title: Strings.Attention.localized(),
                         details: message.localized(),
-                        btnOkTitle: "Ok".localized()
+                        btnOkTitle: Strings.Ok.localized()
                         )
     }
 
     func beginLoginSequence() {
         if txtUserName.text == "" {
-            showAlert("pleaseEnterEmail")
+            showAlert(Strings.pleaseEnterEmail)
         } else if (!txtUserName.text!.isValidEmail()) {
-            showAlert("emailInvalid")
+            showAlert(Strings.emailInvalid)
         } else if txtPassword.text == "" {
-            showAlert("pleaseEnterPassword")
+            showAlert(Strings.pleaseEnterPassword)
         } else if txtPassword.text!.characters.count < 8 {
-            showAlert("passwordLengthError")
+            showAlert(Strings.passwordLengthError)
         }
         else {
             if isSimulator {
@@ -139,7 +139,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     // MARK: - Navigation
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
 
-        if identifier == "loginSegue" {
+        if identifier == UIConstants.loginSegue {
             if successLogin {
                 return true
             }else {
@@ -178,19 +178,19 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
                         LoginToken = response!.result.apiToken!
                         self.successLogin = true
                         LogedInUserName = email
-                        self.performSegueWithIdentifier("loginSegue", sender: nil)
+                        self.performSegueWithIdentifier(UIConstants.loginSegue, sender: nil)
 
                         if self.chkRemember.on == true {
-                            self.defaults.setValue(email, forKey: "UserName")
-                            self.defaults.setValue(password, forKey: "Password")
+                            self.defaults.setValue(email, forKey: UserName)
+                            self.defaults.setValue(password, forKey: Password)
                         }else {
-                            self.defaults.setValue(nil, forKey: "UserName")
-                            self.defaults.setValue(nil, forKey: "Password")
+                            self.defaults.setValue(nil, forKey: UserName)
+                            self.defaults.setValue(nil, forKey: Password)
                         }
                     }
                 } else if response!.errorCode == 202 {
 
-                    self.showAlert("emailOrPasswordInvalid".localized())
+                    self.showAlert(Strings.emailOrPasswordInvalid.localized())
                 }
                 self.btnLogin.enabled = true
                 progress.stopAnimating()

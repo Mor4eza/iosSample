@@ -27,6 +27,8 @@
 		84C9E2941D997A0A00F96EF8 /* SymbolBestLimitRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2931D997A0A00F96EF8 /* SymbolBestLimitRequest.swift */; };
 		84C9E2961D997AE500F96EF8 /* SymbolTradingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2951D997AE500F96EF8 /* SymbolTradingRequest.swift */; };
 		84C9E2981D997B5700F96EF8 /* SymbolListByIndexRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2971D997B5700F96EF8 /* SymbolListByIndexRequest.swift */; };
+		84F6BBF81D9F972F009BEEB2 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6BBF71D9F972F009BEEB2 /* Strings.swift */; };
+		84F6BBFA1D9FC345009BEEB2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6BBF91D9FC345009BEEB2 /* UIConstants.swift */; };
 		940FB9481D9BFE9E00919DE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 940FB9471D9BFE9E00919DE3 /* GoogleService-Info.plist */; };
 		9412F0EE1D857E0D00E94683 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9412F0EC1D857E0D00E94683 /* RegisterResponse.swift */; };
 		9412F0EF1D857E0D00E94683 /* UserManagementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9412F0ED1D857E0D00E94683 /* UserManagementModel.swift */; };
@@ -135,6 +137,8 @@
 		84C9E2931D997A0A00F96EF8 /* SymbolBestLimitRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolBestLimitRequest.swift; sourceTree = "<group>"; };
 		84C9E2951D997AE500F96EF8 /* SymbolTradingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolTradingRequest.swift; sourceTree = "<group>"; };
 		84C9E2971D997B5700F96EF8 /* SymbolListByIndexRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolListByIndexRequest.swift; sourceTree = "<group>"; };
+		84F6BBF71D9F972F009BEEB2 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		84F6BBF91D9FC345009BEEB2 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		940FB9471D9BFE9E00919DE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9412F0EC1D857E0D00E94683 /* RegisterResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		9412F0ED1D857E0D00E94683 /* UserManagementModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManagementModel.swift; sourceTree = "<group>"; };
@@ -582,6 +586,8 @@
 				942470151D97F1F20035A380 /* Request.swift */,
 				949BEE6B1D72A78A008FA574 /* AppConstants.swift */,
 				949BEE6C1D72A78A008FA574 /* LinearProgressView.swift */,
+				84F6BBF71D9F972F009BEEB2 /* Strings.swift */,
+				84F6BBF91D9FC345009BEEB2 /* UIConstants.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -820,7 +826,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 949BEE601D72A51C008FA574 /* Build configuration list for PBXNativeTarget "SabadBan" */;
 			buildPhases = (
-				9070F80B11578457AFAFB70F /* 📦 Check Pods Manifest.lock */,
+				9070F80B11578457AFAFB70F /* [CP] Check Pods Manifest.lock */,
 				23E0DAE45421868EF7347EBA /* [CP] Check Pods Manifest.lock */,
 				DA8014AD9787A3B930297CC7 /* [CP] Check Pods Manifest.lock */,
 				8312FA5A350B89DD3F034BF3 /* [CP] Check Pods Manifest.lock */,
@@ -972,14 +978,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		9070F80B11578457AFAFB70F /* 📦 Check Pods Manifest.lock */ = {
+		9070F80B11578457AFAFB70F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1101,6 +1107,7 @@
 				949BEEB71D731228008FA574 /* ChartViewController.swift in Sources */,
 				949BEEA91D72CA88008FA574 /* Response.swift in Sources */,
 				9412F0EE1D857E0D00E94683 /* RegisterResponse.swift in Sources */,
+				84F6BBF81D9F972F009BEEB2 /* Strings.swift in Sources */,
 				949BEEAF1D72F7B2008FA574 /* UIColor.swift in Sources */,
 				7CAF1DC21D8BFBFB003E22A4 /* MarketDetailsCell.swift in Sources */,
 				8477D90C1D856D04006BBFCE /* MGBuildDate.m in Sources */,
@@ -1139,6 +1146,7 @@
 				949BEEA01D72B5C8008FA574 /* IndexHeader.swift in Sources */,
 				84C9E2871D99381300F96EF8 /* NewsMainResponse.swift in Sources */,
 				949BEE7D1D72A7C4008FA574 /* ENSideMenuNavigationController.swift in Sources */,
+				84F6BBFA1D9FC345009BEEB2 /* UIConstants.swift in Sources */,
 				947C639D1D75BA8C00676822 /* DataBase.swift in Sources */,
 				84A34BF61D7EF5E600B02A8D /* AlamofireRequest.swift in Sources */,
 				9420042F1D8D4AB500B358BC /* BuyInformationView.swift in Sources */,

@@ -52,7 +52,7 @@ class DatePickerSheet: UIView {
 
     /* Create the dialog view, and animate opening the dialog */
     func show(title: String, datePickerMode: UIDatePickerMode = .DateAndTime, callback: ((date: NSDate) -> Void)) {
-        show(title, doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: datePickerMode, callback: callback)
+        show(title, doneButtonTitle: Strings.Done, cancelButtonTitle: Strings.Cancel, datePickerMode: datePickerMode, callback: callback)
     }
 
     func show(title: String, doneButtonTitle: String, cancelButtonTitle: String, defaultDate: NSDate = NSDate(), datePickerMode: UIDatePickerMode = .DateAndTime, callback: ((date: NSDate) -> Void)) {
@@ -122,7 +122,7 @@ class DatePickerSheet: UIView {
     private func close() {
         let currentTransform = self.dialogView.layer.transform
 
-        let startRotation = (self.valueForKeyPath("layer.transform.rotation.z") as? NSNumber) as? Double ?? 0.0
+        let startRotation = (self.valueForKeyPath(UIConstants.RotationZ) as? NSNumber) as? Double ?? 0.0
         let rotation = CATransform3DMakeRotation((CGFloat)(-startRotation + M_PI * 270 / 180), 0, 0, 0)
 
         self.dialogView.layer.transform = CATransform3DConcat(rotation, CATransform3DMakeScale(1, 1, 1))
@@ -196,7 +196,7 @@ class DatePickerSheet: UIView {
         self.datePicker = UIDatePicker(frame: CGRectMake(0, 30, 0, 0))
         self.datePicker.timeZone = NSTimeZone.localTimeZone()
         self.datePicker.calendar = NSCalendar(identifier: NSCalendarIdentifierPersian)
-        self.datePicker.locale = NSLocale(localeIdentifier: "fa_IR")
+        self.datePicker.locale = NSLocale(localeIdentifier: LocaleFa)
         self.datePicker.autoresizingMask = UIViewAutoresizing.FlexibleRightMargin
         self.datePicker.frame.size.width = 300
         self.datePicker.datePickerMode = self.datePickerMode

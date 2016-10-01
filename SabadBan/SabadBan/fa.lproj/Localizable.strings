@@ -30,7 +30,7 @@
 
 //-Mark: Index View Strings
 "Index" = "شاخص";
-"Count" = "مقدار";
+"Value" = "مقدار";
 "Percent" = "درصد";
 
 //mark:- IndexDetails Strings
@@ -58,6 +58,8 @@
 "VolumeOfTransactions" = "حجم معاملات";
 "ValueOfMarket" = "ارزش بازار";
 
+"noData" = "There is no data for selected range";
+
 //MARK: - Portfolio Strings
 
 "AddSymbol" = "افزودن نماد";
@@ -72,6 +74,9 @@
 "Count" = "تعداد";
 "Edit" = "ویرایش";
 "Delete" = "حذف";
+"stopped" = "متوقف";
+"allowed" = "مجاز";
+"symbolExists" = "این نماد در پرتفوی فعلی وجود دارد";
 
 
 //MARK: - AboutUs Strings
@@ -95,7 +100,6 @@
 "Ok" = "تایید";
 "pleaseEnterEmail" = "لطفا ایمیل را وارد کنید.";
 "pleaseEnterPassword" = "لطفا رمز عبور را وارد کنید.";
-"pleaseEnterPasswordRepeat" = "لطفا تکرار رمز عبور را وارد کنید.";
 "passwordLengthError" = "رمز عبور باید بیشتر از ۸ رقم باشد.";
 "emailInvalid" = "ایمیل نامعتبر است.";
 "pleaseEnterPasswordRepeat" = "لطفا تکرار رمز عبور را وارد کنید.";
@@ -107,3 +111,15 @@
 
 //MARK: - Global String
 "noInternet" = "اتصال اینترنت برقرار نیست!";
+
+//MARK: - Symbol Details
+"bestBuyTitle" = "سه مظنه برتر خرید";
+"bestSellTitle" = "سه مظنه برتر فروش";
+"LastPriceTitle" = "قیمت آخرین معامله";
+"EndPriceTitle" = "قیمت پایانی";
+"StartPriceTitle" = "قیمت آغازین";
+"LowPriceTitle" = "کمترین قیمت";
+"HighPriceTitle" = "بیشترین قیمت";
+
+//MARK - Date Picker
+"SelectDate" = "انتخاب تاریخ";

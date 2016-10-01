@@ -20,7 +20,7 @@ class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
         super.viewDidLoad()
         super.addMenuButton()
         setTexts()
-        tableView.registerNib(UINib(nibName: "IndexHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "IndexHeader")
+        tableView.registerNib(UINib(nibName: UIConstants.IndexHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.IndexHeader)
 
         self.tableView.tableFooterView = UIView()
 
@@ -51,12 +51,12 @@ class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("indexCell", forIndexPath: indexPath) as! IndexCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.indexCell, forIndexPath: indexPath) as! IndexCell
 
         cell.lblIndexName.text = indexNames[indexPath.row]
-        cell.imgIndex.image = UIImage(named: "ic_increase")
+        cell.imgIndex.image = UIImage(named: UIConstants.icIncrease)
         if (indexPercent[indexPath.row] < 0){
-            cell.imgIndex.image = UIImage(named: "ic_decrease")
+            cell.imgIndex.image = UIImage(named: UIConstants.icDecrease)
         }
         let price:NSNumber = indexPrice[indexPath.row]
         cell.lblIndexCount.text = price.currencyFormat(2)
@@ -72,11 +72,11 @@ class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
     }
 
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("IndexHeader") as! IndexHeader
+        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.IndexHeader) as! IndexHeader
 
-        headerView.lblPercent.text = "Percent".localized()
-        headerView.lblCount.text = "Count".localized()
-        headerView.lblIndex.text = "Index".localized()
+        headerView.lblPercent.text = Strings.Percent.localized()
+        headerView.lblCount.text = Strings.Value.localized()
+        headerView.lblIndex.text = Strings.Index.localized()
 
         headerView.lblPercent.setDefaultFont()
         headerView.lblCount.setDefaultFont()
@@ -92,7 +92,7 @@ class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
     }
 
     func setTexts(){
-        self.title = "APP_NAME".localized()
+        self.title = Strings.appName.localized()
     }
 
     func dialogOkButtonClicked() {
@@ -141,7 +141,7 @@ class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
-        if (segue.identifier == "IndexDetailSegue") {
+        if (segue.identifier == UIConstants.IndexDetailSegue) {
 
             let indexPath = self.tableView.indexPathForSelectedRow!
 

@@ -57,6 +57,8 @@
 "VolumeOfTransactions" = "Volume of transactions";
 "ValueOfMarket" = "Value Of market";
 
+"noData" = "There is no data for selected range";
+
 //MARK: - Portfolio Strings
 
 "AddSymbol" = "Add Symbol";
@@ -71,7 +73,10 @@
 "Count" = "Count";
 "Edit" = "Edit";
 "Delete" = "Delete";
-
+"stopped" = "stopped";
+"allowed" = "allowed";
+"symbolExists" = "symbolExists";
+"nameDuplicate" = "نام پرتفوی تکراری است.";
 
 //MARK: - AboutUs Strings
 
@@ -106,3 +111,15 @@
 
 //MARK: - Global String
 "noInternet" = "No Internet connection";
+
+//MARK: - Symbol Details
+"bestBuyTitle" = "bestBuyTitle";
+"bestSellTitle" = "bestSellTitle";
+"LastPriceTitle" = "LastPriceTitle";
+"EndPriceTitle" = "EndPriceTitle";
+"StartPriceTitle" = "StartPriceTitle";
+"LowPriceTitle" = "LowPriceTitle";
+"HighPriceTitle" = "HighPriceTitle";
+
+//MARK - Date Picker
+"SelectDate" = "Select Date";

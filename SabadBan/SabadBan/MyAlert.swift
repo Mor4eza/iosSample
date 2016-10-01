@@ -52,7 +52,7 @@ class MyAlert: UIView {
      */
     func loadViewFromXibFile() -> UIView {
         let bundle = NSBundle(forClass: self.dynamicType)
-        let nib = UINib(nibName: "MyAlert", bundle: bundle)
+        let nib = UINib(nibName: UIConstants.MyAlert, bundle: bundle)
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         return view
     }

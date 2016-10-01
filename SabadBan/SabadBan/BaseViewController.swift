@@ -22,17 +22,10 @@ class BaseViewController: UIViewController,ENSideMenuDelegate,DialogClickDelegat
 
         self.view.backgroundColor = AppMainColor
 
-//        let fontFamilyNames = UIFont.familyNames()
-//        for familyName in fontFamilyNames {
-//            print("------------------------------")
-//            print("Font Family Name = [\(familyName)]")
-//            let names = UIFont.fontNamesForFamilyName(familyName)
-//            print("Font Names = [\(names)]")
-//        }
         // Do any additional setup after loading the view.
 
         SwiftEventBus.onMainThread(self, name: NetworkErrorAlert) { result in
-            self.showNetworkAlert("noInternet")
+            self.showNetworkAlert(Strings.noInternet)
         }
     }
 
@@ -47,10 +40,10 @@ class BaseViewController: UIViewController,ENSideMenuDelegate,DialogClickDelegat
         alert.makeAlertTypeCaution()
         alert.colorScheme = UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1)
         alert.showAlertInView(self,
-                              withTitle: "Attention".localized(),
+                              withTitle: Strings.Attention.localized(),
                               withSubtitle: message.localized(),
                               withCustomImage: nil,
-                              withDoneButtonTitle: "Ok".localized(),
+                              withDoneButtonTitle: Strings.Ok.localized(),
                               andButtons: nil)
     }
 
@@ -58,11 +51,11 @@ class BaseViewController: UIViewController,ENSideMenuDelegate,DialogClickDelegat
         self.navigationItem.rightBarButtonItem = nil
         self.navigationItem.leftBarButtonItem = nil
         let btnMenu = UIButton()
-        btnMenu.setImage(UIImage(named: "Menu"), forState: .Normal)
+        btnMenu.setImage(UIImage(named: UIConstants.Menu), forState: .Normal)
         btnMenu.frame = CGRectMake(0, 0, 30, 30)
         btnMenu.addTarget(self, action: #selector(openMenu), forControlEvents: .TouchUpInside)
         //.... Set Right/Left Bar Button item
-        if (getAppLanguage() == "fa"){
+        if (getAppLanguage() == Language.fa.rawValue){
             let rightBarButton = UIBarButtonItem(customView: btnMenu)
             self.navigationItem.rightBarButtonItem = rightBarButton
         }else {

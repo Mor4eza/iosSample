@@ -31,7 +31,7 @@ class SettingTableViewController: BaseTableViewController {
         label.changeDirection()
 
         if section == 1 {
-            label.text =  "Language".localized()
+            label.text =  Strings.Language.localized()
         }
 
         return label
@@ -55,7 +55,7 @@ class SettingTableViewController: BaseTableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("settingCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.settingCell, forIndexPath: indexPath)
 
         cell.textLabel?.changeDirection()
 
@@ -68,7 +68,7 @@ class SettingTableViewController: BaseTableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         if  indexPath.row == 0 {
-            actionSheet = UIAlertController(title: nil, message: "SwitchLanguage".localized(), preferredStyle: UIAlertControllerStyle.ActionSheet)
+            actionSheet = UIAlertController(title: nil, message: Strings.SwitchLanguage.localized(), preferredStyle: UIAlertControllerStyle.ActionSheet)
             for language in availableLanguages{
                 let displayName = Localize.displayNameForLanguage(language)
                 let languageAction = UIAlertAction(title: displayName, style: .Default, handler: {
@@ -79,7 +79,7 @@ class SettingTableViewController: BaseTableViewController {
                 })
                 actionSheet.addAction(languageAction)
             }
-            let cancelAction = UIAlertAction(title: "Cancel".localized(), style: UIAlertActionStyle.Cancel, handler: {
+            let cancelAction = UIAlertAction(title: Strings.Cancel.localized(), style: UIAlertActionStyle.Cancel, handler: {
                 (alert: UIAlertAction) -> Void in
             })
             let cell = tableView.cellForRowAtIndexPath(indexPath)
@@ -103,7 +103,7 @@ class SettingTableViewController: BaseTableViewController {
     }
 
     func setTexts() {
-        self.title = "Setting".localized()
+        self.title = Strings.Setting.localized()
 
     }
 

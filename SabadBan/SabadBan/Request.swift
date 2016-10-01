@@ -12,7 +12,7 @@ import Alamofire
 import Gloss
 import SwiftEventBus
 class Request :BaseViewController{
-
+    
     class func postData<T:Glossy>(urlString: String, body:[String: AnyObject]? = nil , completion: (T?, NSError?) -> Void) {
         Alamofire.request(.POST, urlString, headers: ServicesHeaders, parameters: body, encoding: .JSON)
             .validate(statusCode: 200..<300)
