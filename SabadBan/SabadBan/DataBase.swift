@@ -94,6 +94,20 @@ class DataBase{
         return symbols
     }
 
+    func getSymbolPSCode(sCode:String) -> Int {
+
+        var pcode = Int()
+        let  currentQuery = tblSymbolPortfolio.select(psCode)
+            .filter(symbolCode == sCode)
+
+        for pn in try!  db.prepare(currentQuery){
+            pcode = pn[psCode]
+        }
+
+        return pcode
+
+    }
+
     func deleteSymbolFromPortfoi(sCode:String , pCode:Int) {
 
         let symbol = tblSymbolPortfolio.filter(symbolPCode == pCode && symbolCode == sCode)
@@ -187,6 +201,12 @@ class DataBase{
     func deletePsBuy(buyCode:Int){
 
         let ps = tblPsBuy.filter(PS_BUY_ID == buyCode )
+        try! db.run(ps.delete())
+
+    }
+    func deletePsBuybyPSCode(psCode:Int){
+
+        let ps = tblPsBuy.filter(PS_BUY_PS_CODE == psCode )
         try! db.run(ps.delete())
 
     }

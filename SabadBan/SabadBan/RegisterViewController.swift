@@ -59,7 +59,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
 
             UIView.animateWithDuration(1, delay: 0, options: .CurveEaseIn, animations: {
-
+                self.imgAppLogo.hidden = true
                 self.bottomConstraint.constant = keyboardSize.height
                 self.view.layoutIfNeeded()
                 }, completion: nil)
@@ -69,7 +69,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
 
     func keyboardWillHide(notification: NSNotification) {
         UIView.animateWithDuration(1, delay: 0, options: .CurveEaseIn, animations: {
-
+            self.imgAppLogo.hidden = false
             self.bottomConstraint.constant = 45
             self.view.layoutIfNeeded()
             }, completion: nil)

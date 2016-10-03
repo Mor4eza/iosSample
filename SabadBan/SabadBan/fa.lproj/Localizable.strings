@@ -23,6 +23,8 @@
 "No" = "خیر";
 "RealyWantToDelete" = "پرتفوی حذف شود؟";
 "Successful" = "با موفقیت ارسال شد.";
+"Faild" = "خطا در اسال.\n دوباره تلاش کنید.";
+
 //-Mark : Setting View Controlle Strings
 "SwitchLanguage" = "تغییر زبان";
 "Cancel" = "لغو";

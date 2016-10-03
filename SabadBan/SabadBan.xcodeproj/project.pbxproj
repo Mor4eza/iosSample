@@ -29,7 +29,6 @@
 		84C9E2981D997B5700F96EF8 /* SymbolListByIndexRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2971D997B5700F96EF8 /* SymbolListByIndexRequest.swift */; };
 		84F6BBF81D9F972F009BEEB2 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6BBF71D9F972F009BEEB2 /* Strings.swift */; };
 		84F6BBFA1D9FC345009BEEB2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6BBF91D9FC345009BEEB2 /* UIConstants.swift */; };
-		940FB9481D9BFE9E00919DE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 940FB9471D9BFE9E00919DE3 /* GoogleService-Info.plist */; };
 		9412F0EE1D857E0D00E94683 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9412F0EC1D857E0D00E94683 /* RegisterResponse.swift */; };
 		9412F0EF1D857E0D00E94683 /* UserManagementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9412F0ED1D857E0D00E94683 /* UserManagementModel.swift */; };
 		9412F0F11D857E3600E94683 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9412F0F01D857E3600E94683 /* LoginResponse.swift */; };
@@ -40,9 +39,11 @@
 		94144E9C1D8D61A50008F602 /* buyInfoHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94144E9B1D8D61A50008F602 /* buyInfoHeader.xib */; };
 		941C19BB1D76FD9300DDE96F /* SymbolNamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C19BA1D76FD9300DDE96F /* SymbolNamesCell.swift */; };
 		941E9A2D1D740B5900A472A5 /* indexDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941E9A2C1D740B5900A472A5 /* indexDetailsCell.swift */; };
+		941F7D031DA26C5D00FE5617 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 941F7D021DA26C5D00FE5617 /* GoogleService-Info.plist */; };
 		9420042D1D8D4A1700B358BC /* BuyInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9420042C1D8D4A1700B358BC /* BuyInformationView.xib */; };
 		9420042F1D8D4AB500B358BC /* BuyInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9420042E1D8D4AB500B358BC /* BuyInformationView.swift */; };
 		942470161D97F1F20035A380 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942470151D97F1F20035A380 /* Request.swift */; };
+		943333071DA1374A006EF502 /* OurInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943333061DA1374A006EF502 /* OurInfoViewController.swift */; };
 		944EF1941D7EC29A00A039BA /* BestLimitDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF1911D7EC29A00A039BA /* BestLimitDataList.swift */; };
 		944EF1961D7EC29A00A039BA /* SymbolBestLimitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF1931D7EC29A00A039BA /* SymbolBestLimitResponse.swift */; };
 		944EF19C1D7EC4BF00A039BA /* SymbolTradingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */; };
@@ -140,7 +141,6 @@
 		84C9E2971D997B5700F96EF8 /* SymbolListByIndexRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolListByIndexRequest.swift; sourceTree = "<group>"; };
 		84F6BBF71D9F972F009BEEB2 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		84F6BBF91D9FC345009BEEB2 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
-		940FB9471D9BFE9E00919DE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9412F0EC1D857E0D00E94683 /* RegisterResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		9412F0ED1D857E0D00E94683 /* UserManagementModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManagementModel.swift; sourceTree = "<group>"; };
 		9412F0F01D857E3600E94683 /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
@@ -151,9 +151,11 @@
 		94144E9B1D8D61A50008F602 /* buyInfoHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = buyInfoHeader.xib; sourceTree = "<group>"; };
 		941C19BA1D76FD9300DDE96F /* SymbolNamesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolNamesCell.swift; sourceTree = "<group>"; };
 		941E9A2C1D740B5900A472A5 /* indexDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = indexDetailsCell.swift; sourceTree = "<group>"; };
+		941F7D021DA26C5D00FE5617 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9420042C1D8D4A1700B358BC /* BuyInformationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyInformationView.xib; sourceTree = "<group>"; };
 		9420042E1D8D4AB500B358BC /* BuyInformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyInformationView.swift; sourceTree = "<group>"; };
 		942470151D97F1F20035A380 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		943333061DA1374A006EF502 /* OurInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OurInfoViewController.swift; sourceTree = "<group>"; };
 		944EF1911D7EC29A00A039BA /* BestLimitDataList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestLimitDataList.swift; sourceTree = "<group>"; };
 		944EF1931D7EC29A00A039BA /* SymbolBestLimitResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolBestLimitResponse.swift; sourceTree = "<group>"; };
 		944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolTradingResponse.swift; sourceTree = "<group>"; };
@@ -598,7 +600,7 @@
 		949BEE651D72A72E008FA574 /* ProjectFiles */ = {
 			isa = PBXGroup;
 			children = (
-				940FB9471D9BFE9E00919DE3 /* GoogleService-Info.plist */,
+				941F7D021DA26C5D00FE5617 /* GoogleService-Info.plist */,
 				949BEE5D1D72A51C008FA574 /* Info.plist */,
 				949BEE511D72A51C008FA574 /* AppDelegate.swift */,
 				9465DB691D84071D007F0572 /* SabadBan-Bridging-Header.h */,
@@ -810,6 +812,7 @@
 				94C59CCD1D9A52270036CF4A /* VerticalSlider.swift */,
 				94C59CCB1D9A52120036CF4A /* TotemStyles.swift */,
 				94C59CC91D9A51900036CF4A /* CallUsViewController.swift */,
+				943333061DA1374A006EF502 /* OurInfoViewController.swift */,
 			);
 			name = CallUs;
 			sourceTree = "<group>";
@@ -908,7 +911,7 @@
 				94144E9C1D8D61A50008F602 /* buyInfoHeader.xib in Resources */,
 				949BEE571D72A51C008FA574 /* Main.storyboard in Resources */,
 				7CAF1DC91D8C3362003E22A4 /* MarketDetailsHeader.xib in Resources */,
-				940FB9481D9BFE9E00919DE3 /* GoogleService-Info.plist in Resources */,
+				941F7D031DA26C5D00FE5617 /* GoogleService-Info.plist in Resources */,
 				949BEE961D72ADB4008FA574 /* IRANSans.ttf in Resources */,
 				9487766A1D882FA9009E358F /* menuCell.xib in Resources */,
 				949BEE9D1D72B46F008FA574 /* IndexHeader.xib in Resources */,
@@ -1161,6 +1164,7 @@
 				949BEE6E1D72A78A008FA574 /* AppConstants.swift in Sources */,
 				949BEEA71D72CA88008FA574 /* IndexDetailsList.swift in Sources */,
 				947B12B31D8E6F0500E32A3B /* BuyInfoViewController.swift in Sources */,
+				943333071DA1374A006EF502 /* OurInfoViewController.swift in Sources */,
 				948B46681D76BCDD00F464C2 /* SymbolListModelResponse.swift in Sources */,
 				94E30E201D8FC4E40052EF59 /* DatePickerSheet.swift in Sources */,
 				944EF1961D7EC29A00A039BA /* SymbolBestLimitResponse.swift in Sources */,

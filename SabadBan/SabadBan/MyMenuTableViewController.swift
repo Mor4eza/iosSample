@@ -108,7 +108,7 @@ class MyMenuTableViewController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        print("did select row: \(indexPath.row)")
+        debugPrint("did select row: \(indexPath.row)")
 
         if (indexPath.row == selectedMenuItem) {
             return
@@ -136,10 +136,10 @@ class MyMenuTableViewController: BaseTableViewController {
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.AboutUsViewController)
             break
         case 5:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.ViewController4)
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.ContactUsViewController)
             break
         default:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.viewController5)
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.ContactUsViewController)
             break
         }
         sideMenuController()?.setContentViewController(destViewController)

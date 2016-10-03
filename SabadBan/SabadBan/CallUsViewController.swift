@@ -77,9 +77,13 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
         lblEmail.placeholder = Strings.SenderEmail.localized()
         lblSubject.placeholder = Strings.EmailSubject.localized()
         lblDetails.placeholder = Strings.EmailMessage.localized()
+        lblName.text = ""
+        lblEmail.text = ""
+        lblSubject.text = ""
+        lblDetails.text = ""
         btnSend.setTitle(Strings.Send.localized(), forState: .Normal)
         btnInfo.setTitle(Strings.ContactInfo.localized(), forState: .Normal)
-
+        self.title = Strings.ContactUs.localized()
     }
 
     @IBAction func btnSendTap(sender: AnyObject) {
@@ -98,7 +102,7 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
     }
 
     @IBAction func btnInfoTap(sender: AnyObject) {
-
+        
     }
 
 
@@ -109,6 +113,12 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
 
         let url = AppNewsURL + URLS["sendContactUs"]!
         let parameters = ContactUsRequest(name: Cname,email: Cemail,subject: Csubject,message: Cmessage).getDic()
+        btnSend.enabled = false
+        let progress:UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        progress.frame = CGRectMake(btnSend.bounds.maxX - 30, btnSend.bounds.maxY - 33, 20, 20)
+        progress.startAnimating()
+        btnSend.addSubview(progress)
+        progress.hidesWhenStopped = true
 
         Alamofire.upload(
             .POST,
@@ -128,10 +138,17 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
                 case .Success(let upload, _, _):
                     upload.responseJSON { response in
                         debugPrint(response)
+
                         Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.Successful.localized())
+                        self.btnSend.enabled = true
+                        progress.stopAnimating()
+                        self.initViews()
                     }
                 case .Failure(let encodingError):
                     print(encodingError)
+                    Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.Faild.localized())
+                    self.btnSend.enabled = true
+                    progress.stopAnimating()
                 }
             }
         )

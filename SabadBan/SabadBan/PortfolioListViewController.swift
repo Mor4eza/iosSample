@@ -146,6 +146,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             cell.lblStatusValue.text = Strings.allowed.localized()
             cell.viewStatus.backgroundColor = UIColor(netHex: 0x024b30)
         }
+        cell.backgroundView?.backgroundColor = AppMainColor
         return cell
     }
 
@@ -230,7 +231,9 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     func initFAB(){
 
         self.fab.removeFromSuperview()
-
+        fab.plusColor = UIColor.whiteColor()
+        fab.friendlyTap = true
+        fab.overlayColor = AppMainColor.colorWithAlphaComponent(0.8)
         addPortfolio.icon = UIImage(named: UIConstants.icAddPortfolio)
         addPortfolio.title = Strings.AddPortfolio.localized()
 

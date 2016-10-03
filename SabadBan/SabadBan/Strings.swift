@@ -21,7 +21,8 @@ struct Strings {
     static let Warning = "Warning"
     static let Back = "Back"
     static let Successful = "Successful"
-
+    static let Faild = "Faild"
+    static let EmptyToken = "EmptyToken"
     //MARK :- Setting View Controller Strings
     
     static let Language = "Language"

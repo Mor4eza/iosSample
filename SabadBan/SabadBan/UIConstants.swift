@@ -90,6 +90,6 @@ struct UIConstants {
     static let settingViewController = "settingViewController"
     static let AboutUsViewController = "AboutUsViewController"
     static let ViewController4 = "ViewController4"
-    static let viewController5 = "viewController5"
+    static let ContactUsViewController = "ContactUsViewController"
     
 }
