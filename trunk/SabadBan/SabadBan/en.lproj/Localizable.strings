@@ -20,6 +20,8 @@
 "Warning" = "Warning";
 "Back" = "Back";
 "Successful" = "Successful";
+"Faild" = "Faild! \n Try Again...";
+
 //MARK :- Setting View Controller Strings
 "Language" = " Language ";
 "SwitchLanguage" = "Switch Language";

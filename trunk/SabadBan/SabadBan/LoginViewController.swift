@@ -58,6 +58,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         }
         txtPassword.delegate = self
         txtUserName.delegate = self
+        
 
     }
 
@@ -68,6 +69,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             UIView.animateWithDuration(1, delay: 0, options: .CurveEaseIn, animations: {
 
                 self.bottomConstraint.constant = keyboardSize.height
+                self.imgAppLogo.hidden = true
                 self.view.layoutIfNeeded()
                 }, completion: nil)
         }
@@ -76,7 +78,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
 
     func keyboardWillHide(notification: NSNotification) {
         UIView.animateWithDuration(1, delay: 0, options: .CurveEaseIn, animations: {
-
+            self.imgAppLogo.hidden = false
             self.bottomConstraint.constant = 100
             self.view.layoutIfNeeded()
             }, completion: nil)

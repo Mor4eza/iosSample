@@ -43,13 +43,13 @@ class SettingTableViewController: BaseTableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 
-        return 2
+        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if section == 1 {
-            return 1
+            return 0
         }
         return 0
     }

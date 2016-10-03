@@ -154,6 +154,16 @@ class SymbolListTableViewController: BaseTableViewController {
         }
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        if segue.identifier == "symbolDetailsSegue" {
+
+            let indexPath = self.tableView.indexPathForSelectedRow!
+
+            SelectedSymbolName = symbolDetailsList[indexPath.row].symbolNameFa
+        }
+    }
+
     //MARK: Actions
 
     func performSort(sender: UITapGestureRecognizer) {

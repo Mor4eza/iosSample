@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+
+
+
+        UITextField.appearance().keyboardAppearance = .Dark
+
         let defaults = NSUserDefaults.standardUserDefaults()
 
         if defaults.valueForKey("DefaultLanguage") == nil {
@@ -43,6 +48,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let pushNotificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
         application.registerUserNotificationSettings(pushNotificationSettings)
         application.registerForRemoteNotifications()
+
+
+        debugPrint("lunc \(launchOptions)")
+
+//        let storyboard = UIStoryboard(name: UIConstants.Main, bundle: nil)
+//        let vc = storyboard.instantiateViewControllerWithIdentifier(UIConstants.NewsTabBarController)
+//        window?.rootViewController = vc
+
 
         return true
     }
@@ -75,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Sandbox)
         FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Prod)
 
-        PushToken = FIRInstanceID.instanceID().token()!
+        PushToken = Strings.EmptyToken
         print("REAL_TOKEN: \(PushToken)")
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
         var tokenString = ""

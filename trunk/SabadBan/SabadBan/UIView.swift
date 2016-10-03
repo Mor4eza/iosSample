@@ -50,6 +50,10 @@ extension UITextField {
         }
 
     }
+
+    func setDefaultFont(){
+        self.font = UIFont(name: AppFontName_IranSans, size:self.font!.pointSize )
+    }
 }
 
 extension UITextView {

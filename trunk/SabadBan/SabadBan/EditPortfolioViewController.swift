@@ -95,6 +95,9 @@
             if editingStyle == .Delete {
                 // Delete the row from the data source
                 db.deleteSymbolFromPortfoi(symbolData[indexPath.row].sCode, pCode: db.getportfolioCodeByName(portfolioName))
+                let psCode = db.getPsCodeBySymbolCode(symbolData[indexPath.row].sCode, pCode: 1)
+                
+                db.deletePsBuybyPSCode(psCode)
                 symbolData.removeAtIndex(indexPath.row)
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
 
