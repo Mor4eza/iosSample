@@ -91,7 +91,7 @@ class DataBase{
             print("id: \(symbol[psCode]), pCode: \(symbol[symbolPCode]), \(symbol[symbolCode])")
             symbols.append(symbol[symbolCode])
         }
-        return symbols
+        return symbols as [String]
     }
 
     func getSymbolPSCode(sCode:String) -> Int {

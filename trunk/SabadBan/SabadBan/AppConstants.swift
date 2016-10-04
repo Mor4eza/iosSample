@@ -10,11 +10,13 @@ import UIKit
 
 public let LanguageChangedNotification = "languageChanged"
 public let NetworkErrorAlert = "networkError"
+public let TimeOutErrorAlert = "TimeOutError"
 public let BestBuyClosed = "BestBuyClosed"
 public let symbolSelected = "SYMBOL_SELECTED"
 public let PortfolioEdited = "PortfolioEdited"
 public let AppFontName_IranSans = "IRANSansMobileFaNum"
-public let AppTadbirUrl = "http://185.37.52.193:9090"
+//public let AppTadbirUrl = "http://185.37.52.193:9090"
+public let AppTadbirUrl = "http://108.61.50.250:9090"
 public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
 public let ServicesHeaders = ["Content-Type": "application/json"]
 
@@ -34,7 +36,7 @@ public let URLS:[String:String] =
 
 //MARK:- Constants
 public var SelectedIndexCode:String = ""
-public var SelectedSymbolCode:String = ""
+public var SelectedSymbolCode:Int64 = 0
 public var SelectedSymbolName:String = ""
 public var LoginToken:String = ""
 public var PushToken:String = ""

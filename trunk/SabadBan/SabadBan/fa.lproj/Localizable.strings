@@ -114,6 +114,7 @@
 
 //MARK: - Global String
 "noInternet" = "اتصال اینترنت برقرار نیست!";
+"ConnectionTimeOut" = "مدت زمان اتصال بیش از حد طول کشید! \n دوباره امتحان کنید...";
 
 //MARK: - Symbol Details
 "bestBuyTitle" = "سه مظنه برتر خرید";

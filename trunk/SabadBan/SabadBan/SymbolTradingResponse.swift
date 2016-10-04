@@ -26,7 +26,7 @@ public struct SymbolTradingResponse: Glossy {
 	public let sellPercentReal : Double!
 	public let sellVolumeLegal : Float!
 	public let sellVolumeReal : Float!
-	public let symbolCode : String!
+	public let symbolCode : Int64!
 	public let symbolCompleteNameFa : String!
 	public let symbolNameEn : String!
 	public let symbolNameFa : String!

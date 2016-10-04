@@ -19,8 +19,9 @@ class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate
         super.addMenuButton()
         isMore = true
         refreshControl = UIRefreshControl()
-        //        refreshControl!.attributedTitle = attrText
         refreshControl!.tintColor = UIColor.whiteColor()
+        self.tableView.contentOffset = CGPointMake(0, -self.refreshControl!.frame.size.height)
+
         refreshControl!.addTarget(self, action: #selector(BourseNewsTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
         sendBourseNewsRequest(servicePage)

@@ -22,7 +22,7 @@ public struct IndexDetailsList: Glossy {
 	public let closePrice : Float!
 	public let descriptionField : AnyObject!
 	public let highPrice : Float!
-	public let indexCode : String!
+	public let indexCode : Int64!
 	public let lowPrice : Float!
 	public let nameEn : String!
 	public let nameFa : String!

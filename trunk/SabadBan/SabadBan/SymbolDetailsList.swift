@@ -33,7 +33,7 @@ public struct SymbolDetailsList: Glossy {
 	public let openPrice : Float!
 	public let pe : Double!
 	public let status : String!
-	public let symbolCode : String!
+	public let symbolCode : Int64!
 	public let symbolCompleteNameFa : String!
 	public let symbolNameEn : String!
 	public let symbolNameFa : String!

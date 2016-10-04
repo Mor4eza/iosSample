@@ -30,6 +30,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     let addSymbol = KCFloatingActionButtonItem()
     let deletePortfolio = KCFloatingActionButtonItem()
     var searchableSymbols = Bool()
+    let refreshControl = UIRefreshControl()
     //    var refreshControll = UIRefreshControl!()
     @IBOutlet weak var tblPortfolio: UITableView!
     let nc = NSNotificationCenter.defaultCenter()
@@ -44,12 +45,24 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         getCurrentPortfolio()
         initNavigationTitle()
 
+        refreshControl.tintColor = UIColor.whiteColor()
+        self.tblPortfolio.contentOffset = CGPointMake(0, -self.refreshControl.frame.size.height)
+        refreshControl.addTarget(self, action: #selector(IndexTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.tblPortfolio.addSubview(refreshControl)
+
+
+
         initFAB()
         SwiftEventBus.onMainThread(self, name: BestBuyClosed) { result in
             self.loadSymbolsFromDb()
 
         }
 
+    }
+
+
+    func refresh(sender:AnyObject) {
+        loadSymbolsFromDb()
     }
 
     func showHintView(){
@@ -275,7 +288,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
                     for i in 0  ..< self.portfolios.count {
                         if(tField.text == self.portfolios[i]){
-                        Utils.ShowAlert(self, title:Strings.Attention.localized() , details: "نام پرتفوی تکراری است.",btnOkTitle:Strings.Ok.localized())
+                            Utils.ShowAlert(self, title:Strings.Attention.localized() , details: "نام پرتفوی تکراری است.",btnOkTitle:Strings.Ok.localized())
                             return
                         }
                     }
@@ -334,6 +347,8 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
     func getSymbolListData(symbols:[String]) {
 
+        refreshControl.beginRefreshing()
+
         let url = AppTadbirUrl + URLS["getSymbolListAndDetails"]!
 
         // JSON Body
@@ -347,13 +362,43 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
                 for i in 0  ..< symbols!.response.symbolDetailsList.count{
 
-                    self.smData.append(symData(name: symbols!.response.symbolDetailsList[i].symbolNameFa, baseValue: symbols!.response.symbolDetailsList[i].baseValue, benchmarkBuy: symbols!.response.symbolDetailsList[i].benchmarkBuy, benchmarkSales: symbols!.response.symbolDetailsList[i].benchmarkSales, buyValue: symbols!.response.symbolDetailsList[i].buyValue, closePrice: symbols!.response.symbolDetailsList[i].closePrice, closePriceChange: symbols!.response.symbolDetailsList[i].closePriceChange, closePriceYesterday: symbols!.response.symbolDetailsList[i].closePriceYesterday, descriptionField: symbols!.response.symbolDetailsList[i].descriptionField, eps: symbols!.response.symbolDetailsList[i].eps, highPrice: symbols!.response.symbolDetailsList[i].highPrice, lastTradeDate: symbols!.response.symbolDetailsList[i].lastTradeDate, lastTradePrice: symbols!.response.symbolDetailsList[i].lastTradePrice, lastTradePriceChange: symbols!.response.symbolDetailsList[i].lastTradePriceChange, lastTradePriceChangePercent: symbols!.response.symbolDetailsList[i].lastTradePriceChangePercent, lowPrice: symbols!.response.symbolDetailsList[i].lowPrice, marketValue: symbols!.response.symbolDetailsList[i].marketValue, openPrice: symbols!.response.symbolDetailsList[i].openPrice, pe: symbols!.response.symbolDetailsList[i].pe, status: symbols!.response.symbolDetailsList[i].status, symbolCode: symbols!.response.symbolDetailsList[i].symbolCode, symbolCompleteNameFa: symbols!.response.symbolDetailsList[i].symbolCompleteNameFa, symbolNameEn: symbols!.response.symbolDetailsList[i].symbolNameEn, symbolNameFa: symbols!.response.symbolDetailsList[i].symbolNameFa, todayPrice: symbols!.response.symbolDetailsList[i].todayPrice, todayProfit:self.getBuyData(symbols!.response.symbolDetailsList[i].symbolCode,price: symbols!.response.symbolDetailsList[i].lastTradePrice).today, totalProfit:self.getBuyData(symbols!.response.symbolDetailsList[i].symbolCode,price: symbols!.response.symbolDetailsList[i].closePrice).overAll, transactionNumber: symbols!.response.symbolDetailsList[i].transactionNumber, transactionVolume: symbols!.response.symbolDetailsList[i].transactionVolume))
+                    self.smData.append(symData(name: symbols!.response.symbolDetailsList[i].symbolNameFa,
+                        baseValue: symbols!.response.symbolDetailsList[i].baseValue,
+                        benchmarkBuy: symbols!.response.symbolDetailsList[i].benchmarkBuy,
+                        benchmarkSales: symbols!.response.symbolDetailsList[i].benchmarkSales,
+                        buyValue: symbols!.response.symbolDetailsList[i].buyValue,
+                        closePrice: symbols!.response.symbolDetailsList[i].closePrice,
+                        closePriceChange: symbols!.response.symbolDetailsList[i].closePriceChange,
+                        closePriceYesterday: symbols!.response.symbolDetailsList[i].closePriceYesterday,
+                        descriptionField: symbols!.response.symbolDetailsList[i].descriptionField,
+                        eps: symbols!.response.symbolDetailsList[i].eps,
+                        highPrice: symbols!.response.symbolDetailsList[i].highPrice,
+                        lastTradeDate: symbols!.response.symbolDetailsList[i].lastTradeDate,
+                        lastTradePrice: symbols!.response.symbolDetailsList[i].lastTradePrice,
+                        lastTradePriceChange: symbols!.response.symbolDetailsList[i].lastTradePriceChange,
+                        lastTradePriceChangePercent: symbols!.response.symbolDetailsList[i].lastTradePriceChangePercent,
+                        lowPrice: symbols!.response.symbolDetailsList[i].lowPrice,
+                        marketValue: symbols!.response.symbolDetailsList[i].marketValue,
+                        openPrice: symbols!.response.symbolDetailsList[i].openPrice,
+                        pe: symbols!.response.symbolDetailsList[i].pe,
+                        status: symbols!.response.symbolDetailsList[i].status,
+                        symbolCode: symbols!.response.symbolDetailsList[i].symbolCode,
+                        symbolCompleteNameFa: symbols!.response.symbolDetailsList[i].symbolCompleteNameFa,
+                        symbolNameEn: symbols!.response.symbolDetailsList[i].symbolNameEn,
+                        symbolNameFa: symbols!.response.symbolDetailsList[i].symbolNameFa,
+                        todayPrice: symbols!.response.symbolDetailsList[i].todayPrice,
+                        todayProfit:self.getBuyData(String(symbols!.response.symbolDetailsList[i].symbolCode),price: symbols!.response.symbolDetailsList[i].lastTradePrice).today,
+                        totalProfit:self.getBuyData(String(symbols!.response.symbolDetailsList[i].symbolCode),price: symbols!.response.symbolDetailsList[i].closePrice).overAll,
+                        transactionNumber: symbols!.response.symbolDetailsList[i].transactionNumber,
+                        transactionVolume: symbols!.response.symbolDetailsList[i].transactionVolume))
                 }
 
                 self.tblPortfolio.reloadData()
+                self.refreshControl.endRefreshing()
                 self.showHintView()
             } else {
-                debugPrint(error)
+                self.refreshControl.endRefreshing()
+                debugPrint("Error \(error)")
             }
             //                self.refreshControll?.endRefreshing()
         }
@@ -407,8 +452,10 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
             editController.portfolioName = currentPortfolio
             editController.portfolios = self.portfolios
-            for index in 0..<symbols.count {
-                editController.symbolData.append(symbolsDataForEdit(sName: smData[index].symbolNameFa, sNameEn: smData[index].symbolNameEn, sCode: smData[index].symbolCode))
+            if symbols.count != 0 {
+                for index in 0..<symbols.count {
+                    editController.symbolData.append(symbolsDataForEdit(sName: smData[index].symbolNameFa, sNameEn: smData[index].symbolNameEn, sCode: String(smData[index].symbolCode)))
+                }
             }
 
         }
@@ -427,7 +474,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         }
     }
 
-     //MARK:- AlertView Delegates
+    //MARK:- AlertView Delegates
 
     func FCAlertDoneButtonClicked(alertView: FCAlertView){
 
@@ -441,7 +488,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
 //MARK:- Symbol Data Model
 struct symData {
-
+    
     var name = String()
     var baseValue : Double!
     var benchmarkBuy : Double!
@@ -462,7 +509,7 @@ struct symData {
     var openPrice : Float!
     var pe : Double!
     var status : String!
-    var symbolCode : String!
+    var symbolCode : Int64!
     var symbolCompleteNameFa : String!
     var symbolNameEn : String!
     var symbolNameFa : String!
@@ -471,5 +518,5 @@ struct symData {
     var totalProfit : Double!
     var transactionNumber : Float!
     var transactionVolume : Float!
-
+    
 }

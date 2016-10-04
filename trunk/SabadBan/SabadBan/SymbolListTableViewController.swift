@@ -26,13 +26,10 @@ class SymbolListTableViewController: BaseTableViewController {
 
         tableView.registerNib(UINib(nibName: UIConstants.SymbolListHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.SymbolListHeader)
         self.tableView.tableFooterView = UIView()
-
-        //        let titleAttributes = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline), NSForegroundColorAttributeName: UIColor.whiteColor()]
-
-        //        let attrText = NSAttributedString(string: "Pull to Refresh", attributes: titleAttributes)
         refreshControl = UIRefreshControl()
-        //        refreshControl!.attributedTitle = attrText
         refreshControl!.tintColor = UIColor.whiteColor()
+        self.tableView.contentOffset = CGPointMake(0, -self.refreshControl!.frame.size.height)
+
         refreshControl!.addTarget(self, action: #selector(SymbolListTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
         getSymbolListByIndex()
@@ -82,6 +79,9 @@ class SymbolListTableViewController: BaseTableViewController {
     }
 
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if symbolDetailsList.count == 0 {
+            return 0
+        }
         return 50
     }
 

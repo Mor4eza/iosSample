@@ -22,7 +22,7 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView()
-        getSymbolList()
+
         self.title = Strings.SearchSymbol.localized()
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
@@ -33,6 +33,13 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
         self.tableView.tableHeaderView = searchController.searchBar
         self.navigationItem.rightBarButtonItem = nil
         self.navigationItem.leftBarButtonItem = nil
+        //Refresh Control
+        refreshControl = UIRefreshControl()
+        refreshControl!.tintColor = UIColor.whiteColor()
+        self.tableView.contentOffset = CGPointMake(0, -self.refreshControl!.frame.size.height)
+        refreshControl!.addTarget(self, action: #selector(IndexTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl!)
+
 
         let btnDone = UIButton()
         btnDone.setTitle("❌", forState: .Normal)
@@ -41,6 +48,12 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
         let rightBarButton = UIBarButtonItem(customView: btnDone)
         self.navigationItem.rightBarButtonItem = rightBarButton
 
+        getSymbolList()
+    }
+
+
+    func refresh(sender:AnyObject) {
+        getSymbolList()
     }
 
     func doneClicked()  {
@@ -106,9 +119,9 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
         var selected = String()
 
         if shouldShowSearchResults {
-            selected = filteredSymbol[indexPath.row].code
+            selected = String(filteredSymbol[indexPath.row].code)
         }else{
-            selected = symbolsData[indexPath.row].code
+            selected = String(symbolsData[indexPath.row].code)
         }
 
         for i in 0 ..< symbols.count {
@@ -170,6 +183,7 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
 
     func getSymbolList() {
 
+        refreshControl?.beginRefreshing()
         let url = AppTadbirUrl + URLS["getSymbolListAndDetails"]!
 
         // JSON Body
@@ -186,6 +200,7 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
                     }else if getAppLanguage() == Language.en.rawValue {
                         self.symbolsData.append(symbolData(name: symbols!.response.symbolDetailsList[i].symbolNameEn, fullName: symbols!.response.symbolDetailsList[i].symbolCompleteNameFa, code: symbols!.response.symbolDetailsList[i].symbolCode))
                     }
+                    self.refreshControl?.endRefreshing()
                     self.tableView.reloadData()
                 }
             } else {
@@ -195,36 +210,35 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
         }
     }
 
+    //MARK:- Seguei
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
         if identifier == UIConstants.symDetailsSegue {
-
+            
             if (!isSearch) {
-
+                
                 return false
-            }
-
-            else {
+            }else {
                 return true
             }
         }
-
+        
         // by default, transition
         return true
     }
 }
 
 struct symbolData {
-
+    
     var name = String()
     var fullName = String()
-    var code = String()
+    var code = Int64()
 }
 
 class smlCode: NSObject {
-    var code: String;
-
-    init(code: String) {
+    var code: Int64;
+    
+    init(code: Int64) {
         self.code = code;
     }
-
+    
 }
