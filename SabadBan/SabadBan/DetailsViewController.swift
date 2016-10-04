@@ -66,11 +66,15 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         indexDetailsRefreshControl = UIRefreshControl()
         //        refreshControl.attributedTitle = attrText
         indexDetailsRefreshControl.tintColor = UIColor.whiteColor()
+
+        self.tblDetails.contentOffset = CGPointMake(0, -self.indexDetailsRefreshControl!.frame.size.height)
         indexDetailsRefreshControl.addTarget(self, action: #selector(DetailsViewController.refreshIndexDetails(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tblDetails.addSubview(indexDetailsRefreshControl)
 
         marketDetailsRefreshControl = UIRefreshControl()
         marketDetailsRefreshControl.tintColor = UIColor.whiteColor()
+        self.tblMarketDetail.contentOffset = CGPointMake(0, -self.marketDetailsRefreshControl!.frame.size.height)
+
         marketDetailsRefreshControl.addTarget(self, action: #selector(DetailsViewController.refreshMarketDetails(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tblMarketDetail.addSubview(marketDetailsRefreshControl)
 

@@ -46,7 +46,7 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
         btnPrice.setTitle(String(price), forState: .Normal)
         btnCount.setTitle("", forState: .Normal)
         btnDone.setTitle(Strings.Submit.localized(), forState: .Normal)
-        PsBuyCode = db.getPsCodeBySymbolCode(SelectedSymbolCode, pCode: portfolioCode)
+        PsBuyCode = db.getPsCodeBySymbolCode(String(SelectedSymbolCode), pCode: portfolioCode)
         let blurEffect = UIBlurEffect(style: .Light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.view.frame

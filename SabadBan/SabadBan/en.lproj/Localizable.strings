@@ -114,7 +114,7 @@
 
 //MARK: - Global String
 "noInternet" = "No Internet connection";
-
+"ConnectionTimeOut" = "Connection TimeOut! \n try again...";
 //MARK: - Symbol Details
 "bestBuyTitle" = "bestBuyTitle";
 "bestSellTitle" = "bestSellTitle";

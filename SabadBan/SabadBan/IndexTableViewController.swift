@@ -8,12 +8,12 @@
 
 import UIKit
 import Alamofire
-class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
+class IndexTableViewController: BaseTableViewController {
 
     var indexNames = [String]()
     var indexPrice = [Double]()
     var indexPercent = [Double]()
-    var indexCode = [String]()
+    var indexCode = [Int64]()
     var selectedIndexCode = String()
     var selectedIndexName = String()
     override func viewDidLoad() {
@@ -23,13 +23,13 @@ class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
         tableView.registerNib(UINib(nibName: UIConstants.IndexHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.IndexHeader)
 
         self.tableView.tableFooterView = UIView()
-
-        //        let titleAttributes = [NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline), NSForegroundColorAttributeName: UIColor.whiteColor()]
-
-        //        let attrText = NSAttributedString(string: "Pull to Refresh", attributes: titleAttributes)
         refreshControl = UIRefreshControl()
-        //        refreshControl!.attributedTitle = attrText
         refreshControl!.tintColor = UIColor.whiteColor()
+
+        self.tableView.contentOffset = CGPointMake(0, -self.refreshControl!.frame.size.height)
+
+
+       
         refreshControl!.addTarget(self, action: #selector(IndexTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
         getIndexList()
@@ -68,6 +68,9 @@ class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
     }
 
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if (indexNames.count == 0){
+            return 0
+        }
         return 50
     }
 
@@ -86,21 +89,13 @@ class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedIndexCode = indexCode[indexPath.row]
+        selectedIndexCode = String(indexCode[indexPath.row])
         selectedIndexName = indexNames[indexPath.row]
 
     }
 
     func setTexts(){
         self.title = Strings.appName.localized()
-    }
-
-    func dialogOkButtonClicked() {
-        debugPrint("ok Clicked")
-
-    }
-    func dialogCancelButtonClicked() {
-        debugPrint("cancel Clicked")
     }
 
     // MARK: - Service
@@ -147,7 +142,7 @@ class IndexTableViewController: BaseTableViewController ,DialogClickDelegate{
 
             let currentCell = self.tableView.cellForRowAtIndexPath(indexPath)! as! IndexCell
 
-            SelectedIndexCode = indexCode[indexPath.row]
+            SelectedIndexCode = String(indexCode[indexPath.row])
             let svc = segue.destinationViewController as! IndexDetailsTabBarController;
             svc.selectedIndexName = currentCell.lblIndexName.text!
 

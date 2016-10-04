@@ -20,7 +20,16 @@ class BaseTableViewController: UITableViewController {
         addMenuButton()
         self.setFontFamily(AppFontName_IranSans, forView: self.view, andSubViews: true)
         self.tableView.backgroundColor = AppMainColor
-        // Do any additional setup after loading the view.
+
+
+        SwiftEventBus.onMainThread(self, name: NetworkErrorAlert) { result in
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.noInternet.localized())
+        }
+        SwiftEventBus.onMainThread(self, name: TimeOutErrorAlert) { result in
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.ConnectionTimeOut.localized())
+        }
+
+
     }
 
     func addMenuButton() {
@@ -42,6 +51,13 @@ class BaseTableViewController: UITableViewController {
     func openMenu() {
         self.toggleSideMenuView()
     }
+
+
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        SwiftEventBus.unregister(self)
+    }
+
 
     // MARK: - TableView Delegates
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {

@@ -118,7 +118,7 @@ struct Strings {
     //MARK: - Global String
     
     static let noInternet = "noInternet"
-    
+    static let ConnectionTimeOut = "ConnectionTimeOut"
     //MARK: - Symbol Details
     static let bestBuyTitle = "bestBuyTitle"
     static let bestSellTitle = "bestSellTitle"

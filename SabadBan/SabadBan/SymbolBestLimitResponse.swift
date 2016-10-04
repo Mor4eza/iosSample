@@ -15,7 +15,7 @@ import Gloss
 public struct SymbolBestLimitResponse: Glossy {
 
 	public let bestLimitDataList : [BestLimitDataList]!
-	public let symbolCode : String!
+	public let symbolCode : Int64!
 
 	//MARK: Decodable
 	public init?(json: JSON){

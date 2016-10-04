@@ -9,7 +9,7 @@
 import UIKit
 import SwiftEventBus
 import FCAlertView
-class BaseViewController: UIViewController,ENSideMenuDelegate,DialogClickDelegate {
+class BaseViewController: UIViewController,ENSideMenuDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,10 @@ class BaseViewController: UIViewController,ENSideMenuDelegate,DialogClickDelegat
         // Do any additional setup after loading the view.
 
         SwiftEventBus.onMainThread(self, name: NetworkErrorAlert) { result in
-            self.showNetworkAlert(Strings.noInternet)
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.noInternet.localized())
+        }
+        SwiftEventBus.onMainThread(self, name: TimeOutErrorAlert) { result in
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.ConnectionTimeOut.localized())
         }
     }
 
@@ -33,20 +36,6 @@ class BaseViewController: UIViewController,ENSideMenuDelegate,DialogClickDelegat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    func showNetworkAlert(message : String) {
-
-        let alert = FCAlertView()
-        alert.makeAlertTypeCaution()
-        alert.colorScheme = UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1)
-        alert.showAlertInView(self,
-                              withTitle: Strings.Attention.localized(),
-                              withSubtitle: message.localized(),
-                              withCustomImage: nil,
-                              withDoneButtonTitle: Strings.Ok.localized(),
-                              andButtons: nil)
-    }
-
     func addMenuButton() {
         self.navigationItem.rightBarButtonItem = nil
         self.navigationItem.leftBarButtonItem = nil
@@ -72,11 +61,5 @@ class BaseViewController: UIViewController,ENSideMenuDelegate,DialogClickDelegat
         SwiftEventBus.unregister(self)
     }
 
-    func dialogOkButtonClicked(){
 
-    }
-
-    func dialogCancelButtonClicked(){
-
-    }
 }

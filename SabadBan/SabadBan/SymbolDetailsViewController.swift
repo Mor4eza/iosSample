@@ -71,9 +71,9 @@ class SymbolDetailsViewController: BaseTableViewController {
         super.viewDidLoad()
         setUpViews()
         debugPrint("selected: \(SelectedSymbolCode)")
-        getSymbolBestLimitService(SelectedSymbolCode)
-        getSymbolTradingDetailsService(SelectedSymbolCode)
-        getSymbolListData([SelectedSymbolCode])
+        getSymbolBestLimitService(String(SelectedSymbolCode))
+        getSymbolTradingDetailsService(String(SelectedSymbolCode))
+        getSymbolListData([String(SelectedSymbolCode)])
     }
 
     // MARK: - Table view data source

@@ -88,7 +88,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Sandbox)
         FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Prod)
 
-        PushToken = Strings.EmptyToken
+
+        if FIRInstanceID.instanceID().token() != nil {
+            PushToken = FIRInstanceID.instanceID().token()!
+        }else {
+            PushToken = Strings.EmptyToken
+        }
         print("REAL_TOKEN: \(PushToken)")
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
         var tokenString = ""
