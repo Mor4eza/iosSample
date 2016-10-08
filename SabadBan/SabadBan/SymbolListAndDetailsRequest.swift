@@ -13,13 +13,15 @@ public struct SymbolListAndDetailsRequest {
     let recordPerPage : Int!
     let symbolCode : [String]!
     let supportPaging : Bool!
+    let language :String!
 
     func getDic() -> [String : AnyObject] {
         let dic = [
             "pageNumber": pageNumber,
             "recordPerPage": recordPerPage,
             "symbolCode": symbolCode,
-            "supportPaging": supportPaging
+            "supportPaging": supportPaging,
+            "language": language
         ]
         return dic as! [String : AnyObject]
     }

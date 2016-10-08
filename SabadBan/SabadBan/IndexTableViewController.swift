@@ -25,11 +25,7 @@ class IndexTableViewController: BaseTableViewController {
         self.tableView.tableFooterView = UIView()
         refreshControl = UIRefreshControl()
         refreshControl!.tintColor = UIColor.whiteColor()
-
         self.tableView.contentOffset = CGPointMake(0, -self.refreshControl!.frame.size.height)
-
-
-       
         refreshControl!.addTarget(self, action: #selector(IndexTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
         getIndexList()
@@ -59,8 +55,9 @@ class IndexTableViewController: BaseTableViewController {
             cell.imgIndex.image = UIImage(named: UIConstants.icDecrease)
         }
         let price:NSNumber = indexPrice[indexPath.row]
+        let percent:NSNumber = indexPercent[indexPath.row]
         cell.lblIndexCount.text = price.currencyFormat(2)
-        cell.lblIndexPercent.text = "%" + indexPercent[indexPath.row].currencyFormat(2)
+        cell.lblIndexPercent.text = "%" + percent.currencyFormat(2)
         cell.lblIndexName.sizeToFit()
         cell.lblIndexCount.sizeToFit()
 
@@ -95,7 +92,7 @@ class IndexTableViewController: BaseTableViewController {
     }
 
     func setTexts(){
-        self.title = Strings.appName.localized()
+        self.title = Strings.Index.localized()
     }
 
     // MARK: - Service
@@ -106,7 +103,7 @@ class IndexTableViewController: BaseTableViewController {
         // Add Headers
 
         // JSON Body
-        let body = IndexDetailsRequest(timeFrameType: TimeFrameType.day, indexCode: "0").getDic()
+        let body = IndexDetailsRequest(timeFrameType: TimeFrameType.day, indexCode: "0",language: getAppLanguage()).getDic()
 
         // Fetch Request
         Request.postData(url, body: body) { (indexs:MainResponse<Response>?, error) in
@@ -117,7 +114,7 @@ class IndexTableViewController: BaseTableViewController {
                 self.indexPrice.removeAll()
                 self.indexPercent.removeAll()
                 for i in 0  ..< indexs!.response.indexDetailsList.count{
-                    self.indexNames.append(indexs!.response.indexDetailsList[i].nameFa)
+                    self.indexNames.append(indexs!.response.indexDetailsList[i].shortName)
                     self.indexPrice.append(Double(indexs!.response.indexDetailsList[i].closePrice))
                     self.indexPercent.append(indexs!.response.indexDetailsList[i].changePricePercentOnSameTime)
                     self.indexCode.append(indexs!.response.indexDetailsList[i].indexCode)

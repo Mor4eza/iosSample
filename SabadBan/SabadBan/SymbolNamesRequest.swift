@@ -1,28 +1,26 @@
 //
-//  SymbolListByIndexRequest.swift
+//  SymbolNamesRequest.swift
 //  SabadBan
 //
-//  Created by PC22 on 9/26/16.
+//  Created by Morteza Gharedaghi on 10/5/16.
 //  Copyright © 2016 Sefr Yek. All rights reserved.
 //
 
 import Foundation
 
-public struct SymbolListByIndexRequest {
+public struct SymbolNamesRequest {
     let pageNumber : Int!
     let recordPerPage : Int!
-    let indexCode : String!
+    let symbolCode : [String]!
     let supportPaging : Bool!
-    let timeFrameType : Int!
-    let language : String!
+    let language:String!
 
     func getDic() -> [String : AnyObject] {
         let dic = [
             "pageNumber": pageNumber,
             "recordPerPage": recordPerPage,
-            "indexCode": indexCode,
+            "symbolCode": symbolCode,
             "supportPaging": supportPaging,
-            "timeFrameType": timeFrameType,
             "language": language
         ]
         return dic as! [String : AnyObject]

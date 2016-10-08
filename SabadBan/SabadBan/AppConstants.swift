@@ -15,10 +15,13 @@ public let BestBuyClosed = "BestBuyClosed"
 public let symbolSelected = "SYMBOL_SELECTED"
 public let PortfolioEdited = "PortfolioEdited"
 public let AppFontName_IranSans = "IRANSansMobileFaNum"
-//public let AppTadbirUrl = "http://185.37.52.193:9090"
-public let AppTadbirUrl = "http://108.61.50.250:9090"
+//public let AppTadbirUrl = "http://185.37.52.193:9090" //Server 6
+public let AppTadbirUrl = "http://108.61.50.250:9090" //Server Tadbir
+//public let AppTadbirUrl = "http://192.168.1.201:9090" //Local
 public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
 public let ServicesHeaders = ["Content-Type": "application/json"]
+public let GuestUserName = "1@1.com"
+public let GuestPassword = "12345678"
 
 //MARK: - Urls
 public let URLS:[String:String] =
@@ -29,6 +32,7 @@ public let URLS:[String:String] =
      "getSymbolTradingDetails":"/services/getSymbolTradingDetails",
      "getNewsListAndDetails" : "/services/getNewsListAndDetails",
      "getMarketActivity" : "/services/getMarketActivity",
+     "getSymbolNameList" : "/services/getSymbolNameList",
      "getBourseNews" : "/api/v1/news/get",
      "login" : "/api/v1/auth/login",
      "register" : "/api/v1/auth/register",

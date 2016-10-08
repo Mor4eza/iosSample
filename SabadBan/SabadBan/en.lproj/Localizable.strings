@@ -93,6 +93,7 @@
 "Password" = "Password";
 "RememberMe" = "Remember Me!";
 "Login" = "Login";
+"GuestLogin" = "Guest Login";
 "Register" = "Register";
 "ForgetPassword" = "Forget Password?!";
 "Tell" = "Phone Number";
@@ -136,5 +137,8 @@
 "EmailMessage" = "EmailMessage";
 "Send" = "Send";
 "ContactInfo" = "ContactInfo";
+"pleaseEnterName" = "Please Enter Your Name!";
+"pleaseEnterSubject" = "Please Enter Message Subject";
+"pleaseEnterDetails" = "Please Enter Message Description";
 
 

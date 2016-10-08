@@ -22,7 +22,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     var smData = [symData]()
     var selectedSymbolCode = String()
     var menuView:BTNavigationDropdownMenu!
-    var selectedSymbolPrice = Float()
+    var selectedSymbolPrice = Double()
     var fab = KCFloatingActionButton()
     let addPortfolio = KCFloatingActionButtonItem()
     let editPortfolio = KCFloatingActionButtonItem()
@@ -132,7 +132,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.portfolioCell, forIndexPath: indexPath) as! portfolioCell
 
-        cell.lblSymbolValue.text = smData[indexPath.row].symbolNameFa
+        cell.lblSymbolValue.text = smData[indexPath.row].symbolShortName
         cell.lblLastPriceValue.text = smData[indexPath.row].closePrice.currencyFormat(2)
         cell.lblBuyQuotValue.text = smData[indexPath.row].benchmarkBuy.currencyFormat(2)
         cell.lblSellQuotValue.text = smData[indexPath.row].benchmarkSales.currencyFormat(2)
@@ -171,7 +171,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?  {
         // 1
         let buyInformation = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: Strings.BuyInformation.localized() , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-            SelectedSymbolName = self.smData[indexPath.row].symbolNameFa
+            SelectedSymbolName = self.smData[indexPath.row].symbolShortName
             SelectedSymbolCode = self.smData[indexPath.row].symbolCode
             self.selectedSymbolPrice = self.smData[indexPath.row].lastTradePrice
             self.performSegueWithIdentifier(UIConstants.buyInfoSegue, sender: nil)
@@ -352,7 +352,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         let url = AppTadbirUrl + URLS["getSymbolListAndDetails"]!
 
         // JSON Body
-        let body = SymbolListAndDetailsRequest(pageNumber: 0, recordPerPage: 0, symbolCode: symbols, supportPaging: false).getDic()
+        let body = SymbolListAndDetailsRequest(pageNumber: 0, recordPerPage: 0, symbolCode: symbols, supportPaging: false,language: getAppLanguage()).getDic()
 
         // Fetch Request
         Request.postData(url, body: body) { (symbols:MainResponse<SymbolListModelResponse>?, error)  in
@@ -362,35 +362,20 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
                 for i in 0  ..< symbols!.response.symbolDetailsList.count{
 
-                    self.smData.append(symData(name: symbols!.response.symbolDetailsList[i].symbolNameFa,
-                        baseValue: symbols!.response.symbolDetailsList[i].baseValue,
-                        benchmarkBuy: symbols!.response.symbolDetailsList[i].benchmarkBuy,
-                        benchmarkSales: symbols!.response.symbolDetailsList[i].benchmarkSales,
-                        buyValue: symbols!.response.symbolDetailsList[i].buyValue,
+                    self.smData.append(symData(benchmarkBuy: symbols!.response.symbolDetailsList[i].benchmarkBuy,
+                        benchmarkSales:  symbols!.response.symbolDetailsList[i].benchmarkSales,
                         closePrice: symbols!.response.symbolDetailsList[i].closePrice,
                         closePriceChange: symbols!.response.symbolDetailsList[i].closePriceChange,
-                        closePriceYesterday: symbols!.response.symbolDetailsList[i].closePriceYesterday,
-                        descriptionField: symbols!.response.symbolDetailsList[i].descriptionField,
-                        eps: symbols!.response.symbolDetailsList[i].eps,
-                        highPrice: symbols!.response.symbolDetailsList[i].highPrice,
-                        lastTradeDate: symbols!.response.symbolDetailsList[i].lastTradeDate,
                         lastTradePrice: symbols!.response.symbolDetailsList[i].lastTradePrice,
-                        lastTradePriceChange: symbols!.response.symbolDetailsList[i].lastTradePriceChange,
-                        lastTradePriceChangePercent: symbols!.response.symbolDetailsList[i].lastTradePriceChangePercent,
-                        lowPrice: symbols!.response.symbolDetailsList[i].lowPrice,
-                        marketValue: symbols!.response.symbolDetailsList[i].marketValue,
-                        openPrice: symbols!.response.symbolDetailsList[i].openPrice,
-                        pe: symbols!.response.symbolDetailsList[i].pe,
-                        status: symbols!.response.symbolDetailsList[i].status,
+                        status:  symbols!.response.symbolDetailsList[i].status,
                         symbolCode: symbols!.response.symbolDetailsList[i].symbolCode,
-                        symbolCompleteNameFa: symbols!.response.symbolDetailsList[i].symbolCompleteNameFa,
-                        symbolNameEn: symbols!.response.symbolDetailsList[i].symbolNameEn,
-                        symbolNameFa: symbols!.response.symbolDetailsList[i].symbolNameFa,
-                        todayPrice: symbols!.response.symbolDetailsList[i].todayPrice,
-                        todayProfit:self.getBuyData(String(symbols!.response.symbolDetailsList[i].symbolCode),price: symbols!.response.symbolDetailsList[i].lastTradePrice).today,
-                        totalProfit:self.getBuyData(String(symbols!.response.symbolDetailsList[i].symbolCode),price: symbols!.response.symbolDetailsList[i].closePrice).overAll,
-                        transactionNumber: symbols!.response.symbolDetailsList[i].transactionNumber,
-                        transactionVolume: symbols!.response.symbolDetailsList[i].transactionVolume))
+                        symbolCompleteName: symbols!.response.symbolDetailsList[i].symbolCompleteName,
+                        symbolShortName: symbols!.response.symbolDetailsList[i].symbolShortName,
+                        todayProfit: self.getBuyData(String(symbols!.response.symbolDetailsList[i].symbolCode),price: Float(symbols!.response.symbolDetailsList[i].lastTradePrice)).today,
+                        totalProfit: self.getBuyData(String(symbols!.response.symbolDetailsList[i].symbolCode),price: Float(symbols!.response.symbolDetailsList[i].closePrice)).overAll))
+
+
+
                 }
 
                 self.tblPortfolio.reloadData()
@@ -434,7 +419,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
             let indexPath = tblPortfolio.indexPathForSelectedRow!
 
-            SelectedSymbolName = smData[indexPath.row].symbolNameFa
+            SelectedSymbolName = smData[indexPath.row].symbolShortName
 
             let backItem = UIBarButtonItem()
             backItem.title = Strings.Back.localized()
@@ -454,7 +439,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             editController.portfolios = self.portfolios
             if symbols.count != 0 {
                 for index in 0..<symbols.count {
-                    editController.symbolData.append(symbolsDataForEdit(sName: smData[index].symbolNameFa, sNameEn: smData[index].symbolNameEn, sCode: String(smData[index].symbolCode)))
+                    editController.symbolData.append(symbolsDataForEdit(sName: smData[index].symbolShortName, sNameEn: smData[index].symbolShortName, sCode: String(smData[index].symbolCode)))
                 }
             }
 
@@ -463,7 +448,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
             let buyInfo = segue.destinationViewController as! BuyInfoViewController
             buyInfo.portfolioCode = db.getportfolioCodeByName(currentPortfolio)
-            buyInfo.price = self.selectedSymbolPrice
+            buyInfo.price = Float(self.selectedSymbolPrice)
 
         }
         if segue.identifier == UIConstants.searchSeguei {
@@ -488,35 +473,19 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
 //MARK:- Symbol Data Model
 struct symData {
-    
-    var name = String()
-    var baseValue : Double!
+
     var benchmarkBuy : Double!
     var benchmarkSales : Double!
-    var buyValue : Double!
-    var closePrice : Float!
+    var closePrice : Double!
     var closePriceChange : Double!
-    var closePriceYesterday : Float!
-    var descriptionField : AnyObject!
-    var eps : Double!
-    var highPrice : Float!
-    var lastTradeDate : String!
-    var lastTradePrice : Float!
-    var lastTradePriceChange : Float!
-    var lastTradePriceChangePercent : Double!
-    var lowPrice : Float!
-    var marketValue : Double!
-    var openPrice : Float!
-    var pe : Double!
+    var lastTradePrice : Double!
     var status : String!
     var symbolCode : Int64!
-    var symbolCompleteNameFa : String!
-    var symbolNameEn : String!
-    var symbolNameFa : String!
-    var todayPrice : Double!
+    var symbolCompleteName : String!
+    var symbolShortName : String!
     var todayProfit : Double!
     var totalProfit : Double!
-    var transactionNumber : Float!
-    var transactionVolume : Float!
+
     
+
 }

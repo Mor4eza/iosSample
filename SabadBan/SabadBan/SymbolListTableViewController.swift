@@ -56,7 +56,7 @@ class SymbolListTableViewController: BaseTableViewController {
 
         let tempVol = Double(symbolDetailsList[indexPath.row].transactionVolume)
         let tempLastTrader = Int(symbolDetailsList[indexPath.row].lastTradePriceChange)
-        cell.lblName.text = symbolDetailsList[indexPath.row].symbolNameFa
+        cell.lblName.text = symbolDetailsList[indexPath.row].symbolShortName
         cell.lblLastTrade.text = symbolDetailsList[indexPath.row].lastTradePrice.currencyFormat(2)
         cell.lblLastTradeChanges.text = abs(tempLastTrader).currencyFormat(2)
         cell.lblVolume.text = tempVol.suffixNumber()
@@ -135,7 +135,7 @@ class SymbolListTableViewController: BaseTableViewController {
         let url = AppTadbirUrl + URLS["getSymbolListByIndex"]!
 
         // JSON Body
-        let body = SymbolListByIndexRequest(pageNumber: 0, recordPerPage: 0, indexCode: SelectedIndexCode, supportPaging: false, timeFrameType: TimeFrameType.day.rawValue).getDic()
+        let body = SymbolListByIndexRequest(pageNumber: 0, recordPerPage: 0, indexCode: SelectedIndexCode, supportPaging: false, timeFrameType: TimeFrameType.day.rawValue,language: getAppLanguage()).getDic()
 
         // Fetch Request
         Request.postData(url, body: body) { (symbols:MainResponse<SymbolListByIndexResponse>?, error) in
@@ -160,7 +160,7 @@ class SymbolListTableViewController: BaseTableViewController {
 
             let indexPath = self.tableView.indexPathForSelectedRow!
 
-            SelectedSymbolName = symbolDetailsList[indexPath.row].symbolNameFa
+            SelectedSymbolName = symbolDetailsList[indexPath.row].symbolShortName
         }
     }
 
@@ -226,21 +226,21 @@ class SymbolListTableViewController: BaseTableViewController {
                 rotateWithAnimation(sortImg, angle: M_PI)
                 self.symbolSortCondiiton = .decending
                 self.symbolDetailsList.sortInPlace({
-                    return persianStringCompare($1.symbolNameFa, value2: $0.symbolNameFa)
+                    return persianStringCompare($1.symbolShortName, value2: $0.symbolShortName)
                 })
                 break
             case .decending:
                 rotateWithAnimation(sortImg, angle: 0)
                 self.symbolSortCondiiton = .accending
                 self.symbolDetailsList.sortInPlace({
-                    return persianStringCompare($0.symbolNameFa, value2: $1.symbolNameFa)
+                    return persianStringCompare($0.symbolShortName, value2: $1.symbolShortName)
                 })
                 break
             case .accending:
                 rotateWithAnimation(sortImg, angle: M_PI)
                 self.symbolSortCondiiton = .decending
                 self.symbolDetailsList.sortInPlace({
-                    return persianStringCompare($1.symbolNameFa, value2: $0.symbolNameFa)
+                    return persianStringCompare($1.symbolShortName, value2: $0.symbolShortName)
                 })
                 break
             }

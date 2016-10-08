@@ -9,7 +9,7 @@
 
 import UIKit
 import Alamofire
-class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate ,UITextViewDelegate,UITextFieldDelegate{
 
 
 
@@ -25,16 +25,21 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var lblSubject: UITextField!
 
 
-    @IBOutlet weak var lblDetails: UITextField!
+    @IBOutlet weak var lblDetails: UITextView!
 
     @IBOutlet weak var btnSend: UIButton!
 
+    @IBOutlet weak var btnDelete: UIButton!
     @IBOutlet weak var btnInfo: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         super.addMenuButton()
         initViews()
         imagePicker.delegate = self
+        lblDetails.delegate = self
+        lblName.delegate = self
+        lblEmail.delegate = self
+        lblSubject.delegate = self
 
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(CallUsViewController.imageTapped(_:)))
         imgCrash.userInteractionEnabled = true
@@ -55,6 +60,7 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imgCrash.contentMode = .ScaleAspectFit
             imgCrash.image = pickedImage
+            btnDelete.hidden = false
         }
 
         dismissViewControllerAnimated(true, completion: nil)
@@ -76,15 +82,35 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
         lblName.placeholder = Strings.SenderName.localized()
         lblEmail.placeholder = Strings.SenderEmail.localized()
         lblSubject.placeholder = Strings.EmailSubject.localized()
-        lblDetails.placeholder = Strings.EmailMessage.localized()
+        lblDetails.text = Strings.EmailMessage.localized()
+        lblName.setDefaultFont()
+        lblEmail.setDefaultFont()
+        lblSubject.setDefaultFont()
+        lblDetails.textColor = UIColor.lightGrayColor()
         lblName.text = ""
-        lblEmail.text = ""
         lblSubject.text = ""
-        lblDetails.text = ""
+        lblEmail.text = ""
+        lblDetails.textAlignment = .Center
         btnSend.setTitle(Strings.Send.localized(), forState: .Normal)
         btnInfo.setTitle(Strings.ContactInfo.localized(), forState: .Normal)
         self.title = Strings.ContactUs.localized()
+        imgCrash.image = UIImage(named: UIConstants.selectPicture )
+        lblDetails.keyboardAppearance = .Dark
+        btnDelete.hidden = true
+
     }
+
+
+    func showAlert(message : String) {
+
+        Utils.ShowAlert(self,
+                        title: Strings.Attention.localized(),
+                        details: message.localized(),
+                        btnOkTitle: Strings.Ok.localized()
+        )
+    }
+
+
 
     @IBAction func btnSendTap(sender: AnyObject) {
 
@@ -93,19 +119,64 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
             imageData = imgCrash.image!
         }
 
-        sendInformation(lblName.text!,
-                        Cemail: lblEmail.text!,
-                        Csubject: lblSubject.text!,
-                        Cmessage: lblDetails.text!,
-                        Cimage:imageData )
+        if lblName.text == "" {
+            showAlert(Strings.pleaseEnterName)
+        } else if (!lblEmail.text!.isValidEmail()) {
+            showAlert(Strings.emailInvalid)
+        } else if lblSubject.text == "" {
+            showAlert(Strings.pleaseEnterSubject)
+        } else if lblDetails.text == "" {
+            showAlert(Strings.pleaseEnterDetails)
+        }
+        else {
+            sendInformation(lblName.text!,
+                            Cemail: lblEmail.text!,
+                            Csubject: lblSubject.text!,
+                            Cmessage: lblDetails.text!,
+                            Cimage:imageData )
+        }
 
+    }
+
+    @IBAction func btnDeleteTap(sender: AnyObject) {
+        imgCrash.image = UIImage(named: UIConstants.selectPicture)
+        btnDelete.hidden = true
     }
 
     @IBAction func btnInfoTap(sender: AnyObject) {
-        
+
     }
 
+    //MARK:- TextFeilds Delegates
 
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.textColor == UIColor.lightGrayColor() {
+            textView.text = nil
+            textView.textColor = UIColor.blackColor()
+        }
+        textView.textAlignment = .Natural
+    }
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = Strings.EmailMessage.localized()
+            textView.textColor = UIColor.lightGrayColor()
+            textView.textAlignment = .Center
+        }
+
+    }
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        if textField == lblName {
+            lblEmail.becomeFirstResponder()
+        } else if textField == lblEmail {
+            lblSubject.becomeFirstResponder()
+        }else if textField == lblSubject {
+            lblDetails.becomeFirstResponder()
+        }
+
+        return true
+    }
 
     //MARK:- Send Data
 

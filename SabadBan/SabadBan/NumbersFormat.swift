@@ -20,11 +20,11 @@ extension NSNumber {
         var decimalPart = self as Double
         decimalPart = decimalPart - Double(Int(decimalPart))
 
-        if (decimalPart == 0) {
-            formatter.minimumFractionDigits = 0
-        } else {
-            formatter.minimumFractionDigits = 1
-        }
+//        if (decimalPart == 0) {
+//            formatter.minimumFractionDigits = 0
+//        } else {
+//            formatter.minimumFractionDigits = 1
+//        }
 
         formatter.maximumFractionDigits = decimalDigits
         let priceString = formatter.stringFromNumber(self)

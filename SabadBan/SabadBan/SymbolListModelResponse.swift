@@ -14,42 +14,33 @@ import Gloss
 //MARK: - Response
 public struct SymbolListModelResponse: Glossy {
 
-    public let indexCode : String!
-    public let indexNameEn : AnyObject!
-    public let indexNameFa : AnyObject!
     public let pageNumber : Int!
     public let recordPerPage : Int!
     public let supportPaging : Bool!
     public let symbolDetailsList : [SymbolDetailsList]!
-    public let timeFrameType : String!
     public let totalPages : Int!
+
+
 
     //MARK: Decodable
     public init?(json: JSON){
-        indexCode = "indexCode" <~~ json
-        indexNameEn = "indexNameEn" <~~ json
-        indexNameFa = "indexNameFa" <~~ json
         pageNumber = "pageNumber" <~~ json
         recordPerPage = "recordPerPage" <~~ json
         supportPaging = "supportPaging" <~~ json
         symbolDetailsList = "symbolDetailsList" <~~ json
-        timeFrameType = "timeFrameType" <~~ json
         totalPages = "totalPages" <~~ json
     }
+
 
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "indexCode" ~~> indexCode,
-            "indexNameEn" ~~> indexNameEn,
-            "indexNameFa" ~~> indexNameFa,
             "pageNumber" ~~> pageNumber,
             "recordPerPage" ~~> recordPerPage,
             "supportPaging" ~~> supportPaging,
             "symbolDetailsList" ~~> symbolDetailsList,
-            "timeFrameType" ~~> timeFrameType,
             "totalPages" ~~> totalPages,
             ])
     }
-
+    
 }
