@@ -23,6 +23,7 @@ struct Strings {
     static let Successful = "Successful"
     static let Faild = "Faild"
     static let EmptyToken = "EmptyToken"
+    static let SimulatorPushToken = "IOS_RUNNING_FROM_SIMULATOR"
     //MARK :- Setting View Controller Strings
     
     static let Language = "Language"
@@ -97,6 +98,7 @@ struct Strings {
     static let Password = "Password"
     static let RememberMe = "RememberMe"
     static let Login = "Login"
+    static let GuestLogin = "GuestLogin"
     static let Register = "Register"
     static let ForgetPassword = "ForgetPassword"
     static let Tell = "Tell"
@@ -140,4 +142,7 @@ struct Strings {
     static let EmailMessage = "EmailMessage"
     static let Send = "Send"
     static let ContactInfo = "ContactInfo"
+    static let pleaseEnterName = "pleaseEnterName"
+    static let pleaseEnterSubject = "pleaseEnterSubject"
+    static let pleaseEnterDetails = "pleaseEnterDetails"
 }

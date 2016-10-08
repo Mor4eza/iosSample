@@ -26,9 +26,10 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
 
     @IBOutlet weak var btnRegister: UIButton!
 
+    @IBOutlet weak var btnGuestLogin: UIButton!
     @IBOutlet weak var btnForgetPass: UIButton!
-    var successLogin = false
-    var defaults  = NSUserDefaults.standardUserDefaults()
+    lazy var successLogin = false
+    lazy var defaults  = NSUserDefaults.standardUserDefaults()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,6 +45,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         txtPassword.placeholder = Strings.Password.localized()
         btnRegister.setTitle(Strings.Register.localized(), forState: .Normal)
         btnForgetPass.setTitle(Strings.ForgetPassword.localized(), forState: .Normal)
+        btnGuestLogin.setTitle(Strings.GuestLogin.localized(), forState: .Normal)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
 
@@ -58,7 +60,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         }
         txtPassword.delegate = self
         txtUserName.delegate = self
-        
+
 
     }
 
@@ -106,6 +108,15 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         beginLoginSequence()
     }
 
+    @IBAction func btnGuestLoginTap(sender: AnyObject) {
+        if isSimulator {
+            sendLoginRequest(GuestUserName, password: GuestPassword, pushToken: Strings.SimulatorPushToken ,guest: true)
+        }else {
+            sendLoginRequest(GuestUserName, password: GuestPassword, pushToken: PushToken ,guest: true)
+        }
+    }
+
+
     @IBAction func btnForgetTap(sender: AnyObject) {
 
     }
@@ -116,7 +127,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
                         title: Strings.Attention.localized(),
                         details: message.localized(),
                         btnOkTitle: Strings.Ok.localized()
-                        )
+        )
     }
 
     func beginLoginSequence() {
@@ -131,7 +142,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         }
         else {
             if isSimulator {
-                sendLoginRequest(txtUserName.text!, password:txtPassword.text!, pushToken: "IOS_RUNNING_FROM_SIMULATOR")
+                sendLoginRequest(txtUserName.text!, password:txtPassword.text!, pushToken:Strings.SimulatorPushToken)
             }else {
                 sendLoginRequest(txtUserName.text!, password:txtPassword.text!, pushToken: PushToken)
             }
@@ -154,16 +165,22 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
 
     //MARK:- Login Service
 
-    func sendLoginRequest(email:String , password:String , pushToken:String) {
+    func sendLoginRequest(email:String , password:String , pushToken:String,guest:Bool? = nil ) {
         /**
          Login
          POST http://sabadbannewstest.sefryek.com/api/v1/auth/login
          */
+        debugPrint(guest)
         btnLogin.enabled = false
+        btnGuestLogin.enabled = false
         let progress:UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
         progress.frame = CGRectMake(btnLogin.bounds.maxX - 30, btnLogin.bounds.maxY - 33, 20, 20)
         progress.startAnimating()
-        btnLogin.addSubview(progress)
+        if guest == true {
+            btnGuestLogin.addSubview(progress)
+        }else {
+            btnLogin.addSubview(progress)
+        }
         progress.hidesWhenStopped = true
         let url = AppNewsURL + URLS["login"]!
 
@@ -193,16 +210,24 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
                 } else if response!.errorCode == 202 {
 
                     self.showAlert(Strings.emailOrPasswordInvalid.localized())
+                    self.view.endEditing(true)
                 }
                 self.btnLogin.enabled = true
+                self.btnGuestLogin.enabled = true
                 progress.stopAnimating()
             }else {
                 debugPrint(response?.error?.email)
                 self.btnLogin.enabled = true
+                self.btnGuestLogin.enabled = true
+                self.view.endEditing(true)
                 progress.stopAnimating()
             }
-
+            
         }
     }
-
+    
+    
+    deinit{
+        
+    }
 }

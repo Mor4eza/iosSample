@@ -214,7 +214,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         // Add Headers
 
         // JSON Body
-        let body = IndexDetailsRequest(timeFrameType: TimeFrameType(rawValue: (3 - range)), indexCode: indexCode).getDic()
+        let body = IndexDetailsRequest(timeFrameType: TimeFrameType(rawValue: (3 - range)), indexCode: indexCode, language: getAppLanguage()).getDic()
 
         // Fetch Request
         Request.postData(url, body: body) { (indexs:MainResponse<Response>?, error)  in

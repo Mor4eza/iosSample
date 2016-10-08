@@ -14,54 +14,54 @@ import Gloss
 //MARK: - IndexDetailsList
 public struct IndexDetailsList: Glossy {
 
-	public let baseValue : Float!
-	public let changePriceOnSameTime : Double!
-	public let changePricePercentOnSameTime : Double!
-	public let changePricePercentVsPreviousTime : Float!
-	public let changePriceVsPreviousTime : Float!
-	public let closePrice : Float!
-	public let descriptionField : AnyObject!
-	public let highPrice : Float!
-	public let indexCode : Int64!
-	public let lowPrice : Float!
-	public let nameEn : String!
-	public let nameFa : String!
-	public let openPrice : Float!
+    public let baseValue : Float!
+    public let changePriceOnSameTime : Double!
+    public let changePricePercentOnSameTime : Double!
+    public let changePricePercentVsPreviousTime : Float!
+    public let changePriceVsPreviousTime : Float!
+    public let closePrice : Float!
+    public let descriptionField : AnyObject!
+    public let highPrice : Float!
+    public let indexCode : Int64!
+    public let lowPrice : Float!
+    public let openPrice : Float!
+    public let shortName : String!
 
-	//MARK: Decodable
-	public init?(json: JSON){
-		baseValue = "baseValue" <~~ json
-		changePriceOnSameTime = "changePriceOnSameTime" <~~ json
-		changePricePercentOnSameTime = "changePricePercentOnSameTime" <~~ json
-		changePricePercentVsPreviousTime = "changePricePercentVsPreviousTime" <~~ json
-		changePriceVsPreviousTime = "changePriceVsPreviousTime" <~~ json
-		closePrice = "closePrice" <~~ json
-		descriptionField = "description" <~~ json
-		highPrice = "highPrice" <~~ json
-		indexCode = "indexCode" <~~ json
-		lowPrice = "lowPrice" <~~ json
-		nameEn = "nameEn" <~~ json
-		nameFa = "nameFa" <~~ json
-		openPrice = "openPrice" <~~ json
-	}
 
-	//MARK: Encodable
-	public func toJSON() -> JSON? {
-		return jsonify([
-		"baseValue" ~~> baseValue,
-		"changePriceOnSameTime" ~~> changePriceOnSameTime,
-		"changePricePercentOnSameTime" ~~> changePricePercentOnSameTime,
-		"changePricePercentVsPreviousTime" ~~> changePricePercentVsPreviousTime,
-		"changePriceVsPreviousTime" ~~> changePriceVsPreviousTime,
-		"closePrice" ~~> closePrice,
-		"description" ~~> descriptionField,
-		"highPrice" ~~> highPrice,
-		"indexCode" ~~> indexCode,
-		"lowPrice" ~~> lowPrice,
-		"nameEn" ~~> nameEn,
-		"nameFa" ~~> nameFa,
-		"openPrice" ~~> openPrice,
-		])
-	}
+
+    //MARK: Decodable
+    public init?(json: JSON){
+        baseValue = "baseValue" <~~ json
+        changePriceOnSameTime = "changePriceOnSameTime" <~~ json
+        changePricePercentOnSameTime = "changePricePercentOnSameTime" <~~ json
+        changePricePercentVsPreviousTime = "changePricePercentVsPreviousTime" <~~ json
+        changePriceVsPreviousTime = "changePriceVsPreviousTime" <~~ json
+        closePrice = "closePrice" <~~ json
+        descriptionField = "description" <~~ json
+        highPrice = "highPrice" <~~ json
+        indexCode = "indexCode" <~~ json
+        lowPrice = "lowPrice" <~~ json
+        openPrice = "openPrice" <~~ json
+        shortName = "shortName" <~~ json
+    }
+
+
+    //MARK: Encodable
+    public func toJSON() -> JSON? {
+        return jsonify([
+            "baseValue" ~~> baseValue,
+            "changePriceOnSameTime" ~~> changePriceOnSameTime,
+            "changePricePercentOnSameTime" ~~> changePricePercentOnSameTime,
+            "changePricePercentVsPreviousTime" ~~> changePricePercentVsPreviousTime,
+            "changePriceVsPreviousTime" ~~> changePriceVsPreviousTime,
+            "closePrice" ~~> closePrice,
+            "description" ~~> descriptionField,
+            "highPrice" ~~> highPrice,
+            "indexCode" ~~> indexCode,
+            "lowPrice" ~~> lowPrice,
+            "openPrice" ~~> openPrice,
+            "shortName" ~~> shortName,
+            ])
+    }
 
 }

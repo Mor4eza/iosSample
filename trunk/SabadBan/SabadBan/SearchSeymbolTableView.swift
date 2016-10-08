@@ -184,22 +184,20 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
     func getSymbolList() {
 
         refreshControl?.beginRefreshing()
-        let url = AppTadbirUrl + URLS["getSymbolListAndDetails"]!
+        let url = AppTadbirUrl + URLS["getSymbolNameList"]!
 
         // JSON Body
-        let body = SymbolListAndDetailsRequest(pageNumber: 0, recordPerPage: 0, symbolCode: [], supportPaging: false).getDic()
+        let body = SymbolNamesRequest(pageNumber: 0, recordPerPage: 0, symbolCode: [], supportPaging: false,language: getAppLanguage()).getDic()
 
         // Fetch Request
-        Request.postData(url, body: body) { (symbols:MainResponse<SymbolListModelResponse>?, error)  in
+        Request.postData(url, body: body) { (symbols:MainResponse<SymbolNameResponse>?, error)  in
 
             if ((symbols?.successful) != nil) {
-                for i in 0  ..< symbols!.response.symbolDetailsList.count{
-                    if getAppLanguage() == Language.fa.rawValue {
-                        self.symbolsData.append(symbolData(name: symbols!.response.symbolDetailsList[i].symbolNameFa, fullName: symbols!.response.symbolDetailsList[i].symbolCompleteNameFa, code: symbols!.response.symbolDetailsList[i].symbolCode))
+                for i in 0  ..< symbols!.response.symbolNameList.count{
+                        self.symbolsData.append(symbolData(name: symbols!.response.symbolNameList[i].symbolShortName,
+                            fullName: symbols!.response.symbolNameList[i].symbolCompleteName, code: symbols!.response.symbolNameList[i].symbolCode))
 
-                    }else if getAppLanguage() == Language.en.rawValue {
-                        self.symbolsData.append(symbolData(name: symbols!.response.symbolDetailsList[i].symbolNameEn, fullName: symbols!.response.symbolDetailsList[i].symbolCompleteNameFa, code: symbols!.response.symbolDetailsList[i].symbolCode))
-                    }
+
                     self.refreshControl?.endRefreshing()
                     self.tableView.reloadData()
                 }

@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
         UITextField.appearance().keyboardAppearance = .Dark
-
+        
         let defaults = NSUserDefaults.standardUserDefaults()
 
         if defaults.valueForKey("DefaultLanguage") == nil {

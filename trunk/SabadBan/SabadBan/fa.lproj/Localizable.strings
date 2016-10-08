@@ -94,6 +94,7 @@
 "Password" = "کلمه عبور";
 "RememberMe" = "مرا به خاطر بسپار!";
 "Login" = "ورود";
+"GuestLogin" = "ورود مهمان";
 "Register" = "ثبت نام";
 "ForgetPassword" = "فراموشی رمز عبور!";
 "Tell" = "شماره همراه";
@@ -136,3 +137,6 @@
 "EmailMessage" = "پیشنهاد و سوال";
 "Send" = "ارسال";
 "ContactInfo" = "اطلاعات تماس";
+"pleaseEnterName" = "لطفا نام خود را وارد کنید.";
+"pleaseEnterSubject" = "لطفا عنوان پیام را وارد کنید.";
+"pleaseEnterDetails" = "لطفا توضیحات را وارد کنید.";
