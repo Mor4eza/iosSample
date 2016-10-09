@@ -25,6 +25,7 @@ class SymbolListTableViewController: BaseTableViewController {
         super.viewDidLoad()
 
         tableView.registerNib(UINib(nibName: UIConstants.SymbolListHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.SymbolListHeader)
+
         self.tableView.tableFooterView = UIView()
         refreshControl = UIRefreshControl()
         refreshControl!.tintColor = UIColor.whiteColor()

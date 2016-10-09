@@ -33,7 +33,7 @@ func persianStringCompare(value1: String, value2: String) -> Bool {
     let unicodeValueList  = [1570, 1575, 1576, 1662, 1578, 1579, 1580, 1670, 1581, 1582, 1583, 1584, 1585, 1586, 1688, 1587, 1588, 1589, 1590, 1591, 1592, 1593, 1594, 1601, 1602, 1705, 1603, 1711, 1604, 1605, 1606, 1608, 1607, 1740, 1610]
     let biggerLength : String
     let smallerLength : String
-    if value1.characters.count > value1.characters.count {
+    if value1.characters.count > value2.characters.count {
         biggerLength = value1
         smallerLength = value2
     } else {

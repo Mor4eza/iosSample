@@ -24,25 +24,10 @@
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
-		<key>FCAlertView-FCAlertView.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>14</integer>
-		</dict>
-		<key>FCAlertView.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>13</integer>
-		</dict>
 		<key>Gloss.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>3</integer>
-		</dict>
-		<key>KCFloatingActionButton.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>15</integer>
 		</dict>
 		<key>LMDropdownView.xcscheme</key>
 		<dict>
@@ -66,11 +51,15 @@
 		</dict>
 		<key>SQLite.swift.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>11</integer>
 		</dict>
 		<key>SwiftCharts.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>12</integer>
 		</dict>

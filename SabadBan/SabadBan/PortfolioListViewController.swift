@@ -53,10 +53,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
 
 
         initFAB()
-        SwiftEventBus.onMainThread(self, name: BestBuyClosed) { result in
-            self.loadSymbolsFromDb()
 
-        }
 
     }
 
@@ -171,6 +168,10 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?  {
         // 1
         let buyInformation = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: Strings.BuyInformation.localized() , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            SwiftEventBus.onMainThread(self, name: BestBuyClosed) { result in
+                self.loadSymbolsFromDb()
+
+            }
             SelectedSymbolName = self.smData[indexPath.row].symbolShortName
             SelectedSymbolCode = self.smData[indexPath.row].symbolCode
             self.selectedSymbolPrice = self.smData[indexPath.row].lastTradePrice

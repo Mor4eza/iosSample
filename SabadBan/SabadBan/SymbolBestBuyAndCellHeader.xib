@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SymbolDetailsViewController" customModule="SabadBan" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SymbolBestBuyAndCellHeader" customModule="SabadBan" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIm-fN-zm0">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_sort_aes" translatesAutoresizingMaskIntoConstraints="NO" id="SYS-D0-CQu">
+                    <rect key="frame" x="0.0" y="0.0" width="41" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="41" id="8tw-YH-Cbk"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="lIm-fN-zm0" secondAttribute="trailing" id="2mN-SO-EbI"/>
+                <constraint firstItem="lIm-fN-zm0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="IFl-0l-520"/>
+                <constraint firstItem="SYS-D0-CQu" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" constant="8" id="MMq-on-b5F"/>
+                <constraint firstItem="SYS-D0-CQu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="-8" id="Q9S-8W-jqs"/>
+                <constraint firstItem="lIm-fN-zm0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="X7C-MK-Dot"/>
+                <constraint firstAttribute="bottom" secondItem="lIm-fN-zm0" secondAttribute="bottom" id="r4v-nd-eei"/>
+                <constraint firstItem="SYS-D0-CQu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="sSI-Vy-VhR"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imgArrow" destination="SYS-D0-CQu" id="oX9-R3-iRi"/>
+                <outlet property="lblTitle" destination="lIm-fN-zm0" id="MXi-bz-PkH"/>
+            </connections>
+            <point key="canvasLocation" x="469" y="185"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_sort_aes" width="48" height="48"/>
+    </resources>
+</document>
