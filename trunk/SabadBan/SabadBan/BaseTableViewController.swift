@@ -9,7 +9,7 @@
 
 import UIKit
 import SwiftEventBus
-class BaseTableViewController: UITableViewController {
+class BaseTableViewController: UITableViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()

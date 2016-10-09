@@ -67,9 +67,12 @@ class SymbolDetailsViewController: BaseTableViewController {
     @IBOutlet weak var lblBSCValue2: UILabel!
     @IBOutlet weak var lblBSCValue3: UILabel!
 
+    var hideBestBuy = true
+    var hideBestSell = true
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
+        tableView.registerNib(UINib(nibName: UIConstants.buyHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.buyHeader)
         debugPrint("selected: \(SelectedSymbolCode)")
         getSymbolBestLimitService(String(SelectedSymbolCode))
         getSymbolTradingDetailsService(String(SelectedSymbolCode))
@@ -85,24 +88,77 @@ class SymbolDetailsViewController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if section == 0{
+            return 1
+        }else if section == 1{
+            if hideBestBuy {
+                return 0
+            }
+        }else if section == 2 {
+            if hideBestSell {
+                return 0
+            }
+
+        }
         return 1
+
     }
 
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
-        let headerView = UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, 50))
-        if (section == 1) {
-            headerView.text = Strings.bestBuyTitle.localized()
-            headerView.backgroundColor = UIColor(netHex: 0x2e9220)
-        } else if (section == 2) {
-            headerView.text = Strings.bestSellTitle.localized()
-            headerView.backgroundColor = UIColor.redColor()
-        }
 
-        headerView.textColor = UIColor.whiteColor()
-        headerView.changeDirection()
+        let tapGesture = UITapGestureRecognizer()
+
+        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.buyHeader) as! SymbolBestBuyAndCellHeader
+        headerView.addGestureRecognizer(tapGesture)
+
+        tableView.backgroundColor = AppMainColor
+
+        if (section == 1) {
+            tapGesture.addTarget(self, action: #selector(self.bestBuyTapped))
+            headerView.lblTitle.text = Strings.bestBuyTitle.localized()
+            headerView.lblTitle.backgroundColor = UIColor(netHex: 0x2e9220)
+            if hideBestBuy {
+                rotateWithAnimation(headerView.imgArrow, angle: M_PI)
+            }else {
+                rotateWithAnimation(headerView.imgArrow, angle: 0)
+            }
+        } else if (section == 2) {
+            tapGesture.addTarget(self, action: #selector(self.bestSellTapped))
+            headerView.lblTitle.text = Strings.bestSellTitle.localized()
+            headerView.lblTitle.backgroundColor = UIColor.redColor()
+            if hideBestSell {
+                rotateWithAnimation(headerView.imgArrow, angle: M_PI)
+            }else {
+                rotateWithAnimation(headerView.imgArrow, angle: 0)
+            }
+        }
+        headerView.lblTitle.textColor = UIColor.whiteColor()
+        headerView.lblTitle.setDefaultFont()
         return headerView
     }
+
+
+    func bestBuyTapped(){
+        hideBestBuy = !hideBestBuy
+         tableView.reloadSections(NSIndexSet(index:1), withRowAnimation: .Fade)
+    }
+
+    func bestSellTapped(){
+        hideBestSell = !hideBestSell
+//        let indexPath = NSIndexPath(forRow:2, inSection: 2)
+        tableView.reloadSections(NSIndexSet(index:2), withRowAnimation: .Fade)
+//        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
+//        tableView.contentOffset = CGPointMake(0, 120)
+    }
+
+
+    func rotateWithAnimation(target: UIImageView, angle: Double) {
+        UIView.animateWithDuration(0.25, animations: {
+            target.transform = CGAffineTransformMakeRotation(CGFloat(angle))
+        })
+    }
+
     //MARK:- Symbol Best Limit service
 
     func getSymbolBestLimitService(sCode:String){
@@ -269,5 +325,5 @@ class SymbolDetailsViewController: BaseTableViewController {
         lblLowPriceTitle.text = Strings.LowPriceTitle.localized()
         lblHighPriceTitle.text = Strings.HighPriceTitle.localized()
     }
-
+    
 }

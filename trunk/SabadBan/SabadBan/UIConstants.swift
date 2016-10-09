@@ -21,7 +21,7 @@ struct UIConstants {
     static let IndexHeader = "IndexHeader"
     static let menuCell = "menuCell"
     static let menuHeader = "menuHeader"
-    
+    static let buyHeader = "SymbolBestBuyAndCellHeader"
     //MARK: Reuse Identifiers
     static let buyInfoCells = "buyInfoCells"
     static let buyInfoHeaderId = "buyInfoHeader"

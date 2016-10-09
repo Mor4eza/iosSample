@@ -110,9 +110,9 @@ class MyMenuTableViewController: BaseTableViewController {
 
         debugPrint("did select row: \(indexPath.row)")
 
-        if (indexPath.row == selectedMenuItem) {
-            return
-        }
+//        if (indexPath.row == selectedMenuItem) {
+//            return
+//        }
 
         selectedMenuItem = indexPath.row
 
