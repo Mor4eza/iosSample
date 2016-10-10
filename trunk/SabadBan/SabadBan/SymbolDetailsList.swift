@@ -42,8 +42,6 @@ public struct SymbolDetailsList: Glossy {
     public let transactionNumber : Double!
     public let transactionVolume : Double!
 
-
-
     //MARK: Decodable
     public init?(json: JSON){
         baseValue = "baseValue" <~~ json
@@ -74,7 +72,6 @@ public struct SymbolDetailsList: Glossy {
         transactionNumber = "transactionNumber" <~~ json
         transactionVolume = "transactionVolume" <~~ json
     }
-
 
     //MARK: Encodable
     public func toJSON() -> JSON? {

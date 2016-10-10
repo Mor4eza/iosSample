@@ -27,8 +27,6 @@ public struct IndexDetailsList: Glossy {
     public let openPrice : Float!
     public let shortName : String!
 
-
-
     //MARK: Decodable
     public init?(json: JSON){
         baseValue = "baseValue" <~~ json
@@ -44,7 +42,6 @@ public struct IndexDetailsList: Glossy {
         openPrice = "openPrice" <~~ json
         shortName = "shortName" <~~ json
     }
-
 
     //MARK: Encodable
     public func toJSON() -> JSON? {

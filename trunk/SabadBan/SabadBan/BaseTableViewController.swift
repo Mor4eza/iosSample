@@ -11,6 +11,9 @@ import UIKit
 import SwiftEventBus
 class BaseTableViewController: UITableViewController{
 
+    //MARK: Properties
+    var timer : NSTimer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,14 +24,14 @@ class BaseTableViewController: UITableViewController{
         self.setFontFamily(AppFontName_IranSans, forView: self.view, andSubViews: true)
         self.tableView.backgroundColor = AppMainColor
 
-
         SwiftEventBus.onMainThread(self, name: NetworkErrorAlert) { result in
             Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.noInternet.localized())
         }
         SwiftEventBus.onMainThread(self, name: TimeOutErrorAlert) { result in
             Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.ConnectionTimeOut.localized())
         }
-
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(300, target: self, selector: #selector(BaseTableViewController.updateServiceData), userInfo: nil, repeats: true)
 
     }
 
@@ -52,12 +55,11 @@ class BaseTableViewController: UITableViewController{
         self.toggleSideMenuView()
     }
 
-
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
         SwiftEventBus.unregister(self)
+        invalidTimer()
     }
-
 
     // MARK: - TableView Delegates
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -68,6 +70,15 @@ class BaseTableViewController: UITableViewController{
         if (view is UILabel){
             let lable = (view as! UILabel)
             lable.font = UIFont(name: AppFontName_IranSans, size: (lable.font.pointSize))
+        }
+    }
+    
+    func updateServiceData() {
+    }
+    
+    func invalidTimer() {
+        if let mTimer = timer {
+            mTimer.invalidate()
         }
     }
 }

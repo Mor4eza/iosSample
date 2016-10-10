@@ -17,8 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-
-
         UITextField.appearance().keyboardAppearance = .Dark
         
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -49,13 +47,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerUserNotificationSettings(pushNotificationSettings)
         application.registerForRemoteNotifications()
 
-
         debugPrint("lunc \(launchOptions)")
 
 //        let storyboard = UIStoryboard(name: UIConstants.Main, bundle: nil)
 //        let vc = storyboard.instantiateViewControllerWithIdentifier(UIConstants.NewsTabBarController)
 //        window?.rootViewController = vc
-
 
         return true
     }
@@ -87,7 +83,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Sandbox)
         FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Prod)
-
 
         if FIRInstanceID.instanceID().token() != nil {
             PushToken = FIRInstanceID.instanceID().token()!

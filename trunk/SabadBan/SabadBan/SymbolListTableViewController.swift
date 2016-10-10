@@ -255,4 +255,8 @@ class SymbolListTableViewController: BaseTableViewController {
             target.transform = CGAffineTransformMakeRotation(CGFloat(angle))
         })
     }
+    
+    override func updateServiceData() {
+        getSymbolListByIndex()
+    }
 }

@@ -11,19 +11,14 @@ import UIKit
 import Alamofire
 class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate ,UITextViewDelegate,UITextFieldDelegate{
 
-
-
     let imagePicker = UIImagePickerController()
     @IBOutlet weak var imgCrash: UIImageView!
 
     @IBOutlet weak var lblName: UITextField!
 
-
     @IBOutlet weak var lblEmail: UITextField!
 
-
     @IBOutlet weak var lblSubject: UITextField!
-
 
     @IBOutlet weak var lblDetails: UITextView!
 
@@ -55,7 +50,6 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
 
     }
 
-
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imgCrash.contentMode = .ScaleAspectFit
@@ -66,12 +60,9 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
-
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
@@ -100,7 +91,6 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
 
     }
 
-
     func showAlert(message : String) {
 
         Utils.ShowAlert(self,
@@ -109,8 +99,6 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
                         btnOkTitle: Strings.Ok.localized()
         )
     }
-
-
 
     @IBAction func btnSendTap(sender: AnyObject) {
 

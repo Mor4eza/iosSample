@@ -28,7 +28,7 @@ class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate
     }
 
     func refresh(sender:AnyObject) {
-        sendBourseNewsRequest(servicePage)
+        updateServiceData()
     }
 
     // MARK: - Table view data source
@@ -57,7 +57,7 @@ class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate
 
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
 
-        if indexPath.row + 1  >= newsCount {
+        if (indexPath.row + 1  >= newsCount && newsCount != 0) {
             sendBourseNewsRequest(servicePage)
         }
 
@@ -77,6 +77,10 @@ class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate
             // Fetch Request
             Request.postData(url, body: body) { (news:NewsMainResponse<BourseNewsResponse>?, error) in
                 if ((news?.success) != nil) {
+                    if page == 0 {
+                        self.newsModel.removeAll()
+                        self.tableView.reloadData()
+                    }
                     for i in 0..<news!.response.newsDetailsList.count {
                         self.newsModel.append(NewsModel(title: news!.response.newsDetailsList[i].title, details: news!.response.newsDetailsList[i].descriptionField, date: news!.response.newsDetailsList[i].createdAt,link: news!.response.newsDetailsList[i].reference))
                     }
@@ -117,5 +121,12 @@ class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate
 
     func sideMenuShouldOpenSideMenu() -> Bool {
         return false
+    }
+    
+    override func updateServiceData() {
+        servicePage = 0
+        newsCount = 0
+        isMore = true
+        sendBourseNewsRequest(servicePage)
     }
 }

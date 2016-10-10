@@ -10,6 +10,8 @@ import UIKit
 import SwiftEventBus
 import FCAlertView
 class BaseViewController: UIViewController,ENSideMenuDelegate {
+    
+    var timer : NSTimer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,8 @@ class BaseViewController: UIViewController,ENSideMenuDelegate {
         SwiftEventBus.onMainThread(self, name: TimeOutErrorAlert) { result in
             Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.ConnectionTimeOut.localized())
         }
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(300, target: self, selector: #selector(BaseViewController.updateServiceData), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,7 +63,12 @@ class BaseViewController: UIViewController,ENSideMenuDelegate {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
         SwiftEventBus.unregister(self)
+        if let mTimer = timer{
+            mTimer.invalidate()
+        }
+        
     }
 
-
+    func updateServiceData() {
+    }
 }

@@ -40,7 +40,6 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
         refreshControl!.addTarget(self, action: #selector(IndexTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
 
-
         let btnDone = UIButton()
         btnDone.setTitle("❌", forState: .Normal)
         btnDone.frame = CGRectMake(0, 0, 30, 30)
@@ -50,7 +49,6 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
 
         getSymbolList()
     }
-
 
     func refresh(sender:AnyObject) {
         getSymbolList()
@@ -196,7 +194,6 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
                 for i in 0  ..< symbols!.response.symbolNameList.count{
                         self.symbolsData.append(symbolData(name: symbols!.response.symbolNameList[i].symbolShortName,
                             fullName: symbols!.response.symbolNameList[i].symbolCompleteName, code: symbols!.response.symbolNameList[i].symbolCode))
-
 
                     self.refreshControl?.endRefreshing()
                     self.tableView.reloadData()

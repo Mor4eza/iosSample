@@ -133,7 +133,6 @@ struct Strings {
     //MARK: - Date Picker
     static let SelectDate = "SelectDate"
 
-
      //MARK: - ContactUs Strings
 
     static let SenderName = "SenderName"
