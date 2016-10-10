@@ -15,16 +15,19 @@ import Gloss
 public struct LoginResponse: Glossy {
 
     public let apiToken : String?
+    public let email : String?
 
     //MARK: Decodable
     public init?(json: JSON){
         apiToken = "api_token" <~~ json
+        email = "email" <~~ json
     }
 
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
             "api_token" ~~> apiToken,
+            "email" ~~> email,
             ])
     }
 

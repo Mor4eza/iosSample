@@ -20,8 +20,8 @@ public let AppTadbirUrl = "http://108.61.50.250:9090" //Server Tadbir
 //public let AppTadbirUrl = "http://192.168.1.201:9090" //Local
 public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
 public let ServicesHeaders = ["Content-Type": "application/json"]
-public let GuestUserName = "1@1.com"
-public let GuestPassword = "12345678"
+public var GuestUser = "1@1.com"
+public var GuestPass = "12345678"
 
 //MARK: - Urls
 public let URLS:[String:String] =
@@ -35,6 +35,7 @@ public let URLS:[String:String] =
      "getSymbolNameList" : "/services/getSymbolNameList",
      "getBourseNews" : "/api/v1/news/get",
      "login" : "/api/v1/auth/login",
+     "guestLogin" : "/api/v1/auth/login/guest",
      "register" : "/api/v1/auth/register",
      "sendContactUs" : "/api/v1/tools/contact_us"]
 
@@ -57,7 +58,9 @@ public let LocaleFa = "fa_IR"
 
 //MARK: - defaults
 public let UserName: String = "UserName"
+public let GuestUserName: String = "GuestUserName"
 public let Password: String = "Password"
+public let GuestPassword: String = "GuestPassword"
 public let HINT = "HINT"
 
 //MARK: - Enums
