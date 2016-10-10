@@ -22,31 +22,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اولین اپلیکیشن خبری  تحلیلی بورس در ایران" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEp-3b-9eG">
-                                <rect key="frame" x="183" y="429" width="234" height="59"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="yoI-lE-ZNk">
+                                <rect key="frame" x="200" y="190" width="200" height="220"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="234" id="535-yy-EFA"/>
+                                    <constraint firstAttribute="height" constant="220" id="Cva-ah-20J"/>
+                                    <constraint firstAttribute="width" constant="200" id="kHj-7j-MNi"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اولین اپلیکیشن خبری  تحلیلی بورس در ایران" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEp-3b-9eG">
+                                <rect key="frame" x="183" y="418" width="234" height="95"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="234" id="Djq-eO-8Xm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="yoI-lE-ZNk">
-                                <rect key="frame" x="193" y="180" width="214" height="240"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="214" id="8R7-p6-MvL"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.16452825090000001" green="0.21934768020000001" blue="0.31888299190000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.16452825090000001" green="0.21934768020000001" blue="0.31888299190000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="yoI-lE-ZNk" firstAttribute="centerX" secondItem="SEp-3b-9eG" secondAttribute="centerX" id="C1D-Sb-xH7"/>
-                            <constraint firstItem="yoI-lE-ZNk" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="R68-Ay-LRR"/>
-                            <constraint firstItem="yoI-lE-ZNk" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="nTY-F5-k5T"/>
-                            <constraint firstItem="yoI-lE-ZNk" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="160" id="qjj-ob-yyY"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="SEp-3b-9eG" secondAttribute="bottom" constant="112" id="ry6-8d-2R7"/>
-                            <constraint firstItem="SEp-3b-9eG" firstAttribute="top" secondItem="yoI-lE-ZNk" secondAttribute="bottom" constant="9" id="yYZ-c1-TR2"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="SEp-3b-9eG" secondAttribute="bottom" constant="87" id="Bi8-S4-vUV"/>
+                            <constraint firstItem="yoI-lE-ZNk" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Nm9-H8-OGi"/>
+                            <constraint firstItem="yoI-lE-ZNk" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="b7D-Fr-tze"/>
+                            <constraint firstItem="SEp-3b-9eG" firstAttribute="centerX" secondItem="yoI-lE-ZNk" secondAttribute="centerX" id="dAg-Cu-Vhg"/>
+                            <constraint firstItem="SEp-3b-9eG" firstAttribute="top" secondItem="yoI-lE-ZNk" secondAttribute="bottom" constant="8" symbolic="YES" id="nyo-Oi-uuk"/>
                         </constraints>
                     </view>
                 </viewController>

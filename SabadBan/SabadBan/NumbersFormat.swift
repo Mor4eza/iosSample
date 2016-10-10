@@ -100,6 +100,11 @@ extension Double {
         return priceString!
     }
 
+    func roundToPlaces(decimalPlaces: Int) -> Double {
+        let divisor = pow(10.0, Double(decimalPlaces))
+        return round(self * divisor) / divisor
+    }
+
     func suffixNumber() -> String {
 
         var num:Double = self;

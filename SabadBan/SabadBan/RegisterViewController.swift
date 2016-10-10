@@ -59,7 +59,6 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
 
             UIView.animateWithDuration(1, delay: 0, options: .CurveEaseIn, animations: {
-                self.imgAppLogo.hidden = true
                 self.bottomConstraint.constant = keyboardSize.height
                 self.view.layoutIfNeeded()
                 }, completion: nil)
@@ -69,7 +68,6 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
 
     func keyboardWillHide(notification: NSNotification) {
         UIView.animateWithDuration(1, delay: 0, options: .CurveEaseIn, animations: {
-            self.imgAppLogo.hidden = false
             self.bottomConstraint.constant = 45
             self.view.layoutIfNeeded()
             }, completion: nil)
@@ -149,10 +147,15 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
 
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if textField == txtPhone {
-            guard let text = textField.text else { return true }
+//            guard let text = textField.text else { return true }
+//
+//            let newLength = text.utf16.count + string.utf16.count - range.length
+//            return newLength <= 11
 
-            let newLength = text.utf16.count + string.utf16.count - range.length
-            return newLength <= 11
+            let aSet = NSCharacterSet(charactersInString:"0123456789").invertedSet
+            let compSepByCharInSet = string.componentsSeparatedByCharactersInSet(aSet)
+            let numberFiltered = compSepByCharInSet.joinWithSeparator("")
+            return string == numberFiltered
         }
         return true
     }
