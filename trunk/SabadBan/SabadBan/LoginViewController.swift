@@ -30,6 +30,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     @IBOutlet weak var btnForgetPass: UIButton!
     lazy var successLogin = false
     lazy var defaults  = NSUserDefaults.standardUserDefaults()
+    var guestUserName:String!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -106,10 +107,22 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     }
 
     @IBAction func btnGuestLoginTap(sender: AnyObject) {
-        if isSimulator {
-            sendLoginRequest(GuestUserName, password: GuestPassword, pushToken: Strings.SimulatorPushToken ,guest: true)
+
+        if defaults.stringForKey(GuestUserName) == nil {
+            if isSimulator {
+                sendLoginRequest(GuestUser, password: GuestPass, pushToken: Strings.SimulatorPushToken ,guest: true)
+            }else {
+                sendLoginRequest(GuestUser, password: GuestPass, pushToken: PushToken ,guest: true)
+            }
         }else {
-            sendLoginRequest(GuestUserName, password: GuestPassword, pushToken: PushToken ,guest: true)
+
+            GuestUser = defaults.stringForKey(GuestUserName)!
+            GuestPass = defaults.stringForKey(GuestPassword)!
+            if isSimulator {
+                sendLoginRequest(GuestUser, password: GuestPass, pushToken: Strings.SimulatorPushToken )
+            }else {
+                sendLoginRequest(GuestUser, password: GuestPass, pushToken: PushToken)
+            }
         }
     }
 
@@ -172,24 +185,46 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         let progress:UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
         progress.frame = CGRectMake(btnLogin.bounds.maxX - 30, btnLogin.bounds.maxY - 33, 20, 20)
         progress.startAnimating()
+        var url:String?
         if guest == true {
             btnGuestLogin.addSubview(progress)
+            url = AppNewsURL + URLS["guestLogin"]!
         }else {
             btnLogin.addSubview(progress)
+            url = AppNewsURL + URLS["login"]!
         }
         progress.hidesWhenStopped = true
-        let url = AppNewsURL + URLS["login"]!
+
 
         // JSON Body
         let body = LoginRequest(email: email, device_token: pushToken, password: password).getDic()
 
         // Fetch Request
-        Request.postData(url,body: body) { (response:UserManagementModel<LoginResponse>?, error) in
+        Request.postData(url!,body: body) { (response:UserManagementModel<LoginResponse>?, error) in
 
             if ((response?.success) != nil) {
 
                 if response!.result != nil {
+
+                    if response!.errorCode == 100 {
+                        self.guestUserName = response?.result.email
+
+                        let delimiter = "@"
+                        var name = self.guestUserName.componentsSeparatedByString(delimiter)
+                        print (name[0])
+
+                        self.defaults.setValue(self.guestUserName, forKey: GuestUserName)
+                        self.defaults.setValue(name[0], forKey: GuestPassword)
+                        if isSimulator {
+                            self.sendLoginRequest(self.guestUserName, password:name[0], pushToken:Strings.SimulatorPushToken)
+                        }else {
+                            self.sendLoginRequest(self.guestUserName, password:name[0], pushToken: PushToken)
+                        }
+                    }
+
+
                     if response!.errorCode == 200 {
+
                         LoginToken = response!.result.apiToken!
                         self.successLogin = true
                         LogedInUserName = email
@@ -223,7 +258,4 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     }
     
     
-    deinit{
-        
-    }
 }
