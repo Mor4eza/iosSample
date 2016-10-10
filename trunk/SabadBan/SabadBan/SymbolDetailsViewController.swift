@@ -141,15 +141,15 @@ class SymbolDetailsViewController: BaseTableViewController {
 
     func bestBuyTapped(){
         hideBestBuy = !hideBestBuy
-         tableView.reloadSections(NSIndexSet(index:1), withRowAnimation: .Fade)
+        tableView.reloadSections(NSIndexSet(index:1), withRowAnimation: .Fade)
     }
 
     func bestSellTapped(){
         hideBestSell = !hideBestSell
-//        let indexPath = NSIndexPath(forRow:2, inSection: 2)
+        //        let indexPath = NSIndexPath(forRow:2, inSection: 2)
         tableView.reloadSections(NSIndexSet(index:2), withRowAnimation: .Fade)
-//        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
-//        tableView.contentOffset = CGPointMake(0, 120)
+        //        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
+        //        tableView.contentOffset = CGPointMake(0, 120)
     }
 
 
@@ -248,82 +248,88 @@ class SymbolDetailsViewController: BaseTableViewController {
 
             if ((symbol?.successful) != nil) {
                 if symbol!.response.symbolDetailsList.count > 0 {
-                    self.lblLastPriceValues.text = symbol!.response.symbolDetailsList[0].closePrice.currencyFormat(2)
+                    self.lblLastPriceValue.text = symbol!.response.symbolDetailsList[0].closePrice.currencyFormat(2)
                     self.lblLastPriceChanges.text = String(symbol!.response.symbolDetailsList[0].closePriceChange)
                     self.lblLastPriceDate.text = ""
-                    self.lblLastPriceValue.text = symbol!.response.symbolDetailsList[0].lastTradePrice.currencyFormat(2)
-                    self.lblStartPriceValue.text = symbol!.response.symbolDetailsList[0].lowPrice.currencyFormat(2)
+                    self.lblLastPriceValues.text = symbol!.response.symbolDetailsList[0].lastTradePrice.currencyFormat(2)
+                    self.lblStartPriceValue.text = symbol!.response.symbolDetailsList[0].openPrice.currencyFormat(2)
                     self.lblLowPriceValue.text = symbol!.response.symbolDetailsList[0].lowPrice.currencyFormat(2)
                     self.lblhighPriceValue.text = symbol!.response.symbolDetailsList[0].highPrice.currencyFormat(2)
+                    self.lblLastPriceChanges.text = " \(abs(symbol!.response.symbolDetailsList[0].lastTradePriceChange)) (%\(abs(symbol!.response.symbolDetailsList[0].lastTradePriceChangePercent.roundToPlaces(2))))"
+                    if symbol!.response.symbolDetailsList[0].lastTradePriceChange > 0 {
+                        self.lblLastPriceChanges.textColor = UIColor.greenColor()
+                    } else{
+                        self.lblLastPriceChanges.textColor = UIColor.redColor()
+                    }
+                } else {
+                    debugPrint(error)
                 }
-            } else {
-                debugPrint(error)
+                //                self.refreshControll?.endRefreshing()
             }
-            //                self.refreshControll?.endRefreshing()
         }
     }
 
-    func setUpViews(){
+        func setUpViews(){
 
-        lblBuyTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblCellTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblkindTitle.font  = UIFont(name: AppFontName_IranSans, size: 14.0)
-        lblReal1Title.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblReal2Title.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblLegal1Title.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblLegal2Title.font  = UIFont(name: AppFontName_IranSans, size: 14.0)
-        lblCountTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblCount1Value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblCount2Value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblCount3Value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblCount4Value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblVolumeTitle.font  = UIFont(name: AppFontName_IranSans, size: 14.0)
-        lblVolume1value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblVolume2value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblVolume3value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblVolume4value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblLastPriceDate.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblLastPriceTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblLastPriceChanges.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblLastPriceValues.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblEndPriceTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblLastPriceValue.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblStartPriceTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblStartPriceValue.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblLowPriceTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblLowPriceValue.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblHighPriceTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblhighPriceValue.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBBPTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBBPValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBBPValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBBPValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBBVTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBBVValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBBVValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBBVValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBBCTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBBCValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBBCValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBBCValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBSPTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBSPValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBSPValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBSPValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBSVTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBSVValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBSVValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBSVValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBSCTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBSCValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBSCValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-        lblBSCValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-
-        lblLastPriceTitle.text = Strings.LastPriceTitle.localized()
-        lblEndPriceTitle.text = Strings.EndPriceTitle.localized()
-        lblStartPriceTitle.text = Strings.StartPriceTitle.localized()
-        lblLowPriceTitle.text = Strings.LowPriceTitle.localized()
-        lblHighPriceTitle.text = Strings.HighPriceTitle.localized()
-    }
-    
+            lblBuyTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblCellTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblkindTitle.font  = UIFont(name: AppFontName_IranSans, size: 14.0)
+            lblReal1Title.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblReal2Title.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblLegal1Title.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblLegal2Title.font  = UIFont(name: AppFontName_IranSans, size: 14.0)
+            lblCountTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblCount1Value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblCount2Value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblCount3Value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblCount4Value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblVolumeTitle.font  = UIFont(name: AppFontName_IranSans, size: 14.0)
+            lblVolume1value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblVolume2value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblVolume3value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblVolume4value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblLastPriceDate.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblLastPriceTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblLastPriceChanges.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblLastPriceValues.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblEndPriceTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblLastPriceValue.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblStartPriceTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblStartPriceValue.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblLowPriceTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblLowPriceValue.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblHighPriceTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblhighPriceValue.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBBPTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBBPValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBBPValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBBPValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBBVTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBBVValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBBVValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBBVValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBBCTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBBCValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBBCValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBBCValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBSPTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBSPValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBSPValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBSPValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBSVTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBSVValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBSVValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBSVValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBSCTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBSCValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBSCValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            lblBSCValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
+            
+            lblLastPriceTitle.text = Strings.LastPriceTitle.localized()
+            lblEndPriceTitle.text = Strings.EndPriceTitle.localized()
+            lblStartPriceTitle.text = Strings.StartPriceTitle.localized()
+            lblLowPriceTitle.text = Strings.LowPriceTitle.localized()
+            lblHighPriceTitle.text = Strings.HighPriceTitle.localized()
+        }
+        
 }

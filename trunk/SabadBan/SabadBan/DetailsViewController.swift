@@ -232,16 +232,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
                     self.lblPricePercent.text  = String(self.priceChangesPercent)
                     self.tblDetails.reloadData()
                 }else{
-
-                    let alert = FCAlertView()
-                    alert.makeAlertTypeCaution()
-                    alert.colorScheme = UIColor.blueColor()
-                    alert.showAlertInView(self,
-                                          withTitle: Strings.Warning.localized(),
-                                          withSubtitle: Strings.noData.localized(),
-                                          withCustomImage: nil,
-                                          withDoneButtonTitle: Strings.Done.localized(),
-                                          andButtons: nil)
+                    Utils.ShowAlert(self, title: Strings.Warning.localized(), details: Strings.noData.localized())
                 }
 
             } else {

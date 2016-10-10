@@ -36,12 +36,16 @@
                     </subviews>
                     <color key="backgroundColor" red="0.16452825085752149" green="0.21934768017884673" blue="0.3188829919472469" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="mKM-wb-f4y" firstAttribute="leading" secondItem="gBh-Vu-QuM" secondAttribute="trailing" constant="45" id="EvE-gZ-MIt"/>
+                        <constraint firstItem="mKM-wb-f4y" firstAttribute="leading" secondItem="gBh-Vu-QuM" secondAttribute="trailing" constant="45" id="EvE-gZ-MIt">
+                            <variation key="heightClass=regular-widthClass=regular" constant="118"/>
+                        </constraint>
                         <constraint firstItem="gBh-Vu-QuM" firstAttribute="centerY" secondItem="IiM-tW-7n0" secondAttribute="centerY" id="Wkz-uc-nB3"/>
                         <constraint firstItem="mKM-wb-f4y" firstAttribute="baseline" secondItem="oKh-dB-zAj" secondAttribute="baseline" id="egh-bR-VRz"/>
                         <constraint firstItem="gBh-Vu-QuM" firstAttribute="baseline" secondItem="mKM-wb-f4y" secondAttribute="baseline" id="r7x-uT-cDG"/>
                         <constraint firstAttribute="trailing" secondItem="oKh-dB-zAj" secondAttribute="trailing" constant="24" id="v2J-nH-uWN"/>
-                        <constraint firstItem="gBh-Vu-QuM" firstAttribute="leading" secondItem="IiM-tW-7n0" secondAttribute="leadingMargin" id="yog-Jx-FqS"/>
+                        <constraint firstItem="gBh-Vu-QuM" firstAttribute="leading" secondItem="IiM-tW-7n0" secondAttribute="leadingMargin" id="yog-Jx-FqS">
+                            <variation key="heightClass=regular-widthClass=regular" constant="25"/>
+                        </constraint>
                     </constraints>
                 </view>
             </subviews>
