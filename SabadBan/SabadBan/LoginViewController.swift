@@ -61,7 +61,6 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         txtPassword.delegate = self
         txtUserName.delegate = self
 
-
     }
 
     func keyboardWillShow(notification: NSNotification) {
@@ -113,7 +112,6 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             sendLoginRequest(GuestUserName, password: GuestPassword, pushToken: PushToken ,guest: true)
         }
     }
-
 
     @IBAction func btnForgetTap(sender: AnyObject) {
 

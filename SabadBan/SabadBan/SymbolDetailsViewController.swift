@@ -138,7 +138,6 @@ class SymbolDetailsViewController: BaseTableViewController {
         return headerView
     }
 
-
     func bestBuyTapped(){
         hideBestBuy = !hideBestBuy
         tableView.reloadSections(NSIndexSet(index:1), withRowAnimation: .Fade)
@@ -151,7 +150,6 @@ class SymbolDetailsViewController: BaseTableViewController {
         //        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
         //        tableView.contentOffset = CGPointMake(0, 120)
     }
-
 
     func rotateWithAnimation(target: UIImageView, angle: Double) {
         UIView.animateWithDuration(0.25, animations: {
@@ -332,4 +330,10 @@ class SymbolDetailsViewController: BaseTableViewController {
             lblHighPriceTitle.text = Strings.HighPriceTitle.localized()
         }
         
+    override func updateServiceData() {
+        getSymbolBestLimitService(String(SelectedSymbolCode))
+        getSymbolTradingDetailsService(String(SelectedSymbolCode))
+        getSymbolListData([String(SelectedSymbolCode)])
+    }
+    
 }

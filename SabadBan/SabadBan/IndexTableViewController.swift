@@ -145,5 +145,9 @@ class IndexTableViewController: BaseTableViewController {
 
         }
     }
+    
+    override func updateServiceData() {
+        getIndexList()
+    }
 
 }

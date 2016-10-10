@@ -50,13 +50,9 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         refreshControl.addTarget(self, action: #selector(IndexTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tblPortfolio.addSubview(refreshControl)
 
-
-
         initFAB()
 
-
     }
-
 
     func refresh(sender:AnyObject) {
         loadSymbolsFromDb()
@@ -88,6 +84,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     }
 
     override func viewWillAppear(animated: Bool) {
+        super.viewWillDisappear(animated)
         nc.addObserver(self, selector: #selector(selectedSymbol), name: symbolSelected, object: nil)
         SwiftEventBus.onMainThread(self, name: PortfolioEdited) { result in
             debugPrint("Edited")
@@ -375,8 +372,6 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
                         todayProfit: self.getBuyData(String(symbols!.response.symbolDetailsList[i].symbolCode),price: Float(symbols!.response.symbolDetailsList[i].lastTradePrice)).today,
                         totalProfit: self.getBuyData(String(symbols!.response.symbolDetailsList[i].symbolCode),price: Float(symbols!.response.symbolDetailsList[i].closePrice)).overAll))
 
-
-
                 }
 
                 self.tblPortfolio.reloadData()
@@ -469,6 +464,10 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         getCurrentPortfolio()
         loadSymbolsFromDb()
         initNavigationTitle()
+    }
+    
+    override func updateServiceData() {
+        loadSymbolsFromDb()
     }
 }
 

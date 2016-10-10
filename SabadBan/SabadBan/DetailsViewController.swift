@@ -110,7 +110,6 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         if tableView == tblDetails {
             let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.indexDetailsCell, forIndexPath: indexPath) as! indexDetailsCell
 
-
             switch indexPath.row {
             case 0:
                 cell.lblTitle.text = Strings.MaxPrice.localized()
@@ -263,5 +262,8 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
             self.marketDetailsRefreshControl.endRefreshing()
         }
     }
-
+    override func updateServiceData() {
+        getIndexDetails(SelectedIndexCode, range:segRange.selectedSegmentIndex )
+        getMarketActivity()
+    }
 }

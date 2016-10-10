@@ -18,15 +18,12 @@ public struct SymbolNameList: Glossy {
 	public let symbolCompleteName : String!
 	public let symbolShortName : String!
 
-
-
 	//MARK: Decodable
 	public init?(json: JSON){
 		symbolCode = "symbolCode" <~~ json
 		symbolCompleteName = "symbolCompleteName" <~~ json
 		symbolShortName = "symbolShortName" <~~ json
 	}
-
 
 	//MARK: Encodable
 	public func toJSON() -> JSON? {

@@ -113,6 +113,10 @@ class ObserverNewsTableViewController: BaseTableViewController ,ENSideMenuDelega
     func sideMenuShouldOpenSideMenu() -> Bool {
         return false
     }
+    
+    override func updateServiceData() {
+        sendObserverNewsRequest()
+    }
 
 }
 //MARK:- News Model

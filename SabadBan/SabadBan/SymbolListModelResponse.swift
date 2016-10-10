@@ -20,8 +20,6 @@ public struct SymbolListModelResponse: Glossy {
     public let symbolDetailsList : [SymbolDetailsList]!
     public let totalPages : Int!
 
-
-
     //MARK: Decodable
     public init?(json: JSON){
         pageNumber = "pageNumber" <~~ json
@@ -30,7 +28,6 @@ public struct SymbolListModelResponse: Glossy {
         symbolDetailsList = "symbolDetailsList" <~~ json
         totalPages = "totalPages" <~~ json
     }
-
 
     //MARK: Encodable
     public func toJSON() -> JSON? {
