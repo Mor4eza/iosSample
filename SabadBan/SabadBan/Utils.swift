@@ -31,27 +31,30 @@ func persianStringCompare(value1: String, value2: String) -> Bool {
     // One string is alphabetically first.
     // ... True means value1 precedes value2.
     let unicodeValueList  = [1570, 1575, 1576, 1662, 1578, 1579, 1580, 1670, 1581, 1582, 1583, 1584, 1585, 1586, 1688, 1587, 1588, 1589, 1590, 1591, 1592, 1593, 1594, 1601, 1602, 1705, 1603, 1711, 1604, 1605, 1606, 1608, 1607, 1740, 1610]
-    let biggerLength : String
-    let smallerLength : String
+    let longerText : String
+    let shorterText : String
+    var firstIsLonger : Bool
     if value1.characters.count > value2.characters.count {
-        biggerLength = value1
-        smallerLength = value2
+        firstIsLonger = true
+        longerText = value1
+        shorterText = value2
     } else {
-        biggerLength = value2
-        smallerLength = value1
+        firstIsLonger = false
+        longerText = value2
+        shorterText = value1
     }
 
-    for i in 0..<smallerLength.characters.count {
-        let word1 : String = smallerLength[i]
-        let word2 : String = biggerLength[i]
+    for i in 0..<shorterText.characters.count {
+        let word1 : String = shorterText[i]
+        let word2 : String = longerText[i]
 
         let indexWord1 = unicodeValueList.indexOf(Int(word1.unicodeScalars[word1.unicodeScalars.startIndex].value))
         let indexWord2 = unicodeValueList.indexOf(Int(word2.unicodeScalars[word2.unicodeScalars.startIndex].value))
 
         if indexWord1 > indexWord2{
-            return true
+            return firstIsLonger
         } else if indexWord1 != indexWord2 {
-            return false
+            return !firstIsLonger
         }
     }
 

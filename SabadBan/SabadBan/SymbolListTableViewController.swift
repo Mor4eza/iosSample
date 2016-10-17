@@ -174,21 +174,21 @@ class SymbolListTableViewController: BaseTableViewController {
             sortImg = headerView.imgSortAmount
             switch numberSortCondiiton {
             case .notSorted:
-                rotateWithAnimation(sortImg, angle: M_PI)
+                rotateWithAnimation(sortImg, angle: 0)
                 self.numberSortCondiiton = .decending
                 self.symbolDetailsList.sortInPlace({
                     $1.transactionNumber < $0.transactionNumber
                 })
                 break
             case .decending:
-                rotateWithAnimation(sortImg, angle: 0)
+                rotateWithAnimation(sortImg, angle: M_PI)
                 self.numberSortCondiiton = .accending
                 self.symbolDetailsList.sortInPlace({
                     $1.transactionNumber > $0.transactionNumber
                 })
                 break
             case .accending:
-                rotateWithAnimation(sortImg, angle: M_PI)
+                rotateWithAnimation(sortImg, angle: 0)
                 self.numberSortCondiiton = .decending
                 self.symbolDetailsList.sortInPlace({
                     $1.transactionNumber < $0.transactionNumber
@@ -199,21 +199,21 @@ class SymbolListTableViewController: BaseTableViewController {
             sortImg = headerView.imgSortVolume
             switch volumeSortCondiiton {
             case .notSorted:
-                rotateWithAnimation(sortImg, angle: M_PI)
+                rotateWithAnimation(sortImg, angle: 0)
                 self.volumeSortCondiiton = .decending
                 self.symbolDetailsList.sortInPlace({
                     $1.transactionVolume < $0.transactionVolume
                 })
                 break
             case .decending:
-                rotateWithAnimation(sortImg, angle: 0)
+                rotateWithAnimation(sortImg, angle: M_PI)
                 self.volumeSortCondiiton = .accending
                 self.symbolDetailsList.sortInPlace({
                     $1.transactionVolume > $0.transactionVolume
                 })
                 break
             case .accending:
-                rotateWithAnimation(sortImg, angle: M_PI)
+                rotateWithAnimation(sortImg, angle: 0)
                 self.volumeSortCondiiton = .decending
                 self.symbolDetailsList.sortInPlace({
                     $1.transactionVolume < $0.transactionVolume
@@ -224,21 +224,21 @@ class SymbolListTableViewController: BaseTableViewController {
             sortImg = headerView.imgSortName
             switch symbolSortCondiiton {
             case .notSorted:
-                rotateWithAnimation(sortImg, angle: M_PI)
+                rotateWithAnimation(sortImg, angle: 0)
                 self.symbolSortCondiiton = .decending
                 self.symbolDetailsList.sortInPlace({
                     return persianStringCompare($1.symbolShortName, value2: $0.symbolShortName)
                 })
                 break
             case .decending:
-                rotateWithAnimation(sortImg, angle: 0)
+                rotateWithAnimation(sortImg, angle: M_PI)
                 self.symbolSortCondiiton = .accending
                 self.symbolDetailsList.sortInPlace({
                     return persianStringCompare($0.symbolShortName, value2: $1.symbolShortName)
                 })
                 break
             case .accending:
-                rotateWithAnimation(sortImg, angle: M_PI)
+                rotateWithAnimation(sortImg, angle: 0)
                 self.symbolSortCondiiton = .decending
                 self.symbolDetailsList.sortInPlace({
                     return persianStringCompare($1.symbolShortName, value2: $0.symbolShortName)
