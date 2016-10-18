@@ -25,7 +25,6 @@ struct Strings {
     static let EmptyToken = "EmptyToken"
     static let SimulatorPushToken = "IOS_RUNNING_FROM_SIMULATOR"
     //MARK :- Setting View Controller Strings
-    
     static let Language = "Language"
     static let SwitchLanguage = "SwitchLanguage"
     static let Cancel = "Cancel"

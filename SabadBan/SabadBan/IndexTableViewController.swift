@@ -30,6 +30,8 @@ class IndexTableViewController: BaseTableViewController {
         self.tableView.addSubview(refreshControl!)
         getIndexList()
 
+
+
     }
     func refresh(sender:AnyObject) {
         getIndexList()

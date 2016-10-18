@@ -18,6 +18,7 @@ public let AppFontName_IranSans = "IRANSansMobileFaNum"
 //public let AppTadbirUrl = "http://185.37.52.193:9090" //Server 6
 public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server Tadbir
 //public let AppTadbirUrl = "http://192.168.1.201:9090" //Local
+public let AcraUrl = "http://acra.sefryek.com:5984/acra-p343-sabadban-ios/_design/acra-storage/_update/report"
 public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
 public let ServicesHeaders = ["Content-Type": "application/json"]
 public var GuestUser = "1@1.com"
