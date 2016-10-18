@@ -107,6 +107,10 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             addSymbol.hidden = false
             deletePortfolio.hidden = false
         }
+        
+        if portfolios.count == 0 {
+            Utils.ShowAlert(self, title: Strings.Attention, details: Strings.addPortfolioPlease)
+        }
     }
 
     override func viewWillDisappear(animated: Bool) {

@@ -82,7 +82,10 @@ class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate
                         self.tableView.reloadData()
                     }
                     for i in 0..<news!.response.newsDetailsList.count {
-                        self.newsModel.append(NewsModel(title: news!.response.newsDetailsList[i].title, details: news!.response.newsDetailsList[i].descriptionField, date: news!.response.newsDetailsList[i].createdAt,link: news!.response.newsDetailsList[i].reference))
+                        let date = self.convertStringToDate(news!.response.newsDetailsList[i].createdAt)
+                        let dateString = convertToPersianDateWithTime(date)
+                        
+                        self.newsModel.append(NewsModel(title: news!.response.newsDetailsList[i].title, details: news!.response.newsDetailsList[i].descriptionField, date: dateString,link: news!.response.newsDetailsList[i].reference))
                     }
                     self.newsCount += news!.response.count
                     self.servicePage += 1
@@ -128,5 +131,11 @@ class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate
         newsCount = 0
         isMore = true
         sendBourseNewsRequest(servicePage)
+    }
+    
+    func convertStringToDate(dateString: String) -> NSDate {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-mm-dd HH:mm:ss"
+        return dateFormatter.dateFromString(dateString)!
     }
 }

@@ -80,6 +80,10 @@
 "allowed" = "allowed";
 "symbolExists" = "symbolExists";
 "nameDuplicate" = "نام پرتفوی تکراری است.";
+"addPortfolioPlease" = "Please add a Portfolio.";
+"enterDatePlease" = "Please enter the Date.";
+"enterPricePlease" = "Please enter the Price.";
+"enterQuantityPlease" = "Please enter the Quantity.";
 
 //MARK: - AboutUs Strings
 
