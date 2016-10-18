@@ -10,10 +10,14 @@ import UIKit
 import Localize_Swift
 import Firebase
 import FirebaseMessaging
+import Alamofire
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+   
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
@@ -40,14 +44,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.tintColor = UIColor.whiteColor()
 
         //FCM
-
         FIRApp.configure()
         let notificationTypes: UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound]
         let pushNotificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
         application.registerUserNotificationSettings(pushNotificationSettings)
         application.registerForRemoteNotifications()
 
-        debugPrint("lunc \(launchOptions)")
+        //AcraLizer
+        let acra = AcralizerClient(url: AcraUrl, username: "p343-sabadban-ios", password: "p343-sabadban-ios@!#^")
+        acra.start()
+
+
 
 //        let storyboard = UIStoryboard(name: UIConstants.Main, bundle: nil)
 //        let vc = storyboard.instantiateViewControllerWithIdentifier(UIConstants.NewsTabBarController)
@@ -55,6 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
+
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

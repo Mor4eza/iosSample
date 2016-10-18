@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import FCAlertView
+
 class LoginViewController: BaseViewController, UITextFieldDelegate {
 
     //MARK: Properties
@@ -39,6 +40,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
 
         //MARK: - Login String
+
 
         lblRememberMe.text = Strings.RememberMe.localized()
         btnLogin.setTitle(Strings.Login.localized(), forState: .Normal)
@@ -103,7 +105,8 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     //MARK:- Buttons Tap
 
     @IBAction func btnLoginTap(sender: AnyObject) {
-        beginLoginSequence()
+
+                beginLoginSequence()
     }
 
     @IBAction func btnGuestLoginTap(sender: AnyObject) {

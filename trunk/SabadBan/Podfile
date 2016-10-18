@@ -16,5 +16,4 @@ target 'SabadBan' do
   pod 'Firebase'
   pod 'Firebase/Messaging'
   pod "KCFloatingActionButton", :git => 'https://github.com/kciter/KCFloatingActionButton.git', :branch => 'swift2.0'
-
 end

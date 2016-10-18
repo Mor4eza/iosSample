@@ -1786,7 +1786,7 @@
         <!--My Navigation Controller-->
         <scene sceneID="m9U-Ja-N5c">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3x8-rP-1o7" customClass="MyNavigationController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="baseNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="3x8-rP-1o7" customClass="MyNavigationController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qWk-aj-4fh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

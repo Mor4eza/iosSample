@@ -73,6 +73,7 @@
 		947C63961D7581D100676822 /* PortfolioListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C63951D7581D100676822 /* PortfolioListViewController.swift */; };
 		947C639D1D75BA8C00676822 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C639C1D75BA8C00676822 /* DataBase.swift */; };
 		947EAC101D7AA25100FE43EC /* portfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947EAC0F1D7AA25100FE43EC /* portfolioCell.swift */; };
+		948003A41DB632360085A5FC /* AcralizerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948003A31DB632360085A5FC /* AcralizerClient.swift */; };
 		948776691D882FA9009E358F /* menuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948776671D882FA9009E358F /* menuCell.swift */; };
 		9487766A1D882FA9009E358F /* menuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 948776681D882FA9009E358F /* menuCell.xib */; };
 		948B46651D76B49500F464C2 /* SearchSeymbolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B46641D76B49500F464C2 /* SearchSeymbolTableView.swift */; };
@@ -192,6 +193,7 @@
 		947C63991D75B25D00676822 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		947C639C1D75BA8C00676822 /* DataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		947EAC0F1D7AA25100FE43EC /* portfolioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = portfolioCell.swift; sourceTree = "<group>"; };
+		948003A31DB632360085A5FC /* AcralizerClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcralizerClient.swift; sourceTree = "<group>"; };
 		948776671D882FA9009E358F /* menuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuCell.swift; sourceTree = "<group>"; };
 		948776681D882FA9009E358F /* menuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuCell.xib; sourceTree = "<group>"; };
 		948B46641D76B49500F464C2 /* SearchSeymbolTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSeymbolTableView.swift; sourceTree = "<group>"; };
@@ -625,6 +627,7 @@
 				949BEE6C1D72A78A008FA574 /* LinearProgressView.swift */,
 				84F6BBF71D9F972F009BEEB2 /* Strings.swift */,
 				84F6BBF91D9FC345009BEEB2 /* UIConstants.swift */,
+				948003A31DB632360085A5FC /* AcralizerClient.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -865,6 +868,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 949BEE601D72A51C008FA574 /* Build configuration list for PBXNativeTarget "SabadBan" */;
 			buildPhases = (
+				6B6976D5B839600080B37CB1 /* 📦 Check Pods Manifest.lock */,
 				9070F80B11578457AFAFB70F /* [CP] Check Pods Manifest.lock */,
 				23E0DAE45421868EF7347EBA /* [CP] Check Pods Manifest.lock */,
 				DA8014AD9787A3B930297CC7 /* [CP] Check Pods Manifest.lock */,
@@ -966,6 +970,21 @@
 			inputPaths = (
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6B6976D5B839600080B37CB1 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1190,6 +1209,7 @@
 				9412F0F11D857E3600E94683 /* LoginResponse.swift in Sources */,
 				945F3CB81DA515F4006D800D /* SymbolNameResponse.swift in Sources */,
 				949BEEA01D72B5C8008FA574 /* IndexHeader.swift in Sources */,
+				948003A41DB632360085A5FC /* AcralizerClient.swift in Sources */,
 				84C9E2871D99381300F96EF8 /* NewsMainResponse.swift in Sources */,
 				949BEE7D1D72A7C4008FA574 /* ENSideMenuNavigationController.swift in Sources */,
 				84F6BBFA1D9FC345009BEEB2 /* UIConstants.swift in Sources */,
@@ -1336,6 +1356,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SabadBan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

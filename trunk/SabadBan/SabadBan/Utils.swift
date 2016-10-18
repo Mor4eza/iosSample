@@ -9,10 +9,14 @@
 import Foundation
 import Localize_Swift
 
-var IOS_VERSION = CFloat(UIDevice.currentDevice().systemVersion)!
+let IOS_VERSION = CFloat(UIDevice.currentDevice().systemVersion)!
 public func getAppLanguage() -> String {
     return Localize.currentLanguage()
 }
+
+let appVersionName = NSBundle.mainBundle().infoDictionary?["CFBundleVersion"] as? String
+let appVersionCode = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
+let appPackageName = NSBundle.mainBundle().bundleIdentifier
 
 var isSimulator: Bool {
     return TARGET_OS_SIMULATOR != 0 // Use this line in Xcode 7 or newer
