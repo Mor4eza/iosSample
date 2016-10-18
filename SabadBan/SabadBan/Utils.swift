@@ -65,6 +65,29 @@ func persianStringCompare(value1: String, value2: String) -> Bool {
     return false;
 }
 
+func convertToPersianDate(date: NSDate) -> String {
+    
+    let calendar = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierPersian)
+    let currentDayInt = (calendar?.component(NSCalendarUnit.Day, fromDate: date))!
+    let currentMonthInt = (calendar?.component(NSCalendarUnit.Month, fromDate: date))!
+    let currentYearInt = (calendar?.component(NSCalendarUnit.Year, fromDate: date))!
+    
+    return "\(currentYearInt.addZero())/\(currentMonthInt.addZero())/\(currentDayInt)"
+}
+
+func convertToPersianDateWithTime(date: NSDate) -> String {
+    
+    let calendar = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierPersian)
+    let currentDayInt = (calendar?.component(NSCalendarUnit.Day, fromDate: date))!
+    let currentMonthInt = (calendar?.component(NSCalendarUnit.Month, fromDate: date))!
+    let currentYearInt = (calendar?.component(NSCalendarUnit.Year, fromDate: date))!
+    let hour = (calendar?.component(NSCalendarUnit.Hour, fromDate: date))!
+    let minute = (calendar?.component(NSCalendarUnit.Minute, fromDate: date))!
+    
+    
+    return "\(currentYearInt.addZero())/\(currentMonthInt.addZero())/\(currentDayInt) \(hour.addZero()):\(minute.addZero())"
+}
+
 import FCAlertView
 public class Utils {
 

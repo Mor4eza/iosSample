@@ -43,7 +43,7 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
         lblCount.text = Strings.Count.localized() + ":"
         lblTitle.text = SelectedSymbolName
         btnDate.setTitle("", forState: .Normal)
-        btnPrice.setTitle(String(price), forState: .Normal)
+        btnPrice.setTitle(price.currencyFormat(0), forState: .Normal)
         btnCount.setTitle("", forState: .Normal)
         btnDone.setTitle(Strings.Submit.localized(), forState: .Normal)
         PsBuyCode = db.getPsCodeBySymbolCode(String(SelectedSymbolCode), pCode: portfolioCode)
@@ -87,8 +87,8 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
 
         if !editMode {
             self.btnDate.setTitle(psBuyData[indexPath].psDate, forState: .Normal)
-            self.btnCount.setTitle(String(psBuyData[indexPath].psCount), forState: .Normal)
-            self.btnPrice.setTitle(String(psBuyData[indexPath].psPrice), forState: .Normal)
+            self.btnCount.setTitle(psBuyData[indexPath].psCount.currencyFormat(0), forState: .Normal)
+            self.btnPrice.setTitle(psBuyData[indexPath].psPrice.currencyFormat(0), forState: .Normal)
             self.btnDone.setTitle(Strings.Edit.localized(), forState: .Normal)
             psIdForEdit = psBuyData[indexPath].psId
             editMode = true
@@ -141,7 +141,9 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
             dateFormat.dateStyle = NSDateFormatterStyle.ShortStyle
 
             dateFormat.timeStyle = NSDateFormatterStyle.NoStyle
-            self.btnDate.setTitle(dateFormat.stringFromDate(date), forState: .Normal)
+            
+            self.btnDate.setTitle(convertToPersianDate(date), forState: .Normal)
+            
             debugPrint(dateFormat.stringFromDate(date))
         }
 
@@ -183,7 +185,15 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
     @IBAction func btnDoneTap(sender: AnyObject) {
 
         if btnPrice.currentTitle == "" || btnCount.currentTitle == "" || btnDate.currentTitle == "" {
-            debugPrint("empty")
+            
+            if btnDate.currentTitle == "" {
+                Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.enterDatePlease.localized())
+            } else if btnPrice.currentTitle == "" {
+                Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.enterPricePlease.localized())
+            } else if btnCount.currentTitle == "" {
+                Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.enterQuantityPlease.localized())
+            }
+        
         } else {
             let price = Double((btnPrice.titleLabel?.text)!)!
             let count = Double((btnCount.titleLabel?.text)!)!

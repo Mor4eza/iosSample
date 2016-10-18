@@ -80,6 +80,10 @@
 "stopped" = "متوقف";
 "allowed" = "مجاز";
 "symbolExists" = "این نماد در پرتفوی فعلی وجود دارد";
+"addPortfolioPlease" = "لطفا یک پورتفوی اضافه کنید.";
+"enterDatePlease" = "لطفا تاریخ را وارد کنید.";
+"enterPricePlease" = "لطفا قیمت را وارد کنید.";
+"enterQuantityPlease" = "لطفا تعداد را وارد کنید.";
 
 
 //MARK: - AboutUs Strings

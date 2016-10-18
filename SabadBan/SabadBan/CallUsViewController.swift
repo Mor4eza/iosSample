@@ -115,7 +115,7 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
             showAlert(Strings.emailInvalid)
         } else if lblSubject.text == "" {
             showAlert(Strings.pleaseEnterSubject)
-        } else if lblDetails.text == "" {
+        } else if ((lblDetails.text == "") || (lblDetails.text == Strings.EmailMessage.localized())) {
             showAlert(Strings.pleaseEnterDetails)
         }
         else {

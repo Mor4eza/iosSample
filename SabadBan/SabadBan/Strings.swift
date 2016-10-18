@@ -83,6 +83,10 @@ struct Strings {
     static let allowed = "allowed"
     static let symbolExists = "symbolExists"
     static let nameDuplicate = "nameDuplicate"
+    static let addPortfolioPlease = "addPortfolioPlease"
+    static let enterDatePlease = "enterDatePlease"
+    static let enterPricePlease = "enterPricePlease"
+    static let enterQuantityPlease = "enterQuantityPlease"
     
     //MARK: - AboutUs Strings
     
