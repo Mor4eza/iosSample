@@ -89,6 +89,7 @@ struct Strings {
     static let enterQuantityPlease = "enterQuantityPlease"
     static let reallyWantToDeleteBuy = "reallyWantToDeleteBuy"
     static let deleteBuyAlertTitle = "deleteBuyAlertTitle"
+    static let addedSuccessfuliToPortfolio = "addedSuccessfuliToPortfolio"
     
     //MARK: - AboutUs Strings
     
@@ -126,6 +127,7 @@ struct Strings {
     
     static let noInternet = "noInternet"
     static let ConnectionTimeOut = "ConnectionTimeOut"
+    static let lastUpdate = "lastUpdate"
     //MARK: - Symbol Details
     static let bestBuyTitle = "bestBuyTitle"
     static let bestSellTitle = "bestSellTitle"

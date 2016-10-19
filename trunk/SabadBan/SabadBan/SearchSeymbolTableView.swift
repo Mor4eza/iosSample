@@ -9,30 +9,43 @@
 import UIKit
 import Alamofire
 import SwiftEventBus
-
+import GSMessages
 class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating , UISearchBarDelegate{
 
     let searchController = UISearchController(searchResultsController: nil)
+    let db = DataBase()
     var shouldShowSearchResults = false
     var symbolsData = [symbolData]()
     var filteredSymbol = [symbolData]()
     var selectedSCode = String()
     var isSearch = Bool()
     var symbols = [String]()
+    var isFirstTime = Bool()
+    var selectedSCodeArray = [String]()
+    var pCode = Int()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView()
-
-        self.title = Strings.SearchSymbol.localized()
+        if isSearch {
+            self.title = Strings.SearchSymbol.localized()
+        }else {
+            self.title = Strings.AddSymbol.localized()
+        }
+        self.tableView.allowsMultipleSelection = true
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
         searchController.searchBar.placeholder = Strings.SearchSymbol.localized()
         searchController.searchBar.delegate = self
-        self.tableView.tableHeaderView = searchController.searchBar
         self.navigationItem.rightBarButtonItem = nil
         self.navigationItem.leftBarButtonItem = nil
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.searchBar.searchBarStyle = UISearchBarStyle.Minimal
+        // Include the search bar within the navigation bar.
+        self.navigationItem.titleView = self.searchController.searchBar
+        self.definesPresentationContext = true
+
         //Refresh Control
         refreshControl = UIRefreshControl()
         refreshControl!.tintColor = UIColor.whiteColor()
@@ -59,6 +72,11 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
     }
 
     // MARK: - Table view data source
+
+
+    override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -112,27 +130,42 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
             return
         }
 
-        let nc = NSNotificationCenter.defaultCenter()
+            var selected = String()
 
-        var selected = String()
+            if shouldShowSearchResults {
+                selected = String(filteredSymbol[indexPath.row].code)
 
-        if shouldShowSearchResults {
-            selected = String(filteredSymbol[indexPath.row].code)
-        }else{
-            selected = String(symbolsData[indexPath.row].code)
-        }
-
-        for i in 0 ..< symbols.count {
-            if selected == symbols[i] {
-
-                Utils.ShowAlert(self, title:Strings.Attention.localized() , details: Strings.symbolExists.localized(),btnOkTitle:Strings.Ok.localized())
-                return
+            }else{
+                selected = String(symbolsData[indexPath.row].code)
             }
+            symbols = db.getSymbolbyPortfolio(pCode)
+            for i in 0 ..< symbols.count {
+                if selected == symbols[i] {
+
+                    Utils.ShowAlert(self, title:Strings.Attention.localized() , details: Strings.symbolExists.localized(),btnOkTitle:Strings.Ok.localized())
+                    return
+                }
+            }
+            db.addSymbolToPortfolio(selected, pCode: pCode)
+        self.showMessage(Strings.addedSuccessfuliToPortfolio.localized(), type: .Success,options: [
+            .Animation(.Slide),
+            .AnimationDuration(0.3),
+            .AutoHide(true),
+            .AutoHideDelay(3.0),
+            .Height(20),
+            .HideOnTap(true),
+            .Position(.Top),
+            .TextAlignment(.Center),
+            .TextColor(UIColor.whiteColor()),
+            .TextNumberOfLines(1),
+            .TextPadding(10)
+            ])
+
+        if !isFirstTime {
+            dismissViewControllerAnimated(true, completion: nil)
         }
 
-        let sendSelected = ["selectedSymbol":selected]
-        nc.postNotificationName(symbolSelected, object: nil , userInfo: sendSelected)
-        dismissViewControllerAnimated(true, completion: nil)
+
     }
     //MARK : - Search Controller
 
@@ -192,8 +225,8 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
 
             if ((symbols?.successful) != nil) {
                 for i in 0  ..< symbols!.response.symbolNameList.count{
-                        self.symbolsData.append(symbolData(name: symbols!.response.symbolNameList[i].symbolShortName,
-                            fullName: symbols!.response.symbolNameList[i].symbolCompleteName, code: symbols!.response.symbolNameList[i].symbolCode))
+                    self.symbolsData.append(symbolData(name: symbols!.response.symbolNameList[i].symbolShortName,
+                        fullName: symbols!.response.symbolNameList[i].symbolCompleteName, code: symbols!.response.symbolNameList[i].symbolCode))
 
                     self.refreshControl?.endRefreshing()
                     self.tableView.reloadData()

@@ -17,11 +17,13 @@ public struct Response: Glossy {
 
 	public let indexDetailsList : [IndexDetailsList]!
 	public let timeFrameType : String!
+    public let updateLatest : String!
 
 	//MARK: Decodable
 	public init?(json: JSON){
 		indexDetailsList = "indexDetailsList" <~~ json
 		timeFrameType = "timeFrameType" <~~ json
+        updateLatest = "updateLatest" <~~ json
 	}
 
 	//MARK: Encodable
@@ -29,6 +31,7 @@ public struct Response: Glossy {
 		return jsonify([
 		"indexDetailsList" ~~> indexDetailsList,
 		"timeFrameType" ~~> timeFrameType,
+        "updateLatest" ~~> updateLatest,
 		])
 	}
 

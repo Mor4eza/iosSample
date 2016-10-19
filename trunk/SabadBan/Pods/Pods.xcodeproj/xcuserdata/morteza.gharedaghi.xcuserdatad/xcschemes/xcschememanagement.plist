@@ -24,6 +24,11 @@
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
+		<key>GSMessages.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 		<key>Gloss.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -86,7 +91,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0A5CBFF929A517484CF2168B6FAA222B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>0E09640F7AB338EBB337F65FA111978F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0F9683CA667D820743C47D203E8ECF93</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,6 +122,11 @@
 			<true/>
 		</dict>
 		<key>23AF640068AA776E4CC6D1050B072612</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2C8E4477483B8C01209D1569B99F10D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,6 +157,11 @@
 			<true/>
 		</dict>
 		<key>4E3BBCA6078A6AAAD053C911572F0B0C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5504730237D8618885C53333BF9764DF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -181,7 +206,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9D84607B674CF88336D146BEFA1C7C95</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A0EACCB7017A37C060FB34A9EC0D51FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A2CAA40DBDCBBC5AA4DECB2A067C3509</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -291,7 +326,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>E97059C9ED4B183E00FE6F667FC7A5E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>F8DFBB1567905C050B1C0732EB29E467</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FADE8FFD5318F423B87C458865B43019</key>
 		<dict>
 			<key>primary</key>
 			<true/>

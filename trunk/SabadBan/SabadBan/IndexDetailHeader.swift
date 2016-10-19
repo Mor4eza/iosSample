@@ -14,6 +14,7 @@ class IndexDetailHeader: UITableViewHeaderFooterView {
 
     @IBOutlet weak var backView: UIView!
 
+    @IBOutlet weak var lblLastUpdate: UILabel!
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

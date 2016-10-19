@@ -37,10 +37,10 @@ PODS:
   - GoogleSymbolUtilities (1.1.1)
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - GSMessages (1.2.3)
   - KCFloatingActionButton (1.4.4)
   - Localize-Swift (1.5)
   - SQLite.swift (0.10.1)
-  - SwiftCharts (0.4)
   - SwiftEventBus (1.1.0)
 
 DEPENDENCIES:
@@ -50,10 +50,10 @@ DEPENDENCIES:
   - FCAlertView
   - Firebase
   - Firebase/Messaging
+  - GSMessages (~> 1.2.3)
   - KCFloatingActionButton (from `https://github.com/kciter/KCFloatingActionButton.git`, branch `swift2.0`)
   - Localize-Swift (~> 1.5)
   - SQLite.swift
-  - SwiftCharts
   - SwiftEventBus
 
 EXTERNAL SOURCES:
@@ -80,12 +80,12 @@ SPEC CHECKSUMS:
   GoogleIPhoneUtilities: 63f25e93a3ddcb66884d182aab3a660d98f1479b
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
+  GSMessages: 6c92295aaac87b96d746c1838e72ed0a2b51ac9a
   KCFloatingActionButton: 410c5bf4255da4d21c8708069cf128d436d64cf7
   Localize-Swift: 288aa763db72b0628d2cb111fbf5babc90529d0c
   SQLite.swift: 6a6e4b034efc317ce4e203b6af2d3024fee2b570
-  SwiftCharts: 84b43d9d70b791459ff5f50ae5a6704326de309d
   SwiftEventBus: d33b51752d4e3e994f0ea7b31873f0beca7eada0
 
-PODFILE CHECKSUM: f7e33a634d0838d0e68f58ac9002edfe29a79a14
+PODFILE CHECKSUM: cc43797cdb272f336b5d237e23b0ab59c036f026
 
 COCOAPODS: 1.0.0

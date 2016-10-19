@@ -91,5 +91,6 @@ struct UIConstants {
     static let AboutUsViewController = "AboutUsViewController"
     static let ViewController4 = "ViewController4"
     static let ContactUsViewController = "ContactUsViewController"
-    
+    static let LogInViewController = "loginViewController"
+
 }
