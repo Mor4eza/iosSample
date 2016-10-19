@@ -63,7 +63,7 @@ extension Float {
         formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
         formatter.currencyDecimalSeparator = "."
 
-        let decimalPart = self - Float(Int(self))
+        let decimalPart = self - Float(IntMax(self))
 
         if (decimalPart == 0) {
             formatter.minimumFractionDigits = 0
@@ -87,7 +87,7 @@ extension Double {
         formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
         formatter.currencyDecimalSeparator = "."
 
-        let decimalPart = self - Double(Int(self))
+        let decimalPart = self - Double(IntMax(self))
 
         if (decimalPart == 0) {
             formatter.minimumFractionDigits = 0
