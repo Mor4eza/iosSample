@@ -18,7 +18,7 @@ extension NSNumber {
         formatter.currencyDecimalSeparator = "."
         formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
         var decimalPart = self as Double
-        decimalPart = decimalPart - Double(Int(decimalPart))
+        decimalPart = decimalPart - Double(IntMax(decimalPart))
 
 //        if (decimalPart == 0) {
 //            formatter.minimumFractionDigits = 0

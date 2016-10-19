@@ -8,7 +8,9 @@
 
 import UIKit
 import SwiftEventBus
-class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableViewDataSource{
+import FCAlertView
+
+class BuyInfoViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, FCAlertViewDelegate{
 
     @IBOutlet weak var tblHistory: UITableView!
     @IBOutlet weak var btnDone: UIButton!
@@ -29,6 +31,10 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
     var editMode = Bool()
     var psIdForEdit = Int()
     var price = Float()
+    var deleteIndexRow = Int()
+    var dialogCurrentString = String()
+    var priceAlert = UIAlertController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -97,12 +103,10 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
     }
 
     func deleteTaped(sender:UIButton) {
-
-        let indexPath = sender.tag
-
-        db.deletePsBuy(psBuyData[indexPath].psId)
-        getPsData(PsBuyCode)
-
+        
+        deleteIndexRow = sender.tag
+        
+        Utils.ShowAlert(self, title: Strings.deleteBuyAlertTitle.localized(), details: Strings.reallyWantToDeleteBuy.localized(), btnOkTitle: Strings.Yes.localized(), btnTitles: [Strings.No.localized()],delegate: self)
     }
 
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -151,18 +155,19 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
 
     @IBAction func btnPriceTap(sender: AnyObject) {
 
-        let alert = UIAlertController(title: Strings.Price.localized(), message: "", preferredStyle: .Alert)
+        priceAlert = UIAlertController(title: Strings.Price.localized(), message: "", preferredStyle: .Alert)
 
-        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+        priceAlert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
             textField.keyboardType = .NumberPad
+            textField.maxLength = 9
         })
 
-        alert.addAction(UIAlertAction(title: Strings.Ok.localized(), style: .Default, handler: { (action) -> Void in
-            let textField = alert.textFields![0] as UITextField
+        priceAlert.addAction(UIAlertAction(title: Strings.Ok.localized(), style: .Default, handler: { (action) -> Void in
+            let textField = self.priceAlert.textFields![0] as UITextField
             self.btnPrice.setTitle(textField.text, forState: .Normal)
         }))
 
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.presentViewController(priceAlert, animated: true, completion: nil)
     }
 
     @IBAction func btnCountTap(sender: AnyObject) {
@@ -171,6 +176,7 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
 
         alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
             textField.keyboardType = .NumberPad
+            textField.maxLength = 9
         })
 
         alert.addAction(UIAlertAction(title: Strings.Ok.localized(), style: .Default, handler: { (action) -> Void in
@@ -195,17 +201,17 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
             }
         
         } else {
-            let price = Double((btnPrice.titleLabel?.text)!)!
-            let count = Double((btnCount.titleLabel?.text)!)!
+            let price = btnPrice.titleLabel?.text?.getCurrencyNumber()
+            let count = btnCount.titleLabel?.text?.getCurrencyNumber()
             let date = btnDate.titleLabel?.text
 
             if editMode {
-                db.updatePsBuy(psIdForEdit, newPrice: price, newCount: count, newDate: date!)
+                db.updatePsBuy(psIdForEdit, newPrice: Double(price!), newCount: Double(count!), newDate: date!)
                 editMode = false
 
                 btnDone.setTitle(Strings.Submit.localized(), forState: .Normal)
             }else {
-                AddPsBuy(PsBuyCode, price:price , count: count, date:  date!)
+                AddPsBuy(PsBuyCode, price: Double(price!) , count: Double(count!), date:  date!)
             }
 
             btnDate.setTitle("", forState: .Normal)
@@ -219,7 +225,13 @@ class BuyInfoViewController: BaseViewController ,UITableViewDelegate ,UITableVie
         SwiftEventBus.post(BestBuyClosed)
         dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
+    //MARK:- AlertView Delegates
+    
+    func FCAlertDoneButtonClicked(alertView: FCAlertView){
+        db.deletePsBuy(psBuyData[deleteIndexRow].psId)
+        getPsData(PsBuyCode)
+    }
 }
 
 struct psBuyModel {

@@ -84,6 +84,8 @@
 "enterDatePlease" = "Please enter the Date.";
 "enterPricePlease" = "Please enter the Price.";
 "enterQuantityPlease" = "Please enter the Quantity.";
+"reallyWantToDeleteBuy" = "Are you sure?";
+"deleteBuyAlertTitle" = "Delete Buy Information";
 
 //MARK: - AboutUs Strings
 

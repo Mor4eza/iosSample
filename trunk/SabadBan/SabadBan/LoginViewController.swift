@@ -143,6 +143,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     }
 
     func beginLoginSequence() {
+        self.view.endEditing(true)
         if txtUserName.text == "" {
             showAlert(Strings.pleaseEnterEmail)
         } else if (!txtUserName.text!.isValidEmail()) {
