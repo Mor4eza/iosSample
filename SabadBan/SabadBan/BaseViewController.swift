@@ -12,7 +12,6 @@ import FCAlertView
 class BaseViewController: UIViewController,ENSideMenuDelegate {
     
     var timer : NSTimer?
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +20,7 @@ class BaseViewController: UIViewController,ENSideMenuDelegate {
         }
         addMenuButton()
         self.setFontFamily(AppFontName_IranSans, forView: self.view, andSubViews: true)
-
+        self.sideMenuController()?.sideMenu?.delegate = self
         self.view.backgroundColor = AppMainColor
 
         // Do any additional setup after loading the view.
@@ -68,7 +67,22 @@ class BaseViewController: UIViewController,ENSideMenuDelegate {
         }
         
     }
+    // MARK: - ENSideMenu Delegate
+    func sideMenuWillOpen() {
+    }
 
+    func sideMenuWillClose() {
+    }
+
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        return true
+    }
+
+    func sideMenuDidClose() {
+    }
+
+    func sideMenuDidOpen() {
+    }
     func updateServiceData() {
     }
 }

@@ -30,6 +30,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     let addSymbol = KCFloatingActionButtonItem()
     let deletePortfolio = KCFloatingActionButtonItem()
     var searchableSymbols = Bool()
+    var isFirstTime = false
     let refreshControl = UIRefreshControl()
     //    var refreshControll = UIRefreshControl!()
     @IBOutlet weak var tblPortfolio: UITableView!
@@ -235,7 +236,9 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         self.navigationItem.titleView = menuView
         
         menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> () in
-            
+            if self.sideMenuController()?.sideMenu?.isMenuOpen == true {
+                self.sideMenuController()?.sideMenu?.hideSideMenu()
+            }
             self.currentPortfolio = self.portfolios[indexPath]
             debugPrint("currentPortfolio\(self.db.getportfolioCodeByName(self.currentPortfolio))")
             self.loadSymbolsFromDb()
@@ -300,9 +303,10 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
                     self.currentPortfolio = self.portfolios.last!
                     self.initNavigationTitle()
                     self.menuView.updateItems(self.portfolios)
+                    self.isFirstTime = true
                     self.performSegueWithIdentifier(UIConstants.searchSeguei, sender: nil)
-                }else {
-                    
+                    Utils.ShowAlert(self, title:Strings.Attention.localized() , details: "نام پرتفوی را وارد کنید.",btnOkTitle:Strings.Ok.localized())
+                    Utils.ShowAlert(self, title:Strings.Attention.localized() , details: "نام پرتفوی را وارد کنید.",btnOkTitle:Strings.Ok.localized())
                 }
             }))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -316,6 +320,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         addSymbol.handler = { item in
             
             self.searchableSymbols = false
+            self.isFirstTime = false
             self.performSegueWithIdentifier(UIConstants.searchSeguei, sender: nil)
             
         }
@@ -323,6 +328,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         searchSymbol.handler =  { item in
             
             self.searchableSymbols = true
+            self.isFirstTime = false
             self.performSegueWithIdentifier(UIConstants.searchSeguei, sender: nil)
             
         }
@@ -397,21 +403,19 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         debugPrint("price: \(price)")
         
         psCode = db.getPsCodeBySymbolCode(symbolCode, pCode: db.getportfolioCodeByName(currentPortfolio))
-        if db.getPsBuy(psCode).count > 0 {
-            
-            debugPrint("count: \(db.getPsBuy(psCode).count)")
-            
+
+
+
             for i in 0..<db.getPsBuy(psCode).count{
                 
                 todayProfit += (Double(price) - db.getPsBuy(psCode)[i].psPrice) * db.getPsBuy(psCode)[i].psCount
                 overAllProfit += (Double(price) - db.getPsBuy(psCode)[i].psPrice) * db.getPsBuy(psCode)[i].psCount
                 
             }
-            
-        }
-        
-        return (todayProfit , overAllProfit)
+            return (todayProfit , overAllProfit)
     }
+        
+
     
     //MARK:- Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -456,6 +460,8 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             let nav = segue.destinationViewController as! UINavigationController
             let addVC =  nav.topViewController as! SearchSeymbolTableView
             addVC.isSearch = searchableSymbols
+            addVC.isFirstTime = isFirstTime
+            addVC.pCode = db.getportfolioCodeByName(currentPortfolio)
             addVC.symbols = symbols
         }
     }
@@ -473,6 +479,9 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     
     override func updateServiceData() {
         loadSymbolsFromDb()
+    }
+     override func sideMenuDidOpen() {
+        menuView.hide()
     }
 }
 

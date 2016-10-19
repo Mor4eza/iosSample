@@ -86,6 +86,7 @@
 "enterQuantityPlease" = "Please enter the Quantity.";
 "reallyWantToDeleteBuy" = "Are you sure?";
 "deleteBuyAlertTitle" = "Delete Buy Information";
+"addedSuccessfuliToPortfolio" = "Added to Portfolio Successfuli";
 
 //MARK: - AboutUs Strings
 
@@ -122,6 +123,7 @@
 //MARK: - Global String
 "noInternet" = "No Internet connection";
 "ConnectionTimeOut" = "Connection TimeOut! \n try again...";
+"lastUpdate"="Last Update: ";
 //MARK: - Symbol Details
 "bestBuyTitle" = "bestBuyTitle";
 "bestSellTitle" = "bestSellTitle";

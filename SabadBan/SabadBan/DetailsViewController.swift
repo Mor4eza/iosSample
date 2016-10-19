@@ -34,7 +34,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
     var range = String()
     var indexDetailsRefreshControl: UIRefreshControl!
     var marketDetailsRefreshControl: UIRefreshControl!
-
+    var LastUpdate = ""
     var marketValue = Double()
     var numberOfTransactions = Double()
     var valueOfTransactions = Double()
@@ -174,6 +174,9 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
     }
 
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if tableView == tblDetails {
+            return 60
+        }
         return 30
     }
 
@@ -188,6 +191,8 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
             headerView.lblTitle.text = Strings.indexInfo.localized()
             headerView.lblTitle.setDefaultFont()
             headerView.backView.roundCorners([.TopLeft, .TopRight], radius: 6)
+            headerView.lblLastUpdate.text = Strings.lastUpdate.localized() +  LastUpdate
+            headerView.lblLastUpdate.setDefaultFont()
             return headerView
         } else {
             let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.MarketDetailsHeader) as! MarketDetailsHeader
@@ -219,6 +224,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         // Fetch Request
         Request.postData(url, body: body) { (indexs:MainResponse<Response>?, error)  in
             if ((indexs?.successful) != nil) {
+                self.LastUpdate = (indexs?.response.updateLatest)!
                 if (indexs!.response.indexDetailsList.count > 0) {
                     debugPrint("Count: \(indexs!.response.indexDetailsList.count)")
                     self.maxPrice = Double(indexs!.response.indexDetailsList[0].highPrice)

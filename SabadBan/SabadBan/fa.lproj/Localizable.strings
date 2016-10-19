@@ -86,7 +86,7 @@
 "enterQuantityPlease" = "لطفا تعداد را وارد کنید.";
 "reallyWantToDeleteBuy" = "آیا اطمینان دارید؟";
 "deleteBuyAlertTitle" = "حذف خرید";
-
+"addedSuccessfuliToPortfolio" = "نماد با موفقیت به پرتفوی افزوده شد.";
 
 //MARK: - AboutUs Strings
 
@@ -122,6 +122,7 @@
 //MARK: - Global String
 "noInternet" = "اتصال اینترنت برقرار نیست!";
 "ConnectionTimeOut" = "مدت زمان اتصال بیش از حد طول کشید! \n دوباره امتحان کنید...";
+"lastUpdate"="آخرین بروزرسانی :";
 
 //MARK: - Symbol Details
 "bestBuyTitle" = "سه مظنه برتر خرید";

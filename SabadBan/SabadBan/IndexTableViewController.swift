@@ -16,6 +16,7 @@ class IndexTableViewController: BaseTableViewController {
     var indexCode = [Int64]()
     var selectedIndexCode = String()
     var selectedIndexName = String()
+    var lastUpdateTime = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         super.addMenuButton()
@@ -70,7 +71,7 @@ class IndexTableViewController: BaseTableViewController {
         if (indexNames.count == 0){
             return 0
         }
-        return 50
+        return 77
     }
 
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -79,11 +80,11 @@ class IndexTableViewController: BaseTableViewController {
         headerView.lblPercent.text = Strings.Percent.localized()
         headerView.lblCount.text = Strings.Value.localized()
         headerView.lblIndex.text = Strings.Index.localized()
-
+        headerView.lblLastUpdate.text = Strings.lastUpdate.localized() + lastUpdateTime
         headerView.lblPercent.setDefaultFont()
         headerView.lblCount.setDefaultFont()
         headerView.lblIndex.setDefaultFont()
-
+        headerView.lblLastUpdate.setDefaultFont()
         return headerView
     }
 
@@ -115,6 +116,7 @@ class IndexTableViewController: BaseTableViewController {
                 self.indexCode.removeAll()
                 self.indexPrice.removeAll()
                 self.indexPercent.removeAll()
+                self.lastUpdateTime =  (indexs?.response.updateLatest)!
                 for i in 0  ..< indexs!.response.indexDetailsList.count{
                     self.indexNames.append(indexs!.response.indexDetailsList[i].shortName)
                     self.indexPrice.append(Double(indexs!.response.indexDetailsList[i].closePrice))

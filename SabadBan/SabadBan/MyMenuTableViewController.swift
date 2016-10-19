@@ -139,8 +139,9 @@ class MyMenuTableViewController: BaseTableViewController {
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.ContactUsViewController)
             break
         default:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.ContactUsViewController)
-            break
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.LogInViewController)
+            self.presentViewController(destViewController, animated: true, completion: nil)
+            return
         }
         sideMenuController()?.setContentViewController(destViewController)
     }
