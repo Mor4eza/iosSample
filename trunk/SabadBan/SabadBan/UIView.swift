@@ -19,8 +19,12 @@ extension UILabel {
         }
     }
     
-    func setDefaultFont(){
-        self.font = UIFont(name: AppFontName_IranSans, size:self.font.pointSize )
+    func setDefaultFont(size: CGFloat? = nil){
+        if size != nil {
+            self.font = UIFont(name: AppFontName_IranSans, size:(size!))
+        } else {
+            self.font = UIFont(name: AppFontName_IranSans, size:(self.font.pointSize - 3))
+        }
     }
     
 }
@@ -72,7 +76,7 @@ extension UITextField {
             
             addTarget(
                 self,
-                action: #selector(limitLength),
+                action: #selector(textFieldPropertyEditor),
                 forControlEvents: UIControlEvents.EditingChanged
             )
         }
@@ -91,7 +95,7 @@ extension UITextField {
             
             addTarget(
                 self,
-                action: #selector(limitLength),
+                action: #selector(textFieldPropertyEditor),
                 forControlEvents: UIControlEvents.EditingChanged
             )
         }
@@ -99,39 +103,49 @@ extension UITextField {
     
     
     
-    func limitLength(textField: UITextField) {
-//        let numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    func textFieldPropertyEditor(textField: UITextField) {
+        
+        let doesHaveComma = haveComma[textField]
+        
         guard let prospectiveText = textField.text
             where prospectiveText.characters.count > maxLength else {
-                if let enteredText = text {
-                    guard !enteredText.isEmpty else {
-                        return
-                    }
-                    var numberString = String()
-                    var characterArray = enteredText.characters
-                    characterArray.removeLast()
-                    for character in characterArray {
-                        
-                        if let number = String(character).getCurrencyNumber() {
-                            numberString += String(number)
+                if (doesHaveComma != nil) {
+                    if let enteredText = text {
+                        guard !enteredText.isEmpty else {
+                            return
+                        }
+                        var numberString = String()
+                        var characterArray = enteredText.characters
+                        characterArray.removeLast()
+                        for character in characterArray {
+                            
+                            if let number = String(character).getCurrencyNumber() {
+                                numberString += String(number)
+                            }
+                            
+                        }
+                        if !numberString.isEmpty {
+                            numberString = String(numberString.getCurrencyNumber()!)
                         }
                         
-                    }
-                    if !numberString.isEmpty {
-                        numberString = String(numberString.getCurrencyNumber()!)
-                    }
-                    
-                    numberString += String(enteredText[enteredText.characters.count-1])
-                    if let resutText = numberString.getCurrencyNumber()?.currencyFormat(0) {
-                        text = resutText
+                        numberString += String(enteredText[enteredText.characters.count-1])
+                        if let resutText = numberString.getCurrencyNumber()?.currencyFormat(0) {
+                            text = resutText
+                        }
                     }
                 }
+                
                 return
         }
-        
-        text = prospectiveText.substringWithRange(
-            Range<String.Index>(prospectiveText.startIndex ..< prospectiveText.startIndex.advancedBy(maxLength+1))
-        )
+        if (doesHaveComma != nil) {
+            text = prospectiveText.substringWithRange(
+                Range<String.Index>(prospectiveText.startIndex ..< prospectiveText.startIndex.advancedBy(maxLength+1))
+            )
+        } else {
+            text = prospectiveText.substringWithRange(
+                Range<String.Index>(prospectiveText.startIndex ..< prospectiveText.startIndex.advancedBy(maxLength))
+            )
+        }
     }
     
 }
