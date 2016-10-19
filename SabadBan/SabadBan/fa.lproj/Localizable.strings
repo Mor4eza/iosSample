@@ -84,6 +84,8 @@
 "enterDatePlease" = "لطفا تاریخ را وارد کنید.";
 "enterPricePlease" = "لطفا قیمت را وارد کنید.";
 "enterQuantityPlease" = "لطفا تعداد را وارد کنید.";
+"reallyWantToDeleteBuy" = "آیا اطمینان دارید؟";
+"deleteBuyAlertTitle" = "حذف خرید";
 
 
 //MARK: - AboutUs Strings

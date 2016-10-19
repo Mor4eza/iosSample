@@ -87,6 +87,8 @@ struct Strings {
     static let enterDatePlease = "enterDatePlease"
     static let enterPricePlease = "enterPricePlease"
     static let enterQuantityPlease = "enterQuantityPlease"
+    static let reallyWantToDeleteBuy = "reallyWantToDeleteBuy"
+    static let deleteBuyAlertTitle = "deleteBuyAlertTitle"
     
     //MARK: - AboutUs Strings
     

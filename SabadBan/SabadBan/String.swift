@@ -29,4 +29,15 @@ extension String {
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluateWithObject(self)
     }
+    
+    func getCurrencyNumber() -> NSNumber? {
+        let formatter = NSNumberFormatter()
+        formatter.usesGroupingSeparator = true
+        formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        formatter.currencySymbol = ""
+        formatter.currencyDecimalSeparator = "."
+        formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
+        
+        return formatter.numberFromString(self)
+    }
 }
