@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6954F42DDCDF3C57DE6BB686FA5B201D"
+               BlueprintIdentifier = "FADE8FFD5318F423B87C458865B43019"
                BuildableName = "SwiftEventBus.framework"
                BlueprintName = "SwiftEventBus"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6954F42DDCDF3C57DE6BB686FA5B201D"
+            BlueprintIdentifier = "FADE8FFD5318F423B87C458865B43019"
             BuildableName = "SwiftEventBus.framework"
             BlueprintName = "SwiftEventBus"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6954F42DDCDF3C57DE6BB686FA5B201D"
+            BlueprintIdentifier = "FADE8FFD5318F423B87C458865B43019"
             BuildableName = "SwiftEventBus.framework"
             BlueprintName = "SwiftEventBus"
             ReferencedContainer = "container:Pods.xcodeproj">
