@@ -47,6 +47,7 @@ extension UIButton {
 
 private var maxLengths = [UITextField: Int]()
 private var haveComma = [UITextField: Bool]()
+private var allowedCharacters = [UITextField: String]()
 
 extension UITextField {
     
@@ -101,9 +102,49 @@ extension UITextField {
         }
     }
     
+    @IBInspectable var allowedCharacter: String {
+        get {
+            
+            guard let allowedCharacters = allowedCharacters[self] else {
+                return ""
+            }
+            return allowedCharacters
+        }
+        set {
+            allowedCharacters[self] = newValue
+            
+            addTarget(
+                self,
+                action: #selector(textFieldPropertyEditor),
+                forControlEvents: UIControlEvents.EditingChanged
+            )
+        }
+    }
+    
     
     
     func textFieldPropertyEditor(textField: UITextField) {
+        
+        if let enteredAllowedCharacters = allowedCharacters[textField] {
+            if enteredAllowedCharacters.characters.count > 0 {
+                if let enteredText = textField.text {
+                    if !(enteredText.isEmpty) {
+                        let lastCharacter : Character = enteredText[(enteredText.characters.count-1)]
+                        guard allowedCharacter.characters.contains(lastCharacter) else {
+                            var previousText = String()
+                            var textCharacters = enteredText.characters
+                            textCharacters.removeLast()
+                            
+                            for character in textCharacters {
+                                previousText += String(character)
+                            }
+                            text = previousText
+                            return
+                        }
+                    }
+                }
+            }
+        }
         
         let doesHaveComma = haveComma[textField]
         

@@ -1,9 +1,8 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '9.0'
+use_frameworks!
 
-target 'SabadBan' do
-  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
+def sabadBanPods
 
   pod 'Localize-Swift', '~> 1.5'
   pod 'Alamofire-Gloss’
@@ -16,4 +15,18 @@ target 'SabadBan' do
   pod 'Firebase/Messaging'
   pod "KCFloatingActionButton", :git => 'https://github.com/kciter/KCFloatingActionButton.git', :branch => 'swift2.0'
   pod 'GSMessages','~> 1.2.3'
+  
+end
+
+
+target 'SabadBan Dev' do
+sabadBanPods
+end
+
+target 'SabadBan Test' do
+sabadBanPods
+end
+
+target 'SabadBan Prod' do
+sabadBanPods
 end
