@@ -150,3 +150,8 @@
 "pleaseEnterDetails" = "Please Enter Message Description";
 
 
+//MARK: - Forget Password Strings
+
+"forgetPasswordDescription" = "Please enter your email to recieve password change E-mail";
+"forgetPasswordSendKey" = "Send Email";
+

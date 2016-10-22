@@ -49,7 +49,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-SabadBan.xcscheme</key>
+		<key>Pods-SabadBan Dev.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SabadBan Prod.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SabadBan Test.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

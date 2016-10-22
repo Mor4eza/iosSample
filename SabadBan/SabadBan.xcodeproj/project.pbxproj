@@ -18,6 +18,9 @@
 		8477D9051D85440F006BBFCE /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477D9041D85440F006BBFCE /* AboutUsViewController.swift */; };
 		8477D90C1D856D04006BBFCE /* MGBuildDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477D90B1D856D04006BBFCE /* MGBuildDate.m */; };
 		84A34BF61D7EF5E600B02A8D /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A34BF51D7EF5E600B02A8D /* AlamofireRequest.swift */; };
+		84B6DCC91DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCC81DBB787500D93B4F /* ForgetPasswordViewController.swift */; };
+		84B6DCCA1DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCC81DBB787500D93B4F /* ForgetPasswordViewController.swift */; };
+		84B6DCCB1DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCC81DBB787500D93B4F /* ForgetPasswordViewController.swift */; };
 		84C9E2851D992EF000F96EF8 /* BourseNewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2841D992EF000F96EF8 /* BourseNewsRequest.swift */; };
 		84C9E2871D99381300F96EF8 /* NewsMainResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2861D99381300F96EF8 /* NewsMainResponse.swift */; };
 		84C9E2891D993B5E00F96EF8 /* ObserverNewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2881D993B5E00F96EF8 /* ObserverNewsRequest.swift */; };
@@ -370,6 +373,7 @@
 		8477D90A1D856D04006BBFCE /* MGBuildDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGBuildDate.h; sourceTree = "<group>"; };
 		8477D90B1D856D04006BBFCE /* MGBuildDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGBuildDate.m; sourceTree = "<group>"; };
 		84A34BF51D7EF5E600B02A8D /* AlamofireRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
+		84B6DCC81DBB787500D93B4F /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		84C9E2841D992EF000F96EF8 /* BourseNewsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BourseNewsRequest.swift; sourceTree = "<group>"; };
 		84C9E2861D99381300F96EF8 /* NewsMainResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsMainResponse.swift; sourceTree = "<group>"; };
 		84C9E2881D993B5E00F96EF8 /* ObserverNewsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverNewsRequest.swift; sourceTree = "<group>"; };
@@ -573,6 +577,14 @@
 				8477D90B1D856D04006BBFCE /* MGBuildDate.m */,
 			);
 			name = BuildDate;
+			sourceTree = "<group>";
+		};
+		84B6DCC71DBB780F00D93B4F /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				84B6DCC81DBB787500D93B4F /* ForgetPasswordViewController.swift */,
+			);
+			name = ForgetPassword;
 			sourceTree = "<group>";
 		};
 		84C9E27F1D9929BB00F96EF8 /* Response */ = {
@@ -929,6 +941,7 @@
 		949BEE671D72A741008FA574 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84B6DCC71DBB780F00D93B4F /* ForgetPassword */,
 				9478A6431D892AA90087B574 /* Register */,
 				9412F0F21D857EDD00E94683 /* Login */,
 				94B772271D7FE058002AA618 /* News */,
@@ -1974,6 +1987,7 @@
 				9476FB311DBB425700B923D6 /* AcralizerClient.swift in Sources */,
 				9476FB321DBB425700B923D6 /* NewsMainResponse.swift in Sources */,
 				9476FB331DBB425700B923D6 /* ENSideMenuNavigationController.swift in Sources */,
+				84B6DCCA1DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */,
 				9476FB341DBB425700B923D6 /* UIConstants.swift in Sources */,
 				9476FB351DBB425700B923D6 /* DataBase.swift in Sources */,
 				9476FB361DBB425700B923D6 /* AlamofireRequest.swift in Sources */,
@@ -2077,6 +2091,7 @@
 				9476FBB71DBB425B00B923D6 /* AcralizerClient.swift in Sources */,
 				9476FBB81DBB425B00B923D6 /* NewsMainResponse.swift in Sources */,
 				9476FBB91DBB425B00B923D6 /* ENSideMenuNavigationController.swift in Sources */,
+				84B6DCCB1DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */,
 				9476FBBA1DBB425B00B923D6 /* UIConstants.swift in Sources */,
 				9476FBBB1DBB425B00B923D6 /* DataBase.swift in Sources */,
 				9476FBBC1DBB425B00B923D6 /* AlamofireRequest.swift in Sources */,
@@ -2180,6 +2195,7 @@
 				948003A41DB632360085A5FC /* AcralizerClient.swift in Sources */,
 				84C9E2871D99381300F96EF8 /* NewsMainResponse.swift in Sources */,
 				949BEE7D1D72A7C4008FA574 /* ENSideMenuNavigationController.swift in Sources */,
+				84B6DCC91DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */,
 				84F6BBFA1D9FC345009BEEB2 /* UIConstants.swift in Sources */,
 				947C639D1D75BA8C00676822 /* DataBase.swift in Sources */,
 				84A34BF61D7EF5E600B02A8D /* AlamofireRequest.swift in Sources */,
