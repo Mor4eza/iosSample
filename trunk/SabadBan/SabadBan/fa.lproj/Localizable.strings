@@ -147,3 +147,8 @@
 "pleaseEnterName" = "لطفا نام خود را وارد کنید.";
 "pleaseEnterSubject" = "لطفا عنوان پیام را وارد کنید.";
 "pleaseEnterDetails" = "لطفا توضیحات را وارد کنید.";
+
+//MARK: - Forget Password Strings
+
+"forgetPasswordDescription" = "لطفا آدرس ایمیل خود را برای دریافت لینک رمز عبور وارد نمایید";
+"forgetPasswordSendKey" = "ارسال ایمیل";

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N2h-Tl-wNj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N2h-Tl-wNj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,14 +18,14 @@
         <!--Index Table View Controller-->
         <scene sceneID="qWT-m7-l0M">
             <objects>
-                <tableViewController storyboardIdentifier="indexTableViewController" modalTransitionStyle="flipHorizontal" id="B3H-zG-zAG" customClass="IndexTableViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="indexTableViewController" modalTransitionStyle="flipHorizontal" id="B3H-zG-zAG" customClass="IndexTableViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wuw-jP-FyQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.090196078431372548" green="0.13725490196078433" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="indexCell" rowHeight="57" id="pog-Tf-uBi" customClass="IndexCell" customModule="SabadBan" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="indexCell" rowHeight="57" id="pog-Tf-uBi" customClass="IndexCell" customModule="SabadBan_Dev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pog-Tf-uBi" id="DMz-YD-07a">
@@ -127,13 +127,13 @@
         <!--Search Seymbol Table View-->
         <scene sceneID="MtC-Wk-uRt">
             <objects>
-                <tableViewController storyboardIdentifier="searchTableVIew" id="H2O-fh-Tgy" customClass="SearchSeymbolTableView" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="searchTableVIew" id="H2O-fh-Tgy" customClass="SearchSeymbolTableView" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" id="o4u-7D-aeC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SymbolsCell" rowHeight="77" id="RP8-ha-wWK" customClass="SymbolNamesCell" customModule="SabadBan" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SymbolsCell" rowHeight="77" id="RP8-ha-wWK" customClass="SymbolNamesCell" customModule="SabadBan_Dev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="77"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RP8-ha-wWK" id="iaI-84-6lV">
@@ -189,7 +189,7 @@
         <!--Edit Portfolio View Controller-->
         <scene sceneID="xlC-d2-BMM">
             <objects>
-                <tableViewController storyboardIdentifier="editPortfolioViewController" id="Mjq-It-CAT" customClass="EditPortfolioViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="editPortfolioViewController" id="Mjq-It-CAT" customClass="EditPortfolioViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" id="9KL-Di-KTB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -229,13 +229,13 @@
         <!--پیام های ناظر-->
         <scene sceneID="0h4-Ms-S3K">
             <objects>
-                <tableViewController id="kaf-R9-uI9" customClass="ObserverNewsTableViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="kaf-R9-uI9" customClass="ObserverNewsTableViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="131" sectionHeaderHeight="28" sectionFooterHeight="28" id="sgQ-yB-0bJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ObserverNewsCell" rowHeight="130" id="NXE-0u-4vC" customClass="NewsCell" customModule="SabadBan" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ObserverNewsCell" rowHeight="130" id="NXE-0u-4vC" customClass="NewsCell" customModule="SabadBan_Dev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NXE-0u-4vC" id="HaN-jM-K3P">
@@ -305,7 +305,7 @@
         <!--جزییات-->
         <scene sceneID="hMh-vP-3jw">
             <objects>
-                <viewController id="NAf-xZ-JG7" customClass="DetailsViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NAf-xZ-JG7" customClass="DetailsViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fbe-eE-vaV"/>
                         <viewControllerLayoutGuide type="bottom" id="a26-xe-ChT"/>
@@ -370,7 +370,7 @@
                                 <rect key="frame" x="20" y="84" width="560" height="201"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="marketDetailsCell" id="2II-vt-9ug" customClass="MarketDetailsCell" customModule="SabadBan" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="marketDetailsCell" id="2II-vt-9ug" customClass="MarketDetailsCell" customModule="SabadBan_Dev" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2II-vt-9ug" id="zcV-fV-00A">
@@ -427,7 +427,7 @@
                                 <rect key="frame" x="20" y="329" width="560" height="214"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="indexDetailsCell" rowHeight="40" id="kX8-wW-kZS" customClass="indexDetailsCell" customModule="SabadBan" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="indexDetailsCell" rowHeight="40" id="kX8-wW-kZS" customClass="indexDetailsCell" customModule="SabadBan_Dev" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="560" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kX8-wW-kZS" id="39N-KY-Fef">
@@ -505,13 +505,13 @@
         <!--شرکت های موجود در شاخص-->
         <scene sceneID="2qz-1Y-taf">
             <objects>
-                <tableViewController id="gFA-DW-EVV" customClass="SymbolListTableViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="gFA-DW-EVV" customClass="SymbolListTableViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Mp-1p-Noe">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="symbolCell" rowHeight="61" id="9tM-aM-Q2w" customClass="SymbolCell" customModule="SabadBan" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="symbolCell" rowHeight="61" id="9tM-aM-Q2w" customClass="SymbolCell" customModule="SabadBan_Dev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9tM-aM-Q2w" id="RzU-A0-XBU">
@@ -619,7 +619,7 @@
         <!--نمودار-->
         <scene sceneID="e6H-dO-fZz">
             <objects>
-                <viewController id="FdD-yi-cRY" customClass="ChartViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FdD-yi-cRY" customClass="ChartViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OmO-Kz-ptY"/>
                         <viewControllerLayoutGuide type="bottom" id="wUa-Cp-A2A"/>
@@ -638,7 +638,7 @@
         <!--جزییات-->
         <scene sceneID="IDZ-aw-Vhk">
             <objects>
-                <tableViewController id="dIy-RW-wtH" customClass="SymbolDetailsViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="dIy-RW-wtH" customClass="SymbolDetailsViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="t5k-YR-fCM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="951"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1463,7 +1463,7 @@
         <!--Index Details Tab Bar Controller-->
         <scene sceneID="SK6-Zh-cSi">
             <objects>
-                <tabBarController id="QF5-UB-Sek" customClass="IndexDetailsTabBarController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="QF5-UB-Sek" customClass="IndexDetailsTabBarController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="2N2-Yt-pGg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1489,7 +1489,7 @@
         <!--Symbol Details Tab Bar-->
         <scene sceneID="TpI-B0-AQl">
             <objects>
-                <tabBarController id="aU8-zy-qG6" customClass="SymbolDetailsTabBar" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="aU8-zy-qG6" customClass="SymbolDetailsTabBar" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="pDj-9E-Ik0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1509,7 +1509,7 @@
         <!--Setting Table View Controller-->
         <scene sceneID="7VG-3N-krx">
             <objects>
-                <tableViewController storyboardIdentifier="settingViewController" id="dNZ-3L-skr" customClass="SettingTableViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="settingViewController" id="dNZ-3L-skr" customClass="SettingTableViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="4dP-oM-gdm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1538,7 +1538,7 @@
         <!--Login View Controller-->
         <scene sceneID="C1K-3L-0pv">
             <objects>
-                <viewController storyboardIdentifier="loginViewController" id="N2h-Tl-wNj" customClass="LoginViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="N2h-Tl-wNj" customClass="LoginViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Wt-ao-dVb"/>
                         <viewControllerLayoutGuide type="bottom" id="0E7-s2-SUJ"/>
@@ -1728,6 +1728,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnForgetTap:" destination="N2h-Tl-wNj" eventType="touchUpInside" id="fC1-QI-nmh"/>
+                                    <segue destination="gtu-9Z-gjd" kind="show" identifier="forgetPasswordSegue" id="lc6-7C-Lnl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syV-Qo-GXx">
@@ -1786,7 +1787,7 @@
         <!--My Navigation Controller-->
         <scene sceneID="m9U-Ja-N5c">
             <objects>
-                <navigationController storyboardIdentifier="baseNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="3x8-rP-1o7" customClass="MyNavigationController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="baseNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="3x8-rP-1o7" customClass="MyNavigationController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qWk-aj-4fh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1804,7 +1805,7 @@
         <!--Buy Info View Controller-->
         <scene sceneID="zPM-x4-fNW">
             <objects>
-                <viewController id="mc2-0A-afa" customClass="BuyInfoViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mc2-0A-afa" customClass="BuyInfoViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xTL-AU-dPX"/>
                         <viewControllerLayoutGuide type="bottom" id="NEr-aQ-YlK"/>
@@ -2002,7 +2003,7 @@
         <!--Portfolio List View Controller-->
         <scene sceneID="l8k-WX-Jti">
             <objects>
-                <viewController storyboardIdentifier="PortfolioViewController" id="8bS-sD-NGW" customClass="PortfolioListViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PortfolioViewController" id="8bS-sD-NGW" customClass="PortfolioListViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yrr-OU-anB"/>
                         <viewControllerLayoutGuide type="bottom" id="zQb-0R-Ayq"/>
@@ -2024,7 +2025,7 @@
                                     </connections>
                                 </button>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="portfolioCell" rowHeight="164" id="hxW-na-yEr" customClass="portfolioCell" customModule="SabadBan" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="portfolioCell" rowHeight="164" id="hxW-na-yEr" customClass="portfolioCell" customModule="SabadBan_Dev" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="164"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hxW-na-yEr" id="esa-hn-7OG">
@@ -2288,7 +2289,7 @@
         <!--News Tab Bar Controller-->
         <scene sceneID="E99-ch-j0J">
             <objects>
-                <tabBarController storyboardIdentifier="NewsTabBarController" id="GVG-B3-gjO" customClass="NewsTabBarController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="NewsTabBarController" id="GVG-B3-gjO" customClass="NewsTabBarController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="G6R-UG-SOC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2308,7 +2309,7 @@
         <!--About Us View Controller-->
         <scene sceneID="nUZ-bn-zCK">
             <objects>
-                <viewController storyboardIdentifier="AboutUsViewController" id="A70-bR-agP" customClass="AboutUsViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutUsViewController" id="A70-bR-agP" customClass="AboutUsViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WZe-92-j6s"/>
                         <viewControllerLayoutGuide type="bottom" id="6OT-ps-mfw"/>
@@ -2384,13 +2385,13 @@
         <!--اخبار بورس-->
         <scene sceneID="pPw-a7-HeN">
             <objects>
-                <tableViewController id="7gu-iH-Hmx" customClass="BourseNewsTableViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="7gu-iH-Hmx" customClass="BourseNewsTableViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="131" sectionHeaderHeight="28" sectionFooterHeight="28" id="zXo-UK-TqM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ObserverNewsCell" rowHeight="130" id="8Db-hn-u4A" customClass="NewsCell" customModule="SabadBan" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ObserverNewsCell" rowHeight="130" id="8Db-hn-u4A" customClass="NewsCell" customModule="SabadBan_Dev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Db-hn-u4A" id="jxr-60-gvH">
@@ -2460,7 +2461,7 @@
         <!--Our Info View Controller-->
         <scene sceneID="6Zs-8k-f4q">
             <objects>
-                <viewController id="7hw-na-soL" customClass="OurInfoViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7hw-na-soL" customClass="OurInfoViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="r10-it-VSF"/>
                         <viewControllerLayoutGuide type="bottom" id="mr3-iS-Ft2"/>
@@ -2555,7 +2556,7 @@
         <!--Call Us View Controller-->
         <scene sceneID="XGT-wM-X3e">
             <objects>
-                <viewController storyboardIdentifier="ContactUsViewController" id="kIt-8H-hlk" customClass="CallUsViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactUsViewController" id="kIt-8H-hlk" customClass="CallUsViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Osb-Jp-EFh"/>
                         <viewControllerLayoutGuide type="bottom" id="Cch-qh-ZVQ"/>
@@ -2831,7 +2832,7 @@
         <!--News Detail View Controller-->
         <scene sceneID="DUq-s3-zZD">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="BZD-WT-cBZ" customClass="NewsDetailViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="BZD-WT-cBZ" customClass="NewsDetailViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rbn-mT-DyK"/>
                         <viewControllerLayoutGuide type="bottom" id="XsD-ka-4vO"/>
@@ -2915,7 +2916,7 @@
         <!--Register View Controller-->
         <scene sceneID="F4q-3J-SDA">
             <objects>
-                <viewController id="2Io-gx-cgo" customClass="RegisterViewController" customModule="SabadBan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2Io-gx-cgo" customClass="RegisterViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Y5f-hX-YaS"/>
                         <viewControllerLayoutGuide type="bottom" id="rU4-I3-SYq"/>
@@ -3164,6 +3165,154 @@
             </objects>
             <point key="canvasLocation" x="-1098" y="321"/>
         </scene>
+        <!--Forget Password View Controller-->
+        <scene sceneID="70g-4F-vvU">
+            <objects>
+                <viewController id="gtu-9Z-gjd" customClass="ForgetPasswordViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MDt-UM-RxE"/>
+                        <viewControllerLayoutGuide type="bottom" id="kN4-kJ-wvo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VHu-pw-wWo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fFQ-b0-49o">
+                                <rect key="frame" x="204" y="83" width="193" height="242"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Llp-qw-BJU">
+                                <rect key="frame" x="140" y="355" width="320" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDS-Qn-paW">
+                                        <rect key="frame" x="8" y="8" width="304" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="Vbv-uD-BTw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLI-Kh-e1g">
+                                        <rect key="frame" x="8" y="61" width="304" height="39"/>
+                                        <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" image="login_username" translatesAutoresizingMaskIntoConstraints="NO" id="PTr-aI-zxz">
+                                                <rect key="frame" x="269" y="0.0" width="35" height="39"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="35" id="o5V-sD-K2V"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="userName" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aft-yK-beM">
+                                                <rect key="frame" x="0.0" y="0.0" width="269" height="39"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="1iF-Es-O7l"/>
+                                            <constraint firstAttribute="bottom" secondItem="aft-yK-beM" secondAttribute="bottom" id="3fN-Fz-zAa"/>
+                                            <constraint firstItem="aft-yK-beM" firstAttribute="top" secondItem="CLI-Kh-e1g" secondAttribute="top" id="Kip-yB-sg0"/>
+                                            <constraint firstAttribute="width" constant="304" id="iSt-Ee-Y4e"/>
+                                            <constraint firstAttribute="trailing" secondItem="PTr-aI-zxz" secondAttribute="trailing" id="kef-9k-do1"/>
+                                            <constraint firstItem="PTr-aI-zxz" firstAttribute="top" secondItem="CLI-Kh-e1g" secondAttribute="top" id="lmG-OP-rub"/>
+                                            <constraint firstItem="aft-yK-beM" firstAttribute="leading" secondItem="CLI-Kh-e1g" secondAttribute="leading" id="oIV-Di-3MT"/>
+                                            <constraint firstAttribute="bottom" secondItem="PTr-aI-zxz" secondAttribute="bottom" id="tDD-1k-Rlj"/>
+                                            <constraint firstItem="PTr-aI-zxz" firstAttribute="leading" secondItem="aft-yK-beM" secondAttribute="trailing" id="zaV-su-5cg"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                <color key="value" red="1" green="0.40449414239999998" blue="0.057432678350000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.82745098039999998" green="0.35294117650000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PI-ge-Jks">
+                                        <rect key="frame" x="60" y="137" width="200" height="47"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="8qh-gW-g3Q"/>
+                                            <constraint firstAttribute="width" constant="200" id="fbq-Rm-Pes"/>
+                                        </constraints>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="btnRegisterTap:" destination="gtu-9Z-gjd" eventType="touchUpInside" id="ibl-qO-SRf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.16862745100000001" green="0.2274509804" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="PDS-Qn-paW" firstAttribute="top" secondItem="Llp-qw-BJU" secondAttribute="topMargin" id="0Nf-9h-l8w"/>
+                                    <constraint firstItem="PDS-Qn-paW" firstAttribute="leading" secondItem="CLI-Kh-e1g" secondAttribute="leading" id="1uK-Ge-y4r"/>
+                                    <constraint firstItem="PDS-Qn-paW" firstAttribute="trailing" secondItem="CLI-Kh-e1g" secondAttribute="trailing" id="3XD-v5-Czs"/>
+                                    <constraint firstAttribute="trailing" secondItem="4PI-ge-Jks" secondAttribute="trailing" constant="60" id="4DS-aJ-a9b"/>
+                                    <constraint firstAttribute="width" constant="320" id="7jC-hf-9VE"/>
+                                    <constraint firstAttribute="trailing" secondItem="CLI-Kh-e1g" secondAttribute="trailing" constant="8" id="9bI-GE-EYT"/>
+                                    <constraint firstItem="CLI-Kh-e1g" firstAttribute="top" secondItem="PDS-Qn-paW" secondAttribute="bottom" constant="8" symbolic="YES" id="ADN-zT-ote"/>
+                                    <constraint firstAttribute="height" constant="200" id="Fhz-TT-dkh"/>
+                                    <constraint firstItem="4PI-ge-Jks" firstAttribute="leading" secondItem="Llp-qw-BJU" secondAttribute="leading" constant="60" id="X1F-Kc-Kcd"/>
+                                    <constraint firstAttribute="bottom" secondItem="4PI-ge-Jks" secondAttribute="bottom" constant="16" id="fFo-bh-gbn"/>
+                                    <constraint firstItem="CLI-Kh-e1g" firstAttribute="leading" secondItem="Llp-qw-BJU" secondAttribute="leading" constant="8" id="wEO-MJ-tVG"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXy-hr-OHk">
+                                <rect key="frame" x="277" y="562" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnLogin:" destination="gtu-9Z-gjd" eventType="touchUpInside" id="7ET-8c-gMC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.090196078430000007" green="0.13725490200000001" blue="0.2970202629" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Llp-qw-BJU" firstAttribute="centerX" secondItem="VHu-pw-wWo" secondAttribute="centerX" id="AlV-lA-fui"/>
+                            <constraint firstItem="kN4-kJ-wvo" firstAttribute="top" secondItem="Llp-qw-BJU" secondAttribute="bottom" constant="45" id="HQr-Ka-KNh"/>
+                            <constraint firstItem="fFQ-b0-49o" firstAttribute="centerX" secondItem="VHu-pw-wWo" secondAttribute="centerX" id="Yvi-x8-lTq"/>
+                            <constraint firstItem="dXy-hr-OHk" firstAttribute="centerX" secondItem="Llp-qw-BJU" secondAttribute="centerX" id="hnq-vB-els"/>
+                            <constraint firstItem="Llp-qw-BJU" firstAttribute="top" secondItem="fFQ-b0-49o" secondAttribute="bottom" constant="30" id="kXQ-vf-7tw"/>
+                            <constraint firstItem="fFQ-b0-49o" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MDt-UM-RxE" secondAttribute="bottom" constant="8" id="kdI-td-R4y"/>
+                            <constraint firstItem="kN4-kJ-wvo" firstAttribute="top" secondItem="dXy-hr-OHk" secondAttribute="bottom" constant="8" symbolic="YES" id="wSw-q4-iIi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bottomConstraint" destination="HQr-Ka-KNh" id="gIF-TN-iHB"/>
+                        <outlet property="btnLogin" destination="dXy-hr-OHk" id="CrB-sy-F00"/>
+                        <outlet property="btnRegister" destination="4PI-ge-Jks" id="g2y-4j-tz3"/>
+                        <outlet property="descriptionLabel" destination="PDS-Qn-paW" id="icG-UM-hRB"/>
+                        <outlet property="imgAppLogo" destination="fFQ-b0-49o" id="Pgn-XB-nCW"/>
+                        <outlet property="loginButton" destination="dXy-hr-OHk" id="rzr-kH-Bet"/>
+                        <outlet property="mainView" destination="Llp-qw-BJU" id="lnu-rP-wmM"/>
+                        <outlet property="sendButton" destination="4PI-ge-Jks" id="jah-JN-Kxj"/>
+                        <outlet property="txtUserName" destination="aft-yK-beM" id="J1O-Cb-mGv"/>
+                        <outlet property="usernameTextField" destination="aft-yK-beM" id="3gn-BV-erA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MKX-Ua-cSA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1736" y="311"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AppLogo" width="193" height="242"/>
@@ -3184,10 +3333,10 @@
         <image name="login_username" width="48" height="46"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nO4-SB-DDz"/>
-        <segue reference="mtk-JZ-idg"/>
-        <segue reference="cWM-m7-s8C"/>
         <segue reference="TCW-a9-t2w"/>
+        <segue reference="cWM-m7-s8C"/>
+        <segue reference="mtk-JZ-idg"/>
+        <segue reference="nO4-SB-DDz"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

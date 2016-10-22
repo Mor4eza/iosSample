@@ -151,4 +151,9 @@ struct Strings {
     static let pleaseEnterName = "pleaseEnterName"
     static let pleaseEnterSubject = "pleaseEnterSubject"
     static let pleaseEnterDetails = "pleaseEnterDetails"
+    
+    //MARK: - Forget Password Strings
+    
+    static let forgetPasswordDescription = "forgetPasswordDescription"
+    static let forgetPasswordSendKey = "forgetPasswordSendKey"
 }
