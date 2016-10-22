@@ -161,6 +161,7 @@ class BuyInfoViewController: BaseViewController, UITableViewDelegate, UITableVie
             textField.keyboardType = .NumberPad
             textField.maxLength = 9
             textField.commaSeperator = true
+            textField.allowedCharacter = "0987654321"
         })
 
         priceAlert.addAction(UIAlertAction(title: Strings.Ok.localized(), style: .Default, handler: { (action) -> Void in
@@ -179,6 +180,7 @@ class BuyInfoViewController: BaseViewController, UITableViewDelegate, UITableVie
             textField.keyboardType = .NumberPad
             textField.maxLength = 9
             textField.commaSeperator = true
+            textField.allowedCharacter = "0987654321"
         })
 
         alert.addAction(UIAlertAction(title: Strings.Ok.localized(), style: .Default, handler: { (action) -> Void in
