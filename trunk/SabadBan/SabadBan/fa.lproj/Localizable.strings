@@ -80,6 +80,7 @@
 "stopped" = "متوقف";
 "allowed" = "مجاز";
 "symbolExists" = "این نماد در پرتفوی فعلی وجود دارد";
+"nameDuplicate" = "نام پرتفوی تکراری است.";
 "addPortfolioPlease" = "لطفا یک پورتفوی اضافه کنید.";
 "enterDatePlease" = "لطفا تاریخ را وارد کنید.";
 "enterPricePlease" = "لطفا قیمت را وارد کنید.";
@@ -152,3 +153,6 @@
 
 "forgetPasswordDescription" = "لطفا آدرس ایمیل خود را برای دریافت لینک رمز عبور وارد نمایید";
 "forgetPasswordSendKey" = "ارسال ایمیل";
+"changePassword" = "تغییر رمز عبور";
+"changePasswordSuccessMessage" = "رمز عبور جدید به ایمیل شماارسال شد. لطفا ایمیل خود را چک کنید.";
+"emailNotFound" = "با این ایمیل ثبت نامی انجام نشده است.";

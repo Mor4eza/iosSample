@@ -135,7 +135,7 @@ class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate
     
     func convertStringToDate(dateString: String) -> NSDate {
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-mm-dd HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return dateFormatter.dateFromString(dateString)!
     }
 }

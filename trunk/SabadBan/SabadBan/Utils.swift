@@ -110,6 +110,7 @@ public class Utils {
                               withCustomImage:image,
                               withDoneButtonTitle:okTitle,
                               andButtons:btnTitles) // Set your button titles here
+        inView.view.endEditing(true)
         
     }
 }

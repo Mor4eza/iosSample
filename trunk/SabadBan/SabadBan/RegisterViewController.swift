@@ -178,8 +178,8 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
 
     func sendRegisterRequest(email:String , password:String, phone:String, pushToken:String) {
         /**
-         Login
-         POST http://sabadbannewstest.sefryek.com/api/v1/auth/register
+         ChangePassword
+         POST http://sabadbannewstest.sefryek.com/api/v1/auth/changePassword
          */
 
         btnRegister.enabled = false

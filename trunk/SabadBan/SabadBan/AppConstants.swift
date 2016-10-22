@@ -47,7 +47,8 @@ public let URLS:[String:String] =
      "login" : "/api/v1/auth/login",
      "guestLogin" : "/api/v1/auth/login/guest",
      "register" : "/api/v1/auth/register",
-     "sendContactUs" : "/api/v1/tools/contact_us"]
+     "sendContactUs" : "/api/v1/tools/contact_us",
+     "changePassword" : "/api/v1/auth/changePassword"]
 
 //MARK:- Constants
 public var SelectedIndexCode:String = ""
