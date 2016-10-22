@@ -156,4 +156,7 @@ struct Strings {
     
     static let forgetPasswordDescription = "forgetPasswordDescription"
     static let forgetPasswordSendKey = "forgetPasswordSendKey"
+    static let changePassword = "changePassword"
+    static let changePasswordSuccessMessage = "changePasswordSuccessMessage"
+    static let emailNotFound = "emailNotFound"
 }

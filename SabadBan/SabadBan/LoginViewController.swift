@@ -129,9 +129,6 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         }
     }
 
-    @IBAction func btnForgetTap(sender: AnyObject) {
-
-    }
 
     func showAlert(message : String) {
 

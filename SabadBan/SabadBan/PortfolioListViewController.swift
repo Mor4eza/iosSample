@@ -177,7 +177,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             }
             SelectedSymbolName = self.smData[indexPath.row].symbolShortName
             SelectedSymbolCode = self.smData[indexPath.row].symbolCode
-            self.selectedSymbolPrice = self.smData[indexPath.row].lastTradePrice
+            self.selectedSymbolPrice = self.smData[indexPath.row].benchmarkBuy
             self.performSegueWithIdentifier(UIConstants.buyInfoSegue, sender: nil)
             
         })
@@ -381,7 +381,8 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
                         symbolCompleteName: symbols!.response.symbolDetailsList[i].symbolCompleteName,
                         symbolShortName: symbols!.response.symbolDetailsList[i].symbolShortName,
                         todayProfit: self.getBuyData(String(symbols!.response.symbolDetailsList[i].symbolCode),price: Float(symbols!.response.symbolDetailsList[i].lastTradePrice)).today,
-                        totalProfit: self.getBuyData(String(symbols!.response.symbolDetailsList[i].symbolCode),price: Float(symbols!.response.symbolDetailsList[i].closePrice)).overAll))
+                        totalProfit: self.getBuyData(String(symbols!.response.symbolDetailsList[i].symbolCode),price: Float(symbols!.response.symbolDetailsList[i].closePrice)).overAll,
+                        buyValue: symbols!.response.symbolDetailsList[i].buyValue))
                     
                 }
                 
@@ -499,7 +500,7 @@ struct symData {
     var symbolShortName : String!
     var todayProfit : Double!
     var totalProfit : Double!
-    
+    var buyValue : Double!
     
     
 }

@@ -143,6 +143,7 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
                 if selected == symbols[i] {
 
                     Utils.ShowAlert(self, title:Strings.Attention.localized() , details: Strings.symbolExists.localized(),btnOkTitle:Strings.Ok.localized())
+                    searchController.active = false
                     return
                 }
             }

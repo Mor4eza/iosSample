@@ -68,7 +68,7 @@ extension Float {
         if (decimalPart == 0) {
             formatter.minimumFractionDigits = 0
         } else {
-            formatter.minimumFractionDigits = 1
+            formatter.minimumFractionDigits = decimalDigits
         }
 
         formatter.maximumFractionDigits = decimalDigits
@@ -92,7 +92,7 @@ extension Double {
         if (decimalPart == 0) {
             formatter.minimumFractionDigits = 0
         } else {
-            formatter.minimumFractionDigits = 1
+            formatter.minimumFractionDigits = decimalDigits
         }
 
         formatter.maximumFractionDigits = decimalDigits

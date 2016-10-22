@@ -79,7 +79,7 @@
 "stopped" = "stopped";
 "allowed" = "allowed";
 "symbolExists" = "symbolExists";
-"nameDuplicate" = "نام پرتفوی تکراری است.";
+"nameDuplicate" = "nameDuplicate";
 "addPortfolioPlease" = "Please add a Portfolio.";
 "enterDatePlease" = "Please enter the Date.";
 "enterPricePlease" = "Please enter the Price.";
@@ -154,4 +154,7 @@
 
 "forgetPasswordDescription" = "Please enter your email to recieve password change E-mail";
 "forgetPasswordSendKey" = "Send Email";
+"changePassword" = "Change password";
+"changePasswordSuccessMessage" = "New password has been sent to your E-mail. Please check your E-mail.";
+"emailNotFound" = "This email doesn't exist in our database.";
 

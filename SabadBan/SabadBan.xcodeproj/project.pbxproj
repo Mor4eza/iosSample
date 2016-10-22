@@ -21,6 +21,15 @@
 		84B6DCC91DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCC81DBB787500D93B4F /* ForgetPasswordViewController.swift */; };
 		84B6DCCA1DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCC81DBB787500D93B4F /* ForgetPasswordViewController.swift */; };
 		84B6DCCB1DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCC81DBB787500D93B4F /* ForgetPasswordViewController.swift */; };
+		84B6DCCE1DBB957700D93B4F /* ForgetPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCCD1DBB957700D93B4F /* ForgetPasswordResponse.swift */; };
+		84B6DCCF1DBB957700D93B4F /* ForgetPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCCD1DBB957700D93B4F /* ForgetPasswordResponse.swift */; };
+		84B6DCD01DBB957700D93B4F /* ForgetPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCCD1DBB957700D93B4F /* ForgetPasswordResponse.swift */; };
+		84B6DCD21DBB97C600D93B4F /* ForgetPasswordResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCD11DBB97C600D93B4F /* ForgetPasswordResult.swift */; };
+		84B6DCD31DBB97C600D93B4F /* ForgetPasswordResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCD11DBB97C600D93B4F /* ForgetPasswordResult.swift */; };
+		84B6DCD41DBB97C600D93B4F /* ForgetPasswordResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCD11DBB97C600D93B4F /* ForgetPasswordResult.swift */; };
+		84B6DCD61DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCD51DBB982400D93B4F /* ForgetPasswordRequest.swift */; };
+		84B6DCD71DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCD51DBB982400D93B4F /* ForgetPasswordRequest.swift */; };
+		84B6DCD81DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCD51DBB982400D93B4F /* ForgetPasswordRequest.swift */; };
 		84C9E2851D992EF000F96EF8 /* BourseNewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2841D992EF000F96EF8 /* BourseNewsRequest.swift */; };
 		84C9E2871D99381300F96EF8 /* NewsMainResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2861D99381300F96EF8 /* NewsMainResponse.swift */; };
 		84C9E2891D993B5E00F96EF8 /* ObserverNewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2881D993B5E00F96EF8 /* ObserverNewsRequest.swift */; };
@@ -374,6 +383,9 @@
 		8477D90B1D856D04006BBFCE /* MGBuildDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGBuildDate.m; sourceTree = "<group>"; };
 		84A34BF51D7EF5E600B02A8D /* AlamofireRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
 		84B6DCC81DBB787500D93B4F /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		84B6DCCD1DBB957700D93B4F /* ForgetPasswordResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordResponse.swift; sourceTree = "<group>"; };
+		84B6DCD11DBB97C600D93B4F /* ForgetPasswordResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordResult.swift; sourceTree = "<group>"; };
+		84B6DCD51DBB982400D93B4F /* ForgetPasswordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordRequest.swift; sourceTree = "<group>"; };
 		84C9E2841D992EF000F96EF8 /* BourseNewsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BourseNewsRequest.swift; sourceTree = "<group>"; };
 		84C9E2861D99381300F96EF8 /* NewsMainResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsMainResponse.swift; sourceTree = "<group>"; };
 		84C9E2881D993B5E00F96EF8 /* ObserverNewsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverNewsRequest.swift; sourceTree = "<group>"; };
@@ -587,6 +599,15 @@
 			name = ForgetPassword;
 			sourceTree = "<group>";
 		};
+		84B6DCCC1DBB94C200D93B4F /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				84B6DCCD1DBB957700D93B4F /* ForgetPasswordResponse.swift */,
+				84B6DCD11DBB97C600D93B4F /* ForgetPasswordResult.swift */,
+			);
+			name = ForgetPassword;
+			sourceTree = "<group>";
+		};
 		84C9E27F1D9929BB00F96EF8 /* Response */ = {
 			isa = PBXGroup;
 			children = (
@@ -631,6 +652,7 @@
 			children = (
 				84C9E28F1D9970EE00F96EF8 /* LoginRequest.swift */,
 				84C9E2911D99762600F96EF8 /* RegisterRequest.swift */,
+				84B6DCD51DBB982400D93B4F /* ForgetPasswordRequest.swift */,
 			);
 			name = UserManagement;
 			sourceTree = "<group>";
@@ -638,6 +660,7 @@
 		9412F0E81D857DE200E94683 /* UserManagement */ = {
 			isa = PBXGroup;
 			children = (
+				84B6DCCC1DBB94C200D93B4F /* ForgetPassword */,
 				9412F0EB1D857DFF00E94683 /* Register */,
 				9412F0E91D857DF400E94683 /* Login */,
 			);
@@ -1926,12 +1949,14 @@
 				9476FAF41DBB425700B923D6 /* CallUsViewController.swift in Sources */,
 				9476FAF51DBB425700B923D6 /* BuyInfoCell.swift in Sources */,
 				9476FAF61DBB425700B923D6 /* AboutUsViewController.swift in Sources */,
+				84B6DCCF1DBB957700D93B4F /* ForgetPasswordResponse.swift in Sources */,
 				9476FAF71DBB425700B923D6 /* BourseNewsDetailsList.swift in Sources */,
 				9476FAF81DBB425700B923D6 /* menuHeader.swift in Sources */,
 				9476FAF91DBB425700B923D6 /* ObserverNewsResponse.swift in Sources */,
 				9476FAFA1DBB425700B923D6 /* Request.swift in Sources */,
 				9476FAFB1DBB425700B923D6 /* SymbolTradingResponse.swift in Sources */,
 				9476FAFC1DBB425700B923D6 /* MarketDetailsHeader.swift in Sources */,
+				84B6DCD31DBB97C600D93B4F /* ForgetPasswordResult.swift in Sources */,
 				9476FAFD1DBB425700B923D6 /* SymbolListTableViewController.swift in Sources */,
 				9476FAFE1DBB425700B923D6 /* BourseNewsTableViewController.swift in Sources */,
 				9476FAFF1DBB425700B923D6 /* SearchSeymbolTableView.swift in Sources */,
@@ -2003,6 +2028,7 @@
 				9476FB401DBB425700B923D6 /* DatePickerSheet.swift in Sources */,
 				9476FB411DBB425700B923D6 /* SymbolBestLimitResponse.swift in Sources */,
 				9476FB421DBB425700B923D6 /* IndexDetailsTabBarController.swift in Sources */,
+				84B6DCD71DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */,
 				9476FB431DBB425700B923D6 /* ObserverNewsRequest.swift in Sources */,
 				9476FB441DBB425700B923D6 /* PortfolioListViewController.swift in Sources */,
 			);
@@ -2030,12 +2056,14 @@
 				9476FB7A1DBB425B00B923D6 /* CallUsViewController.swift in Sources */,
 				9476FB7B1DBB425B00B923D6 /* BuyInfoCell.swift in Sources */,
 				9476FB7C1DBB425B00B923D6 /* AboutUsViewController.swift in Sources */,
+				84B6DCD01DBB957700D93B4F /* ForgetPasswordResponse.swift in Sources */,
 				9476FB7D1DBB425B00B923D6 /* BourseNewsDetailsList.swift in Sources */,
 				9476FB7E1DBB425B00B923D6 /* menuHeader.swift in Sources */,
 				9476FB7F1DBB425B00B923D6 /* ObserverNewsResponse.swift in Sources */,
 				9476FB801DBB425B00B923D6 /* Request.swift in Sources */,
 				9476FB811DBB425B00B923D6 /* SymbolTradingResponse.swift in Sources */,
 				9476FB821DBB425B00B923D6 /* MarketDetailsHeader.swift in Sources */,
+				84B6DCD41DBB97C600D93B4F /* ForgetPasswordResult.swift in Sources */,
 				9476FB831DBB425B00B923D6 /* SymbolListTableViewController.swift in Sources */,
 				9476FB841DBB425B00B923D6 /* BourseNewsTableViewController.swift in Sources */,
 				9476FB851DBB425B00B923D6 /* SearchSeymbolTableView.swift in Sources */,
@@ -2107,6 +2135,7 @@
 				9476FBC61DBB425B00B923D6 /* DatePickerSheet.swift in Sources */,
 				9476FBC71DBB425B00B923D6 /* SymbolBestLimitResponse.swift in Sources */,
 				9476FBC81DBB425B00B923D6 /* IndexDetailsTabBarController.swift in Sources */,
+				84B6DCD81DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */,
 				9476FBC91DBB425B00B923D6 /* ObserverNewsRequest.swift in Sources */,
 				9476FBCA1DBB425B00B923D6 /* PortfolioListViewController.swift in Sources */,
 			);
@@ -2134,12 +2163,14 @@
 				94C59CCA1D9A51900036CF4A /* CallUsViewController.swift in Sources */,
 				94144E951D8D5CB40008F602 /* BuyInfoCell.swift in Sources */,
 				8477D9051D85440F006BBFCE /* AboutUsViewController.swift in Sources */,
+				84B6DCCE1DBB957700D93B4F /* ForgetPasswordResponse.swift in Sources */,
 				9465DB611D83D702007F0572 /* BourseNewsDetailsList.swift in Sources */,
 				9478A6401D891BF70087B574 /* menuHeader.swift in Sources */,
 				94B772361D7FEA7D002AA618 /* ObserverNewsResponse.swift in Sources */,
 				942470161D97F1F20035A380 /* Request.swift in Sources */,
 				944EF19C1D7EC4BF00A039BA /* SymbolTradingResponse.swift in Sources */,
 				7CAF1DC71D8C3294003E22A4 /* MarketDetailsHeader.swift in Sources */,
+				84B6DCD21DBB97C600D93B4F /* ForgetPasswordResult.swift in Sources */,
 				947C63901D7451EE00676822 /* SymbolListTableViewController.swift in Sources */,
 				94B7722B1D7FE13F002AA618 /* BourseNewsTableViewController.swift in Sources */,
 				948B46651D76B49500F464C2 /* SearchSeymbolTableView.swift in Sources */,
@@ -2211,6 +2242,7 @@
 				94E30E201D8FC4E40052EF59 /* DatePickerSheet.swift in Sources */,
 				944EF1961D7EC29A00A039BA /* SymbolBestLimitResponse.swift in Sources */,
 				949BEEB51D7311F7008FA574 /* IndexDetailsTabBarController.swift in Sources */,
+				84B6DCD61DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */,
 				84C9E2891D993B5E00F96EF8 /* ObserverNewsRequest.swift in Sources */,
 				947C63961D7581D100676822 /* PortfolioListViewController.swift in Sources */,
 			);
