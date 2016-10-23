@@ -437,9 +437,9 @@
 		9465DB671D840450007F0572 /* NewsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTabBarController.swift; sourceTree = "<group>"; };
 		9465DB691D84071D007F0572 /* SabadBan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SabadBan-Bridging-Header.h"; sourceTree = "<group>"; };
 		9467D8671D7BEB8700B76A2E /* EditPortfolioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPortfolioViewController.swift; sourceTree = "<group>"; };
-		9476FB611DBB425700B923D6 /* SabadBan Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SabadBan Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9476FB611DBB425700B923D6 /* SabadBanTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SabadBanTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9476FB621DBB425800B923D6 /* SabadBan Test.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SabadBan Test.plist"; path = "/Volumes/Projects/Morteza.Gharedaghi/p343-sabadban-ios/trunk/SabadBan/SabadBan Test.plist"; sourceTree = "<absolute>"; };
-		9476FBE71DBB425B00B923D6 /* SabadBan Prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SabadBan Prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9476FBE71DBB425B00B923D6 /* SabadBanProd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SabadBanProd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9476FBE81DBB425D00B923D6 /* SabadBan Prod.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SabadBan Prod.plist"; path = "/Volumes/Projects/Morteza.Gharedaghi/p343-sabadban-ios/trunk/SabadBan/SabadBan Prod.plist"; sourceTree = "<absolute>"; };
 		9478A63F1D891BF70087B574 /* menuHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuHeader.swift; sourceTree = "<group>"; };
 		9478A6411D891C0E0087B574 /* menuHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = menuHeader.xib; sourceTree = "<group>"; };
@@ -461,7 +461,7 @@
 		948B46641D76B49500F464C2 /* SearchSeymbolTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSeymbolTableView.swift; sourceTree = "<group>"; };
 		948B46671D76BCDD00F464C2 /* SymbolListModelResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolListModelResponse.swift; sourceTree = "<group>"; };
 		948B46691D76BCE500F464C2 /* SymbolsDetailsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolsDetailsList.swift; sourceTree = "<group>"; };
-		949BEE4E1D72A51C008FA574 /* SabadBan Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SabadBan Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		949BEE4E1D72A51C008FA574 /* SabadBanDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SabadBanDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		949BEE511D72A51C008FA574 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		949BEE581D72A51C008FA574 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		949BEE5D1D72A51C008FA574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -903,9 +903,9 @@
 		949BEE4F1D72A51C008FA574 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				949BEE4E1D72A51C008FA574 /* SabadBan Dev.app */,
-				9476FB611DBB425700B923D6 /* SabadBan Test.app */,
-				9476FBE71DBB425B00B923D6 /* SabadBan Prod.app */,
+				949BEE4E1D72A51C008FA574 /* SabadBanDev.app */,
+				9476FB611DBB425700B923D6 /* SabadBanTest.app */,
+				9476FBE71DBB425B00B923D6 /* SabadBanProd.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1190,9 +1190,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9476FADD1DBB425700B923D6 /* SabadBan Test */ = {
+		9476FADD1DBB425700B923D6 /* SabadBanTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9476FB5E1DBB425700B923D6 /* Build configuration list for PBXNativeTarget "SabadBan Test" */;
+			buildConfigurationList = 9476FB5E1DBB425700B923D6 /* Build configuration list for PBXNativeTarget "SabadBanTest" */;
 			buildPhases = (
 				E30F399EF8B5D8C4341FCF62 /* 📦 Check Pods Manifest.lock */,
 				9476FADE1DBB425700B923D6 /* [CP] Check Pods Manifest.lock */,
@@ -1212,14 +1212,14 @@
 			);
 			dependencies = (
 			);
-			name = "SabadBan Test";
+			name = SabadBanTest;
 			productName = SabadBan;
-			productReference = 9476FB611DBB425700B923D6 /* SabadBan Test.app */;
+			productReference = 9476FB611DBB425700B923D6 /* SabadBanTest.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9476FB631DBB425B00B923D6 /* SabadBan Prod */ = {
+		9476FB631DBB425B00B923D6 /* SabadBanProd */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9476FBE41DBB425B00B923D6 /* Build configuration list for PBXNativeTarget "SabadBan Prod" */;
+			buildConfigurationList = 9476FBE41DBB425B00B923D6 /* Build configuration list for PBXNativeTarget "SabadBanProd" */;
 			buildPhases = (
 				511CEA57ECE6823335890A29 /* 📦 Check Pods Manifest.lock */,
 				9476FB641DBB425B00B923D6 /* [CP] Check Pods Manifest.lock */,
@@ -1239,14 +1239,14 @@
 			);
 			dependencies = (
 			);
-			name = "SabadBan Prod";
+			name = SabadBanProd;
 			productName = SabadBan;
-			productReference = 9476FBE71DBB425B00B923D6 /* SabadBan Prod.app */;
+			productReference = 9476FBE71DBB425B00B923D6 /* SabadBanProd.app */;
 			productType = "com.apple.product-type.application";
 		};
-		949BEE4D1D72A51B008FA574 /* SabadBan Dev */ = {
+		949BEE4D1D72A51B008FA574 /* SabadBanDev */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 949BEE601D72A51C008FA574 /* Build configuration list for PBXNativeTarget "SabadBan Dev" */;
+			buildConfigurationList = 949BEE601D72A51C008FA574 /* Build configuration list for PBXNativeTarget "SabadBanDev" */;
 			buildPhases = (
 				65D59ECEF05B0D33C796E1AD /* 📦 Check Pods Manifest.lock */,
 				6B6976D5B839600080B37CB1 /* [CP] Check Pods Manifest.lock */,
@@ -1266,9 +1266,9 @@
 			);
 			dependencies = (
 			);
-			name = "SabadBan Dev";
+			name = SabadBanDev;
 			productName = SabadBan;
-			productReference = 949BEE4E1D72A51C008FA574 /* SabadBan Dev.app */;
+			productReference = 949BEE4E1D72A51C008FA574 /* SabadBanDev.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1314,9 +1314,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				949BEE4D1D72A51B008FA574 /* SabadBan Dev */,
-				9476FADD1DBB425700B923D6 /* SabadBan Test */,
-				9476FB631DBB425B00B923D6 /* SabadBan Prod */,
+				949BEE4D1D72A51B008FA574 /* SabadBanDev */,
+				9476FADD1DBB425700B923D6 /* SabadBanTest */,
+				9476FB631DBB425B00B923D6 /* SabadBanProd */,
 			);
 		};
 /* End PBXProject section */
@@ -2431,7 +2431,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9476FB5E1DBB425700B923D6 /* Build configuration list for PBXNativeTarget "SabadBan Test" */ = {
+		9476FB5E1DBB425700B923D6 /* Build configuration list for PBXNativeTarget "SabadBanTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9476FB5F1DBB425700B923D6 /* Debug */,
@@ -2440,7 +2440,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9476FBE41DBB425B00B923D6 /* Build configuration list for PBXNativeTarget "SabadBan Prod" */ = {
+		9476FBE41DBB425B00B923D6 /* Build configuration list for PBXNativeTarget "SabadBanProd" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9476FBE51DBB425B00B923D6 /* Debug */,
@@ -2458,7 +2458,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		949BEE601D72A51C008FA574 /* Build configuration list for PBXNativeTarget "SabadBan Dev" */ = {
+		949BEE601D72A51C008FA574 /* Build configuration list for PBXNativeTarget "SabadBanDev" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				949BEE611D72A51C008FA574 /* Debug */,
