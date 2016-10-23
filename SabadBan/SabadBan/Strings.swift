@@ -159,4 +159,7 @@ struct Strings {
     static let changePassword = "changePassword"
     static let changePasswordSuccessMessage = "changePasswordSuccessMessage"
     static let emailNotFound = "emailNotFound"
+    
+    //MARK: - Check version Strings
+    static let download = "download";
 }

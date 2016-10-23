@@ -158,3 +158,6 @@
 "changePasswordSuccessMessage" = "New password has been sent to your E-mail. Please check your E-mail.";
 "emailNotFound" = "This email doesn't exist in our database.";
 
+//MARK: - Check version Strings
+"download" = "Download";
+

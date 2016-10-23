@@ -158,6 +158,7 @@ class BuyInfoViewController: BaseViewController, UITableViewDelegate, UITableVie
         priceAlert = UIAlertController(title: Strings.Price.localized(), message: "", preferredStyle: .Alert)
 
         priceAlert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            textField.text = self.btnPrice.currentTitle
             textField.keyboardType = .NumberPad
             textField.maxLength = 9
             textField.commaSeperator = true
@@ -177,6 +178,7 @@ class BuyInfoViewController: BaseViewController, UITableViewDelegate, UITableVie
         let alert = UIAlertController(title: Strings.Count.localized(), message: "", preferredStyle: .Alert)
 
         alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            textField.text = self.btnCount.currentTitle
             textField.keyboardType = .NumberPad
             textField.maxLength = 9
             textField.commaSeperator = true
