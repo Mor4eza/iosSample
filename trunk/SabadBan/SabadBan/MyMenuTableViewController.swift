@@ -37,8 +37,11 @@ class MyMenuTableViewController: BaseTableViewController {
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.menuHeader) as! menuHeader
 
-        headerView.lblUserName.text = LogedInUserName
-
+        if isGuest == true {
+            headerView.lblUserName.text = ""
+        }else {
+            headerView.lblUserName.text = LogedInUserName
+        }
         return headerView
     }
 
@@ -57,14 +60,14 @@ class MyMenuTableViewController: BaseTableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.menuCells
-        , forIndexPath: indexPath) as! menuCell
+            , forIndexPath: indexPath) as! menuCell
 
-            cell.backgroundColor = UIColor.clearColor()
-            cell.lblMenuName?.textColor = UIColor.darkGrayColor()
-            let selectedBackgroundView = UIView(frame: CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height))
-            selectedBackgroundView.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.2)
-            selectedBackgroundView.tintColor = UIColor.redColor()
-            cell.selectedBackgroundView = selectedBackgroundView
+        cell.backgroundColor = UIColor.clearColor()
+        cell.lblMenuName?.textColor = UIColor.darkGrayColor()
+        let selectedBackgroundView = UIView(frame: CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height))
+        selectedBackgroundView.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.2)
+        selectedBackgroundView.tintColor = UIColor.redColor()
+        cell.selectedBackgroundView = selectedBackgroundView
 
         switch indexPath.row {
         case 0:
@@ -80,8 +83,8 @@ class MyMenuTableViewController: BaseTableViewController {
             cell.imgMenu.image = UIImage(named: UIConstants.NewsImg)
             break
         case 3:
-             cell.lblMenuName?.text = Strings.Setting.localized()
-             cell.imgMenu.image = UIImage(named: UIConstants.setting)
+            cell.lblMenuName?.text = Strings.Setting.localized()
+            cell.imgMenu.image = UIImage(named: UIConstants.setting)
             break
         case 4:
             cell.lblMenuName?.text = Strings.AboutUs.localized()
@@ -97,7 +100,7 @@ class MyMenuTableViewController: BaseTableViewController {
             break
         }
 
-            cell.lblMenuName?.changeDirection()
+        cell.lblMenuName?.changeDirection()
 
         return cell
     }
@@ -110,9 +113,9 @@ class MyMenuTableViewController: BaseTableViewController {
 
         debugPrint("did select row: \(indexPath.row)")
 
-//        if (indexPath.row == selectedMenuItem) {
-//            return
-//        }
+        //        if (indexPath.row == selectedMenuItem) {
+        //            return
+        //        }
 
         selectedMenuItem = indexPath.row
 
@@ -155,9 +158,9 @@ class MyMenuTableViewController: BaseTableViewController {
         super.viewWillDisappear(animated)
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-
+    
     func setTexts() {
         self.tableView.reloadData()
     }
-
+    
 }

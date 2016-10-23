@@ -9,98 +9,113 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>9</integer>
 		</dict>
 		<key>Alamofire-Gloss.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>1</integer>
 		</dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>0</integer>
 		</dict>
 		<key>BTNavigationDropdownMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>7</integer>
 		</dict>
 		<key>FCAlertView-FCAlertView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>17</integer>
+			<integer>18</integer>
 		</dict>
 		<key>FCAlertView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>16</integer>
+			<integer>17</integer>
 		</dict>
 		<key>GSMessages.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>15</integer>
+			<integer>19</integer>
 		</dict>
 		<key>Gloss.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>2</integer>
 		</dict>
 		<key>KCFloatingActionButton.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>18</integer>
+			<integer>20</integer>
 		</dict>
 		<key>LMDropdownView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>6</integer>
 		</dict>
 		<key>LiquidFloatingActionButton.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>8</integer>
 		</dict>
 		<key>Localize-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>3</integer>
+		</dict>
+		<key>Pods-SabadBan Dev.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>Pods-SabadBan Prod.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
+		<key>Pods-SabadBan Test.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
 		</dict>
 		<key>Pods-SabadBan.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>4</integer>
 		</dict>
 		<key>SQLite.swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>13</integer>
+			<integer>10</integer>
 		</dict>
 		<key>SwiftCharts.xcscheme</key>
 		<dict>
@@ -114,7 +129,7 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>5</integer>
 		</dict>
 		<key>UIScrollView-InfiniteScroll.xcscheme</key>
 		<dict>
@@ -160,6 +175,11 @@
 			<true/>
 		</dict>
 		<key>2062FDEB7656EBC09942EBA991D3B866</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>22B2E74784801AC1F21121E1BFA78217</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -274,6 +294,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A42937B17CBF22AC38AA56FE1B66F7C5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A542B6940ECC50900244B4C1D124B2C7</key>
 		<dict>
 			<key>primary</key>
@@ -305,6 +330,11 @@
 			<true/>
 		</dict>
 		<key>C099A87ED55CA43603FF2EAF6E3AAC44</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C68AB355273A6FC5EFC78AA38C1AB7E5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -370,6 +400,16 @@
 			<true/>
 		</dict>
 		<key>E97059C9ED4B183E00FE6F667FC7A5E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F1D8E1509BEF4B9BCA537B976C3B6B2B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F2D3D2B71387F5D2C0F347B473E8FB51</key>
 		<dict>
 			<key>primary</key>
 			<true/>

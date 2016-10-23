@@ -45,7 +45,7 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
         // Include the search bar within the navigation bar.
         self.navigationItem.titleView = self.searchController.searchBar
         self.definesPresentationContext = true
-
+        self.searchController.searchBar.setSerchTextcolor(UIColor.whiteColor())
         //Refresh Control
         refreshControl = UIRefreshControl()
         refreshControl!.tintColor = UIColor.whiteColor()
@@ -216,6 +216,8 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
     func getSymbolList() {
 
         refreshControl?.beginRefreshing()
+        self.searchController.active = false
+        self.searchController.searchBar.userInteractionEnabled = false
         let url = AppTadbirUrl + URLS["getSymbolNameList"]!
 
         // JSON Body
@@ -231,6 +233,8 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
 
                     self.refreshControl?.endRefreshing()
                     self.tableView.reloadData()
+                    self.searchController.searchBar.userInteractionEnabled = true
+
                 }
             } else {
                 debugPrint(error)

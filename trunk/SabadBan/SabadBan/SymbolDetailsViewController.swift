@@ -72,6 +72,7 @@ class SymbolDetailsViewController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
+        super.addMenuButton()
         tableView.registerNib(UINib(nibName: UIConstants.buyHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.buyHeader)
         debugPrint("selected: \(SelectedSymbolCode)")
         getSymbolBestLimitService(String(SelectedSymbolCode))

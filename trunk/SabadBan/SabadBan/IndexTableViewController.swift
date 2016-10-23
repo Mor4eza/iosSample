@@ -12,7 +12,7 @@ class IndexTableViewController: BaseTableViewController {
 
     var indexNames = [String]()
     var indexPrice = [Double]()
-    var indexPercent = [Double]()
+    var indexPercent = [Float]()
     var indexCode = [Int64]()
     var selectedIndexCode = String()
     var selectedIndexName = String()
@@ -120,7 +120,7 @@ class IndexTableViewController: BaseTableViewController {
                 for i in 0  ..< indexs!.response.indexDetailsList.count{
                     self.indexNames.append(indexs!.response.indexDetailsList[i].shortName)
                     self.indexPrice.append(Double(indexs!.response.indexDetailsList[i].closePrice))
-                    self.indexPercent.append(indexs!.response.indexDetailsList[i].changePricePercentOnSameTime)
+                    self.indexPercent.append(indexs!.response.indexDetailsList[i].changePricePercentVsPreviousTime)
                     self.indexCode.append(indexs!.response.indexDetailsList[i].indexCode)
                     self.tableView.reloadData()
                 }

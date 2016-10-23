@@ -305,8 +305,9 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
                     self.menuView.updateItems(self.portfolios)
                     self.isFirstTime = true
                     self.performSegueWithIdentifier(UIConstants.searchSeguei, sender: nil)
-                    Utils.ShowAlert(self, title:Strings.Attention.localized() , details: "نام پرتفوی را وارد کنید.",btnOkTitle:Strings.Ok.localized())
-                    Utils.ShowAlert(self, title:Strings.Attention.localized() , details: "نام پرتفوی را وارد کنید.",btnOkTitle:Strings.Ok.localized())
+
+                } else {
+                       Utils.ShowAlert(self, title:Strings.Attention.localized() , details: "نام پرتفوی را وارد کنید.",btnOkTitle:Strings.Ok.localized())
                 }
             }))
             self.presentViewController(alert, animated: true, completion: nil)
