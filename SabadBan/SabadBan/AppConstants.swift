@@ -20,7 +20,7 @@ public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
 public let ServicesHeaders = ["Content-Type": "application/json"]
 public var GuestUser = "1@1.com"
 public var GuestPass = "12345678"
-
+public var isGuest = false
 
 
 #if DEV

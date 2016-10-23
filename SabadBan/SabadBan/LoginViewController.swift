@@ -106,7 +106,8 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
 
     @IBAction func btnLoginTap(sender: AnyObject) {
 
-                beginLoginSequence()
+        beginLoginSequence()
+        isGuest = false
     }
 
     @IBAction func btnGuestLoginTap(sender: AnyObject) {
@@ -127,6 +128,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
                 sendLoginRequest(GuestUser, password: GuestPass, pushToken: PushToken)
             }
         }
+        isGuest = true
     }
 
 
@@ -180,7 +182,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
          Login
          POST http://sabadbannewstest.sefryek.com/api/v1/auth/login
          */
-        debugPrint(guest)
+
         btnLogin.enabled = false
         btnGuestLogin.enabled = false
         let progress:UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
@@ -231,12 +233,14 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
                         LogedInUserName = email
                         self.performSegueWithIdentifier(UIConstants.loginSegue, sender: nil)
 
-                        if self.chkRemember.on == true {
-                            self.defaults.setValue(email, forKey: UserName)
-                            self.defaults.setValue(password, forKey: Password)
-                        }else {
-                            self.defaults.setValue(nil, forKey: UserName)
-                            self.defaults.setValue(nil, forKey: Password)
+                        if guest == false {
+                            if self.chkRemember.on == true{
+                                self.defaults.setValue(email, forKey: UserName)
+                                self.defaults.setValue(password, forKey: Password)
+                            }else {
+                                self.defaults.setValue(nil, forKey: UserName)
+                                self.defaults.setValue(nil, forKey: Password)
+                            }
                         }
                     }
                 } else if response!.errorCode == 202 {

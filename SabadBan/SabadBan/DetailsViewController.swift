@@ -189,24 +189,24 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
             let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.IndexDetailHeader) as! IndexDetailHeader
 
             headerView.lblTitle.text = Strings.indexInfo.localized()
-            headerView.lblTitle.setDefaultFont()
+            headerView.lblTitle.setDefaultFont(headerView.lblTitle.font.pointSize )
             headerView.backView.roundCorners([.TopLeft, .TopRight], radius: 6)
             headerView.lblLastUpdate.text = Strings.lastUpdate.localized() +  LastUpdate
-            headerView.lblLastUpdate.setDefaultFont()
+            headerView.lblLastUpdate.setDefaultFont(headerView.lblLastUpdate.font.pointSize)
             return headerView
         } else {
             let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.MarketDetailsHeader) as! MarketDetailsHeader
 
             headerView.lblTitle.text = Strings.marketInfo.localized()
-            headerView.lblTitle.setDefaultFont()
+            headerView.lblTitle.setDefaultFont(headerView.lblTitle.font.pointSize)
             headerView.backView.roundCorners([.TopLeft, .TopRight], radius: 6)
             return headerView
         }
     }
 
     @IBAction func segmentChanged(sender: AnyObject) {
+
         getIndexDetails(SelectedIndexCode, range:segRange.selectedSegmentIndex )
-        getMarketActivity()
 
     }
 
@@ -214,19 +214,17 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
 
     func getIndexDetails(indexCode:String , range:Int){
 
-        indexDetailsRefreshControl.beginRefreshing()
-        let url = AppTadbirUrl + URLS["IndexListAndDetails"]!
-        // Add Headers
 
+        let url = AppTadbirUrl + URLS["IndexListAndDetails"]!
         // JSON Body
         let body = IndexDetailsRequest(timeFrameType: TimeFrameType(rawValue: (3 - range)), indexCode: indexCode, language: getAppLanguage()).getDic()
 
         // Fetch Request
         Request.postData(url, body: body) { (indexs:MainResponse<Response>?, error)  in
             if ((indexs?.successful) != nil) {
-                self.LastUpdate = (indexs?.response.updateLatest)!
+
                 if (indexs!.response.indexDetailsList.count > 0) {
-                    debugPrint("Count: \(indexs!.response.indexDetailsList.count)")
+                    self.LastUpdate = (indexs?.response.updateLatest)!
                     self.maxPrice = Double(indexs!.response.indexDetailsList[0].highPrice)
                     self.minPrice = Double(indexs!.response.indexDetailsList[0].lowPrice)
                     self.lastPrice = Double(indexs!.response.indexDetailsList[0].closePrice)
@@ -236,6 +234,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
                     self.lblPriceChanges.text = self.priceChanges.currencyFormat(2)
                     self.lblPricePercent.text  = String(self.priceChangesPercent)
                     self.tblDetails.reloadData()
+
                 }else{
                     Utils.ShowAlert(self, title: Strings.Warning.localized(), details: Strings.noData.localized())
                 }
@@ -244,7 +243,6 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
                 debugPrint(error)
             }
 
-            self.indexDetailsRefreshControl.endRefreshing()
         }
 
     }
