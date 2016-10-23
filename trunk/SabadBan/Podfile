@@ -19,14 +19,14 @@ def sabadBanPods
 end
 
 
-target 'SabadBan Dev' do
+target 'SabadBanDev' do
 sabadBanPods
 end
 
-target 'SabadBan Test' do
+target 'SabadBanTest' do
 sabadBanPods
 end
 
-target 'SabadBan Prod' do
+target 'SabadBanProd' do
 sabadBanPods
 end

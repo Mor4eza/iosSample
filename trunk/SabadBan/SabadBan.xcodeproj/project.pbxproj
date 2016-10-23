@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		586C738DEE7BF31949C4C271 /* Pods_SabadBanTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B98DDB784F42212AFFB9B3D7 /* Pods_SabadBanTest.framework */; };
 		7CAF1DBE1D8BD66F003E22A4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF1DBD1D8BD66F003E22A4 /* String.swift */; };
 		7CAF1DC21D8BFBFB003E22A4 /* MarketDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF1DC11D8BFBFB003E22A4 /* MarketDetailsCell.swift */; };
 		7CAF1DC51D8C1BCE003E22A4 /* MarketActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF1DC41D8C1BCE003E22A4 /* MarketActivityModel.swift */; };
 		7CAF1DC71D8C3294003E22A4 /* MarketDetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF1DC61D8C3294003E22A4 /* MarketDetailsHeader.swift */; };
 		7CAF1DC91D8C3362003E22A4 /* MarketDetailsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CAF1DC81D8C3362003E22A4 /* MarketDetailsHeader.xib */; };
 		7CE4AB271D9192E2003332F6 /* RegisterErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4AB261D9192E2003332F6 /* RegisterErrorModel.swift */; };
+		818F4E7632350D1BBDDEA59A /* Pods_SabadBanDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE58ECBAF9BD22923B3AE01 /* Pods_SabadBanDev.framework */; };
 		84036D481DBCB02F00799A49 /* CheckVersionCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84036D471DBCB02F00799A49 /* CheckVersionCodeResponse.swift */; };
 		84036D491DBCB02F00799A49 /* CheckVersionCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84036D471DBCB02F00799A49 /* CheckVersionCodeResponse.swift */; };
 		84036D4A1DBCB02F00799A49 /* CheckVersionCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84036D471DBCB02F00799A49 /* CheckVersionCodeResponse.swift */; };
@@ -46,6 +48,7 @@
 		84C9E2981D997B5700F96EF8 /* SymbolListByIndexRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2971D997B5700F96EF8 /* SymbolListByIndexRequest.swift */; };
 		84F6BBF81D9F972F009BEEB2 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6BBF71D9F972F009BEEB2 /* Strings.swift */; };
 		84F6BBFA1D9FC345009BEEB2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6BBF91D9FC345009BEEB2 /* UIConstants.swift */; };
+		8E2298586CDA54FD8DD6B5BE /* Pods_SabadBanProd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014B118BF7FB26043C745CF5 /* Pods_SabadBanProd.framework */; };
 		9412F0EE1D857E0D00E94683 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9412F0EC1D857E0D00E94683 /* RegisterResponse.swift */; };
 		9412F0EF1D857E0D00E94683 /* UserManagementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9412F0ED1D857E0D00E94683 /* UserManagementModel.swift */; };
 		9412F0F11D857E3600E94683 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9412F0F01D857E3600E94683 /* LoginResponse.swift */; };
@@ -372,9 +375,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		014B118BF7FB26043C745CF5 /* Pods_SabadBanProd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SabadBanProd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		056F8D223A2B46BAFA51E6B5 /* Pods-SabadBan Prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBan Prod.release.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBan Prod/Pods-SabadBan Prod.release.xcconfig"; sourceTree = "<group>"; };
+		1B859B78AB0E8568C85A2560 /* Pods-SabadBanDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBanDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBanDev/Pods-SabadBanDev.debug.xcconfig"; sourceTree = "<group>"; };
 		1F0DD2208E2A1783EA42FD86 /* Pods_SabadBan_Prod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SabadBan_Prod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FE58ECBAF9BD22923B3AE01 /* Pods_SabadBanDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SabadBanDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A77BA2E8175860256B2A74 /* Pods-SabadBan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBan/Pods-SabadBan.debug.xcconfig"; sourceTree = "<group>"; };
+		34F2265A62A3A6A133E135C7 /* Pods-SabadBanDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBanDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBanDev/Pods-SabadBanDev.release.xcconfig"; sourceTree = "<group>"; };
+		3E0B4A05CBA02DC71B676821 /* Pods-SabadBanTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBanTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBanTest/Pods-SabadBanTest.release.xcconfig"; sourceTree = "<group>"; };
+		4E6CE94CD4FF34268180F724 /* Pods-SabadBanTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBanTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBanTest/Pods-SabadBanTest.debug.xcconfig"; sourceTree = "<group>"; };
 		7A17D94C57839D7FF7AD544A /* Pods_SabadBan_Dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SabadBan_Dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CAF1DBD1D8BD66F003E22A4 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		7CAF1DC11D8BFBFB003E22A4 /* MarketDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketDetailsCell.swift; sourceTree = "<group>"; };
@@ -382,6 +391,7 @@
 		7CAF1DC61D8C3294003E22A4 /* MarketDetailsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketDetailsHeader.swift; sourceTree = "<group>"; };
 		7CAF1DC81D8C3362003E22A4 /* MarketDetailsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarketDetailsHeader.xib; sourceTree = "<group>"; };
 		7CE4AB261D9192E2003332F6 /* RegisterErrorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterErrorModel.swift; sourceTree = "<group>"; };
+		82611D450485B74CB74671E7 /* Pods-SabadBanProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBanProd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBanProd/Pods-SabadBanProd.debug.xcconfig"; sourceTree = "<group>"; };
 		84036D471DBCB02F00799A49 /* CheckVersionCodeResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckVersionCodeResponse.swift; sourceTree = "<group>"; };
 		84036D4B1DBCB24400799A49 /* CheckVersionCodeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckVersionCodeRequest.swift; sourceTree = "<group>"; };
 		8411E6311D9A50FF009A78DA /* SymbolListAndDetailsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolListAndDetailsRequest.swift; sourceTree = "<group>"; };
@@ -508,11 +518,13 @@
 		94E30E1F1D8FC4E40052EF59 /* DatePickerSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerSheet.swift; sourceTree = "<group>"; };
 		A1238BA0B9650DBB577E37F9 /* Pods-SabadBan Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBan Dev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBan Dev/Pods-SabadBan Dev.debug.xcconfig"; sourceTree = "<group>"; };
 		B25197D3605962238BD97292 /* Pods_SabadBan_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SabadBan_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B98DDB784F42212AFFB9B3D7 /* Pods_SabadBanTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SabadBanTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF9685BF25FE9A7D1D7444A /* Pods-SabadBan Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBan Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBan Dev/Pods-SabadBan Dev.release.xcconfig"; sourceTree = "<group>"; };
 		DCC682DC91C3B38F9F01FE3E /* Pods-SabadBan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBan.release.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBan/Pods-SabadBan.release.xcconfig"; sourceTree = "<group>"; };
 		DD731D5D151A1C6EA03B3223 /* Pods-SabadBan Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBan Test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBan Test/Pods-SabadBan Test.debug.xcconfig"; sourceTree = "<group>"; };
 		E672665F4DD4CD071AFEA5E4 /* Pods_SabadBan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SabadBan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF739E692FDFF3DDF78FC4A /* Pods-SabadBan Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBan Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBan Test/Pods-SabadBan Test.release.xcconfig"; sourceTree = "<group>"; };
+		F3514646CC12A248B1F2FE10 /* Pods-SabadBanProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBanProd.release.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBanProd/Pods-SabadBanProd.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -522,6 +534,7 @@
 			files = (
 				9476FB461DBB425700B923D6 /* Pods_SabadBan.framework in Frameworks */,
 				D1594B0521245D4AD4DC42B4 /* Pods_SabadBan_Test.framework in Frameworks */,
+				586C738DEE7BF31949C4C271 /* Pods_SabadBanTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +544,7 @@
 			files = (
 				9476FBCC1DBB425B00B923D6 /* Pods_SabadBan.framework in Frameworks */,
 				C5D8B19C21D43A0B62AC451E /* Pods_SabadBan_Prod.framework in Frameworks */,
+				8E2298586CDA54FD8DD6B5BE /* Pods_SabadBanProd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4C3BD1959BC59978EBC0D03 /* Pods_SabadBan_Dev.framework in Frameworks */,
+				818F4E7632350D1BBDDEA59A /* Pods_SabadBanDev.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +568,9 @@
 				7A17D94C57839D7FF7AD544A /* Pods_SabadBan_Dev.framework */,
 				1F0DD2208E2A1783EA42FD86 /* Pods_SabadBan_Prod.framework */,
 				B25197D3605962238BD97292 /* Pods_SabadBan_Test.framework */,
+				1FE58ECBAF9BD22923B3AE01 /* Pods_SabadBanDev.framework */,
+				014B118BF7FB26043C745CF5 /* Pods_SabadBanProd.framework */,
+				B98DDB784F42212AFFB9B3D7 /* Pods_SabadBanTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -568,6 +586,12 @@
 				056F8D223A2B46BAFA51E6B5 /* Pods-SabadBan Prod.release.xcconfig */,
 				DD731D5D151A1C6EA03B3223 /* Pods-SabadBan Test.debug.xcconfig */,
 				EAF739E692FDFF3DDF78FC4A /* Pods-SabadBan Test.release.xcconfig */,
+				1B859B78AB0E8568C85A2560 /* Pods-SabadBanDev.debug.xcconfig */,
+				34F2265A62A3A6A133E135C7 /* Pods-SabadBanDev.release.xcconfig */,
+				82611D450485B74CB74671E7 /* Pods-SabadBanProd.debug.xcconfig */,
+				F3514646CC12A248B1F2FE10 /* Pods-SabadBanProd.release.xcconfig */,
+				4E6CE94CD4FF34268180F724 /* Pods-SabadBanTest.debug.xcconfig */,
+				3E0B4A05CBA02DC71B676821 /* Pods-SabadBanTest.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1469,7 +1493,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBan Dev/Pods-SabadBan Dev-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanDev/Pods-SabadBanDev-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8312FA5A350B89DD3F034BF3 /* [CP] Check Pods Manifest.lock */ = {
@@ -1618,7 +1642,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBan Test/Pods-SabadBan Test-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanTest/Pods-SabadBanTest-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9476FB5C1DBB425700B923D6 /* 📦 Copy Pods Resources */ = {
@@ -1633,7 +1657,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBan Test/Pods-SabadBan Test-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanTest/Pods-SabadBanTest-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9476FB5D1DBB425700B923D6 /* Remove Empty lines in *.Swift files */ = {
@@ -1752,7 +1776,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBan Prod/Pods-SabadBan Prod-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanProd/Pods-SabadBanProd-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9476FBE21DBB425B00B923D6 /* 📦 Copy Pods Resources */ = {
@@ -1767,7 +1791,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBan Prod/Pods-SabadBan Prod-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanProd/Pods-SabadBanProd-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9476FBE31DBB425B00B923D6 /* Remove Empty lines in *.Swift files */ = {
@@ -1796,7 +1820,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBan Dev/Pods-SabadBan Dev-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanDev/Pods-SabadBanDev-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C5D64A95F08DFE760624CE14 /* [CP] Check Pods Manifest.lock */ = {
@@ -2207,7 +2231,7 @@
 /* Begin XCBuildConfiguration section */
 		9476FB5F1DBB425700B923D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD731D5D151A1C6EA03B3223 /* Pods-SabadBan Test.debug.xcconfig */;
+			baseConfigurationReference = 4E6CE94CD4FF34268180F724 /* Pods-SabadBanTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2231,7 +2255,7 @@
 		};
 		9476FB601DBB425700B923D6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAF739E692FDFF3DDF78FC4A /* Pods-SabadBan Test.release.xcconfig */;
+			baseConfigurationReference = 3E0B4A05CBA02DC71B676821 /* Pods-SabadBanTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2253,7 +2277,7 @@
 		};
 		9476FBE51DBB425B00B923D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8EE982084D5A27FB9167A4B6 /* Pods-SabadBan Prod.debug.xcconfig */;
+			baseConfigurationReference = 82611D450485B74CB74671E7 /* Pods-SabadBanProd.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2277,7 +2301,7 @@
 		};
 		9476FBE61DBB425B00B923D6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 056F8D223A2B46BAFA51E6B5 /* Pods-SabadBan Prod.release.xcconfig */;
+			baseConfigurationReference = F3514646CC12A248B1F2FE10 /* Pods-SabadBanProd.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2384,7 +2408,7 @@
 		};
 		949BEE611D72A51C008FA574 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1238BA0B9650DBB577E37F9 /* Pods-SabadBan Dev.debug.xcconfig */;
+			baseConfigurationReference = 1B859B78AB0E8568C85A2560 /* Pods-SabadBanDev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2408,7 +2432,7 @@
 		};
 		949BEE621D72A51C008FA574 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BAF9685BF25FE9A7D1D7444A /* Pods-SabadBan Dev.release.xcconfig */;
+			baseConfigurationReference = 34F2265A62A3A6A133E135C7 /* Pods-SabadBanDev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
