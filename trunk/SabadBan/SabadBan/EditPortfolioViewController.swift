@@ -45,8 +45,7 @@
             }
 
             db.updatePortfolioName(etTitle.text!, pCode: db.getportfolioCodeByName(portfolioName))
-            SwiftEventBus.postToMainThread(PortfolioEdited)
-            dismissViewControllerAnimated(true, completion: nil)
+            dismissViewControllerAnimated(true, completion: {SwiftEventBus.postToMainThread(PortfolioEdited)})
         }
 
         override func didReceiveMemoryWarning() {

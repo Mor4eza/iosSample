@@ -85,11 +85,13 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     }
     
     override func viewWillAppear(animated: Bool) {
-        super.viewWillDisappear(animated)
+        super.viewWillAppear(animated)
         nc.addObserver(self, selector: #selector(selectedSymbol), name: symbolSelected, object: nil)
         SwiftEventBus.onMainThread(self, name: PortfolioEdited) { result in
             debugPrint("Edited")
+            self.getCurrentPortfolio()
             self.initNavigationTitle()
+            self.loadSymbolsFromDb()
         }
         
         loadSymbolsFromDb()
@@ -223,6 +225,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     
     func initNavigationTitle(){
         
+        portfolios.removeAll()
         portfolios = db.getPortfolioList(1)
         if portfolios.count == 0 {
             menuView = BTNavigationDropdownMenu(title: Strings.Portfolio.localized(), items: portfolios)
@@ -245,6 +248,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         }
         
     }
+
     //MARK:- Floation Button
     
     func initFAB(){

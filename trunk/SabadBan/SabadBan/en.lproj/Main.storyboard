@@ -1477,7 +1477,6 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="FdD-yi-cRY" kind="relationship" relationship="viewControllers" id="Bzy-vl-3sW"/>
                         <segue destination="NAf-xZ-JG7" kind="relationship" relationship="viewControllers" id="TSJ-QZ-rbg"/>
                         <segue destination="gFA-DW-EVV" kind="relationship" relationship="viewControllers" id="MSk-MV-y5x"/>
                     </connections>
@@ -1498,7 +1497,6 @@
                         <color key="selectedImageTintColor" red="1" green="0.1472621945" blue="0.039924478729999997" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="FdD-yi-cRY" kind="relationship" relationship="viewControllers" id="TCW-a9-t2w"/>
                         <segue destination="dIy-RW-wtH" kind="relationship" relationship="viewControllers" id="U39-KU-5v4"/>
                     </connections>
                 </tabBarController>
@@ -3333,10 +3331,9 @@
         <image name="login_username" width="48" height="46"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TCW-a9-t2w"/>
         <segue reference="RP5-i4-ySo"/>
-        <segue reference="nO4-SB-DDz"/>
         <segue reference="cbY-Qz-fGF"/>
+        <segue reference="nO4-SB-DDz"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

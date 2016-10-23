@@ -54,7 +54,8 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
         self.tableView.addSubview(refreshControl!)
 
         let btnDone = UIButton()
-        btnDone.setTitle("❌", forState: .Normal)
+        let imgDone = UIImage(named: UIConstants.icDone)
+        btnDone.setImage(imgDone, forState: .Normal)
         btnDone.frame = CGRectMake(0, 0, 30, 30)
         btnDone.addTarget(self, action: #selector(doneClicked), forControlEvents: .TouchUpInside)
         let rightBarButton = UIBarButtonItem(customView: btnDone)

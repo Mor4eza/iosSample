@@ -156,3 +156,6 @@
 "changePassword" = "تغییر رمز عبور";
 "changePasswordSuccessMessage" = "رمز عبور جدید به ایمیل شماارسال شد. لطفا ایمیل خود را چک کنید.";
 "emailNotFound" = "با این ایمیل ثبت نامی انجام نشده است.";
+
+//MARK: - Check version Strings
+"download" = "دانلود";

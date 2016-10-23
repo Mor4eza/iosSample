@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import FCAlertView
 
-class LoginViewController: BaseViewController, UITextFieldDelegate {
+class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewDelegate {
 
     //MARK: Properties
 
@@ -32,6 +32,8 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     lazy var successLogin = false
     lazy var defaults  = NSUserDefaults.standardUserDefaults()
     var guestUserName:String!
+    var updateUrl = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,7 +65,8 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         }
         txtPassword.delegate = self
         txtUserName.delegate = self
-
+        
+        checkVersionRequest()
     }
 
     func keyboardWillShow(notification: NSNotification) {
@@ -262,5 +265,43 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         }
     }
     
+    // MARK: - Check Version Service
+    
+    func checkVersionRequest() {
+        
+        let url = AppTadbirUrl + URLS["checkVersionCode"]!
+        
+        // JSON Body
+        let body = CheckVersionCodeRequest(osVersion: UIDevice.currentDevice().systemVersion, osName: "IOS", versionCode: Double(appVersionName!)).getDic()
+        
+        // Fetch Request
+        Request.postData(url,body: body) { (response:MainResponse<CheckVersionCodeResponse>?, error) in
+            
+            if ((response?.successful) != nil) {
+                
+                if response!.response != nil {
+                    
+                    if !(response?.response.upToDate)! {
+                        self.updateUrl = (response?.response.updateLink)!
+                        let description = (getAppLanguage() == Language.en.rawValue) ? response?.response.descriptionEn : response?.response.descriptionFa
+                        Utils.ShowAlert(self, title: Strings.Attention.localized(), details: description!, btnOkTitle: Strings.download.localized(), delegate: self)
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    // MARK: - FCAlert Delegates
+    
+    func FCAlertDoneButtonClicked(alertView: FCAlertView!) {
+        if let checkURL = NSURL(string: updateUrl) {
+            UIApplication.sharedApplication().openURL(checkURL)
+        }
+    }
+    
+    func FCAlertViewDismissed(alertView: FCAlertView!) {
+        exit(0)
+    }
     
 }
