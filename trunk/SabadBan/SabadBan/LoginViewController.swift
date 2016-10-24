@@ -29,20 +29,21 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
 
     @IBOutlet weak var btnGuestLogin: UIButton!
     @IBOutlet weak var btnForgetPass: UIButton!
+    
     lazy var successLogin = false
     lazy var defaults  = NSUserDefaults.standardUserDefaults()
     var guestUserName:String!
     var updateUrl = String()
+    var rootAlert : FCAlertView?
+    var updateAlert : FCAlertView?
+    lazy var db = DataBase()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //        self.view.transform = CGAffineTransformMakeScale(-1, 1)
-        //        lblRememberMe.transform = CGAffineTransformMakeScale(-1, 1)
         // Do any additional setup after loading the view.
 
         //MARK: - Login String
-
 
         lblRememberMe.text = Strings.RememberMe.localized()
         btnLogin.setTitle(Strings.Login.localized(), forState: .Normal)
@@ -67,6 +68,8 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
         txtUserName.delegate = self
         
         checkVersionRequest()
+        
+        checkForJailBreak()
     }
 
     func keyboardWillShow(notification: NSNotification) {
@@ -211,6 +214,16 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
             if ((response?.success) != nil) {
 
                 if response!.result != nil {
+                    
+                    let userId = self.db.getUserId(email)
+                    if ( userId != -1) {
+                        LogedInUserId = userId
+                    } else {
+                        if (email != GuestUser){
+                            self.db.addUser(email)
+                            LogedInUserId = self.db.getUserId(email)
+                        }
+                    }
 
                     if response!.errorCode == 100 {
                         self.guestUserName = response?.result.email
@@ -244,6 +257,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
                                 self.defaults.setValue(nil, forKey: UserName)
                                 self.defaults.setValue(nil, forKey: Password)
                             }
+                            
                         }
                     }
                 } else if response!.errorCode == 202 {
@@ -284,8 +298,10 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
                     if !(response?.response.upToDate)! {
                         self.updateUrl = (response?.response.updateLink)!
                         let description = (getAppLanguage() == Language.en.rawValue) ? response?.response.descriptionEn : response?.response.descriptionFa
-                        Utils.ShowAlert(self, title: Strings.Attention.localized(), details: description!, btnOkTitle: Strings.download.localized(), delegate: self)
+                        self.updateAlert = Utils.ShowAlert(self, title: Strings.Attention.localized(), details: description!, btnOkTitle: Strings.download.localized(), delegate: self)
                     }
+                    
+                    updateServiceInterval = (Double((response?.response.updateTimer)!) / 1000)
                     
                 }
             }
@@ -295,13 +311,43 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
     // MARK: - FCAlert Delegates
     
     func FCAlertDoneButtonClicked(alertView: FCAlertView!) {
-        if let checkURL = NSURL(string: updateUrl) {
-            UIApplication.sharedApplication().openURL(checkURL)
+        
+        if alertView == updateAlert {
+            if let checkURL = NSURL(string: updateUrl) {
+                UIApplication.sharedApplication().openURL(checkURL)
+            }
+        } else if alertView == rootAlert{
+            self.defaults.setValue(true, forKey: JailBreakAccept)
         }
+        
     }
     
     func FCAlertViewDismissed(alertView: FCAlertView!) {
-        exit(0)
+        
+        if (alertView == updateAlert) {
+            exit(0)
+        } else if (alertView == rootAlert) {
+            if !self.defaults.boolForKey(JailBreakAccept) {
+                exit(0)
+            }
+        }
+        
+    }
+    
+    //MARK: - Jail break check
+    func checkForJailBreak() {
+        
+        if !defaults.boolForKey(JailBreakAccept) {
+            if isJailbroken() {
+                dispatch_async(dispatch_get_main_queue()) {
+                    
+                    self.rootAlert = Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.isJailBrokenDescription.localized(), btnOkTitle: Strings.Yes.localized(), btnTitles: [Strings.No.localized()],delegate: self)
+                    
+                }
+                
+            }
+        }
+        
     }
     
 }

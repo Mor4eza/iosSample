@@ -30,8 +30,11 @@ class BaseTableViewController: UITableViewController{
         SwiftEventBus.onMainThread(self, name: TimeOutErrorAlert) { result in
             Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.ConnectionTimeOut.localized())
         }
+        SwiftEventBus.onMainThread(self, name: ServerErrorAlert) { result in
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.serviceIsUnreachable.localized())
+        }
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(300, target: self, selector: #selector(BaseTableViewController.updateServiceData), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(updateServiceInterval, target: self, selector: #selector(BaseTableViewController.updateServiceData), userInfo: nil, repeats: true)
 
     }
 

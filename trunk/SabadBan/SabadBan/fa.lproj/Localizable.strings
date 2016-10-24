@@ -123,6 +123,7 @@
 //MARK: - Global String
 "noInternet" = "اتصال اینترنت برقرار نیست!";
 "ConnectionTimeOut" = "مدت زمان اتصال بیش از حد طول کشید! \n دوباره امتحان کنید...";
+"serviceIsUnreachable" = "ارتباط با سرور برقرار نمی باشد...";
 "lastUpdate"="آخرین بروزرسانی :";
 
 //MARK: - Symbol Details
@@ -159,3 +160,6 @@
 
 //MARK: - Check version Strings
 "download" = "دانلود";
+
+//MARK: - Jail break check
+"isJailBrokenDescription" = "سیستم عامل این دستگاه دستکاری شده است و تمامی مسوولیت هرگونه خطا و یا سوء استفاده احتمالی از این نرم افزار بر عهده کاربر می باشد. آیا مایل به ادامه استفاده می باشید؟";

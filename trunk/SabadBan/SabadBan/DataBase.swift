@@ -15,14 +15,20 @@ class DataBase{
     var tblPortfolio:Table!
     var tblSymbolPortfolio:Table!
     var tblPsBuy:Table!
+    var tblUser:Table!
+    
     //portfolio Table
+    
     let portfolioName = Expression<String?>("portfolioName")
     let portfolioCode = Expression<Int>("portfolioCode")
     let portfolioOwnerId = Expression<Int>("portfolioOwnerUserId")
+    
     //symbol Protfolio
+    
     let psCode = Expression<Int>("psCode")
     let symbolPCode = Expression<Int>("portfolioCode")
     let symbolCode = Expression<String>("symbolCode")
+    
     //psBuy Table
 
     let PS_BUY_ID = Expression<Int>("buyId")
@@ -30,6 +36,11 @@ class DataBase{
     let PS_BUY_PRICE = Expression<Double>("buyPrice")
     let PS_BUY_QUANTITY = Expression<Double>("buyQuantity")
     let PS_BUY_DATE = Expression<String>("buyDate")
+    
+    // user Table
+    
+    let USER_ID = Expression<Int>("userId")
+    let USER_Email = Expression<String>("userEmail")
 
     init(){
         OpenDataBase()
@@ -71,6 +82,13 @@ class DataBase{
             t.column(PS_BUY_PRICE)
             t.column(PS_BUY_QUANTITY)
             t.column(PS_BUY_DATE)
+            })
+        
+        //User Table
+        tblUser = Table("tbUsers")
+        try! db.run(tblUser.create(ifNotExists : true) { t in
+            t.column(USER_ID, primaryKey: true)
+            t.column(USER_Email)
             })
 
     }
@@ -121,14 +139,15 @@ class DataBase{
     }
 
     //MARK: - Portfolio
-    func addPortfolio(pName:String){
-        let insert = tblPortfolio.insert(portfolioName <- pName, portfolioOwnerId <- 1)
+    func addPortfolio(pName:String, userId:Int){
+        let insert = tblPortfolio.insert(portfolioName <- pName, portfolioOwnerId <- userId)
         try! db.run(insert)
     }
 
     func getPortfolioList(userId:Int)-> [String]{
         var pNames = [String]()
-        for portfolio in try! db.prepare(tblPortfolio) {
+        let portfolioQuery = tblPortfolio.filter(portfolioOwnerId == userId)
+        for portfolio in try! db.prepare(portfolioQuery) {
             pNames.append(portfolio[portfolioName]!)
         }
         return pNames
@@ -209,6 +228,24 @@ class DataBase{
         let ps = tblPsBuy.filter(PS_BUY_PS_CODE == psCode )
         try! db.run(ps.delete())
 
+    }
+    
+    //MARK: - User
+    
+    func addUser(withEmail:String) {
+        let insert = tblUser.insert(USER_Email <- withEmail)
+        try! db.run(insert)
+    }
+    
+    func getUserId(forUsername:String) -> Int {
+        let userQuery = tblUser.filter(USER_Email == forUsername)
+        
+        var userId = -1
+        for pn in try!  db.prepare(userQuery){
+            userId = pn[USER_ID]
+        }
+        
+        return userId
     }
 
 }

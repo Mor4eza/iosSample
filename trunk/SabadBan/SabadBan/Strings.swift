@@ -127,6 +127,7 @@ struct Strings {
     
     static let noInternet = "noInternet"
     static let ConnectionTimeOut = "ConnectionTimeOut"
+    static let serviceIsUnreachable = "serviceIsUnreachable"
     static let lastUpdate = "lastUpdate"
     //MARK: - Symbol Details
     static let bestBuyTitle = "bestBuyTitle"
@@ -162,4 +163,7 @@ struct Strings {
     
     //MARK: - Check version Strings
     static let download = "download";
+    
+    //MARK: - Jail break check
+    static let isJailBrokenDescription = "isJailBrokenDescription";
 }

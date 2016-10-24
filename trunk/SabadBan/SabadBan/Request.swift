@@ -21,8 +21,10 @@ class Request :BaseViewController{
                 guard response.result.isSuccess else{
                     if response.result.error?.code == -1009 {
                     SwiftEventBus.post(NetworkErrorAlert)
-                    }else if (response.result.error?.code == -1001 ){
+                    } else if (response.result.error?.code == -1001 ){
                     SwiftEventBus.post(TimeOutErrorAlert)
+                    } else if (response.result.error?.code == -1004 ){
+                        SwiftEventBus.post(ServerErrorAlert)
                     }
                     print("Error while fetching: \(response.result.error?.code)")
                     completion(nil, response.result.error)
