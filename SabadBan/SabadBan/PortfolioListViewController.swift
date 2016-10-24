@@ -215,7 +215,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     
     func getCurrentPortfolio(){
         
-        portfolios = db.getPortfolioList(1)
+        portfolios = db.getPortfolioList(LogedInUserId)
         if portfolios.count > 0 {
             currentPortfolio = portfolios[0]
         }else {
@@ -226,7 +226,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     func initNavigationTitle(){
         
         portfolios.removeAll()
-        portfolios = db.getPortfolioList(1)
+        portfolios = db.getPortfolioList(LogedInUserId)
         if portfolios.count == 0 {
             menuView = BTNavigationDropdownMenu(title: Strings.Portfolio.localized(), items: portfolios)
             currentPortfolio = ""
@@ -302,8 +302,8 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
                             return
                         }
                     }
-                    self.db.addPortfolio(tField.text!)
-                    self.portfolios = self.db.getPortfolioList(1)
+                    self.db.addPortfolio(tField.text!, userId: LogedInUserId)
+                    self.portfolios = self.db.getPortfolioList(LogedInUserId)
                     self.currentPortfolio = self.portfolios.last!
                     self.initNavigationTitle()
                     self.menuView.updateItems(self.portfolios)

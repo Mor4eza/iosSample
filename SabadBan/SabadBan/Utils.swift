@@ -72,7 +72,7 @@ func convertToPersianDate(date: NSDate) -> String {
     let currentMonthInt = (calendar?.component(NSCalendarUnit.Month, fromDate: date))!
     let currentYearInt = (calendar?.component(NSCalendarUnit.Year, fromDate: date))!
     
-    return "\(currentYearInt.addZero())/\(currentMonthInt.addZero())/\(currentDayInt)"
+    return "\(currentYearInt)/\(currentMonthInt.addZero())/\(currentDayInt.addZero())"
 }
 
 func convertToPersianDateWithTime(date: NSDate) -> String {
@@ -88,10 +88,46 @@ func convertToPersianDateWithTime(date: NSDate) -> String {
     return "\(currentYearInt.addZero())/\(currentMonthInt.addZero())/\(currentDayInt) \(hour.addZero()):\(minute.addZero())"
 }
 
+func isJailbroken() -> Bool {
+    var errorHappend = false
+    let jailString = "Jail Test"
+    do {
+        try jailString.writeToFile("/private/jailbreak.txt", atomically: true, encoding: NSUTF8StringEncoding)
+    }
+    catch _ {
+        errorHappend = true
+    }
+    if NSFileManager.defaultManager().fileExistsAtPath("/Applications/Cydia.app") {
+        return true
+    }
+    else if NSFileManager.defaultManager().fileExistsAtPath("/Library/MobileSubstrate/MobileSubstrate.dylib") {
+        return true
+    }
+    else if NSFileManager.defaultManager().fileExistsAtPath("/usr/bash") {
+        return true
+    }
+    else if NSFileManager.defaultManager().fileExistsAtPath("/usr/sbin/sshd") {
+        return true
+    }
+    else if NSFileManager.defaultManager().fileExistsAtPath("/etc/apt") {
+        return true
+    }
+    else if !errorHappend {
+        do {
+            try NSFileManager.defaultManager().removeItemAtPath("/private/jailbreak.txt")
+        }
+        catch _ {
+        }
+        return true
+    }
+    
+    return false
+}
+
 import FCAlertView
 public class Utils {
 
-    public static func ShowAlert(inView:UIViewController, title:String , details:String ,image:UIImage? = nil ,btnOkTitle:String? = nil , btnTitles:[String]? = nil ,tag:Int? = nil,delegate:FCAlertViewDelegate? = nil)  {
+    public static func ShowAlert(inView:UIViewController, title:String , details:String ,image:UIImage? = nil ,btnOkTitle:String? = nil , btnTitles:[String]? = nil ,tag:Int? = nil,delegate:FCAlertViewDelegate? = nil) -> FCAlertView  {
 
         let alert = FCAlertView()
         var okTitle = btnOkTitle
@@ -112,5 +148,6 @@ public class Utils {
                               andButtons:btnTitles) // Set your button titles here
         inView.view.endEditing(true)
         
+        return alert
     }
 }

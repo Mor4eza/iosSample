@@ -11,6 +11,7 @@ import UIKit
 public let LanguageChangedNotification = "languageChanged"
 public let NetworkErrorAlert = "networkError"
 public let TimeOutErrorAlert = "TimeOutError"
+public let ServerErrorAlert = "ServerError"
 public let BestBuyClosed = "BestBuyClosed"
 public let symbolSelected = "SYMBOL_SELECTED"
 public let PortfolioEdited = "PortfolioEdited"
@@ -21,16 +22,17 @@ public let ServicesHeaders = ["Content-Type": "application/json"]
 public var GuestUser = "1@1.com"
 public var GuestPass = "12345678"
 public var isGuest = false
+public var updateServiceInterval = 300.0
 
 
 #if DEV
-    public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server Tadbir
+    public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
 
 #elseif TEST
-    public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server Tadbir
+    public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
 
 #else 
-    public let AppTadbirUrl = "http://sabadban.sefryek.com:9090" //Server Tadbir
+    public let AppTadbirUrl = "http://sabadban.sefryek.com:9090" //Server 6 Prod
 #endif
 
 //MARK: - Urls
@@ -45,6 +47,7 @@ public let URLS:[String:String] =
      "getSymbolNameList" : "/services/getSymbolNameList",
      "getBourseNews" : "/api/v1/news/get",
      "login" : "/api/v1/auth/login",
+     "logout" : "/api/v1/auth/logout",
      "guestLogin" : "/api/v1/auth/login/guest",
      "register" : "/api/v1/auth/register",
      "sendContactUs" : "/api/v1/tools/contact_us",
@@ -59,6 +62,7 @@ public var SelectedSymbolName:String = ""
 public var LoginToken:String = ""
 public var PushToken:String = ""
 public var LogedInUserName:String = ""
+public var LogedInUserId:Int = -1
 
 //MARK: - App Style
 
@@ -75,6 +79,7 @@ public let GuestUserName: String = "GuestUserName"
 public let Password: String = "Password"
 public let GuestPassword: String = "GuestPassword"
 public let HINT = "HINT"
+public let JailBreakAccept = "JailBreakAccept"
 
 //MARK: - Enums
 public enum TimeFrameType : Int {

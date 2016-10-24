@@ -123,6 +123,7 @@
 //MARK: - Global String
 "noInternet" = "No Internet connection";
 "ConnectionTimeOut" = "Connection TimeOut! \n try again...";
+"serviceIsUnreachable" = "Unable to connect to server...";
 "lastUpdate"="Last Update: ";
 //MARK: - Symbol Details
 "bestBuyTitle" = "bestBuyTitle";
@@ -161,3 +162,5 @@
 //MARK: - Check version Strings
 "download" = "Download";
 
+//MARK: - Jail break check
+"isJailBrokenDescription" = "isJailBrokenDescription";

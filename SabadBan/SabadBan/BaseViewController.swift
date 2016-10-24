@@ -32,7 +32,7 @@ class BaseViewController: UIViewController,ENSideMenuDelegate {
             Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.ConnectionTimeOut.localized())
         }
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(300, target: self, selector: #selector(BaseViewController.updateServiceData), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(updateServiceInterval, target: self, selector: #selector(BaseViewController.updateServiceData), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
