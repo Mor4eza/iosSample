@@ -17,7 +17,7 @@ class SymbolListTableViewController: BaseTableViewController {
     var symbolSortCondiiton = SortCondition.notSorted
 
     var headerView : SymbolListHeader!
-
+    var lastUpdate = NSMutableAttributedString()
     var symbolDetailsList = [SymbolDetailsList]()
     var temp = [String]()
 
@@ -120,7 +120,7 @@ class SymbolListTableViewController: BaseTableViewController {
         headerView.lblLastTrade.setDefaultFont()
         headerView.lblAmount.setDefaultFont()
         headerView.lblVolume.setDefaultFont()
-
+        headerView.lblLastUpdate.attributedText = lastUpdate
         return headerView
     }
 
@@ -143,6 +143,7 @@ class SymbolListTableViewController: BaseTableViewController {
 
             if ((symbols?.successful) != nil) {
                 self.symbolDetailsList.removeAll()
+                self.lastUpdate = (symbols?.convertTime())!
                 for i in 0  ..< symbols!.response.symbolDetailsList.count{
                     self.symbolDetailsList.append(symbols!.response.symbolDetailsList[i])
                     self.tableView.reloadData()

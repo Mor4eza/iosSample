@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="SabadBan_Dev" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="SabadBanDev" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="4mr-9q-aFC" customClass="MarketDetailsHeader" customModule="SabadBan_Dev" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+        <view contentMode="scaleToFill" id="4mr-9q-aFC" customClass="MarketDetailsHeader" customModule="SabadBanDev" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vrq-uZ-7Jn">
@@ -23,24 +23,36 @@
                     </subviews>
                     <color key="backgroundColor" red="0.96862745098039216" green="0.70980392156862748" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="lnj-Bl-FJs" firstAttribute="centerY" secondItem="vrq-uZ-7Jn" secondAttribute="centerY" id="SP7-gh-iDb"/>
-                        <constraint firstItem="lnj-Bl-FJs" firstAttribute="centerX" secondItem="vrq-uZ-7Jn" secondAttribute="centerX" id="aM9-IG-sAV"/>
+                        <constraint firstItem="lnj-Bl-FJs" firstAttribute="centerY" secondItem="vrq-uZ-7Jn" secondAttribute="centerY" id="1fk-dy-GKP"/>
+                        <constraint firstItem="lnj-Bl-FJs" firstAttribute="centerX" secondItem="vrq-uZ-7Jn" secondAttribute="centerX" id="C5L-K2-sfC"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5U-Zw-pA0">
+                    <rect key="frame" x="0.0" y="37" width="600" height="23"/>
+                    <color key="backgroundColor" red="1" green="0.68542527459429869" blue="0.12005161021226829" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.96862745098039216" green="0.70980392156862748" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="vrq-uZ-7Jn" secondAttribute="bottom" id="5nT-g4-FzY"/>
-                <constraint firstItem="vrq-uZ-7Jn" firstAttribute="leading" secondItem="4mr-9q-aFC" secondAttribute="leading" id="OL3-dM-n7h"/>
-                <constraint firstItem="vrq-uZ-7Jn" firstAttribute="top" secondItem="4mr-9q-aFC" secondAttribute="top" id="kqA-nn-uBc"/>
-                <constraint firstAttribute="trailing" secondItem="vrq-uZ-7Jn" secondAttribute="trailing" id="pXC-zu-2Nu"/>
+                <constraint firstItem="vrq-uZ-7Jn" firstAttribute="leading" secondItem="D5U-Zw-pA0" secondAttribute="leading" id="430-nS-mEr"/>
+                <constraint firstItem="D5U-Zw-pA0" firstAttribute="top" secondItem="4mr-9q-aFC" secondAttribute="top" constant="37" id="4fU-hl-Brr"/>
+                <constraint firstItem="vrq-uZ-7Jn" firstAttribute="top" secondItem="4mr-9q-aFC" secondAttribute="top" id="9Pv-YS-c4f"/>
+                <constraint firstItem="vrq-uZ-7Jn" firstAttribute="trailing" secondItem="D5U-Zw-pA0" secondAttribute="trailing" id="BbV-VB-qtF"/>
+                <constraint firstAttribute="bottom" secondItem="D5U-Zw-pA0" secondAttribute="bottom" id="Juk-Jn-gYw"/>
+                <constraint firstItem="vrq-uZ-7Jn" firstAttribute="leading" secondItem="4mr-9q-aFC" secondAttribute="leading" id="Umv-7G-5hc"/>
+                <constraint firstAttribute="bottom" secondItem="vrq-uZ-7Jn" secondAttribute="bottom" constant="20" id="ecw-Zp-CS1"/>
+                <constraint firstAttribute="trailing" secondItem="vrq-uZ-7Jn" secondAttribute="trailing" id="n0h-hj-eFt"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="backView" destination="vrq-uZ-7Jn" id="vDN-wf-tZW"/>
+                <outlet property="lblLastUpdate" destination="D5U-Zw-pA0" id="LaA-MN-xTR"/>
                 <outlet property="lblTitle" destination="lnj-Bl-FJs" id="nXS-j4-o3j"/>
             </connections>
-            <point key="canvasLocation" x="1015" y="270.5"/>
+            <point key="canvasLocation" x="1015" y="280"/>
         </view>
     </objects>
 </document>

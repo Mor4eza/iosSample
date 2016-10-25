@@ -1,0 +1,5 @@
+include:
+- SabadBan            # Inspect all Swift files under "Source/"
+exclude:
+- '**Tests.swift'   # Ignore Swift files that end in "Tests"
+- Source/Pods       # Ignore Swift files under "Source/Pods/"

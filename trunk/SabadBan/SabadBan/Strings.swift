@@ -24,6 +24,9 @@ struct Strings {
     static let Faild = "Faild"
     static let EmptyToken = "EmptyToken"
     static let SimulatorPushToken = "IOS_RUNNING_FROM_SIMULATOR"
+    static let GuestUser = "GuestUser"
+    static let CantHaveMoreThan20Symbols = "CantHaveMoreThan20Symbols"
+
     //MARK :- Setting View Controller Strings
     static let Language = "Language"
     static let SwitchLanguage = "SwitchLanguage"

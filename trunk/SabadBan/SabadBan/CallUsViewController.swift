@@ -9,7 +9,7 @@
 
 import UIKit
 import Alamofire
-class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate ,UITextViewDelegate,UITextFieldDelegate{
+class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate{
 
     let imagePicker = UIImagePickerController()
     @IBOutlet weak var imgCrash: UIImageView!
@@ -26,6 +26,7 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
 
     @IBOutlet weak var btnDelete: UIButton!
     @IBOutlet weak var btnInfo: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         super.addMenuButton()

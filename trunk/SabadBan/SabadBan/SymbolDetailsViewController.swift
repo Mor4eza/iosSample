@@ -336,5 +336,5 @@ class SymbolDetailsViewController: BaseTableViewController {
         getSymbolTradingDetailsService(String(SelectedSymbolCode))
         getSymbolListData([String(SelectedSymbolCode)])
     }
-    
+
 }

@@ -16,7 +16,7 @@ class IndexTableViewController: BaseTableViewController {
     var indexCode = [Int64]()
     var selectedIndexCode = String()
     var selectedIndexName = String()
-    var lastUpdateTime = ""
+    var lastUpdateTime = NSMutableAttributedString()
     override func viewDidLoad() {
         super.viewDidLoad()
         super.addMenuButton()
@@ -80,11 +80,11 @@ class IndexTableViewController: BaseTableViewController {
         headerView.lblPercent.text = Strings.Percent.localized()
         headerView.lblCount.text = Strings.Value.localized()
         headerView.lblIndex.text = Strings.Index.localized()
-        headerView.lblLastUpdate.text = Strings.lastUpdate.localized() + lastUpdateTime
+
+        headerView.lblLastUpdate.attributedText = lastUpdateTime
         headerView.lblPercent.setDefaultFont()
         headerView.lblCount.setDefaultFont()
         headerView.lblIndex.setDefaultFont()
-        headerView.lblLastUpdate.setDefaultFont()
         return headerView
     }
 
@@ -112,11 +112,12 @@ class IndexTableViewController: BaseTableViewController {
         Request.postData(url, body: body) { (indexs:MainResponse<Response>?, error) in
 
             if ((indexs?.successful) != nil) {
+
                 self.indexNames.removeAll()
                 self.indexCode.removeAll()
                 self.indexPrice.removeAll()
                 self.indexPercent.removeAll()
-                self.lastUpdateTime =  (indexs?.response.updateLatest)!
+                self.lastUpdateTime =  (indexs?.convertTime())!
                 for i in 0  ..< indexs!.response.indexDetailsList.count{
                     self.indexNames.append(indexs!.response.indexDetailsList[i].shortName)
                     self.indexPrice.append(Double(indexs!.response.indexDetailsList[i].closePrice))

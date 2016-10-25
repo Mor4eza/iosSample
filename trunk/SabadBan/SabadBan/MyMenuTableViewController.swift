@@ -38,7 +38,8 @@ class MyMenuTableViewController: BaseTableViewController {
         let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.menuHeader) as! menuHeader
         
         if isGuest == true {
-            headerView.lblUserName.text = ""
+            headerView.lblUserName.text = Strings.GuestUser.localized()
+            headerView.lblUserName.changeDirection()
         }else {
             headerView.lblUserName.text = LogedInUserName
         }
