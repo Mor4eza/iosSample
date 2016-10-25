@@ -29,6 +29,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     let searchSymbol = KCFloatingActionButtonItem()
     let addSymbol = KCFloatingActionButtonItem()
     let deletePortfolio = KCFloatingActionButtonItem()
+    var lastUpdate = NSMutableAttributedString()
     var searchableSymbols = Bool()
     var isFirstTime = false
     let refreshControl = UIRefreshControl()
@@ -41,6 +42,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         self.tblPortfolio.backgroundView?.backgroundColor = AppBackgroundLight
         self.tblPortfolio.backgroundColor = AppBackgroundLight
         self.view.backgroundColor = AppBackgroundLight
+        self.tblPortfolio.registerNib(UINib(nibName: UIConstants.PortfolioHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.PortfolioHeader)
         tblPortfolio.delegate = self
         tblPortfolio.dataSource = self
         getCurrentPortfolio()
@@ -164,7 +166,18 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         cell.backgroundView?.backgroundColor = AppMainColor
         return cell
     }
-    
+
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.PortfolioHeader) as! PortfolioHeader
+        headerView.lblLastUpdate.attributedText = lastUpdate
+
+        return headerView
+    }
+
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         SelectedSymbolCode = smData[indexPath.row].symbolCode
@@ -373,6 +386,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             
             if ((symbols?.successful) != nil) {
                 self.smData.removeAll()
+                self.lastUpdate = (symbols?.convertTime())!
                 
                 for i in 0  ..< symbols!.response.symbolDetailsList.count{
                     

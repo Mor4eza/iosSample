@@ -34,7 +34,8 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
     var range = String()
     var indexDetailsRefreshControl: UIRefreshControl!
     var marketDetailsRefreshControl: UIRefreshControl!
-    var LastUpdate = ""
+    var indexLastUpdate = NSMutableAttributedString()
+    var marketLastUpdate = NSMutableAttributedString()
     var marketValue = Double()
     var numberOfTransactions = Double()
     var valueOfTransactions = Double()
@@ -122,10 +123,10 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
                 cell.lblValue.text = lastPrice.currencyFormat(2)
             case 3:
                 cell.lblTitle.text = Strings.PriceChanges.localized()
-                cell.lblValue.text = String(priceChanges)
+                cell.lblValue.text = priceChanges.currencyFormat(2)
             case 4:
                 cell.lblTitle.text = Strings.PriceChangesPercent.localized()
-                cell.lblValue.text = "%" + String(priceChangesPercent)
+                cell.lblValue.text = "%" + String(priceChangesPercent.roundToPlaces(2))
             default:
                 cell.lblTitle.text = "."
                 cell.lblValue.text = "."
@@ -174,10 +175,8 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
     }
 
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if tableView == tblDetails {
-            return 60
-        }
-        return 30
+
+        return 60
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -191,8 +190,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
             headerView.lblTitle.text = Strings.indexInfo.localized()
             headerView.lblTitle.setDefaultFont(headerView.lblTitle.font.pointSize )
             headerView.backView.roundCorners([.TopLeft, .TopRight], radius: 6)
-            headerView.lblLastUpdate.text = Strings.lastUpdate.localized() +  LastUpdate
-            headerView.lblLastUpdate.setDefaultFont(headerView.lblLastUpdate.font.pointSize)
+            headerView.lblLastUpdate.attributedText = indexLastUpdate
             return headerView
         } else {
             let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.MarketDetailsHeader) as! MarketDetailsHeader
@@ -200,6 +198,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
             headerView.lblTitle.text = Strings.marketInfo.localized()
             headerView.lblTitle.setDefaultFont(headerView.lblTitle.font.pointSize)
             headerView.backView.roundCorners([.TopLeft, .TopRight], radius: 6)
+            headerView.lblLastUpdate.attributedText = marketLastUpdate
             return headerView
         }
     }
@@ -224,15 +223,15 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
             if ((indexs?.successful) != nil) {
 
                 if (indexs!.response.indexDetailsList.count > 0) {
-                    self.LastUpdate = (indexs?.response.updateLatest)!
+                    self.indexLastUpdate = (indexs?.convertTime())!
                     self.maxPrice = Double(indexs!.response.indexDetailsList[0].highPrice)
                     self.minPrice = Double(indexs!.response.indexDetailsList[0].lowPrice)
                     self.lastPrice = Double(indexs!.response.indexDetailsList[0].closePrice)
-                    self.priceChanges = Double(indexs!.response.indexDetailsList[0].changePriceOnSameTime)
-                    self.priceChangesPercent = Double(indexs!.response.indexDetailsList[0].changePricePercentOnSameTime)
+                    self.priceChanges = Double(indexs!.response.indexDetailsList[0].changePriceVsPreviousTime)
+                    self.priceChangesPercent = Double(indexs!.response.indexDetailsList[0].changePricePercentVsPreviousTime)
                     self.lblPrice.text = self.lastPrice.currencyFormat(2)
                     self.lblPriceChanges.text = self.priceChanges.currencyFormat(2)
-                    self.lblPricePercent.text  = String(self.priceChangesPercent)
+                    self.lblPricePercent.text  = String(self.priceChangesPercent.roundToPlaces(2))
                     self.tblDetails.reloadData()
 
                 }else{
@@ -254,6 +253,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         // Fetch Request
         Request.postData(url) { (marketInfo:MainResponse<MarketActivityModel>?, error) in
             if ((marketInfo?.successful) != nil) {
+                self.marketLastUpdate = (marketInfo?.convertTime())!
                 self.marketValue = Double(marketInfo!.response.marketValue)
                 self.numberOfTransactions = marketInfo!.response.numberOfTransactions
                 self.valueOfTransactions = Double(marketInfo!.response.valueOfTransactions)

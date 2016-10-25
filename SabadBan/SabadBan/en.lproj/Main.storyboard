@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N2h-Tl-wNj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N2h-Tl-wNj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,14 +18,14 @@
         <!--Index Table View Controller-->
         <scene sceneID="qWT-m7-l0M">
             <objects>
-                <tableViewController storyboardIdentifier="indexTableViewController" modalTransitionStyle="flipHorizontal" id="B3H-zG-zAG" customClass="IndexTableViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="indexTableViewController" modalTransitionStyle="flipHorizontal" id="B3H-zG-zAG" customClass="IndexTableViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wuw-jP-FyQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.090196078431372548" green="0.13725490196078433" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="indexCell" rowHeight="57" id="pog-Tf-uBi" customClass="IndexCell" customModule="SabadBan_Dev" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="indexCell" rowHeight="57" id="pog-Tf-uBi" customClass="IndexCell" customModule="SabadBanDev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pog-Tf-uBi" id="DMz-YD-07a">
@@ -127,13 +127,13 @@
         <!--Search Seymbol Table View-->
         <scene sceneID="MtC-Wk-uRt">
             <objects>
-                <tableViewController storyboardIdentifier="searchTableVIew" id="H2O-fh-Tgy" customClass="SearchSeymbolTableView" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="searchTableVIew" id="H2O-fh-Tgy" customClass="SearchSeymbolTableView" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" id="o4u-7D-aeC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SymbolsCell" rowHeight="77" id="RP8-ha-wWK" customClass="SymbolNamesCell" customModule="SabadBan_Dev" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SymbolsCell" rowHeight="77" id="RP8-ha-wWK" customClass="SymbolNamesCell" customModule="SabadBanDev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="77"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RP8-ha-wWK" id="iaI-84-6lV">
@@ -169,7 +169,7 @@
                                 <connections>
                                     <outlet property="lblFullName" destination="1eG-Vl-zvI" id="XHw-ft-uR5"/>
                                     <outlet property="lblName" destination="qjS-Tw-PYs" id="bq2-qJ-1hU"/>
-                                    <segue destination="aU8-zy-qG6" kind="show" identifier="symDetailsSegue" id="vQn-Ft-Ftf"/>
+                                    <segue destination="aU8-zy-qG6" kind="show" identifier="symbolDetailsSegue" id="vQn-Ft-Ftf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -189,7 +189,7 @@
         <!--Edit Portfolio View Controller-->
         <scene sceneID="xlC-d2-BMM">
             <objects>
-                <tableViewController storyboardIdentifier="editPortfolioViewController" id="Mjq-It-CAT" customClass="EditPortfolioViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="editPortfolioViewController" id="Mjq-It-CAT" customClass="EditPortfolioViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" id="9KL-Di-KTB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -229,13 +229,13 @@
         <!--پیام های ناظر-->
         <scene sceneID="0h4-Ms-S3K">
             <objects>
-                <tableViewController id="kaf-R9-uI9" customClass="ObserverNewsTableViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="kaf-R9-uI9" customClass="ObserverNewsTableViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="131" sectionHeaderHeight="28" sectionFooterHeight="28" id="sgQ-yB-0bJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ObserverNewsCell" rowHeight="130" id="NXE-0u-4vC" customClass="NewsCell" customModule="SabadBan_Dev" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ObserverNewsCell" rowHeight="130" id="NXE-0u-4vC" customClass="NewsCell" customModule="SabadBanDev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NXE-0u-4vC" id="HaN-jM-K3P">
@@ -305,7 +305,7 @@
         <!--جزییات-->
         <scene sceneID="hMh-vP-3jw">
             <objects>
-                <viewController id="NAf-xZ-JG7" customClass="DetailsViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NAf-xZ-JG7" customClass="DetailsViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fbe-eE-vaV"/>
                         <viewControllerLayoutGuide type="bottom" id="a26-xe-ChT"/>
@@ -370,7 +370,7 @@
                                 <rect key="frame" x="20" y="84" width="560" height="201"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="marketDetailsCell" id="2II-vt-9ug" customClass="MarketDetailsCell" customModule="SabadBan_Dev" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="marketDetailsCell" id="2II-vt-9ug" customClass="MarketDetailsCell" customModule="SabadBanDev" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2II-vt-9ug" id="zcV-fV-00A">
@@ -427,7 +427,7 @@
                                 <rect key="frame" x="20" y="329" width="560" height="214"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="indexDetailsCell" rowHeight="40" id="kX8-wW-kZS" customClass="indexDetailsCell" customModule="SabadBan_Dev" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="indexDetailsCell" rowHeight="40" id="kX8-wW-kZS" customClass="indexDetailsCell" customModule="SabadBanDev" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="560" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kX8-wW-kZS" id="39N-KY-Fef">
@@ -505,13 +505,13 @@
         <!--شرکت های موجود در شاخص-->
         <scene sceneID="2qz-1Y-taf">
             <objects>
-                <tableViewController id="gFA-DW-EVV" customClass="SymbolListTableViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="gFA-DW-EVV" customClass="SymbolListTableViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Mp-1p-Noe">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="symbolCell" rowHeight="61" id="9tM-aM-Q2w" customClass="SymbolCell" customModule="SabadBan_Dev" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="symbolCell" rowHeight="61" id="9tM-aM-Q2w" customClass="SymbolCell" customModule="SabadBanDev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9tM-aM-Q2w" id="RzU-A0-XBU">
@@ -619,7 +619,7 @@
         <!--نمودار-->
         <scene sceneID="e6H-dO-fZz">
             <objects>
-                <viewController id="FdD-yi-cRY" customClass="ChartViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FdD-yi-cRY" customClass="ChartViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OmO-Kz-ptY"/>
                         <viewControllerLayoutGuide type="bottom" id="wUa-Cp-A2A"/>
@@ -638,7 +638,7 @@
         <!--جزییات-->
         <scene sceneID="IDZ-aw-Vhk">
             <objects>
-                <tableViewController id="dIy-RW-wtH" customClass="SymbolDetailsViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="dIy-RW-wtH" customClass="SymbolDetailsViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="t5k-YR-fCM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="951"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1463,7 +1463,7 @@
         <!--Index Details Tab Bar Controller-->
         <scene sceneID="SK6-Zh-cSi">
             <objects>
-                <tabBarController id="QF5-UB-Sek" customClass="IndexDetailsTabBarController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="QF5-UB-Sek" customClass="IndexDetailsTabBarController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="2N2-Yt-pGg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1488,7 +1488,7 @@
         <!--Symbol Details Tab Bar-->
         <scene sceneID="TpI-B0-AQl">
             <objects>
-                <tabBarController id="aU8-zy-qG6" customClass="SymbolDetailsTabBar" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="aU8-zy-qG6" customClass="SymbolDetailsTabBar" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="pDj-9E-Ik0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1507,7 +1507,7 @@
         <!--Setting Table View Controller-->
         <scene sceneID="7VG-3N-krx">
             <objects>
-                <tableViewController storyboardIdentifier="settingViewController" id="dNZ-3L-skr" customClass="SettingTableViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="settingViewController" id="dNZ-3L-skr" customClass="SettingTableViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="4dP-oM-gdm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1536,7 +1536,7 @@
         <!--Login View Controller-->
         <scene sceneID="C1K-3L-0pv">
             <objects>
-                <viewController storyboardIdentifier="loginViewController" id="N2h-Tl-wNj" customClass="LoginViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="N2h-Tl-wNj" customClass="LoginViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Wt-ao-dVb"/>
                         <viewControllerLayoutGuide type="bottom" id="0E7-s2-SUJ"/>
@@ -1784,7 +1784,7 @@
         <!--My Navigation Controller-->
         <scene sceneID="m9U-Ja-N5c">
             <objects>
-                <navigationController storyboardIdentifier="baseNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="3x8-rP-1o7" customClass="MyNavigationController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="baseNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="3x8-rP-1o7" customClass="MyNavigationController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qWk-aj-4fh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1802,7 +1802,7 @@
         <!--Buy Info View Controller-->
         <scene sceneID="zPM-x4-fNW">
             <objects>
-                <viewController id="mc2-0A-afa" customClass="BuyInfoViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mc2-0A-afa" customClass="BuyInfoViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xTL-AU-dPX"/>
                         <viewControllerLayoutGuide type="bottom" id="NEr-aQ-YlK"/>
@@ -2000,7 +2000,7 @@
         <!--Portfolio List View Controller-->
         <scene sceneID="l8k-WX-Jti">
             <objects>
-                <viewController storyboardIdentifier="PortfolioViewController" id="8bS-sD-NGW" customClass="PortfolioListViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PortfolioViewController" id="8bS-sD-NGW" customClass="PortfolioListViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yrr-OU-anB"/>
                         <viewControllerLayoutGuide type="bottom" id="zQb-0R-Ayq"/>
@@ -2022,7 +2022,7 @@
                                     </connections>
                                 </button>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="portfolioCell" rowHeight="164" id="hxW-na-yEr" customClass="portfolioCell" customModule="SabadBan_Dev" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="portfolioCell" rowHeight="164" id="hxW-na-yEr" customClass="portfolioCell" customModule="SabadBanDev" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="164"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hxW-na-yEr" id="esa-hn-7OG">
@@ -2291,7 +2291,7 @@
         <!--News Tab Bar Controller-->
         <scene sceneID="E99-ch-j0J">
             <objects>
-                <tabBarController storyboardIdentifier="NewsTabBarController" id="GVG-B3-gjO" customClass="NewsTabBarController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="NewsTabBarController" id="GVG-B3-gjO" customClass="NewsTabBarController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="G6R-UG-SOC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2311,7 +2311,7 @@
         <!--About Us View Controller-->
         <scene sceneID="nUZ-bn-zCK">
             <objects>
-                <viewController storyboardIdentifier="AboutUsViewController" id="A70-bR-agP" customClass="AboutUsViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutUsViewController" id="A70-bR-agP" customClass="AboutUsViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WZe-92-j6s"/>
                         <viewControllerLayoutGuide type="bottom" id="6OT-ps-mfw"/>
@@ -2387,13 +2387,13 @@
         <!--اخبار بورس-->
         <scene sceneID="pPw-a7-HeN">
             <objects>
-                <tableViewController id="7gu-iH-Hmx" customClass="BourseNewsTableViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="7gu-iH-Hmx" customClass="BourseNewsTableViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="131" sectionHeaderHeight="28" sectionFooterHeight="28" id="zXo-UK-TqM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ObserverNewsCell" rowHeight="130" id="8Db-hn-u4A" customClass="NewsCell" customModule="SabadBan_Dev" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ObserverNewsCell" rowHeight="130" id="8Db-hn-u4A" customClass="NewsCell" customModule="SabadBanDev" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Db-hn-u4A" id="jxr-60-gvH">
@@ -2463,7 +2463,7 @@
         <!--Our Info View Controller-->
         <scene sceneID="6Zs-8k-f4q">
             <objects>
-                <viewController id="7hw-na-soL" customClass="OurInfoViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7hw-na-soL" customClass="OurInfoViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="r10-it-VSF"/>
                         <viewControllerLayoutGuide type="bottom" id="mr3-iS-Ft2"/>
@@ -2558,7 +2558,7 @@
         <!--Call Us View Controller-->
         <scene sceneID="XGT-wM-X3e">
             <objects>
-                <viewController storyboardIdentifier="ContactUsViewController" id="kIt-8H-hlk" customClass="CallUsViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactUsViewController" id="kIt-8H-hlk" customClass="CallUsViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Osb-Jp-EFh"/>
                         <viewControllerLayoutGuide type="bottom" id="Cch-qh-ZVQ"/>
@@ -2834,7 +2834,7 @@
         <!--News Detail View Controller-->
         <scene sceneID="DUq-s3-zZD">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="BZD-WT-cBZ" customClass="NewsDetailViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="BZD-WT-cBZ" customClass="NewsDetailViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rbn-mT-DyK"/>
                         <viewControllerLayoutGuide type="bottom" id="XsD-ka-4vO"/>
@@ -2918,7 +2918,7 @@
         <!--Register View Controller-->
         <scene sceneID="F4q-3J-SDA">
             <objects>
-                <viewController id="2Io-gx-cgo" customClass="RegisterViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2Io-gx-cgo" customClass="RegisterViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Y5f-hX-YaS"/>
                         <viewControllerLayoutGuide type="bottom" id="rU4-I3-SYq"/>
@@ -3170,7 +3170,7 @@
         <!--Forget Password View Controller-->
         <scene sceneID="70g-4F-vvU">
             <objects>
-                <viewController id="gtu-9Z-gjd" customClass="ForgetPasswordViewController" customModule="SabadBan_Dev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gtu-9Z-gjd" customClass="ForgetPasswordViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MDt-UM-RxE"/>
                         <viewControllerLayoutGuide type="bottom" id="kN4-kJ-wvo"/>
@@ -3331,9 +3331,9 @@
         <image name="login_username" width="48" height="46"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RP5-i4-ySo"/>
-        <segue reference="cbY-Qz-fGF"/>
+        <segue reference="vQn-Ft-Ftf"/>
         <segue reference="nO4-SB-DDz"/>
+        <segue reference="mtk-JZ-idg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

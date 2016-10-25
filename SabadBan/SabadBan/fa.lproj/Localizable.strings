@@ -24,7 +24,8 @@
 "RealyWantToDelete" = "پرتفوی حذف شود؟";
 "Successful" = "با موفقیت ارسال شد.";
 "Faild" = "خطا در اسال.\n دوباره تلاش کنید.";
-
+"GuestUser" = "کاربر مهمان";
+"CantHaveMoreThan20Symbols" = "نمیتوانید بیشتر از ۲۰ نماد به هر پرتفوی اضافه کنید!";
 //-Mark : Setting View Controlle Strings
 "SwitchLanguage" = "تغییر زبان";
 "Cancel" = "لغو";
@@ -124,7 +125,7 @@
 "noInternet" = "اتصال اینترنت برقرار نیست!";
 "ConnectionTimeOut" = "مدت زمان اتصال بیش از حد طول کشید! \n دوباره امتحان کنید...";
 "serviceIsUnreachable" = "ارتباط با سرور برقرار نمی باشد...";
-"lastUpdate"="آخرین بروزرسانی :";
+"lastUpdate"="آخرین بروزرسانی داده ها: ";
 
 //MARK: - Symbol Details
 "bestBuyTitle" = "سه مظنه برتر خرید";

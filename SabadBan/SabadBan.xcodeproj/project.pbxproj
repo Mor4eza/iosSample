@@ -69,6 +69,7 @@
 		94283BA71DAA50E200339914 /* SymbolBestBuyAndCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94283BA61DAA50E200339914 /* SymbolBestBuyAndCellHeader.swift */; };
 		94283BA91DAA50F200339914 /* SymbolBestBuyAndCellHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94283BA81DAA50F200339914 /* SymbolBestBuyAndCellHeader.xib */; };
 		943333071DA1374A006EF502 /* OurInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943333061DA1374A006EF502 /* OurInfoViewController.swift */; };
+		943A08061DBE330B002773B5 /* .tailor.yml in Resources */ = {isa = PBXBuildFile; fileRef = 943A08051DBE330B002773B5 /* .tailor.yml */; };
 		944EF1941D7EC29A00A039BA /* BestLimitDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF1911D7EC29A00A039BA /* BestLimitDataList.swift */; };
 		944EF1961D7EC29A00A039BA /* SymbolBestLimitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF1931D7EC29A00A039BA /* SymbolBestLimitResponse.swift */; };
 		944EF19C1D7EC4BF00A039BA /* SymbolTradingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */; };
@@ -83,6 +84,12 @@
 		9465DB661D83E935007F0572 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9465DB651D83E935007F0572 /* NewsDetailViewController.swift */; };
 		9465DB681D840450007F0572 /* NewsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9465DB671D840450007F0572 /* NewsTabBarController.swift */; };
 		9467D8681D7BEB8700B76A2E /* EditPortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9467D8671D7BEB8700B76A2E /* EditPortfolioViewController.swift */; };
+		946B210D1DBF90E900FD2EFD /* PortfolioHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B210C1DBF90E900FD2EFD /* PortfolioHeader.swift */; };
+		946B210F1DBF911000FD2EFD /* PortfolioHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 946B210E1DBF911000FD2EFD /* PortfolioHeader.xib */; };
+		946B21101DBF911B00FD2EFD /* PortfolioHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B210C1DBF90E900FD2EFD /* PortfolioHeader.swift */; };
+		946B21111DBF911B00FD2EFD /* PortfolioHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B210C1DBF90E900FD2EFD /* PortfolioHeader.swift */; };
+		946B21121DBF912500FD2EFD /* PortfolioHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 946B210E1DBF911000FD2EFD /* PortfolioHeader.xib */; };
+		946B21131DBF912500FD2EFD /* PortfolioHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 946B210E1DBF911000FD2EFD /* PortfolioHeader.xib */; };
 		9476FAE51DBB425700B923D6 /* BestLimitDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF1911D7EC29A00A039BA /* BestLimitDataList.swift */; };
 		9476FAE61DBB425700B923D6 /* SymbolListByIndexRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2971D997B5700F96EF8 /* SymbolListByIndexRequest.swift */; };
 		9476FAE71DBB425700B923D6 /* SymbolNamesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945F3CB91DA5165F006D800D /* SymbolNamesRequest.swift */; };
@@ -429,6 +436,7 @@
 		94283BA61DAA50E200339914 /* SymbolBestBuyAndCellHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolBestBuyAndCellHeader.swift; sourceTree = "<group>"; };
 		94283BA81DAA50F200339914 /* SymbolBestBuyAndCellHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SymbolBestBuyAndCellHeader.xib; sourceTree = "<group>"; };
 		943333061DA1374A006EF502 /* OurInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OurInfoViewController.swift; sourceTree = "<group>"; };
+		943A08051DBE330B002773B5 /* .tailor.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .tailor.yml; sourceTree = "<group>"; };
 		944EF1911D7EC29A00A039BA /* BestLimitDataList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestLimitDataList.swift; sourceTree = "<group>"; };
 		944EF1931D7EC29A00A039BA /* SymbolBestLimitResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolBestLimitResponse.swift; sourceTree = "<group>"; };
 		944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolTradingResponse.swift; sourceTree = "<group>"; };
@@ -444,6 +452,8 @@
 		9465DB671D840450007F0572 /* NewsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTabBarController.swift; sourceTree = "<group>"; };
 		9465DB691D84071D007F0572 /* SabadBan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SabadBan-Bridging-Header.h"; sourceTree = "<group>"; };
 		9467D8671D7BEB8700B76A2E /* EditPortfolioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPortfolioViewController.swift; sourceTree = "<group>"; };
+		946B210C1DBF90E900FD2EFD /* PortfolioHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioHeader.swift; sourceTree = "<group>"; };
+		946B210E1DBF911000FD2EFD /* PortfolioHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortfolioHeader.xib; sourceTree = "<group>"; };
 		9476FB611DBB425700B923D6 /* SabadBanTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SabadBanTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9476FB621DBB425800B923D6 /* SabadBan Test.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SabadBan Test.plist"; path = "/Volumes/Projects/Morteza.Gharedaghi/p343-sabadban-ios/trunk/SabadBan/SabadBan Test.plist"; sourceTree = "<absolute>"; };
 		9476FBE71DBB425B00B923D6 /* SabadBanProd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SabadBanProd.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -874,7 +884,9 @@
 			isa = PBXGroup;
 			children = (
 				9420042B1D8D441B00B358BC /* BuyInformation */,
+				946B210C1DBF90E900FD2EFD /* PortfolioHeader.swift */,
 				947EAC0F1D7AA25100FE43EC /* portfolioCell.swift */,
+				946B210E1DBF911000FD2EFD /* PortfolioHeader.xib */,
 			);
 			name = Portfolio;
 			sourceTree = "<group>";
@@ -908,6 +920,7 @@
 				4A8E7FDEF260C6FD64CB10A7 /* Frameworks */,
 				9476FB621DBB425800B923D6 /* SabadBan Test.plist */,
 				9476FBE81DBB425D00B923D6 /* SabadBan Prod.plist */,
+				943A08051DBE330B002773B5 /* .tailor.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1272,6 +1285,7 @@
 				810F67EBFB187311FA34728F /* 📦 Embed Pods Frameworks */,
 				9C5F1587A697F6BB804C8C3E /* 📦 Copy Pods Resources */,
 				940FB9431D9BF10700919DE3 /* Remove Empty lines in *.Swift files */,
+				943A08001DBE2416002773B5 /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -1352,6 +1366,7 @@
 				9476FB541DBB425700B923D6 /* menuCell.xib in Resources */,
 				9476FB551DBB425700B923D6 /* IndexHeader.xib in Resources */,
 				9476FB561DBB425700B923D6 /* BuyInformationView.xib in Resources */,
+				946B21121DBF912500FD2EFD /* PortfolioHeader.xib in Resources */,
 				9476FB571DBB425700B923D6 /* BuyInfoCell.xib in Resources */,
 				9476FB581DBB425700B923D6 /* menuHeader.xib in Resources */,
 			);
@@ -1376,6 +1391,7 @@
 				9476FBDA1DBB425B00B923D6 /* menuCell.xib in Resources */,
 				9476FBDB1DBB425B00B923D6 /* IndexHeader.xib in Resources */,
 				9476FBDC1DBB425B00B923D6 /* BuyInformationView.xib in Resources */,
+				946B21131DBF912500FD2EFD /* PortfolioHeader.xib in Resources */,
 				9476FBDD1DBB425B00B923D6 /* BuyInfoCell.xib in Resources */,
 				9476FBDE1DBB425B00B923D6 /* menuHeader.xib in Resources */,
 			);
@@ -1388,9 +1404,11 @@
 				947C638E1D744FF000676822 /* SymbolListHeader.xib in Resources */,
 				949BEE8F1D72AABB008FA574 /* Localizable.strings in Resources */,
 				949BEE5C1D72A51C008FA574 /* LaunchScreen.storyboard in Resources */,
+				946B210F1DBF911000FD2EFD /* PortfolioHeader.xib in Resources */,
 				949BEE591D72A51C008FA574 /* Assets.xcassets in Resources */,
 				94CD629F1D89661C00F7B496 /* IndexDetailHeader.xib in Resources */,
 				949BEE741D72A799008FA574 /* MyAlert.xib in Resources */,
+				943A08061DBE330B002773B5 /* .tailor.yml in Resources */,
 				94144E9C1D8D61A50008F602 /* buyInfoHeader.xib in Resources */,
 				949BEE571D72A51C008FA574 /* Main.storyboard in Resources */,
 				94283BA91DAA50F200339914 /* SymbolBestBuyAndCellHeader.xib in Resources */,
@@ -1526,6 +1544,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\n#Remove 2 or more Empty lines in files\nexit 0\nsed -i '' '/^$/N;/^\\n$/D' `find ./SabadBan -name *.swift -o -name *.m -not \\( -name .svn -prune -o -name .git -prune \\) -type f`";
+		};
+		943A08001DBE2416002773B5 /* Tailor */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Tailor;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "exit 0\nif hash tailor 2>/dev/null; then\ntailor --except=trailing-whitespace\nelse\necho \"warning: Please install Tailor from https://tailor.sh\"\nfi";
 		};
 		9476FADE1DBB425700B923D6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1965,6 +1997,7 @@
 				84B6DCD71DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */,
 				9476FB431DBB425700B923D6 /* ObserverNewsRequest.swift in Sources */,
 				9476FB441DBB425700B923D6 /* PortfolioListViewController.swift in Sources */,
+				946B21101DBF911B00FD2EFD /* PortfolioHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2075,6 +2108,7 @@
 				84B6DCD81DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */,
 				9476FBC91DBB425B00B923D6 /* ObserverNewsRequest.swift in Sources */,
 				9476FBCA1DBB425B00B923D6 /* PortfolioListViewController.swift in Sources */,
+				946B21111DBF911B00FD2EFD /* PortfolioHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2185,6 +2219,7 @@
 				84B6DCD61DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */,
 				84C9E2891D993B5E00F96EF8 /* ObserverNewsRequest.swift in Sources */,
 				947C63961D7581D100676822 /* PortfolioListViewController.swift in Sources */,
+				946B210D1DBF90E900FD2EFD /* PortfolioHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

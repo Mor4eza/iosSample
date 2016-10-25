@@ -21,7 +21,8 @@
 "Back" = "Back";
 "Successful" = "Successful";
 "Faild" = "Faild! \n Try Again...";
-
+"GuestUser" = "Guest User";
+"CantHaveMoreThan20Symbols" = "Cant Have More Than 20 Symbols in a portfolio";
 //MARK :- Setting View Controller Strings
 "Language" = " Language ";
 "SwitchLanguage" = "Switch Language";

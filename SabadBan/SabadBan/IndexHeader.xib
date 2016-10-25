@@ -6,9 +6,9 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IndexTableViewController" customModule="SabadBan" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IndexTableViewController" customModule="SabadBanDev" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="IndexHeader" customModule="SabadBan" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="IndexHeader" customModule="SabadBanDev" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="571" height="73"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>

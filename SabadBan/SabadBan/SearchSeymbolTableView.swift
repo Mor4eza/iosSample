@@ -131,24 +131,29 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
             return
         }
 
-            var selected = String()
+        var selected = String()
 
-            if shouldShowSearchResults {
-                selected = String(filteredSymbol[indexPath.row].code)
+        if shouldShowSearchResults {
+            selected = String(filteredSymbol[indexPath.row].code)
 
-            }else{
-                selected = String(symbolsData[indexPath.row].code)
+        }else{
+            selected = String(symbolsData[indexPath.row].code)
+        }
+        symbols = db.getSymbolbyPortfolio(pCode)
+
+        if symbols.count >= 20 {
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.CantHaveMoreThan20Symbols.localized())
+            return
+        }
+        for i in 0 ..< symbols.count {
+            if selected == symbols[i] {
+
+                Utils.ShowAlert(self, title:Strings.Attention.localized() , details: Strings.symbolExists.localized(),btnOkTitle:Strings.Ok.localized())
+                searchController.active = false
+                return
             }
-            symbols = db.getSymbolbyPortfolio(pCode)
-            for i in 0 ..< symbols.count {
-                if selected == symbols[i] {
-
-                    Utils.ShowAlert(self, title:Strings.Attention.localized() , details: Strings.symbolExists.localized(),btnOkTitle:Strings.Ok.localized())
-                    searchController.active = false
-                    return
-                }
-            }
-            db.addSymbolToPortfolio(selected, pCode: pCode)
+        }
+        db.addSymbolToPortfolio(selected, pCode: pCode)
         self.showMessage(Strings.addedSuccessfuliToPortfolio.localized(), type: .Success,options: [
             .Animation(.Slide),
             .AnimationDuration(0.3),
@@ -247,9 +252,9 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
     //MARK:- Seguei
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
         if identifier == UIConstants.symDetailsSegue {
-            
+
             if (!isSearch) {
-                
+
                 return false
             }else {
                 return true

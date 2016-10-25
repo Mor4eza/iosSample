@@ -19,6 +19,7 @@ struct UIConstants {
     static let MarketDetailsHeader = "MarketDetailsHeader"
     static let SymbolListHeader = "SymbolListHeader"
     static let IndexHeader = "IndexHeader"
+    static let PortfolioHeader = "PortfolioHeader"
     static let menuCell = "menuCell"
     static let menuHeader = "menuHeader"
     static let buyHeader = "SymbolBestBuyAndCellHeader"
