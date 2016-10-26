@@ -11,22 +11,22 @@ import Alamofire
 import FCAlertView
 
 class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewDelegate {
-
+    
     //MARK: Properties
-
+    
     @IBOutlet weak var lblRememberMe: UILabel!
-
+    
     @IBOutlet weak var imgAppLogo: UIImageView!
     @IBOutlet weak var mainView: UIView!
-
+    
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var txtUserName: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var chkRemember: UISwitch!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-
+    
     @IBOutlet weak var btnRegister: UIButton!
-
+    
     @IBOutlet weak var btnGuestLogin: UIButton!
     @IBOutlet weak var btnForgetPass: UIButton!
     
@@ -40,11 +40,11 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-
+        
         //MARK: - Login String
-
+        
         lblRememberMe.text = Strings.RememberMe.localized()
         btnLogin.setTitle(Strings.Login.localized(), forState: .Normal)
         txtUserName.placeholder = Strings.Email.localized()
@@ -54,12 +54,12 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
         btnGuestLogin.setTitle(Strings.GuestLogin.localized(), forState: .Normal)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-
+        
         debugPrint(defaults.stringForKey(UserName))
         if defaults.stringForKey(UserName) != nil {
             chkRemember.setOn(true, animated: true)
         }
-
+        
         if chkRemember.on == true {
             txtUserName.text = defaults.stringForKey(UserName)
             txtPassword.text = defaults.stringForKey(Password)
@@ -71,27 +71,27 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
         
         checkForJailBreak()
     }
-
+    
     func keyboardWillShow(notification: NSNotification) {
-
+        
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-
+            
             UIView.animateWithDuration(1, delay: 0, options: .CurveEaseIn, animations: {
-
+                
                 self.bottomConstraint.constant = keyboardSize.height
                 self.view.layoutIfNeeded()
                 }, completion: nil)
         }
-
+        
     }
-
+    
     func keyboardWillHide(notification: NSNotification) {
         UIView.animateWithDuration(1, delay: 0, options: .CurveEaseIn, animations: {
             self.bottomConstraint.constant = 100
             self.view.layoutIfNeeded()
             }, completion: nil)
     }
-
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         if textField == txtUserName {
@@ -100,24 +100,24 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
             textField.resignFirstResponder()
             beginLoginSequence()
         }
-
+        
         return true
     }
-
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
-
+    
     //MARK:- Buttons Tap
-
+    
     @IBAction func btnLoginTap(sender: AnyObject) {
-
+        
         beginLoginSequence()
         isGuest = false
     }
-
+    
     @IBAction func btnGuestLoginTap(sender: AnyObject) {
-
+        
         if defaults.stringForKey(GuestUserName) == nil {
             if isSimulator {
                 sendLoginRequest(GuestUser, password: GuestPass, pushToken: Strings.SimulatorPushToken ,guest: true)
@@ -125,7 +125,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
                 sendLoginRequest(GuestUser, password: GuestPass, pushToken: PushToken ,guest: true)
             }
         }else {
-
+            
             GuestUser = defaults.stringForKey(GuestUserName)!
             GuestPass = defaults.stringForKey(GuestPassword)!
             if isSimulator {
@@ -136,17 +136,17 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
         }
         isGuest = true
     }
-
-
+    
+    
     func showAlert(message : String) {
-
+        
         Utils.ShowAlert(self,
                         title: Strings.Attention.localized(),
                         details: message.localized(),
                         btnOkTitle: Strings.Ok.localized()
         )
     }
-
+    
     func beginLoginSequence() {
         self.view.endEditing(true)
         if txtUserName.text == "" {
@@ -166,29 +166,29 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
             }
         }
     }
-
+    
     // MARK: - Navigation
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
-
+        
         if identifier == UIConstants.loginSegue {
             if successLogin {
                 return true
             }else {
                 return false
             }
-
+            
         }
         return true
     }
-
+    
     //MARK:- Login Service
-
+    
     func sendLoginRequest(email:String , password:String , pushToken:String,guest:Bool? = nil ) {
         /**
          Login
          POST http://sabadbannewstest.sefryek.com/api/v1/auth/login
          */
-
+        
         btnLogin.enabled = false
         btnGuestLogin.enabled = false
         let progress:UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
@@ -203,16 +203,16 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
             url = AppNewsURL + URLS["login"]!
         }
         progress.hidesWhenStopped = true
-
-
+        
+        
         // JSON Body
         let body = LoginRequest(email: email, device_token: pushToken, password: password).getDic()
-
+        
         // Fetch Request
         Request.postData(url!,body: body) { (response:UserManagementModel<LoginResponse>?, error) in
-
+            
             if ((response?.success) != nil) {
-
+                
                 if response!.result != nil {
                     
                     let userId = self.db.getUserId(email)
@@ -224,14 +224,14 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
                             LogedInUserId = self.db.getUserId(email)
                         }
                     }
-
+                    
                     if response!.errorCode == 100 {
                         self.guestUserName = response?.result.email
-
+                        
                         let delimiter = "@"
                         var name = self.guestUserName.componentsSeparatedByString(delimiter)
                         print (name[0])
-
+                        
                         self.defaults.setValue(self.guestUserName, forKey: GuestUserName)
                         self.defaults.setValue(name[0], forKey: GuestPassword)
                         if isSimulator {
@@ -240,15 +240,15 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
                             self.sendLoginRequest(self.guestUserName, password:name[0], pushToken: PushToken)
                         }
                     }
-
-
+                    
+                    
                     if response!.errorCode == 200 {
-
+                        
                         LoginToken = response!.result.apiToken!
                         self.successLogin = true
                         LogedInUserName = email
                         self.performSegueWithIdentifier(UIConstants.loginSegue, sender: nil)
-
+                        
                         if guest == false {
                             if self.chkRemember.on == true{
                                 self.defaults.setValue(email, forKey: UserName)
@@ -257,11 +257,14 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
                                 self.defaults.setValue(nil, forKey: UserName)
                                 self.defaults.setValue(nil, forKey: Password)
                             }
-                            
+                        }
+                        let loginCount = self.defaults.integerForKey(NumberOfLogins)
+                        if (loginCount < 4) {
+                            self.defaults.setValue((loginCount + 1), forKeyPath: NumberOfLogins)
                         }
                     }
                 } else if response!.errorCode == 202 {
-
+                    
                     self.showAlert(Strings.emailOrPasswordInvalid.localized())
                     self.view.endEditing(true)
                 }

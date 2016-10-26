@@ -61,6 +61,8 @@ struct UIConstants {
     static let buyInfoSegue = "buyInfoSegue"
     static let searchSeguei = "searchSeguei"
     static let editSegue = "editSegue"
+    static let addSegue = "addSegue"
+    static let addMultipleSegue = "addMultipleSegue"
     static let symbolDetailsSegue = "symbolDetailsSegue"
     static let symDetailsSegue = "symDetailsSegue"
     static let IndexDetailSegue = "IndexDetailSegue"

@@ -36,6 +36,10 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
         lblName.delegate = self
         lblEmail.delegate = self
         lblSubject.delegate = self
+        
+        if !isGuest {
+            lblEmail.text = LogedInUserName
+        }
 
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(CallUsViewController.imageTapped(_:)))
         imgCrash.userInteractionEnabled = true

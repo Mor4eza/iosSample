@@ -144,13 +144,22 @@ class DataBase{
         try! db.run(insert)
     }
 
-    func getPortfolioList(userId:Int)-> [String]{
+    func getPortfolioNameList(userId:Int)-> [String]{
         var pNames = [String]()
         let portfolioQuery = tblPortfolio.filter(portfolioOwnerId == userId)
         for portfolio in try! db.prepare(portfolioQuery) {
             pNames.append(portfolio[portfolioName]!)
         }
         return pNames
+    }
+    
+    func getPortfolioList(userId:Int)-> [Portfolio]{
+        var pCodes = [Portfolio]()
+        let portfolioQuery = tblPortfolio.filter(portfolioOwnerId == userId)
+        for portfolio in try! db.prepare(portfolioQuery) {
+            pCodes.append(Portfolio(portfolioCode: portfolio[portfolioCode], portfolioName: portfolio[portfolioName]))
+        }
+        return pCodes
     }
 
     func getportfolioCodeByName(pName:String)->Int {

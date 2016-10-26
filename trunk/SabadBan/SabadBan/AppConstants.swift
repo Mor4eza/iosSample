@@ -78,8 +78,8 @@ public let UserName: String = "UserName"
 public let GuestUserName: String = "GuestUserName"
 public let Password: String = "Password"
 public let GuestPassword: String = "GuestPassword"
-public let HINT = "HINT"
 public let JailBreakAccept = "JailBreakAccept"
+public let NumberOfLogins = "NumberOfLogins"
 
 //MARK: - Enums
 public enum TimeFrameType : Int {
