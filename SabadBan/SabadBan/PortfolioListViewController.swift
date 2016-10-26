@@ -14,14 +14,16 @@ import Alamofire
 import Alamofire_Gloss
 import KCFloatingActionButton
 import FCAlertView
-class PortfolioListViewController: BaseViewController ,UITableViewDataSource , UITableViewDelegate , KCFloatingActionButtonDelegate , FCAlertViewDelegate{
+class PortfolioListViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, KCFloatingActionButtonDelegate, FCAlertViewDelegate{
     let db = DataBase()
-    var currentPortfolio = String()
-    var portfolios = [String]()
+    var currentPortfolioIndex = 0
+    var currentPortfolio: Portfolio?
+    var portfolios = [Portfolio]()
+    var portfolioNames = [String]()
     var symbols = [String]()
     var smData = [symData]()
     var selectedSymbolCode = String()
-    var menuView:BTNavigationDropdownMenu!
+    var menuView: BTNavigationDropdownMenu!
     var selectedSymbolPrice = Double()
     var fab = KCFloatingActionButton()
     let addPortfolio = KCFloatingActionButtonItem()
@@ -31,9 +33,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     let deletePortfolio = KCFloatingActionButtonItem()
     var lastUpdate = NSMutableAttributedString()
     var searchableSymbols = Bool()
-    var isFirstTime = false
     let refreshControl = UIRefreshControl()
-    //    var refreshControll = UIRefreshControl!()
     @IBOutlet weak var tblPortfolio: UITableView!
     let nc = NSNotificationCenter.defaultCenter()
     
@@ -63,7 +63,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     
     func showHintView(){
         let defaults = NSUserDefaults.standardUserDefaults()
-        if defaults.boolForKey(HINT)  == false && smData.count > 0{
+        if ((smData.count > 0) && (defaults.integerForKey(NumberOfLogins) < 4) ) {
             
             let imageName = UIConstants.tooltipHand
             let image = UIImage(named: imageName)
@@ -80,10 +80,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
                     (value: Bool) in
                     hintImage.removeFromSuperview()
             })
-            
-            defaults.setBool(true, forKey: HINT)
         }
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -208,14 +205,17 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         selectedSymbolCode = notification.userInfo!["selectedSymbol"] as! String
         debugPrint("code: \(selectedSymbolCode)")
         
-        db.addSymbolToPortfolio(selectedSymbolCode, pCode: db.getportfolioCodeByName(currentPortfolio))
+        db.addSymbolToPortfolio(selectedSymbolCode, pCode: currentPortfolio!.portfolioCode)
         
         self.loadSymbolsFromDb()
         
     }
     
     func loadSymbolsFromDb(){
-        symbols = db.getSymbolbyPortfolio(db.getportfolioCodeByName(currentPortfolio))
+        if currentPortfolio != nil {
+            symbols = db.getSymbolbyPortfolio(currentPortfolio!.portfolioCode)
+        }
+        
         if symbols.count > 0 {
             getSymbolListData(symbols)
         }else {
@@ -228,23 +228,32 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     
     func getCurrentPortfolio(){
         
-        portfolios = db.getPortfolioList(LogedInUserId)
+        loadPortfolioListsFromDB()
         if portfolios.count > 0 {
-            currentPortfolio = portfolios[0]
-        }else {
-            currentPortfolio = ""
+            currentPortfolio = portfolios[currentPortfolioIndex]
         }
+        
+    }
+    
+    func loadPortfolioListsFromDB() {
+        
+        portfolios.removeAll()
+        portfolios = db.getPortfolioList(LogedInUserId)
+        portfolioNames.removeAll()
+        for portfolio in portfolios {
+            portfolioNames.append(portfolio.portfolioName)
+        }
+        
     }
     
     func initNavigationTitle(){
         
-        portfolios.removeAll()
-        portfolios = db.getPortfolioList(LogedInUserId)
+        loadPortfolioListsFromDB()
+        
         if portfolios.count == 0 {
-            menuView = BTNavigationDropdownMenu(title: Strings.Portfolio.localized(), items: portfolios)
-            currentPortfolio = ""
+            menuView = BTNavigationDropdownMenu(title: Strings.Portfolio.localized(), items: portfolioNames)
         }else {
-            menuView = BTNavigationDropdownMenu(title:currentPortfolio, items: portfolios)
+            menuView = BTNavigationDropdownMenu(title:currentPortfolio!.portfolioName, items: portfolioNames)
         }
         
         menuView.animationDuration = 0.5
@@ -256,12 +265,13 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
                 self.sideMenuController()?.sideMenu?.hideSideMenu()
             }
             self.currentPortfolio = self.portfolios[indexPath]
-            debugPrint("currentPortfolio\(self.db.getportfolioCodeByName(self.currentPortfolio))")
+            self.currentPortfolioIndex = indexPath
+            debugPrint("currentPortfolio\(self.currentPortfolio!.portfolioCode)")
             self.loadSymbolsFromDb()
         }
         
     }
-
+    
     //MARK:- Floation Button
     
     func initFAB(){
@@ -310,7 +320,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
                 if !(tField.text?.isEmpty)! {
                     
                     for i in 0  ..< self.portfolios.count {
-                        if(tField.text == self.portfolios[i]){
+                        if(tField.text == self.portfolios[i].portfolioName){
                             Utils.ShowAlert(self, title:Strings.Attention.localized() , details: "نام پرتفوی تکراری است.",btnOkTitle:Strings.Ok.localized())
                             return
                         }
@@ -319,12 +329,11 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
                     self.portfolios = self.db.getPortfolioList(LogedInUserId)
                     self.currentPortfolio = self.portfolios.last!
                     self.initNavigationTitle()
-                    self.menuView.updateItems(self.portfolios)
-                    self.isFirstTime = true
-                    self.performSegueWithIdentifier(UIConstants.searchSeguei, sender: nil)
-
+                    self.menuView.updateItems(self.portfolioNames)
+                    self.performSegueWithIdentifier(UIConstants.addMultipleSegue, sender: nil)
+                    
                 } else {
-                       Utils.ShowAlert(self, title:Strings.Attention.localized() , details: "نام پرتفوی را وارد کنید.",btnOkTitle:Strings.Ok.localized())
+                    Utils.ShowAlert(self, title:Strings.Attention.localized() , details: "نام پرتفوی را وارد کنید.",btnOkTitle:Strings.Ok.localized())
                 }
             }))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -338,15 +347,13 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         addSymbol.handler = { item in
             
             self.searchableSymbols = false
-            self.isFirstTime = false
-            self.performSegueWithIdentifier(UIConstants.searchSeguei, sender: nil)
+            self.performSegueWithIdentifier(UIConstants.addSegue, sender: nil)
             
         }
         
         searchSymbol.handler =  { item in
             
             self.searchableSymbols = true
-            self.isFirstTime = false
             self.performSegueWithIdentifier(UIConstants.searchSeguei, sender: nil)
             
         }
@@ -416,26 +423,26 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         }
     }
     
-    func getBuyData(symbolCode:String ,price:Float) -> (today:Double , overAll:Double) {
+    func getBuyData(symbolCode: String ,price: Float) -> (today: Double , overAll: Double) {
         var todayProfit = Double()
         var overAllProfit  = Double()
         var psCode = Int()
         debugPrint("price: \(price)")
         
-        psCode = db.getPsCodeBySymbolCode(symbolCode, pCode: db.getportfolioCodeByName(currentPortfolio))
-
-
-
-            for i in 0..<db.getPsBuy(psCode).count{
-                
-                todayProfit += (Double(price) - db.getPsBuy(psCode)[i].psPrice) * db.getPsBuy(psCode)[i].psCount
-                overAllProfit += (Double(price) - db.getPsBuy(psCode)[i].psPrice) * db.getPsBuy(psCode)[i].psCount
-                
-            }
-            return (todayProfit , overAllProfit)
-    }
+        psCode = db.getPsCodeBySymbolCode(symbolCode, pCode: currentPortfolio!.portfolioCode)
         
-
+        
+        
+        for i in 0..<db.getPsBuy(psCode).count {
+            
+            todayProfit += (Double(price) - db.getPsBuy(psCode)[i].psPrice) * db.getPsBuy(psCode)[i].psCount
+            overAllProfit += (Double(price) - db.getPsBuy(psCode)[i].psPrice) * db.getPsBuy(psCode)[i].psCount
+            
+        }
+        return (todayProfit , overAllProfit)
+    }
+    
+    
     
     //MARK:- Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -460,8 +467,8 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             
             let editController = nav.topViewController as! EditPortfolioViewController
             
-            editController.portfolioName = currentPortfolio
-            editController.portfolios = self.portfolios
+            editController.portfolioName = currentPortfolio!.portfolioName
+            editController.portfolios = portfolioNames
             if symbols.count != 0 {
                 for index in 0..<symbols.count {
                     editController.symbolData.append(symbolsDataForEdit(sName: smData[index].symbolShortName, sNameEn: smData[index].symbolShortName, sCode: String(smData[index].symbolCode)))
@@ -472,7 +479,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
         if segue.identifier == UIConstants.buyInfoSegue {
             
             let buyInfo = segue.destinationViewController as! BuyInfoViewController
-            buyInfo.portfolioCode = db.getportfolioCodeByName(currentPortfolio)
+            buyInfo.portfolioCode = currentPortfolio!.portfolioCode
             buyInfo.price = Float(self.selectedSymbolPrice)
             
         }
@@ -480,18 +487,45 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
             let nav = segue.destinationViewController as! UINavigationController
             let addVC =  nav.topViewController as! SearchSeymbolTableView
             addVC.isSearch = searchableSymbols
-            addVC.isFirstTime = isFirstTime
-            addVC.pCode = db.getportfolioCodeByName(currentPortfolio)
+            //            addVC.isFirstTime = isFirstTime
+            addVC.singleSelection = true
+            addVC.pCode = currentPortfolio!.portfolioCode
             addVC.symbols = symbols
         }
+        
+        if segue.identifier == UIConstants.addMultipleSegue {
+            let nav = segue.destinationViewController as! UINavigationController
+            let addVC =  nav.topViewController as! SearchSeymbolTableView
+            addVC.isSearch = searchableSymbols
+            //            addVC.isFirstTime = isFirstTime
+            addVC.singleSelection = false
+            addVC.pCode = currentPortfolio!.portfolioCode
+            addVC.symbols = symbols
+        }
+        
+        if segue.identifier == UIConstants.addSegue {
+            let nav = segue.destinationViewController as! UINavigationController
+            let addVC =  nav.topViewController as! SearchSeymbolTableView
+            addVC.isSearch = searchableSymbols
+            //            addVC.isFirstTime = isFirstTime
+            addVC.singleSelection = true
+            addVC.pCode = currentPortfolio!.portfolioCode
+            addVC.symbols = symbols
+        }
+        
     }
     
     //MARK:- AlertView Delegates
     
     func FCAlertDoneButtonClicked(alertView: FCAlertView){
         
-        db.deleteAllSymbolsInPortfolio(self.db.getportfolioCodeByName(self.currentPortfolio))
-        db.deletePortfolio(self.db.getportfolioCodeByName(self.currentPortfolio))
+        db.deleteAllSymbolsInPortfolio(currentPortfolio!.portfolioCode)
+        db.deletePortfolio(currentPortfolio!.portfolioCode)
+        
+        if (currentPortfolioIndex > 0) {
+            currentPortfolioIndex = currentPortfolioIndex - 1
+        }
+        
         getCurrentPortfolio()
         loadSymbolsFromDb()
         initNavigationTitle()
@@ -500,7 +534,7 @@ class PortfolioListViewController: BaseViewController ,UITableViewDataSource , U
     override func updateServiceData() {
         loadSymbolsFromDb()
     }
-     override func sideMenuDidOpen() {
+    override func sideMenuDidOpen() {
         menuView.hide()
     }
 }
@@ -521,5 +555,9 @@ struct symData {
     var totalProfit : Double!
     var buyValue : Double!
     
-    
+}
+
+struct Portfolio {
+    var portfolioCode : Int!
+    var portfolioName : String!
 }
