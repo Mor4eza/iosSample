@@ -17,17 +17,17 @@ import Alamofire
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-   
+
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
         UITextField.appearance().keyboardAppearance = .Dark
-        
+
         let defaults = NSUserDefaults.standardUserDefaults()
 
         if defaults.valueForKey("DefaultLanguage") == nil {
             defaults.setValue(Language.fa.rawValue, forKey: "DefaultLanguage")
-             Localize.setCurrentLanguage(defaults.stringForKey("DefaultLanguage")!)
+            Localize.setCurrentLanguage(defaults.stringForKey("DefaultLanguage")!)
         }
         debugPrint(NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as? String)
 
@@ -56,11 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             acra.start()
         #endif
 
-
-//        let storyboard = UIStoryboard(name: UIConstants.Main, bundle: nil)
-//        let vc = storyboard.instantiateViewControllerWithIdentifier(UIConstants.NewsTabBarController)
-//        window?.rootViewController = vc
-
         return true
     }
 
@@ -88,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-     //MARK:- Apple Push Notification -->APN
+    //MARK:- Apple Push Notification -->APN
 
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Sandbox)
@@ -106,7 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
 
-//        print("tokenString: \(tokenString)")
+        //        print("tokenString: \(tokenString)")
     }
 
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
@@ -114,8 +109,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-//        PushToken = userInfo["gcm_message_id"] as! String
-//        print("GCM_TOKEN: \(PushToken)")
+        //        PushToken = userInfo["gcm_message_id"] as! String
+        //        print("GCM_TOKEN: \(PushToken)")
         print(userInfo)
+
+        if ( UIApplication.sharedApplication().applicationState == .Inactive || UIApplication.sharedApplication().applicationState == .Background  )
+        {
+
+            UIView.transitionWithView(self.window!, duration: 0.5, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: {
+
+                let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: UIConstants.Main, bundle: nil)
+                let newsVC = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.NewsTabBarController) as! NewsTabBarController
+                let nav = UINavigationController(rootViewController: newsVC)
+                appdelegate.window!.rootViewController = nav
+                
+                }, completion: nil)
+        }
     }
 }

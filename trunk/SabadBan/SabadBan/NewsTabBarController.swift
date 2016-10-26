@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsTabBarController: UITabBarController {
+class NewsTabBarController: UITabBarController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,7 @@ class NewsTabBarController: UITabBarController {
         }
     }
     func openMenu() {
+        debugPrint("Hear")
         self.toggleSideMenuView()
     }
 

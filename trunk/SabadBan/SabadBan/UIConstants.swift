@@ -64,9 +64,12 @@ struct UIConstants {
     static let symbolDetailsSegue = "symbolDetailsSegue"
     static let symDetailsSegue = "symDetailsSegue"
     static let IndexDetailSegue = "IndexDetailSegue"
-    
+    static let AlarmSegue = "alarmSegue"
+
+
     //MARK: Images
     static let Menu = "Menu"
+    static let Alarm = "ic_alarm"
     static let tooltipHand = "tooltip_hand"
     static let icAddPortfolio = "ic_add_portfolio"
     static let icEditPortfolio = "ic-edit_portfolio"

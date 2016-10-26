@@ -9,7 +9,7 @@
 
 import UIKit
 import SwiftEventBus
-class BaseTableViewController: UITableViewController{
+class BaseTableViewController: UITableViewController,ENSideMenuDelegate{
 
     //MARK: Properties
     var timer : NSTimer?
@@ -22,6 +22,7 @@ class BaseTableViewController: UITableViewController{
         }
         addMenuButton()
         self.setFontFamily(AppFontName_IranSans, forView: self.view, andSubViews: true)
+        self.sideMenuController()?.sideMenu?.delegate = self
         self.tableView.backgroundColor = AppMainColor
 
         SwiftEventBus.onMainThread(self, name: NetworkErrorAlert) { result in
@@ -84,4 +85,22 @@ class BaseTableViewController: UITableViewController{
             mTimer.invalidate()
         }
     }
+
+    // MARK: - ENSideMenu Delegate
+    func sideMenuWillOpen() {
+    }
+
+    func sideMenuWillClose() {
+    }
+
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        return true
+    }
+
+    func sideMenuDidClose() {
+    }
+
+    func sideMenuDidOpen() {
+    }
+
 }

@@ -39,6 +39,7 @@ class MyMenuTableViewController: BaseTableViewController {
         
         if isGuest == true {
             headerView.lblUserName.text = Strings.GuestUser.localized()
+            headerView.lblUserName.setDefaultFont(18)
             headerView.lblUserName.changeDirection()
         }else {
             headerView.lblUserName.text = LogedInUserName
