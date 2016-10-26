@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-class ObserverNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate  {
+class ObserverNewsTableViewController: BaseTableViewController  {
 
     var newsModel = [NewsModel]()
     override func viewDidLoad() {
@@ -108,10 +108,6 @@ class ObserverNewsTableViewController: BaseTableViewController ,ENSideMenuDelega
             svc.newsLink = newsModel[index.row].link
 
         }
-    }
-
-    func sideMenuShouldOpenSideMenu() -> Bool {
-        return false
     }
     
     override func updateServiceData() {

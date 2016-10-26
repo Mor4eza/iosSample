@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate {
+class BourseNewsTableViewController: BaseTableViewController {
 
     var newsModel = [NewsModel]()
     var newsCount = 0
@@ -122,7 +122,7 @@ class BourseNewsTableViewController: BaseTableViewController ,ENSideMenuDelegate
         }
     }
 
-    func sideMenuShouldOpenSideMenu() -> Bool {
+    override func sideMenuShouldOpenSideMenu() -> Bool {
         return false
     }
     
