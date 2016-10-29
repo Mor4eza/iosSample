@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="IRANSans.ttf">
+            <string>IRANSansMobileFaNum</string>
+            <string>IRANSansMobileFaNum</string>
+            <string>IRANSansMobileFaNum</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmFilterCells" rowHeight="43" id="6oT-qt-TLp" customClass="AlarmDataCell" customModule="SabadBanDev" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6oT-qt-TLp" id="WDK-AM-BMu">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="TnQ-Xc-PIv">
+                        <rect key="frame" x="221" y="10" width="91" height="24"/>
+                        <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="15"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="ofg-X6-hTY">
+                        <rect key="frame" x="97" y="10" width="53" height="24"/>
+                        <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="15"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="U63-NR-hV4">
+                        <rect key="frame" x="155" y="10" width="53" height="24"/>
+                        <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="15"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoP-SO-eIW">
+                        <rect key="frame" x="4" y="3" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="2hS-hH-kIh"/>
+                        </constraints>
+                        <state key="normal" image="Delete"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkJ-ey-jpX">
+                        <rect key="frame" x="52" y="4" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="3cm-P6-U1N"/>
+                        </constraints>
+                        <state key="normal" image="Edit"/>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" red="0.16862745100000001" green="0.2274509804" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="UkJ-ey-jpX" firstAttribute="leading" secondItem="yoP-SO-eIW" secondAttribute="trailing" constant="13" id="3bJ-xf-yHC"/>
+                    <constraint firstItem="UkJ-ey-jpX" firstAttribute="top" secondItem="WDK-AM-BMu" secondAttribute="topMargin" constant="-4" id="4Ac-CJ-HxI"/>
+                    <constraint firstItem="ofg-X6-hTY" firstAttribute="leading" secondItem="UkJ-ey-jpX" secondAttribute="trailing" constant="10" id="7HE-86-b8O"/>
+                    <constraint firstItem="ofg-X6-hTY" firstAttribute="width" secondItem="WDK-AM-BMu" secondAttribute="width" multiplier="1/6" id="BzV-Rj-Eah"/>
+                    <constraint firstItem="TnQ-Xc-PIv" firstAttribute="width" secondItem="WDK-AM-BMu" secondAttribute="width" multiplier="2/7" id="UkF-gx-XCH"/>
+                    <constraint firstItem="yoP-SO-eIW" firstAttribute="leading" secondItem="WDK-AM-BMu" secondAttribute="leading" constant="4" id="cEz-Jk-uP3"/>
+                    <constraint firstItem="U63-NR-hV4" firstAttribute="leading" secondItem="ofg-X6-hTY" secondAttribute="trailing" constant="5" id="coN-Z5-UPl"/>
+                    <constraint firstItem="yoP-SO-eIW" firstAttribute="centerY" secondItem="UkJ-ey-jpX" secondAttribute="centerY" constant="-1" id="fer-Pg-tqz"/>
+                    <constraint firstItem="yoP-SO-eIW" firstAttribute="centerY" secondItem="WDK-AM-BMu" secondAttribute="centerY" constant="-1" id="gSx-Y8-3i9"/>
+                    <constraint firstItem="TnQ-Xc-PIv" firstAttribute="baseline" secondItem="U63-NR-hV4" secondAttribute="baseline" id="kb1-Kn-2Hp"/>
+                    <constraint firstItem="UkJ-ey-jpX" firstAttribute="centerY" secondItem="ofg-X6-hTY" secondAttribute="centerY" constant="-1" id="lVM-gb-dVZ"/>
+                    <constraint firstItem="U63-NR-hV4" firstAttribute="width" secondItem="WDK-AM-BMu" secondAttribute="width" multiplier="1/6" id="oHj-17-TC8"/>
+                    <constraint firstItem="TnQ-Xc-PIv" firstAttribute="trailing" secondItem="WDK-AM-BMu" secondAttribute="trailingMargin" id="p6c-lp-eA7"/>
+                    <constraint firstItem="yoP-SO-eIW" firstAttribute="top" secondItem="UkJ-ey-jpX" secondAttribute="top" constant="-1" id="qaa-Aq-NKy"/>
+                    <constraint firstItem="ofg-X6-hTY" firstAttribute="baseline" secondItem="U63-NR-hV4" secondAttribute="baseline" id="rxc-nG-THV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnDelete" destination="yoP-SO-eIW" id="OpO-nj-4NG"/>
+                <outlet property="btnEdit" destination="UkJ-ey-jpX" id="vg8-cO-rVK"/>
+                <outlet property="lblPrice" destination="U63-NR-hV4" id="iUB-LX-oBh"/>
+                <outlet property="lblSymbol" destination="ofg-X6-hTY" id="xIx-Zw-Ag7"/>
+                <outlet property="lblType" destination="TnQ-Xc-PIv" id="Tf6-c7-W2Z"/>
+            </connections>
+            <point key="canvasLocation" x="220" y="236.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Delete" width="100" height="100"/>
+        <image name="Edit" width="100" height="100"/>
+    </resources>
+</document>

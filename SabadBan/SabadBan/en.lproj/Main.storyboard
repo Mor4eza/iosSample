@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N2h-Tl-wNj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N2h-Tl-wNj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -635,7 +635,7 @@
             </objects>
             <point key="canvasLocation" x="1457" y="882"/>
         </scene>
-        <!--Title-->
+        <!--جزییات-->
         <scene sceneID="IDZ-aw-Vhk">
             <objects>
                 <tableViewController id="dIy-RW-wtH" customClass="SymbolDetailsViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
@@ -643,14 +643,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="951"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <button key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XvX-O6-gew">
-                            <rect key="frame" x="0.0" y="857" width="600" height="15"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <connections>
-                                <segue destination="ImZ-53-Q9T" kind="presentation" identifier="alarmSegue" modalPresentationStyle="overCurrentContext" id="n3b-VL-wVS"/>
-                            </connections>
-                        </button>
                         <sections>
                             <tableViewSection headerTitle="" id="zEC-aM-0xs">
                                 <cells>
@@ -1405,7 +1397,6 @@
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <tabBarItem key="tabBarItem" title="جزییات" image="ic_details" id="p2u-zq-h4a"/>
-                    <navigationItem key="navigationItem" title="Title" id="Qxx-ok-Opt"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1000"/>
@@ -3375,10 +3366,10 @@
             </objects>
             <point key="canvasLocation" x="-1726" y="441"/>
         </scene>
-        <!--Buy Info View Controller-->
+        <!--Alarm Filter View Controller-->
         <scene sceneID="amE-5F-Lbh">
             <objects>
-                <viewController id="ImZ-53-Q9T" customClass="BuyInfoViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlarmFilterViewController" id="ImZ-53-Q9T" customClass="AlarmFilterViewController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fzC-ss-5ET"/>
                         <viewControllerLayoutGuide type="bottom" id="byR-3j-5Xk"/>
@@ -3418,25 +3409,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="btnDoneTap:" destination="ImZ-53-Q9T" eventType="touchUpInside" id="UE7-ck-Tjw"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQZ-9b-Wgp">
-                                                <rect key="frame" x="58" y="45" width="100" height="30"/>
-                                                <color key="backgroundColor" red="0.91694617150000002" green="0.71196035300000005" blue="0.13549317699999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="Ib2-Nw-HKB"/>
-                                                </constraints>
-                                                <state key="normal" title="Button">
-                                                    <color key="titleColor" red="0.9879675792" green="1" blue="0.9726439939" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="3"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="btnDateTap:" destination="ImZ-53-Q9T" eventType="touchUpInside" id="iMP-j9-jK9"/>
+                                                    <action selector="btnAddTap:" destination="ImZ-53-Q9T" eventType="touchUpInside" id="q3s-ot-w4G"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGg-Eg-UeH">
@@ -3454,22 +3427,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="btnPriceTap:" destination="ImZ-53-Q9T" eventType="touchUpInside" id="hyh-1G-jdz"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdz-Kw-cpM">
-                                                <rect key="frame" x="58" y="112" width="100" height="30"/>
-                                                <color key="backgroundColor" red="0.92486092929999997" green="0.36227035410000002" blue="0.12653421200000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Button">
-                                                    <color key="titleColor" red="0.9879675792" green="1" blue="0.9726439939" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="3"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="btnCountTap:" destination="ImZ-53-Q9T" eventType="touchUpInside" id="bTs-CN-hH6"/>
+                                                    <action selector="btnPriceTap:" destination="ImZ-53-Q9T" eventType="touchUpInside" id="pWn-H3-umb"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xc9-ud-KQt">
@@ -3479,51 +3437,55 @@
                                                 </constraints>
                                                 <state key="normal" title="❌"/>
                                                 <connections>
-                                                    <action selector="btnCloseTap:" destination="ImZ-53-Q9T" eventType="touchUpInside" id="Ety-zf-Ofl"/>
+                                                    <action selector="btnCloseTap:" destination="ImZ-53-Q9T" eventType="touchUpInside" id="rc7-Ah-YVh"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0a-sY-ZZc">
-                                                <rect key="frame" x="169" y="45" width="42" height="21"/>
+                                                <rect key="frame" x="217" y="49" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riW-1x-ba0">
-                                                <rect key="frame" x="169" y="83" width="42" height="21"/>
+                                                <rect key="frame" x="217" y="83" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ro2-c9-0XQ">
-                                                <rect key="frame" x="169" y="121" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WlJ-5X-VQZ" customClass="Switch" customModule="SabadBanDev" customModuleProvider="target">
+                                                <rect key="frame" x="58" y="47" width="100" height="24"/>
+                                                <color key="backgroundColor" red="0.10980392156862745" green="0.14117647058823529" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="leftText" value="فروش"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rightSelected" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="rightText" value="خرید"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="swValueChanged:" destination="ImZ-53-Q9T" eventType="valueChanged" id="HOb-bn-7uD"/>
+                                                </connections>
+                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.14576283430150197" green="0.19658975706779477" blue="0.3392184933528386" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="fQZ-9b-Wgp" firstAttribute="leading" secondItem="km6-kT-e8Z" secondAttribute="leadingMargin" constant="50" id="1EE-9f-fYb"/>
-                                            <constraint firstItem="bdz-Kw-cpM" firstAttribute="baseline" secondItem="ro2-c9-0XQ" secondAttribute="baseline" constant="-5" id="1bh-As-T1l"/>
-                                            <constraint firstItem="bdz-Kw-cpM" firstAttribute="top" secondItem="cGg-Eg-UeH" secondAttribute="bottom" constant="3" id="1gz-ej-mbM"/>
+                                            <constraint firstItem="q0a-sY-ZZc" firstAttribute="top" secondItem="km6-kT-e8Z" secondAttribute="top" constant="49" id="4po-wK-riE"/>
+                                            <constraint firstItem="cGg-Eg-UeH" firstAttribute="top" secondItem="WlJ-5X-VQZ" secondAttribute="bottom" constant="8" symbolic="YES" id="8Ef-aG-1Qj"/>
                                             <constraint firstItem="q0a-sY-ZZc" firstAttribute="leading" secondItem="riW-1x-ba0" secondAttribute="leading" id="BP2-eh-yf2"/>
-                                            <constraint firstItem="fQZ-9b-Wgp" firstAttribute="top" secondItem="km6-kT-e8Z" secondAttribute="top" constant="45" id="Fx3-rj-seu"/>
-                                            <constraint firstItem="fQZ-9b-Wgp" firstAttribute="baseline" secondItem="q0a-sY-ZZc" secondAttribute="baseline" constant="4" id="GO0-nu-CAi"/>
+                                            <constraint firstItem="q0a-sY-ZZc" firstAttribute="leading" secondItem="WlJ-5X-VQZ" secondAttribute="trailing" constant="59" id="DRC-Eb-Rxo"/>
                                             <constraint firstItem="4GH-hm-Too" firstAttribute="centerX" secondItem="Iun-we-AzH" secondAttribute="centerX" id="IyQ-bz-4YY"/>
-                                            <constraint firstItem="cGg-Eg-UeH" firstAttribute="top" secondItem="fQZ-9b-Wgp" secondAttribute="bottom" constant="4" id="QyD-7U-Y0H"/>
+                                            <constraint firstItem="riW-1x-ba0" firstAttribute="top" secondItem="q0a-sY-ZZc" secondAttribute="bottom" constant="13" id="Lfn-SR-PfH"/>
+                                            <constraint firstItem="Iun-we-AzH" firstAttribute="top" secondItem="cGg-Eg-UeH" secondAttribute="bottom" constant="57" id="WYl-MH-67G"/>
                                             <constraint firstItem="4GH-hm-Too" firstAttribute="top" secondItem="km6-kT-e8Z" secondAttribute="topMargin" id="XHf-NT-mke"/>
-                                            <constraint firstAttribute="bottom" secondItem="bdz-Kw-cpM" secondAttribute="bottom" constant="66" id="b9p-h8-fYS"/>
-                                            <constraint firstItem="cGg-Eg-UeH" firstAttribute="trailing" secondItem="bdz-Kw-cpM" secondAttribute="trailing" id="dXy-pa-W88"/>
+                                            <constraint firstItem="WlJ-5X-VQZ" firstAttribute="centerY" secondItem="q0a-sY-ZZc" secondAttribute="centerY" id="Xod-Ej-g88"/>
+                                            <constraint firstItem="WlJ-5X-VQZ" firstAttribute="leading" secondItem="cGg-Eg-UeH" secondAttribute="leading" id="Yf8-aR-EHK"/>
                                             <constraint firstItem="xc9-ud-KQt" firstAttribute="bottom" secondItem="4GH-hm-Too" secondAttribute="bottom" id="gVP-MX-viY"/>
-                                            <constraint firstItem="q0a-sY-ZZc" firstAttribute="trailing" secondItem="km6-kT-e8Z" secondAttribute="trailingMargin" constant="-81" id="iS3-Qo-hQL"/>
+                                            <constraint firstItem="q0a-sY-ZZc" firstAttribute="trailing" secondItem="km6-kT-e8Z" secondAttribute="trailingMargin" constant="-33" id="iS3-Qo-hQL"/>
                                             <constraint firstItem="cGg-Eg-UeH" firstAttribute="baseline" secondItem="riW-1x-ba0" secondAttribute="baseline" id="iph-IS-Dz1"/>
-                                            <constraint firstItem="fQZ-9b-Wgp" firstAttribute="leading" secondItem="cGg-Eg-UeH" secondAttribute="leading" id="kAX-NS-WHT"/>
-                                            <constraint firstItem="fQZ-9b-Wgp" firstAttribute="trailing" secondItem="cGg-Eg-UeH" secondAttribute="trailing" id="n06-5s-8wS"/>
+                                            <constraint firstItem="WlJ-5X-VQZ" firstAttribute="leading" secondItem="km6-kT-e8Z" secondAttribute="leading" constant="58" id="lE2-96-9rK"/>
+                                            <constraint firstItem="WlJ-5X-VQZ" firstAttribute="top" secondItem="4GH-hm-Too" secondAttribute="bottom" constant="18" id="pIE-bX-zP8"/>
                                             <constraint firstAttribute="bottom" secondItem="Iun-we-AzH" secondAttribute="bottom" constant="12" id="piQ-PG-CWS"/>
-                                            <constraint firstItem="cGg-Eg-UeH" firstAttribute="leading" secondItem="bdz-Kw-cpM" secondAttribute="leading" id="t0h-Z4-HTQ"/>
+                                            <constraint firstItem="WlJ-5X-VQZ" firstAttribute="trailing" secondItem="cGg-Eg-UeH" secondAttribute="trailing" id="rNu-fX-A3L"/>
                                             <constraint firstItem="4GH-hm-Too" firstAttribute="centerX" secondItem="km6-kT-e8Z" secondAttribute="centerX" id="wf9-SG-hax"/>
                                             <constraint firstItem="xc9-ud-KQt" firstAttribute="leading" secondItem="km6-kT-e8Z" secondAttribute="leading" id="xDv-5x-Qj4"/>
-                                            <constraint firstItem="riW-1x-ba0" firstAttribute="leading" secondItem="ro2-c9-0XQ" secondAttribute="leading" id="xhd-r2-pio"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -3558,20 +3520,18 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
-                        <outlet property="btnCount" destination="bdz-Kw-cpM" id="Rpb-kr-s3i"/>
-                        <outlet property="btnDate" destination="fQZ-9b-Wgp" id="AXp-Zp-ywq"/>
-                        <outlet property="btnDone" destination="Iun-we-AzH" id="k7u-nS-Zww"/>
-                        <outlet property="btnPrice" destination="cGg-Eg-UeH" id="InD-M2-bXp"/>
-                        <outlet property="lblCount" destination="ro2-c9-0XQ" id="cHO-se-o3b"/>
-                        <outlet property="lblDate" destination="q0a-sY-ZZc" id="6Gy-Fp-RJS"/>
-                        <outlet property="lblPrice" destination="riW-1x-ba0" id="PZ3-dB-cwF"/>
-                        <outlet property="lblTitle" destination="4GH-hm-Too" id="2O0-li-4vW"/>
-                        <outlet property="tblHistory" destination="m1e-If-6yJ" id="VHJ-oT-aIZ"/>
+                        <outlet property="btnAdd" destination="Iun-we-AzH" id="rf5-So-l6p"/>
+                        <outlet property="btnPrice" destination="cGg-Eg-UeH" id="1fE-g8-sTc"/>
+                        <outlet property="lblPrice" destination="riW-1x-ba0" id="S1q-3r-KXm"/>
+                        <outlet property="lblTitle" destination="4GH-hm-Too" id="bYp-bP-rnN"/>
+                        <outlet property="lblType" destination="q0a-sY-ZZc" id="rqf-AX-2se"/>
+                        <outlet property="swType" destination="WlJ-5X-VQZ" id="RR5-Ml-pt3"/>
+                        <outlet property="tblHistory" destination="m1e-If-6yJ" id="d28-cU-baR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PJg-9U-YJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2224" y="1797"/>
+            <point key="canvasLocation" x="2197" y="1775"/>
         </scene>
     </scenes>
     <resources>

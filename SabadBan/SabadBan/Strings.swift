@@ -168,5 +168,17 @@ struct Strings {
     static let download = "download";
     
     //MARK: - Jail break check
-    static let isJailBrokenDescription = "isJailBrokenDescription";
+    static let isJailBrokenDescription = "isJailBrokenDescription"
+
+
+    //Mark: - Alarm Filter
+
+
+    static let kind = "kind"
+    static let sell = "sell"
+    static let add = "add"
+    static let buy = "buy"
+    static let status = "status"
+    static let sended = "sended"
+    static let notSended = "notSended"
 }

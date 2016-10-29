@@ -28,24 +28,21 @@ class SymbolDetailsTabBar:UITabBarController {
         alarmButton.addTarget(self, action: #selector(openAlarmView), forControlEvents: .TouchUpInside)
         let alarmBarButton = UIBarButtonItem(customView: alarmButton)
 
-        let btnMenu = UIButton()
-        btnMenu.setImage(UIImage(named: UIConstants.Menu), forState: .Normal)
-        btnMenu.frame = CGRectMake(0, 0, 30, 30)
-        btnMenu.addTarget(self, action: #selector(openMenu), forControlEvents: .TouchUpInside)
+
         //.... Set Right/Left Bar Button item
         if (getAppLanguage() == Language.fa.rawValue){
-            let rightBarButton = UIBarButtonItem(customView: btnMenu)
-            self.navigationItem.rightBarButtonItem = rightBarButton
             self.navigationItem.rightBarButtonItem = alarmBarButton
         }else {
-            let rightBarButton = UIBarButtonItem(customView: btnMenu)
-            self.navigationItem.leftBarButtonItem = rightBarButton
             self.navigationItem.leftBarButtonItem = alarmBarButton
         }
     }
 
     func openAlarmView() {
-        self.performSegueWithIdentifier(UIConstants.AlarmSegue, sender: nil)
+        debugPrint("Here")
+        let mainStoryBoard = UIStoryboard(name: UIConstants.Main, bundle: nil)
+        let alarmVC = mainStoryBoard.instantiateViewControllerWithIdentifier(UIConstants.AlarmFilterViewController)
+        alarmVC.modalPresentationStyle = .OverCurrentContext
+        presentViewController(alarmVC, animated: true, completion: nil)
     }
 
     func openMenu() {

@@ -52,7 +52,11 @@ public let URLS:[String:String] =
      "register" : "/api/v1/auth/register",
      "sendContactUs" : "/api/v1/tools/contact_us",
      "changePassword" : "/api/v1/auth/changePassword",
-     "checkVersionCode" : "/services/checkVersionCode"
+     "checkVersionCode" : "/services/checkVersionCode",
+     "getAlarmFilters" : "/services/find-alarms",
+     "addAlarmFilter" : "/services/add-alarm",
+     "editAlarmFilter" : "/services/edit-alarm",
+     "deleteAlarmFilter" : "/services/delete-alarm"
 ]
 
 //MARK:- Constants

@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuyInformationView" customModule="SabadBan" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuyInformationView" customModule="SabadBanDev" customModuleProvider="target">
             <connections>
                 <outlet property="btnDone" destination="8Iv-k7-8cV" id="PPL-Vi-BR0"/>
                 <outlet property="lblCount" destination="288-uy-p3k" id="qb4-93-QaF"/>
