@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="IRANSans.ttf">
+            <string>IRANSansMobileFaNum</string>
+            <string>IRANSansMobileFaNum</string>
+            <string>IRANSansMobileFaNum</string>
+            <string>IRANSansMobileFaNum</string>
+            <string>IRANSansMobileFaNum</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlarmFilterViewController" customModule="SabadBanDev" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="h9d-CI-j8s" customClass="AlarmDataHeader" customModule="SabadBanDev" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceT-DE-cSr">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Hpv-Qi-rn4">
+                            <rect key="frame" x="50" y="10" width="35" height="23"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="35" id="MCa-qr-DSS"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
+                            <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Del" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="a2E-tS-XaW">
+                            <rect key="frame" x="2" y="10" width="35" height="23"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="35" id="22M-PF-uqw"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
+                            <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="BUs-WS-Jxj">
+                            <rect key="frame" x="95" y="10" width="51" height="23"/>
+                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
+                            <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="LXY-vl-mOk">
+                            <rect key="frame" x="150" y="10" width="50" height="23"/>
+                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
+                            <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="QsH-1M-fmG">
+                            <rect key="frame" x="206" y="10" width="86" height="23"/>
+                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
+                            <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.090196078430000007" green="0.13725490200000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="a2E-tS-XaW" firstAttribute="baseline" secondItem="BUs-WS-Jxj" secondAttribute="baseline" id="4a5-t3-kAD"/>
+                        <constraint firstItem="Hpv-Qi-rn4" firstAttribute="leading" secondItem="a2E-tS-XaW" secondAttribute="trailing" constant="13" id="5Cs-Co-fDA"/>
+                        <constraint firstItem="BUs-WS-Jxj" firstAttribute="baseline" secondItem="LXY-vl-mOk" secondAttribute="baseline" id="5qp-KF-40M"/>
+                        <constraint firstItem="QsH-1M-fmG" firstAttribute="width" secondItem="ceT-DE-cSr" secondAttribute="width" multiplier="2/7" id="789-af-58M"/>
+                        <constraint firstItem="BUs-WS-Jxj" firstAttribute="width" secondItem="ceT-DE-cSr" secondAttribute="width" multiplier="1/6" constant="1" id="C34-5N-69W"/>
+                        <constraint firstItem="BUs-WS-Jxj" firstAttribute="centerY" secondItem="ceT-DE-cSr" secondAttribute="centerY" id="CRY-fq-6Qj"/>
+                        <constraint firstItem="QsH-1M-fmG" firstAttribute="trailing" secondItem="ceT-DE-cSr" secondAttribute="trailingMargin" id="LUt-kE-h2f"/>
+                        <constraint firstAttribute="trailing" secondItem="LXY-vl-mOk" secondAttribute="trailing" constant="87" id="QEI-w7-yb4"/>
+                        <constraint firstItem="Hpv-Qi-rn4" firstAttribute="baseline" secondItem="QsH-1M-fmG" secondAttribute="baseline" id="Wb7-tR-nxP"/>
+                        <constraint firstItem="LXY-vl-mOk" firstAttribute="width" secondItem="ceT-DE-cSr" secondAttribute="width" multiplier="1/6" id="bY1-Cb-wV1"/>
+                        <constraint firstItem="BUs-WS-Jxj" firstAttribute="leading" secondItem="Hpv-Qi-rn4" secondAttribute="trailing" constant="10" id="hi4-BD-nCy"/>
+                        <constraint firstItem="a2E-tS-XaW" firstAttribute="leading" secondItem="ceT-DE-cSr" secondAttribute="leading" constant="2" id="mH1-h6-3gz"/>
+                        <constraint firstItem="Hpv-Qi-rn4" firstAttribute="centerY" secondItem="ceT-DE-cSr" secondAttribute="centerY" id="pjR-Lb-nzR"/>
+                        <constraint firstItem="LXY-vl-mOk" firstAttribute="leading" secondItem="BUs-WS-Jxj" secondAttribute="trailing" constant="4" id="zO8-Uw-rBx"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="QEI-w7-yb4"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="ceT-DE-cSr" firstAttribute="leading" secondItem="h9d-CI-j8s" secondAttribute="leading" id="UHR-Ja-jY3"/>
+                <constraint firstAttribute="bottom" secondItem="ceT-DE-cSr" secondAttribute="bottom" id="ihm-Jw-Pey"/>
+                <constraint firstAttribute="trailing" secondItem="ceT-DE-cSr" secondAttribute="trailing" id="tnm-BA-g4k"/>
+                <constraint firstItem="ceT-DE-cSr" firstAttribute="top" secondItem="h9d-CI-j8s" secondAttribute="top" id="w55-Kk-CJT"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="lblDelete" destination="a2E-tS-XaW" id="qpg-hC-8Ph"/>
+                <outlet property="lblEdit" destination="Hpv-Qi-rn4" id="CB2-tB-Oq3"/>
+                <outlet property="lblPrice" destination="LXY-vl-mOk" id="K1l-Uq-BfY"/>
+                <outlet property="lblSymbol" destination="BUs-WS-Jxj" id="AoS-gN-xaz"/>
+                <outlet property="lblType" destination="QsH-1M-fmG" id="TZW-gQ-thi"/>
+            </connections>
+            <point key="canvasLocation" x="367" y="194"/>
+        </view>
+    </objects>
+</document>

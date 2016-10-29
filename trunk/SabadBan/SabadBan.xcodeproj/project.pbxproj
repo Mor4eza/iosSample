@@ -366,6 +366,48 @@
 		949BEEB71D731228008FA574 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949BEEB61D731228008FA574 /* ChartViewController.swift */; };
 		949BEEB91D731235008FA574 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949BEEB81D731235008FA574 /* DetailsViewController.swift */; };
 		94A211A41D9A649B00F39202 /* SymbolDetailsTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A211A31D9A649B00F39202 /* SymbolDetailsTabBar.swift */; };
+		94A3DE791DC48095001B254F /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A3DE781DC48095001B254F /* Switch.swift */; };
+		94A3DE7A1DC48095001B254F /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A3DE781DC48095001B254F /* Switch.swift */; };
+		94A3DE7B1DC48095001B254F /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A3DE781DC48095001B254F /* Switch.swift */; };
+		94A4B36E1DC48E3A00FBDB39 /* AlarmFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B36D1DC48E3A00FBDB39 /* AlarmFilterViewController.swift */; };
+		94A4B3711DC494F400FBDB39 /* FindAlarmsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3701DC494F400FBDB39 /* FindAlarmsRequest.swift */; };
+		94A4B3721DC494F400FBDB39 /* FindAlarmsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3701DC494F400FBDB39 /* FindAlarmsRequest.swift */; };
+		94A4B3731DC494F400FBDB39 /* FindAlarmsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3701DC494F400FBDB39 /* FindAlarmsRequest.swift */; };
+		94A4B3751DC4967700FBDB39 /* EditAlarmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3741DC4967700FBDB39 /* EditAlarmRequest.swift */; };
+		94A4B3761DC4967700FBDB39 /* EditAlarmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3741DC4967700FBDB39 /* EditAlarmRequest.swift */; };
+		94A4B3771DC4967700FBDB39 /* EditAlarmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3741DC4967700FBDB39 /* EditAlarmRequest.swift */; };
+		94A4B3791DC4968300FBDB39 /* DeleteAlarmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3781DC4968300FBDB39 /* DeleteAlarmRequest.swift */; };
+		94A4B37A1DC4968300FBDB39 /* DeleteAlarmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3781DC4968300FBDB39 /* DeleteAlarmRequest.swift */; };
+		94A4B37B1DC4968300FBDB39 /* DeleteAlarmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3781DC4968300FBDB39 /* DeleteAlarmRequest.swift */; };
+		94A4B37D1DC4969700FBDB39 /* AddAlarmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B37C1DC4969700FBDB39 /* AddAlarmRequest.swift */; };
+		94A4B37E1DC4969700FBDB39 /* AddAlarmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B37C1DC4969700FBDB39 /* AddAlarmRequest.swift */; };
+		94A4B37F1DC4969700FBDB39 /* AddAlarmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B37C1DC4969700FBDB39 /* AddAlarmRequest.swift */; };
+		94A4B3821DC4990900FBDB39 /* FindAlarmsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3811DC4990900FBDB39 /* FindAlarmsResponse.swift */; };
+		94A4B3831DC4990900FBDB39 /* FindAlarmsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3811DC4990900FBDB39 /* FindAlarmsResponse.swift */; };
+		94A4B3841DC4990900FBDB39 /* FindAlarmsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3811DC4990900FBDB39 /* FindAlarmsResponse.swift */; };
+		94A4B3861DC499BF00FBDB39 /* AddAlarmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3851DC499BF00FBDB39 /* AddAlarmResponse.swift */; };
+		94A4B3871DC499BF00FBDB39 /* AddAlarmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3851DC499BF00FBDB39 /* AddAlarmResponse.swift */; };
+		94A4B3881DC499BF00FBDB39 /* AddAlarmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3851DC499BF00FBDB39 /* AddAlarmResponse.swift */; };
+		94A4B38A1DC49AF800FBDB39 /* EditAlarmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3891DC49AF800FBDB39 /* EditAlarmResponse.swift */; };
+		94A4B38B1DC49AF800FBDB39 /* EditAlarmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3891DC49AF800FBDB39 /* EditAlarmResponse.swift */; };
+		94A4B38C1DC49AF800FBDB39 /* EditAlarmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3891DC49AF800FBDB39 /* EditAlarmResponse.swift */; };
+		94A4B38F1DC49CFB00FBDB39 /* AlarmDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4B38E1DC49CFB00FBDB39 /* AlarmDataCell.xib */; };
+		94A4B3901DC49CFB00FBDB39 /* AlarmDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4B38E1DC49CFB00FBDB39 /* AlarmDataCell.xib */; };
+		94A4B3911DC49CFB00FBDB39 /* AlarmDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4B38E1DC49CFB00FBDB39 /* AlarmDataCell.xib */; };
+		94A4B3931DC49D2F00FBDB39 /* AlarmDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3921DC49D2F00FBDB39 /* AlarmDataCell.swift */; };
+		94A4B3941DC49D2F00FBDB39 /* AlarmDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3921DC49D2F00FBDB39 /* AlarmDataCell.swift */; };
+		94A4B3951DC49D2F00FBDB39 /* AlarmDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3921DC49D2F00FBDB39 /* AlarmDataCell.swift */; };
+		94A4B3971DC49D5D00FBDB39 /* AlarmDataHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4B3961DC49D5D00FBDB39 /* AlarmDataHeader.xib */; };
+		94A4B3981DC49D5D00FBDB39 /* AlarmDataHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4B3961DC49D5D00FBDB39 /* AlarmDataHeader.xib */; };
+		94A4B3991DC49D5D00FBDB39 /* AlarmDataHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4B3961DC49D5D00FBDB39 /* AlarmDataHeader.xib */; };
+		94A4B39B1DC49D9000FBDB39 /* AlarmDataHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B39A1DC49D9000FBDB39 /* AlarmDataHeader.swift */; };
+		94A4B39C1DC49D9000FBDB39 /* AlarmDataHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B39A1DC49D9000FBDB39 /* AlarmDataHeader.swift */; };
+		94A4B39D1DC49D9000FBDB39 /* AlarmDataHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B39A1DC49D9000FBDB39 /* AlarmDataHeader.swift */; };
+		94A4B39E1DC4B42600FBDB39 /* AlarmFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B36D1DC48E3A00FBDB39 /* AlarmFilterViewController.swift */; };
+		94A4B39F1DC4B42700FBDB39 /* AlarmFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B36D1DC48E3A00FBDB39 /* AlarmFilterViewController.swift */; };
+		94A4B3A11DC4BEB700FBDB39 /* AlarmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3A01DC4BEB700FBDB39 /* AlarmResponse.swift */; };
+		94A4B3A21DC4BEB700FBDB39 /* AlarmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3A01DC4BEB700FBDB39 /* AlarmResponse.swift */; };
+		94A4B3A31DC4BEB700FBDB39 /* AlarmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3A01DC4BEB700FBDB39 /* AlarmResponse.swift */; };
 		94B7722B1D7FE13F002AA618 /* BourseNewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7722A1D7FE13F002AA618 /* BourseNewsTableViewController.swift */; };
 		94B7722D1D7FE18D002AA618 /* ObserverNewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7722C1D7FE18D002AA618 /* ObserverNewsTableViewController.swift */; };
 		94B7722F1D7FE363002AA618 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7722E1D7FE363002AA618 /* NewsCell.swift */; };
@@ -512,6 +554,20 @@
 		949BEEB61D731228008FA574 /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		949BEEB81D731235008FA574 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		94A211A31D9A649B00F39202 /* SymbolDetailsTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolDetailsTabBar.swift; sourceTree = "<group>"; };
+		94A3DE781DC48095001B254F /* Switch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
+		94A4B36D1DC48E3A00FBDB39 /* AlarmFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmFilterViewController.swift; sourceTree = "<group>"; };
+		94A4B3701DC494F400FBDB39 /* FindAlarmsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindAlarmsRequest.swift; sourceTree = "<group>"; };
+		94A4B3741DC4967700FBDB39 /* EditAlarmRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAlarmRequest.swift; sourceTree = "<group>"; };
+		94A4B3781DC4968300FBDB39 /* DeleteAlarmRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteAlarmRequest.swift; sourceTree = "<group>"; };
+		94A4B37C1DC4969700FBDB39 /* AddAlarmRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAlarmRequest.swift; sourceTree = "<group>"; };
+		94A4B3811DC4990900FBDB39 /* FindAlarmsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindAlarmsResponse.swift; sourceTree = "<group>"; };
+		94A4B3851DC499BF00FBDB39 /* AddAlarmResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAlarmResponse.swift; sourceTree = "<group>"; };
+		94A4B3891DC49AF800FBDB39 /* EditAlarmResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAlarmResponse.swift; sourceTree = "<group>"; };
+		94A4B38E1DC49CFB00FBDB39 /* AlarmDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmDataCell.xib; sourceTree = "<group>"; };
+		94A4B3921DC49D2F00FBDB39 /* AlarmDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmDataCell.swift; sourceTree = "<group>"; };
+		94A4B3961DC49D5D00FBDB39 /* AlarmDataHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmDataHeader.xib; sourceTree = "<group>"; };
+		94A4B39A1DC49D9000FBDB39 /* AlarmDataHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmDataHeader.swift; sourceTree = "<group>"; };
+		94A4B3A01DC4BEB700FBDB39 /* AlarmResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmResponse.swift; sourceTree = "<group>"; };
 		94B7722A1D7FE13F002AA618 /* BourseNewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BourseNewsTableViewController.swift; sourceTree = "<group>"; };
 		94B7722C1D7FE18D002AA618 /* ObserverNewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverNewsTableViewController.swift; sourceTree = "<group>"; };
 		94B7722E1D7FE363002AA618 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
@@ -645,6 +701,7 @@
 		84C9E27F1D9929BB00F96EF8 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				94A4B3801DC4986B00FBDB39 /* AlarmFilterResponse */,
 				84036D461DBCAFC600799A49 /* CheckVersionCode */,
 				7CAF1DC31D8C1BAB003E22A4 /* MarketActivity */,
 				9412F0E81D857DE200E94683 /* UserManagement */,
@@ -660,10 +717,11 @@
 		84C9E2801D9929C800F96EF8 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				94A4B36F1DC4949700FBDB39 /* AlarmFilterRequests */,
 				84C9E28E1D9970CB00F96EF8 /* UserManagement */,
 				84C9E2811D9929F200F96EF8 /* News */,
-				84C9E28C1D993D3E00F96EF8 /* IndexDetailsRequest.swift */,
 				945E61521D9FF63500FDB549 /* ContactUsRequest.swift */,
+				84C9E28C1D993D3E00F96EF8 /* IndexDetailsRequest.swift */,
 				84C9E2931D997A0A00F96EF8 /* SymbolBestLimitRequest.swift */,
 				84C9E2951D997AE500F96EF8 /* SymbolTradingRequest.swift */,
 				84C9E2971D997B5700F96EF8 /* SymbolListByIndexRequest.swift */,
@@ -735,8 +793,8 @@
 			children = (
 				9420042C1D8D4A1700B358BC /* BuyInformationView.xib */,
 				9420042E1D8D4AB500B358BC /* BuyInformationView.swift */,
-				94144E941D8D5CB40008F602 /* BuyInfoCell.swift */,
 				94144E971D8D5D0F0008F602 /* BuyInfoCell.xib */,
+				94144E941D8D5CB40008F602 /* BuyInfoCell.swift */,
 				94144E991D8D61920008F602 /* buyInfoHeader.swift */,
 				94144E9B1D8D61A50008F602 /* buyInfoHeader.xib */,
 			);
@@ -995,6 +1053,7 @@
 		949BEE661D72A737008FA574 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				94A3DE771DC48072001B254F /* CustomSwich */,
 				94E30E1E1D8FC4CA0052EF59 /* DatePicker */,
 				949BEE791D72A7BA008FA574 /* SideMenu */,
 			);
@@ -1004,6 +1063,7 @@
 		949BEE671D72A741008FA574 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				94A3DE721DC478C3001B254F /* AlarmFilter */,
 				84B6DCC71DBB780F00D93B4F /* ForgetPassword */,
 				9478A6431D892AA90087B574 /* Register */,
 				9412F0F21D857EDD00E94683 /* Login */,
@@ -1093,6 +1153,7 @@
 		949BEE981D72B28F008FA574 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				94A4B38D1DC49CA500FBDB39 /* AlarmData */,
 				94283BA51DAA509A00339914 /* Symbols */,
 				948776661D882F7A009E358F /* Menu */,
 				94B772301D7FE36A002AA618 /* News */,
@@ -1153,6 +1214,55 @@
 				947C638F1D7451EE00676822 /* SymbolListTableViewController.swift */,
 			);
 			name = IndexDetails;
+			sourceTree = "<group>";
+		};
+		94A3DE721DC478C3001B254F /* AlarmFilter */ = {
+			isa = PBXGroup;
+			children = (
+				94A4B36D1DC48E3A00FBDB39 /* AlarmFilterViewController.swift */,
+			);
+			name = AlarmFilter;
+			sourceTree = "<group>";
+		};
+		94A3DE771DC48072001B254F /* CustomSwich */ = {
+			isa = PBXGroup;
+			children = (
+				94A3DE781DC48095001B254F /* Switch.swift */,
+			);
+			name = CustomSwich;
+			sourceTree = "<group>";
+		};
+		94A4B36F1DC4949700FBDB39 /* AlarmFilterRequests */ = {
+			isa = PBXGroup;
+			children = (
+				94A4B3701DC494F400FBDB39 /* FindAlarmsRequest.swift */,
+				94A4B3741DC4967700FBDB39 /* EditAlarmRequest.swift */,
+				94A4B3781DC4968300FBDB39 /* DeleteAlarmRequest.swift */,
+				94A4B37C1DC4969700FBDB39 /* AddAlarmRequest.swift */,
+			);
+			name = AlarmFilterRequests;
+			sourceTree = "<group>";
+		};
+		94A4B3801DC4986B00FBDB39 /* AlarmFilterResponse */ = {
+			isa = PBXGroup;
+			children = (
+				94A4B3851DC499BF00FBDB39 /* AddAlarmResponse.swift */,
+				94A4B3811DC4990900FBDB39 /* FindAlarmsResponse.swift */,
+				94A4B3891DC49AF800FBDB39 /* EditAlarmResponse.swift */,
+				94A4B3A01DC4BEB700FBDB39 /* AlarmResponse.swift */,
+			);
+			name = AlarmFilterResponse;
+			sourceTree = "<group>";
+		};
+		94A4B38D1DC49CA500FBDB39 /* AlarmData */ = {
+			isa = PBXGroup;
+			children = (
+				94A4B38E1DC49CFB00FBDB39 /* AlarmDataCell.xib */,
+				94A4B3921DC49D2F00FBDB39 /* AlarmDataCell.swift */,
+				94A4B3961DC49D5D00FBDB39 /* AlarmDataHeader.xib */,
+				94A4B39A1DC49D9000FBDB39 /* AlarmDataHeader.swift */,
+			);
+			name = AlarmData;
 			sourceTree = "<group>";
 		};
 		94B772271D7FE058002AA618 /* News */ = {
@@ -1352,6 +1462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9476FB481DBB425700B923D6 /* SymbolListHeader.xib in Resources */,
+				94A4B3901DC49CFB00FBDB39 /* AlarmDataCell.xib in Resources */,
 				9476FB491DBB425700B923D6 /* Localizable.strings in Resources */,
 				9476FB4A1DBB425700B923D6 /* LaunchScreen.storyboard in Resources */,
 				9476FB4B1DBB425700B923D6 /* Assets.xcassets in Resources */,
@@ -1366,6 +1477,7 @@
 				9476FB541DBB425700B923D6 /* menuCell.xib in Resources */,
 				9476FB551DBB425700B923D6 /* IndexHeader.xib in Resources */,
 				9476FB561DBB425700B923D6 /* BuyInformationView.xib in Resources */,
+				94A4B3981DC49D5D00FBDB39 /* AlarmDataHeader.xib in Resources */,
 				946B21121DBF912500FD2EFD /* PortfolioHeader.xib in Resources */,
 				9476FB571DBB425700B923D6 /* BuyInfoCell.xib in Resources */,
 				9476FB581DBB425700B923D6 /* menuHeader.xib in Resources */,
@@ -1377,6 +1489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9476FBCE1DBB425B00B923D6 /* SymbolListHeader.xib in Resources */,
+				94A4B3911DC49CFB00FBDB39 /* AlarmDataCell.xib in Resources */,
 				9476FBCF1DBB425B00B923D6 /* Localizable.strings in Resources */,
 				9476FBD01DBB425B00B923D6 /* LaunchScreen.storyboard in Resources */,
 				9476FBD11DBB425B00B923D6 /* Assets.xcassets in Resources */,
@@ -1391,6 +1504,7 @@
 				9476FBDA1DBB425B00B923D6 /* menuCell.xib in Resources */,
 				9476FBDB1DBB425B00B923D6 /* IndexHeader.xib in Resources */,
 				9476FBDC1DBB425B00B923D6 /* BuyInformationView.xib in Resources */,
+				94A4B3991DC49D5D00FBDB39 /* AlarmDataHeader.xib in Resources */,
 				946B21131DBF912500FD2EFD /* PortfolioHeader.xib in Resources */,
 				9476FBDD1DBB425B00B923D6 /* BuyInfoCell.xib in Resources */,
 				9476FBDE1DBB425B00B923D6 /* menuHeader.xib in Resources */,
@@ -1410,8 +1524,10 @@
 				949BEE741D72A799008FA574 /* MyAlert.xib in Resources */,
 				943A08061DBE330B002773B5 /* .tailor.yml in Resources */,
 				94144E9C1D8D61A50008F602 /* buyInfoHeader.xib in Resources */,
+				94A4B38F1DC49CFB00FBDB39 /* AlarmDataCell.xib in Resources */,
 				949BEE571D72A51C008FA574 /* Main.storyboard in Resources */,
 				94283BA91DAA50F200339914 /* SymbolBestBuyAndCellHeader.xib in Resources */,
+				94A4B3971DC49D5D00FBDB39 /* AlarmDataHeader.xib in Resources */,
 				7CAF1DC91D8C3362003E22A4 /* MarketDetailsHeader.xib in Resources */,
 				941F7D031DA26C5D00FE5617 /* GoogleService-Info.plist in Resources */,
 				949BEE961D72ADB4008FA574 /* IRANSans.ttf in Resources */,
@@ -1901,6 +2017,7 @@
 				9476FAE91DBB425700B923D6 /* RegisterViewController.swift in Sources */,
 				9476FAEA1DBB425700B923D6 /* UserManagementModel.swift in Sources */,
 				9476FAEB1DBB425700B923D6 /* SymbolListHeader.swift in Sources */,
+				94A4B3941DC49D2F00FBDB39 /* AlarmDataCell.swift in Sources */,
 				9476FAEC1DBB425700B923D6 /* indexDetailsCell.swift in Sources */,
 				9476FAED1DBB425700B923D6 /* MyNavigationController.swift in Sources */,
 				9476FAEE1DBB425700B923D6 /* BourseNewsResponse.swift in Sources */,
@@ -1929,12 +2046,15 @@
 				9476FB031DBB425700B923D6 /* NewsDetailViewController.swift in Sources */,
 				9476FB041DBB425700B923D6 /* LoginRequest.swift in Sources */,
 				84F7471D1DBE44B300DE3AF8 /* LogoutRequest.swift in Sources */,
+				94A4B3761DC4967700FBDB39 /* EditAlarmRequest.swift in Sources */,
 				9476FB051DBB425700B923D6 /* ChartViewController.swift in Sources */,
 				9476FB061DBB425700B923D6 /* Response.swift in Sources */,
 				9476FB071DBB425700B923D6 /* RegisterResponse.swift in Sources */,
 				9476FB081DBB425700B923D6 /* Strings.swift in Sources */,
+				94A3DE7A1DC48095001B254F /* Switch.swift in Sources */,
 				9476FB091DBB425700B923D6 /* UIColor.swift in Sources */,
 				9476FB0A1DBB425700B923D6 /* MarketDetailsCell.swift in Sources */,
+				94A4B3721DC494F400FBDB39 /* FindAlarmsRequest.swift in Sources */,
 				9476FB0B1DBB425700B923D6 /* MGBuildDate.m in Sources */,
 				9476FB0C1DBB425700B923D6 /* IndexCell.swift in Sources */,
 				9476FB0D1DBB425700B923D6 /* IndexDetailHeader.swift in Sources */,
@@ -1948,6 +2068,7 @@
 				9476FB151DBB425700B923D6 /* SymbolTradingRequest.swift in Sources */,
 				9476FB161DBB425700B923D6 /* menuCell.swift in Sources */,
 				9476FB171DBB425700B923D6 /* SymbolDetailsList.swift in Sources */,
+				94A4B3A21DC4BEB700FBDB39 /* AlarmResponse.swift in Sources */,
 				9476FB181DBB425700B923D6 /* SymbolsDetailsList.swift in Sources */,
 				9476FB191DBB425700B923D6 /* NumbersFormat.swift in Sources */,
 				9476FB1A1DBB425700B923D6 /* buyInfoHeader.swift in Sources */,
@@ -1959,6 +2080,8 @@
 				9476FB1F1DBB425700B923D6 /* SymbolListByIndexResponse.swift in Sources */,
 				9476FB201DBB425700B923D6 /* SymbolBestLimitRequest.swift in Sources */,
 				9476FB211DBB425700B923D6 /* SymbolNameList.swift in Sources */,
+				94A4B38B1DC49AF800FBDB39 /* EditAlarmResponse.swift in Sources */,
+				94A4B3871DC499BF00FBDB39 /* AddAlarmResponse.swift in Sources */,
 				9476FB221DBB425700B923D6 /* IndexTableViewController.swift in Sources */,
 				9476FB231DBB425700B923D6 /* UIView.swift in Sources */,
 				9476FB241DBB425700B923D6 /* Utils.swift in Sources */,
@@ -1967,6 +2090,7 @@
 				9476FB271DBB425700B923D6 /* SymbolNamesCell.swift in Sources */,
 				9476FB281DBB425700B923D6 /* ENSideMenu.swift in Sources */,
 				9476FB291DBB425700B923D6 /* MyAlert.swift in Sources */,
+				94A4B37A1DC4968300FBDB39 /* DeleteAlarmRequest.swift in Sources */,
 				9476FB2A1DBB425700B923D6 /* TotemStyles.swift in Sources */,
 				9476FB2B1DBB425700B923D6 /* BaseTableViewController.swift in Sources */,
 				9476FB2C1DBB425700B923D6 /* ContactUsRequest.swift in Sources */,
@@ -1975,6 +2099,8 @@
 				9476FB2F1DBB425700B923D6 /* SymbolNameResponse.swift in Sources */,
 				9476FB301DBB425700B923D6 /* IndexHeader.swift in Sources */,
 				9476FB311DBB425700B923D6 /* AcralizerClient.swift in Sources */,
+				94A4B39E1DC4B42600FBDB39 /* AlarmFilterViewController.swift in Sources */,
+				94A4B39C1DC49D9000FBDB39 /* AlarmDataHeader.swift in Sources */,
 				9476FB321DBB425700B923D6 /* NewsMainResponse.swift in Sources */,
 				9476FB331DBB425700B923D6 /* ENSideMenuNavigationController.swift in Sources */,
 				84B6DCCA1DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */,
@@ -1984,6 +2110,7 @@
 				84036D491DBCB02F00799A49 /* CheckVersionCodeResponse.swift in Sources */,
 				9476FB371DBB425700B923D6 /* BuyInformationView.swift in Sources */,
 				9476FB381DBB425700B923D6 /* RegisterRequest.swift in Sources */,
+				94A4B37E1DC4969700FBDB39 /* AddAlarmRequest.swift in Sources */,
 				9476FB391DBB425700B923D6 /* SymbolDetailsViewController.swift in Sources */,
 				9476FB3A1DBB425700B923D6 /* MainResponse.swift in Sources */,
 				9476FB3B1DBB425700B923D6 /* AppConstants.swift in Sources */,
@@ -1994,6 +2121,7 @@
 				9476FB401DBB425700B923D6 /* DatePickerSheet.swift in Sources */,
 				9476FB411DBB425700B923D6 /* SymbolBestLimitResponse.swift in Sources */,
 				9476FB421DBB425700B923D6 /* IndexDetailsTabBarController.swift in Sources */,
+				94A4B3831DC4990900FBDB39 /* FindAlarmsResponse.swift in Sources */,
 				84B6DCD71DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */,
 				9476FB431DBB425700B923D6 /* ObserverNewsRequest.swift in Sources */,
 				9476FB441DBB425700B923D6 /* PortfolioListViewController.swift in Sources */,
@@ -2012,6 +2140,7 @@
 				9476FB6F1DBB425B00B923D6 /* RegisterViewController.swift in Sources */,
 				9476FB701DBB425B00B923D6 /* UserManagementModel.swift in Sources */,
 				9476FB711DBB425B00B923D6 /* SymbolListHeader.swift in Sources */,
+				94A4B3951DC49D2F00FBDB39 /* AlarmDataCell.swift in Sources */,
 				9476FB721DBB425B00B923D6 /* indexDetailsCell.swift in Sources */,
 				9476FB731DBB425B00B923D6 /* MyNavigationController.swift in Sources */,
 				9476FB741DBB425B00B923D6 /* BourseNewsResponse.swift in Sources */,
@@ -2040,12 +2169,15 @@
 				9476FB891DBB425B00B923D6 /* NewsDetailViewController.swift in Sources */,
 				9476FB8A1DBB425B00B923D6 /* LoginRequest.swift in Sources */,
 				84F7471E1DBE44B300DE3AF8 /* LogoutRequest.swift in Sources */,
+				94A4B3771DC4967700FBDB39 /* EditAlarmRequest.swift in Sources */,
 				9476FB8B1DBB425B00B923D6 /* ChartViewController.swift in Sources */,
 				9476FB8C1DBB425B00B923D6 /* Response.swift in Sources */,
 				9476FB8D1DBB425B00B923D6 /* RegisterResponse.swift in Sources */,
 				9476FB8E1DBB425B00B923D6 /* Strings.swift in Sources */,
+				94A3DE7B1DC48095001B254F /* Switch.swift in Sources */,
 				9476FB8F1DBB425B00B923D6 /* UIColor.swift in Sources */,
 				9476FB901DBB425B00B923D6 /* MarketDetailsCell.swift in Sources */,
+				94A4B3731DC494F400FBDB39 /* FindAlarmsRequest.swift in Sources */,
 				9476FB911DBB425B00B923D6 /* MGBuildDate.m in Sources */,
 				9476FB921DBB425B00B923D6 /* IndexCell.swift in Sources */,
 				9476FB931DBB425B00B923D6 /* IndexDetailHeader.swift in Sources */,
@@ -2059,6 +2191,7 @@
 				9476FB9B1DBB425B00B923D6 /* SymbolTradingRequest.swift in Sources */,
 				9476FB9C1DBB425B00B923D6 /* menuCell.swift in Sources */,
 				9476FB9D1DBB425B00B923D6 /* SymbolDetailsList.swift in Sources */,
+				94A4B3A31DC4BEB700FBDB39 /* AlarmResponse.swift in Sources */,
 				9476FB9E1DBB425B00B923D6 /* SymbolsDetailsList.swift in Sources */,
 				9476FB9F1DBB425B00B923D6 /* NumbersFormat.swift in Sources */,
 				9476FBA01DBB425B00B923D6 /* buyInfoHeader.swift in Sources */,
@@ -2070,6 +2203,8 @@
 				9476FBA51DBB425B00B923D6 /* SymbolListByIndexResponse.swift in Sources */,
 				9476FBA61DBB425B00B923D6 /* SymbolBestLimitRequest.swift in Sources */,
 				9476FBA71DBB425B00B923D6 /* SymbolNameList.swift in Sources */,
+				94A4B38C1DC49AF800FBDB39 /* EditAlarmResponse.swift in Sources */,
+				94A4B3881DC499BF00FBDB39 /* AddAlarmResponse.swift in Sources */,
 				9476FBA81DBB425B00B923D6 /* IndexTableViewController.swift in Sources */,
 				9476FBA91DBB425B00B923D6 /* UIView.swift in Sources */,
 				9476FBAA1DBB425B00B923D6 /* Utils.swift in Sources */,
@@ -2078,6 +2213,7 @@
 				9476FBAD1DBB425B00B923D6 /* SymbolNamesCell.swift in Sources */,
 				9476FBAE1DBB425B00B923D6 /* ENSideMenu.swift in Sources */,
 				9476FBAF1DBB425B00B923D6 /* MyAlert.swift in Sources */,
+				94A4B37B1DC4968300FBDB39 /* DeleteAlarmRequest.swift in Sources */,
 				9476FBB01DBB425B00B923D6 /* TotemStyles.swift in Sources */,
 				9476FBB11DBB425B00B923D6 /* BaseTableViewController.swift in Sources */,
 				9476FBB21DBB425B00B923D6 /* ContactUsRequest.swift in Sources */,
@@ -2086,6 +2222,8 @@
 				9476FBB51DBB425B00B923D6 /* SymbolNameResponse.swift in Sources */,
 				9476FBB61DBB425B00B923D6 /* IndexHeader.swift in Sources */,
 				9476FBB71DBB425B00B923D6 /* AcralizerClient.swift in Sources */,
+				94A4B39F1DC4B42700FBDB39 /* AlarmFilterViewController.swift in Sources */,
+				94A4B39D1DC49D9000FBDB39 /* AlarmDataHeader.swift in Sources */,
 				9476FBB81DBB425B00B923D6 /* NewsMainResponse.swift in Sources */,
 				9476FBB91DBB425B00B923D6 /* ENSideMenuNavigationController.swift in Sources */,
 				84B6DCCB1DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */,
@@ -2095,6 +2233,7 @@
 				84036D4A1DBCB02F00799A49 /* CheckVersionCodeResponse.swift in Sources */,
 				9476FBBD1DBB425B00B923D6 /* BuyInformationView.swift in Sources */,
 				9476FBBE1DBB425B00B923D6 /* RegisterRequest.swift in Sources */,
+				94A4B37F1DC4969700FBDB39 /* AddAlarmRequest.swift in Sources */,
 				9476FBBF1DBB425B00B923D6 /* SymbolDetailsViewController.swift in Sources */,
 				9476FBC01DBB425B00B923D6 /* MainResponse.swift in Sources */,
 				9476FBC11DBB425B00B923D6 /* AppConstants.swift in Sources */,
@@ -2105,6 +2244,7 @@
 				9476FBC61DBB425B00B923D6 /* DatePickerSheet.swift in Sources */,
 				9476FBC71DBB425B00B923D6 /* SymbolBestLimitResponse.swift in Sources */,
 				9476FBC81DBB425B00B923D6 /* IndexDetailsTabBarController.swift in Sources */,
+				94A4B3841DC4990900FBDB39 /* FindAlarmsResponse.swift in Sources */,
 				84B6DCD81DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */,
 				9476FBC91DBB425B00B923D6 /* ObserverNewsRequest.swift in Sources */,
 				9476FBCA1DBB425B00B923D6 /* PortfolioListViewController.swift in Sources */,
@@ -2138,6 +2278,7 @@
 				9465DB611D83D702007F0572 /* BourseNewsDetailsList.swift in Sources */,
 				9478A6401D891BF70087B574 /* menuHeader.swift in Sources */,
 				94B772361D7FEA7D002AA618 /* ObserverNewsResponse.swift in Sources */,
+				94A4B3861DC499BF00FBDB39 /* AddAlarmResponse.swift in Sources */,
 				942470161D97F1F20035A380 /* Request.swift in Sources */,
 				944EF19C1D7EC4BF00A039BA /* SymbolTradingResponse.swift in Sources */,
 				7CAF1DC71D8C3294003E22A4 /* MarketDetailsHeader.swift in Sources */,
@@ -2147,14 +2288,18 @@
 				948B46651D76B49500F464C2 /* SearchSeymbolTableView.swift in Sources */,
 				949BEE6F1D72A78A008FA574 /* LinearProgressView.swift in Sources */,
 				949BEE521D72A51C008FA574 /* AppDelegate.swift in Sources */,
+				94A4B3711DC494F400FBDB39 /* FindAlarmsRequest.swift in Sources */,
 				9465DB681D840450007F0572 /* NewsTabBarController.swift in Sources */,
+				94A4B3821DC4990900FBDB39 /* FindAlarmsResponse.swift in Sources */,
 				9465DB661D83E935007F0572 /* NewsDetailViewController.swift in Sources */,
 				84C9E2901D9970EE00F96EF8 /* LoginRequest.swift in Sources */,
 				84F7471C1DBE44B300DE3AF8 /* LogoutRequest.swift in Sources */,
 				949BEEB71D731228008FA574 /* ChartViewController.swift in Sources */,
 				949BEEA91D72CA88008FA574 /* Response.swift in Sources */,
+				94A4B3791DC4968300FBDB39 /* DeleteAlarmRequest.swift in Sources */,
 				9412F0EE1D857E0D00E94683 /* RegisterResponse.swift in Sources */,
 				84F6BBF81D9F972F009BEEB2 /* Strings.swift in Sources */,
+				94A3DE791DC48095001B254F /* Switch.swift in Sources */,
 				949BEEAF1D72F7B2008FA574 /* UIColor.swift in Sources */,
 				7CAF1DC21D8BFBFB003E22A4 /* MarketDetailsCell.swift in Sources */,
 				8477D90C1D856D04006BBFCE /* MGBuildDate.m in Sources */,
@@ -2166,8 +2311,10 @@
 				84C9E28D1D993D3E00F96EF8 /* IndexDetailsRequest.swift in Sources */,
 				949BEE891D72A883008FA574 /* BaseViewController.swift in Sources */,
 				8411E6321D9A50FF009A78DA /* SymbolListAndDetailsRequest.swift in Sources */,
+				94A4B3931DC49D2F00FBDB39 /* AlarmDataCell.swift in Sources */,
 				949BEE821D72A7DA008FA574 /* MyMenuTableViewController.swift in Sources */,
 				84C9E2961D997AE500F96EF8 /* SymbolTradingRequest.swift in Sources */,
+				94A4B3A11DC4BEB700FBDB39 /* AlarmResponse.swift in Sources */,
 				948776691D882FA9009E358F /* menuCell.swift in Sources */,
 				947C63881D744F3E00676822 /* SymbolDetailsList.swift in Sources */,
 				948B466A1D76BCE500F464C2 /* SymbolsDetailsList.swift in Sources */,
@@ -2184,6 +2331,7 @@
 				949BEE9A1D72B2FE008FA574 /* IndexTableViewController.swift in Sources */,
 				949BEE771D72A7AD008FA574 /* UIView.swift in Sources */,
 				949BEE6D1D72A78A008FA574 /* Utils.swift in Sources */,
+				94A4B37D1DC4969700FBDB39 /* AddAlarmRequest.swift in Sources */,
 				94C59CCE1D9A52270036CF4A /* VerticalSlider.swift in Sources */,
 				7CAF1DC51D8C1BCE003E22A4 /* MarketActivityModel.swift in Sources */,
 				941C19BB1D76FD9300DDE96F /* SymbolNamesCell.swift in Sources */,
@@ -2193,6 +2341,7 @@
 				949BEE8A1D72A883008FA574 /* BaseTableViewController.swift in Sources */,
 				945E61531D9FF63500FDB549 /* ContactUsRequest.swift in Sources */,
 				949BEEB91D731235008FA574 /* DetailsViewController.swift in Sources */,
+				94A4B36E1DC48E3A00FBDB39 /* AlarmFilterViewController.swift in Sources */,
 				9412F0F11D857E3600E94683 /* LoginResponse.swift in Sources */,
 				945F3CB81DA515F4006D800D /* SymbolNameResponse.swift in Sources */,
 				949BEEA01D72B5C8008FA574 /* IndexHeader.swift in Sources */,
@@ -2202,10 +2351,12 @@
 				84B6DCC91DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */,
 				84F6BBFA1D9FC345009BEEB2 /* UIConstants.swift in Sources */,
 				947C639D1D75BA8C00676822 /* DataBase.swift in Sources */,
+				94A4B3751DC4967700FBDB39 /* EditAlarmRequest.swift in Sources */,
 				84A34BF61D7EF5E600B02A8D /* AlamofireRequest.swift in Sources */,
 				84036D481DBCB02F00799A49 /* CheckVersionCodeResponse.swift in Sources */,
 				9420042F1D8D4AB500B358BC /* BuyInformationView.swift in Sources */,
 				84C9E2921D99762600F96EF8 /* RegisterRequest.swift in Sources */,
+				94A4B39B1DC49D9000FBDB39 /* AlarmDataHeader.swift in Sources */,
 				9458E1531D7E8976009A211A /* SymbolDetailsViewController.swift in Sources */,
 				944EF19E1D7EE79400A039BA /* MainResponse.swift in Sources */,
 				949BEE6E1D72A78A008FA574 /* AppConstants.swift in Sources */,
@@ -2215,6 +2366,7 @@
 				948B46681D76BCDD00F464C2 /* SymbolListModelResponse.swift in Sources */,
 				94E30E201D8FC4E40052EF59 /* DatePickerSheet.swift in Sources */,
 				944EF1961D7EC29A00A039BA /* SymbolBestLimitResponse.swift in Sources */,
+				94A4B38A1DC49AF800FBDB39 /* EditAlarmResponse.swift in Sources */,
 				949BEEB51D7311F7008FA574 /* IndexDetailsTabBarController.swift in Sources */,
 				84B6DCD61DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */,
 				84C9E2891D993B5E00F96EF8 /* ObserverNewsRequest.swift in Sources */,

@@ -165,3 +165,14 @@
 
 //MARK: - Jail break check
 "isJailBrokenDescription" = "isJailBrokenDescription";
+
+
+//Mark: - Alarm Filter
+
+"kind" = "kind";
+"buy" = "buy";
+"add" = "add";
+"sell" = "sell";
+"status" = "status";
+"sended" = "Sended";
+"notSended" = "Not Sended";
