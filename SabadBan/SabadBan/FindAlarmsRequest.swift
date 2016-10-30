@@ -11,11 +11,11 @@ struct FindAlarmsRequest {
     let email : String!
     let symbolCode : Int!
 
-    func getDic() -> [String : Int] {
+    func getDic() -> [String : String] {
         let dic = [
             "email":email,
             "message": symbolCode]
 
-        return dic as! [String : Int]
+        return dic as! [String : String]
     }
 }

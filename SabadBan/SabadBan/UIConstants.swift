@@ -15,7 +15,7 @@ struct UIConstants {
     static let BuyInformationView = "BuyInformationView"
     static let BuyInfoCell = "BuyInfoCell"
     static let buyInfoHeader = "buyInfoHeader"
-    static let alarmFilterHeader = "alarmDataHeader"
+    static let alarmFilterHeader = "AlarmDataHeader"
     static let IndexDetailHeader = "IndexDetailHeader"
     static let MarketDetailsHeader = "MarketDetailsHeader"
     static let SymbolListHeader = "SymbolListHeader"
@@ -26,7 +26,7 @@ struct UIConstants {
     static let buyHeader = "SymbolBestBuyAndCellHeader"
     //MARK: Reuse Identifiers
     static let buyInfoCells = "buyInfoCells"
-    static let alarmFilterCells = "alarmDataCells"
+    static let alarmDataCell = "alarmDataCell"
     static let buyInfoHeaderId = "buyInfoHeader"
     static let ObserverNewsCell = "ObserverNewsCell"
     static let portfolioCell = "portfolioCell"

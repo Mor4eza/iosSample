@@ -13,33 +13,21 @@ import Gloss
 
 //MARK: - AlarmResponse
 public struct AlarmResponse: Glossy {
-
-    public let errorCode : AnyObject!
-    public let errorDescription : AnyObject!
-    public let response : [FindAlarmsResponse]!
-    public let successful : Bool!
-    public let updateLatest : AnyObject!
-
-
-
+    
+    public let alarmFilterList : [AlarmFilterList]!
+    
+    
+    
     //MARK: Decodable
     public init?(json: JSON){
-        errorCode = "errorCode" <~~ json
-        errorDescription = "errorDescription" <~~ json
-        response = "response" <~~ json
-        successful = "successful" <~~ json
-        updateLatest = "updateLatest" <~~ json
+        alarmFilterList = "alarmFilterList" <~~ json
     }
-
-
+    
+    
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "errorCode" ~~> errorCode,
-            "errorDescription" ~~> errorDescription,
-            "response" ~~> response,
-            "successful" ~~> successful,
-            "updateLatest" ~~> updateLatest,
+            "alarmFilterList" ~~> alarmFilterList,
             ])
     }
     

@@ -51,10 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
 
         //AcraLizer
-        #if !Dev
-            let acra = AcralizerClient(url: AcraUrl, username: "p343-sabadban-ios", password: "p343-sabadban-ios@!#^")
-            acra.start()
-        #endif
+//        #if !Dev
+//            let acra = AcralizerClient(url: AcraUrl, username: "p343-sabadban-ios", password: "p343-sabadban-ios@!#^")
+//            acra.start()
+//        #endif
 
         return true
     }

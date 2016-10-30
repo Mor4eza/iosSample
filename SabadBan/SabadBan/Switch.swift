@@ -1,13 +1,7 @@
 
-//
-//  Switch.swift
-//  https://github.com/T-Pham/Switch
-//  Created by Thanh Pham on 8/24/16.
-//
 
 import UIKit
 
-/// A switch control
 @IBDesignable public class Switch: UIControl {
 
     let backgroundLayer = RoundLayer()
@@ -197,8 +191,8 @@ import UIKit
     }
 
     func reloadLabelsTextColor() {
-        leftLabel.textColor = rightSelected ? disabledColor : tintColor
-        rightLabel.textColor = rightSelected ? tintColor : disabledColor
+        leftLabel.textColor = rightSelected ? disabledColor : UIColor.redColor()
+        rightLabel.textColor = rightSelected ? UIColor.greenColor() : disabledColor
     }
 
     func reloadSwitchLayerPosition() {

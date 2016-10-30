@@ -1,5 +1,5 @@
 //
-//	FindAlarmsResponse.swift
+//	AlarmFilterList.swift
 //
 //	Create by Morteza Gharedaghi on 29/10/2016
 //	Copyright © 2016. All rights reserved.
@@ -12,7 +12,7 @@ import Foundation
 import Gloss
 
 //MARK: - Response
-public struct FindAlarmsResponse: Glossy {
+public struct AlarmFilterList: Glossy {
 
     public let active : Bool!
     public let alarmPrice : Float!

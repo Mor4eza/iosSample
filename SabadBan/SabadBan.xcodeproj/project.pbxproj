@@ -382,18 +382,18 @@
 		94A4B37D1DC4969700FBDB39 /* AddAlarmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B37C1DC4969700FBDB39 /* AddAlarmRequest.swift */; };
 		94A4B37E1DC4969700FBDB39 /* AddAlarmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B37C1DC4969700FBDB39 /* AddAlarmRequest.swift */; };
 		94A4B37F1DC4969700FBDB39 /* AddAlarmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B37C1DC4969700FBDB39 /* AddAlarmRequest.swift */; };
-		94A4B3821DC4990900FBDB39 /* FindAlarmsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3811DC4990900FBDB39 /* FindAlarmsResponse.swift */; };
-		94A4B3831DC4990900FBDB39 /* FindAlarmsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3811DC4990900FBDB39 /* FindAlarmsResponse.swift */; };
-		94A4B3841DC4990900FBDB39 /* FindAlarmsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3811DC4990900FBDB39 /* FindAlarmsResponse.swift */; };
+		94A4B3821DC4990900FBDB39 /* AlarmFilterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3811DC4990900FBDB39 /* AlarmFilterList.swift */; };
+		94A4B3831DC4990900FBDB39 /* AlarmFilterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3811DC4990900FBDB39 /* AlarmFilterList.swift */; };
+		94A4B3841DC4990900FBDB39 /* AlarmFilterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3811DC4990900FBDB39 /* AlarmFilterList.swift */; };
 		94A4B3861DC499BF00FBDB39 /* AddAlarmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3851DC499BF00FBDB39 /* AddAlarmResponse.swift */; };
 		94A4B3871DC499BF00FBDB39 /* AddAlarmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3851DC499BF00FBDB39 /* AddAlarmResponse.swift */; };
 		94A4B3881DC499BF00FBDB39 /* AddAlarmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3851DC499BF00FBDB39 /* AddAlarmResponse.swift */; };
 		94A4B38A1DC49AF800FBDB39 /* EditAlarmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3891DC49AF800FBDB39 /* EditAlarmResponse.swift */; };
 		94A4B38B1DC49AF800FBDB39 /* EditAlarmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3891DC49AF800FBDB39 /* EditAlarmResponse.swift */; };
 		94A4B38C1DC49AF800FBDB39 /* EditAlarmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3891DC49AF800FBDB39 /* EditAlarmResponse.swift */; };
-		94A4B38F1DC49CFB00FBDB39 /* AlarmDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4B38E1DC49CFB00FBDB39 /* AlarmDataCell.xib */; };
-		94A4B3901DC49CFB00FBDB39 /* AlarmDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4B38E1DC49CFB00FBDB39 /* AlarmDataCell.xib */; };
-		94A4B3911DC49CFB00FBDB39 /* AlarmDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4B38E1DC49CFB00FBDB39 /* AlarmDataCell.xib */; };
+		94A4B38F1DC49CFB00FBDB39 /* alarmDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4B38E1DC49CFB00FBDB39 /* alarmDataCell.xib */; };
+		94A4B3901DC49CFB00FBDB39 /* alarmDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4B38E1DC49CFB00FBDB39 /* alarmDataCell.xib */; };
+		94A4B3911DC49CFB00FBDB39 /* alarmDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4B38E1DC49CFB00FBDB39 /* alarmDataCell.xib */; };
 		94A4B3931DC49D2F00FBDB39 /* AlarmDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3921DC49D2F00FBDB39 /* AlarmDataCell.swift */; };
 		94A4B3941DC49D2F00FBDB39 /* AlarmDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3921DC49D2F00FBDB39 /* AlarmDataCell.swift */; };
 		94A4B3951DC49D2F00FBDB39 /* AlarmDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4B3921DC49D2F00FBDB39 /* AlarmDataCell.swift */; };
@@ -560,10 +560,10 @@
 		94A4B3741DC4967700FBDB39 /* EditAlarmRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAlarmRequest.swift; sourceTree = "<group>"; };
 		94A4B3781DC4968300FBDB39 /* DeleteAlarmRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteAlarmRequest.swift; sourceTree = "<group>"; };
 		94A4B37C1DC4969700FBDB39 /* AddAlarmRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAlarmRequest.swift; sourceTree = "<group>"; };
-		94A4B3811DC4990900FBDB39 /* FindAlarmsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindAlarmsResponse.swift; sourceTree = "<group>"; };
+		94A4B3811DC4990900FBDB39 /* AlarmFilterList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmFilterList.swift; sourceTree = "<group>"; };
 		94A4B3851DC499BF00FBDB39 /* AddAlarmResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAlarmResponse.swift; sourceTree = "<group>"; };
 		94A4B3891DC49AF800FBDB39 /* EditAlarmResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAlarmResponse.swift; sourceTree = "<group>"; };
-		94A4B38E1DC49CFB00FBDB39 /* AlarmDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmDataCell.xib; sourceTree = "<group>"; };
+		94A4B38E1DC49CFB00FBDB39 /* alarmDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = alarmDataCell.xib; sourceTree = "<group>"; };
 		94A4B3921DC49D2F00FBDB39 /* AlarmDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmDataCell.swift; sourceTree = "<group>"; };
 		94A4B3961DC49D5D00FBDB39 /* AlarmDataHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmDataHeader.xib; sourceTree = "<group>"; };
 		94A4B39A1DC49D9000FBDB39 /* AlarmDataHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmDataHeader.swift; sourceTree = "<group>"; };
@@ -1247,7 +1247,7 @@
 			isa = PBXGroup;
 			children = (
 				94A4B3851DC499BF00FBDB39 /* AddAlarmResponse.swift */,
-				94A4B3811DC4990900FBDB39 /* FindAlarmsResponse.swift */,
+				94A4B3811DC4990900FBDB39 /* AlarmFilterList.swift */,
 				94A4B3891DC49AF800FBDB39 /* EditAlarmResponse.swift */,
 				94A4B3A01DC4BEB700FBDB39 /* AlarmResponse.swift */,
 			);
@@ -1257,7 +1257,7 @@
 		94A4B38D1DC49CA500FBDB39 /* AlarmData */ = {
 			isa = PBXGroup;
 			children = (
-				94A4B38E1DC49CFB00FBDB39 /* AlarmDataCell.xib */,
+				94A4B38E1DC49CFB00FBDB39 /* alarmDataCell.xib */,
 				94A4B3921DC49D2F00FBDB39 /* AlarmDataCell.swift */,
 				94A4B3961DC49D5D00FBDB39 /* AlarmDataHeader.xib */,
 				94A4B39A1DC49D9000FBDB39 /* AlarmDataHeader.swift */,
@@ -1462,7 +1462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9476FB481DBB425700B923D6 /* SymbolListHeader.xib in Resources */,
-				94A4B3901DC49CFB00FBDB39 /* AlarmDataCell.xib in Resources */,
+				94A4B3901DC49CFB00FBDB39 /* alarmDataCell.xib in Resources */,
 				9476FB491DBB425700B923D6 /* Localizable.strings in Resources */,
 				9476FB4A1DBB425700B923D6 /* LaunchScreen.storyboard in Resources */,
 				9476FB4B1DBB425700B923D6 /* Assets.xcassets in Resources */,
@@ -1489,7 +1489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9476FBCE1DBB425B00B923D6 /* SymbolListHeader.xib in Resources */,
-				94A4B3911DC49CFB00FBDB39 /* AlarmDataCell.xib in Resources */,
+				94A4B3911DC49CFB00FBDB39 /* alarmDataCell.xib in Resources */,
 				9476FBCF1DBB425B00B923D6 /* Localizable.strings in Resources */,
 				9476FBD01DBB425B00B923D6 /* LaunchScreen.storyboard in Resources */,
 				9476FBD11DBB425B00B923D6 /* Assets.xcassets in Resources */,
@@ -1524,7 +1524,7 @@
 				949BEE741D72A799008FA574 /* MyAlert.xib in Resources */,
 				943A08061DBE330B002773B5 /* .tailor.yml in Resources */,
 				94144E9C1D8D61A50008F602 /* buyInfoHeader.xib in Resources */,
-				94A4B38F1DC49CFB00FBDB39 /* AlarmDataCell.xib in Resources */,
+				94A4B38F1DC49CFB00FBDB39 /* alarmDataCell.xib in Resources */,
 				949BEE571D72A51C008FA574 /* Main.storyboard in Resources */,
 				94283BA91DAA50F200339914 /* SymbolBestBuyAndCellHeader.xib in Resources */,
 				94A4B3971DC49D5D00FBDB39 /* AlarmDataHeader.xib in Resources */,
@@ -2121,7 +2121,7 @@
 				9476FB401DBB425700B923D6 /* DatePickerSheet.swift in Sources */,
 				9476FB411DBB425700B923D6 /* SymbolBestLimitResponse.swift in Sources */,
 				9476FB421DBB425700B923D6 /* IndexDetailsTabBarController.swift in Sources */,
-				94A4B3831DC4990900FBDB39 /* FindAlarmsResponse.swift in Sources */,
+				94A4B3831DC4990900FBDB39 /* AlarmFilterList.swift in Sources */,
 				84B6DCD71DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */,
 				9476FB431DBB425700B923D6 /* ObserverNewsRequest.swift in Sources */,
 				9476FB441DBB425700B923D6 /* PortfolioListViewController.swift in Sources */,
@@ -2244,7 +2244,7 @@
 				9476FBC61DBB425B00B923D6 /* DatePickerSheet.swift in Sources */,
 				9476FBC71DBB425B00B923D6 /* SymbolBestLimitResponse.swift in Sources */,
 				9476FBC81DBB425B00B923D6 /* IndexDetailsTabBarController.swift in Sources */,
-				94A4B3841DC4990900FBDB39 /* FindAlarmsResponse.swift in Sources */,
+				94A4B3841DC4990900FBDB39 /* AlarmFilterList.swift in Sources */,
 				84B6DCD81DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */,
 				9476FBC91DBB425B00B923D6 /* ObserverNewsRequest.swift in Sources */,
 				9476FBCA1DBB425B00B923D6 /* PortfolioListViewController.swift in Sources */,
@@ -2290,7 +2290,7 @@
 				949BEE521D72A51C008FA574 /* AppDelegate.swift in Sources */,
 				94A4B3711DC494F400FBDB39 /* FindAlarmsRequest.swift in Sources */,
 				9465DB681D840450007F0572 /* NewsTabBarController.swift in Sources */,
-				94A4B3821DC4990900FBDB39 /* FindAlarmsResponse.swift in Sources */,
+				94A4B3821DC4990900FBDB39 /* AlarmFilterList.swift in Sources */,
 				9465DB661D83E935007F0572 /* NewsDetailViewController.swift in Sources */,
 				84C9E2901D9970EE00F96EF8 /* LoginRequest.swift in Sources */,
 				84F7471C1DBE44B300DE3AF8 /* LogoutRequest.swift in Sources */,
