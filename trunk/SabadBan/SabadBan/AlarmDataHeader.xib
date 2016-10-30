@@ -44,19 +44,19 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="BUs-WS-Jxj">
-                            <rect key="frame" x="95" y="10" width="51" height="23"/>
+                            <rect key="frame" x="105" y="10" width="51" height="23"/>
                             <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
                             <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="LXY-vl-mOk">
-                            <rect key="frame" x="150" y="10" width="50" height="23"/>
+                            <rect key="frame" x="170" y="10" width="50" height="23"/>
                             <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
                             <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="QsH-1M-fmG">
-                            <rect key="frame" x="206" y="10" width="86" height="23"/>
+                            <rect key="frame" x="230" y="10" width="61" height="23"/>
                             <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
                             <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -67,17 +67,17 @@
                         <constraint firstItem="a2E-tS-XaW" firstAttribute="baseline" secondItem="BUs-WS-Jxj" secondAttribute="baseline" id="4a5-t3-kAD"/>
                         <constraint firstItem="Hpv-Qi-rn4" firstAttribute="leading" secondItem="a2E-tS-XaW" secondAttribute="trailing" constant="13" id="5Cs-Co-fDA"/>
                         <constraint firstItem="BUs-WS-Jxj" firstAttribute="baseline" secondItem="LXY-vl-mOk" secondAttribute="baseline" id="5qp-KF-40M"/>
-                        <constraint firstItem="QsH-1M-fmG" firstAttribute="width" secondItem="ceT-DE-cSr" secondAttribute="width" multiplier="2/7" id="789-af-58M"/>
+                        <constraint firstItem="QsH-1M-fmG" firstAttribute="width" secondItem="ceT-DE-cSr" secondAttribute="width" multiplier="2/7" constant="-24.714285714285708" id="789-af-58M"/>
                         <constraint firstItem="BUs-WS-Jxj" firstAttribute="width" secondItem="ceT-DE-cSr" secondAttribute="width" multiplier="1/6" constant="1" id="C34-5N-69W"/>
                         <constraint firstItem="BUs-WS-Jxj" firstAttribute="centerY" secondItem="ceT-DE-cSr" secondAttribute="centerY" id="CRY-fq-6Qj"/>
-                        <constraint firstItem="QsH-1M-fmG" firstAttribute="trailing" secondItem="ceT-DE-cSr" secondAttribute="trailingMargin" id="LUt-kE-h2f"/>
+                        <constraint firstItem="QsH-1M-fmG" firstAttribute="trailing" secondItem="ceT-DE-cSr" secondAttribute="trailingMargin" constant="-1" id="LUt-kE-h2f"/>
                         <constraint firstAttribute="trailing" secondItem="LXY-vl-mOk" secondAttribute="trailing" constant="87" id="QEI-w7-yb4"/>
                         <constraint firstItem="Hpv-Qi-rn4" firstAttribute="baseline" secondItem="QsH-1M-fmG" secondAttribute="baseline" id="Wb7-tR-nxP"/>
                         <constraint firstItem="LXY-vl-mOk" firstAttribute="width" secondItem="ceT-DE-cSr" secondAttribute="width" multiplier="1/6" id="bY1-Cb-wV1"/>
-                        <constraint firstItem="BUs-WS-Jxj" firstAttribute="leading" secondItem="Hpv-Qi-rn4" secondAttribute="trailing" constant="10" id="hi4-BD-nCy"/>
+                        <constraint firstItem="BUs-WS-Jxj" firstAttribute="leading" secondItem="Hpv-Qi-rn4" secondAttribute="trailing" constant="20" id="hi4-BD-nCy"/>
                         <constraint firstItem="a2E-tS-XaW" firstAttribute="leading" secondItem="ceT-DE-cSr" secondAttribute="leading" constant="2" id="mH1-h6-3gz"/>
                         <constraint firstItem="Hpv-Qi-rn4" firstAttribute="centerY" secondItem="ceT-DE-cSr" secondAttribute="centerY" id="pjR-Lb-nzR"/>
-                        <constraint firstItem="LXY-vl-mOk" firstAttribute="leading" secondItem="BUs-WS-Jxj" secondAttribute="trailing" constant="4" id="zO8-Uw-rBx"/>
+                        <constraint firstItem="LXY-vl-mOk" firstAttribute="leading" secondItem="BUs-WS-Jxj" secondAttribute="trailing" constant="14" id="zO8-Uw-rBx"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
