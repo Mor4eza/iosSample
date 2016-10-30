@@ -8,27 +8,28 @@
 
 import UIKit
 import SQLite
-class DataBase{
 
-    var db:Connection!
+class DataBase {
 
-    var tblPortfolio:Table!
-    var tblSymbolPortfolio:Table!
-    var tblPsBuy:Table!
-    var tblUser:Table!
-    
+    var db: Connection!
+
+    var tblPortfolio: Table!
+    var tblSymbolPortfolio: Table!
+    var tblPsBuy: Table!
+    var tblUser: Table!
+
     //portfolio Table
-    
+
     let portfolioName = Expression<String?>("portfolioName")
     let portfolioCode = Expression<Int>("portfolioCode")
     let portfolioOwnerId = Expression<Int>("portfolioOwnerUserId")
-    
+
     //symbol Protfolio
-    
+
     let psCode = Expression<Int>("psCode")
     let symbolPCode = Expression<Int>("portfolioCode")
     let symbolCode = Expression<String>("symbolCode")
-    
+
     //psBuy Table
 
     let PS_BUY_ID = Expression<Int>("buyId")
@@ -36,19 +37,19 @@ class DataBase{
     let PS_BUY_PRICE = Expression<Double>("buyPrice")
     let PS_BUY_QUANTITY = Expression<Double>("buyQuantity")
     let PS_BUY_DATE = Expression<String>("buyDate")
-    
+
     // user Table
-    
+
     let USER_ID = Expression<Int>("userId")
     let USER_Email = Expression<String>("userEmail")
 
-    init(){
+    init() {
         OpenDataBase()
     }
 
     func OpenDataBase() {
 
-        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask,true)
+        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let docsDir = dirPaths[0]
         let databasePath = (docsDir as NSString).stringByAppendingPathComponent("sabadbanDb.sqlite")
         debugPrint("\(databasePath)")
@@ -58,49 +59,53 @@ class DataBase{
         //portfolio Table
 
         tblPortfolio = Table("tbPortfolio")
-        try! db.run(tblPortfolio.create(ifNotExists : true) { t in
+        try! db.run(tblPortfolio.create(ifNotExists: true) {
+            t in
             t.column(portfolioCode, primaryKey: true)
             t.column(portfolioName)
             t.column(portfolioOwnerId)
-            })
+        })
 
         //Symbol Table
 
         tblSymbolPortfolio = Table("tbPortfolioSymbol")
-        try! db.run(tblSymbolPortfolio.create(ifNotExists : true) { t in
+        try! db.run(tblSymbolPortfolio.create(ifNotExists: true) {
+            t in
             t.column(psCode, primaryKey: true)
             t.column(symbolPCode)
             t.column(symbolCode)
-            })
+        })
 
         //psBuy Table
 
         tblPsBuy = Table("tbPsBuy")
-        try! db.run(tblPsBuy.create(ifNotExists : true) { t in
+        try! db.run(tblPsBuy.create(ifNotExists: true) {
+            t in
             t.column(PS_BUY_ID, primaryKey: true)
             t.column(PS_BUY_PS_CODE)
             t.column(PS_BUY_PRICE)
             t.column(PS_BUY_QUANTITY)
             t.column(PS_BUY_DATE)
-            })
-        
+        })
+
         //User Table
         tblUser = Table("tbUsers")
-        try! db.run(tblUser.create(ifNotExists : true) { t in
+        try! db.run(tblUser.create(ifNotExists: true) {
+            t in
             t.column(USER_ID, primaryKey: true)
             t.column(USER_Email)
-            })
+        })
 
     }
 
     //MARK: - Symbol
-    func addSymbolToPortfolio(sCode:String ,pCode:Int) {
+    func addSymbolToPortfolio(sCode: String, pCode: Int) {
 
-        let insert = tblSymbolPortfolio.insert(symbolCode <- sCode , symbolPCode <- pCode)
+        let insert = tblSymbolPortfolio.insert(symbolCode <- sCode, symbolPCode <- pCode)
         try! db.run(insert)
     }
 
-    func getSymbolbyPortfolio(pCode:Int) -> [String] {
+    func getSymbolbyPortfolio(pCode: Int) -> [String] {
 
         var symbols = [String]()
 
@@ -112,13 +117,13 @@ class DataBase{
         return symbols as [String]
     }
 
-    func getSymbolPSCode(sCode:String) -> Int {
+    func getSymbolPSCode(sCode: String) -> Int {
 
         var pcode = Int()
-        let  currentQuery = tblSymbolPortfolio.select(psCode)
-            .filter(symbolCode == sCode)
+        let currentQuery = tblSymbolPortfolio.select(psCode)
+        .filter(symbolCode == sCode)
 
-        for pn in try!  db.prepare(currentQuery){
+        for pn in try! db.prepare(currentQuery) {
             pcode = pn[psCode]
         }
 
@@ -126,12 +131,13 @@ class DataBase{
 
     }
 
-    func deleteSymbolFromPortfoi(sCode:String , pCode:Int) {
+    func deleteSymbolFromPortfoi(sCode: String, pCode: Int) {
 
         let symbol = tblSymbolPortfolio.filter(symbolPCode == pCode && symbolCode == sCode)
         try! db.run(symbol.delete())
     }
-    func deleteAllSymbolsInPortfolio(pCode:Int) {
+
+    func deleteAllSymbolsInPortfolio(pCode: Int) {
 
         debugPrint("PCODE************: \(pCode)")
         let symbol = tblSymbolPortfolio.filter(symbolPCode == pCode)
@@ -139,12 +145,12 @@ class DataBase{
     }
 
     //MARK: - Portfolio
-    func addPortfolio(pName:String, userId:Int){
+    func addPortfolio(pName: String, userId: Int) {
         let insert = tblPortfolio.insert(portfolioName <- pName, portfolioOwnerId <- userId)
         try! db.run(insert)
     }
 
-    func getPortfolioNameList(userId:Int)-> [String]{
+    func getPortfolioNameList(userId: Int) -> [String] {
         var pNames = [String]()
         let portfolioQuery = tblPortfolio.filter(portfolioOwnerId == userId)
         for portfolio in try! db.prepare(portfolioQuery) {
@@ -152,8 +158,8 @@ class DataBase{
         }
         return pNames
     }
-    
-    func getPortfolioList(userId:Int)-> [Portfolio]{
+
+    func getPortfolioList(userId: Int) -> [Portfolio] {
         var pCodes = [Portfolio]()
         let portfolioQuery = tblPortfolio.filter(portfolioOwnerId == userId)
         for portfolio in try! db.prepare(portfolioQuery) {
@@ -162,13 +168,13 @@ class DataBase{
         return pCodes
     }
 
-    func getportfolioCodeByName(pName:String)->Int {
+    func getportfolioCodeByName(pName: String) -> Int {
 
         var name = Int()
-        let  currentQuery = tblPortfolio.select(portfolioCode)
-            .filter(portfolioName == pName)
+        let currentQuery = tblPortfolio.select(portfolioCode)
+        .filter(portfolioName == pName)
 
-        for pn in try!  db.prepare(currentQuery){
+        for pn in try! db.prepare(currentQuery) {
             name = pn[portfolioCode]
         }
 
@@ -176,13 +182,13 @@ class DataBase{
 
     }
 
-    func getPsCodeBySymbolCode(sCode:String , pCode:Int)-> Int{
+    func getPsCodeBySymbolCode(sCode: String, pCode: Int) -> Int {
 
         var pscode = Int()
-        let  currentQuery = tblSymbolPortfolio.select(psCode)
-            .filter(symbolPCode == pCode && symbolCode == sCode)
+        let currentQuery = tblSymbolPortfolio.select(psCode)
+        .filter(symbolPCode == pCode && symbolCode == sCode)
 
-        for pn in try!  db.prepare(currentQuery){
+        for pn in try! db.prepare(currentQuery) {
             pscode = pn[psCode]
         }
 
@@ -190,26 +196,26 @@ class DataBase{
 
     }
 
-    func updatePortfolioName(newName:String , pCode:Int) {
+    func updatePortfolioName(newName: String, pCode: Int) {
 
         let portfolio = tblPortfolio.filter(portfolioCode == pCode)
         try! db.run(portfolio.update(portfolioName <- newName))
     }
 
-    func deletePortfolio(id:Int) {
+    func deletePortfolio(id: Int) {
 
         let portfoi = tblPortfolio.filter(portfolioCode == id)
         try! db.run(portfoi.delete())
     }
 
     //MARK:- psBuy
-    func addPsBuy(psCode:Int , price:Double , count:Double , date:String){
+    func addPsBuy(psCode: Int, price: Double, count: Double, date: String) {
 
-        let insert = tblPsBuy.insert(PS_BUY_PS_CODE <- psCode , PS_BUY_PRICE <- price ,  PS_BUY_QUANTITY <- count ,  PS_BUY_DATE <- date)
+        let insert = tblPsBuy.insert(PS_BUY_PS_CODE <- psCode, PS_BUY_PRICE <- price, PS_BUY_QUANTITY <- count, PS_BUY_DATE <- date)
         try! db.run(insert)
     }
 
-    func getPsBuy(psCode:Int) -> [psBuyModel]{
+    func getPsBuy(psCode: Int) -> [psBuyModel] {
 
         var psBuys = [psBuyModel]()
         psBuys.removeAll()
@@ -220,40 +226,41 @@ class DataBase{
         return psBuys
     }
 
-    func updatePsBuy(buyCode:Int ,newPrice:Double , newCount:Double , newDate:String){
+    func updatePsBuy(buyCode: Int, newPrice: Double, newCount: Double, newDate: String) {
 
         let ps = tblPsBuy.filter(PS_BUY_ID == buyCode)
-        try! db.run(ps.update(PS_BUY_PRICE <- newPrice ,PS_BUY_QUANTITY <- newCount ,PS_BUY_DATE <- newDate ))
+        try! db.run(ps.update(PS_BUY_PRICE <- newPrice, PS_BUY_QUANTITY <- newCount, PS_BUY_DATE <- newDate))
     }
 
-    func deletePsBuy(buyCode:Int){
+    func deletePsBuy(buyCode: Int) {
 
-        let ps = tblPsBuy.filter(PS_BUY_ID == buyCode )
+        let ps = tblPsBuy.filter(PS_BUY_ID == buyCode)
         try! db.run(ps.delete())
 
     }
-    func deletePsBuybyPSCode(psCode:Int){
 
-        let ps = tblPsBuy.filter(PS_BUY_PS_CODE == psCode )
+    func deletePsBuybyPSCode(psCode: Int) {
+
+        let ps = tblPsBuy.filter(PS_BUY_PS_CODE == psCode)
         try! db.run(ps.delete())
 
     }
-    
+
     //MARK: - User
-    
-    func addUser(withEmail:String) {
+
+    func addUser(withEmail: String) {
         let insert = tblUser.insert(USER_Email <- withEmail)
         try! db.run(insert)
     }
-    
-    func getUserId(forUsername:String) -> Int {
+
+    func getUserId(forUsername: String) -> Int {
         let userQuery = tblUser.filter(USER_Email == forUsername)
-        
+
         var userId = -1
-        for pn in try!  db.prepare(userQuery){
+        for pn in try! db.prepare(userQuery) {
             userId = pn[USER_ID]
         }
-        
+
         return userId
     }
 

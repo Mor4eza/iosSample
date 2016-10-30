@@ -7,15 +7,16 @@
 //
 
 import Foundation
+
 struct FindAlarmsRequest {
-    let email : String!
-    let symbolCode : Int!
+    let email: String!
+    let symbolCode: Int!
 
-    func getDic() -> [String : String] {
+    func getDic() -> [String: String] {
         let dic = [
-            "email":email,
-            "message": symbolCode]
+                "email": email,
+                "message": symbolCode]
 
-        return dic as! [String : String]
+        return dic as! [String: String]
     }
 }

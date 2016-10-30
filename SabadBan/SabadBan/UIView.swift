@@ -10,37 +10,37 @@ import UIKit
 import Localize_Swift
 
 extension UILabel {
-    
+
     func changeDirection() {
-        if (getAppLanguage() == Language.fa.rawValue){
+        if (getAppLanguage() == Language.fa.rawValue) {
             self.textAlignment = .Right
-        }else if (getAppLanguage() == Language.en.rawValue) {
+        } else if (getAppLanguage() == Language.en.rawValue) {
             self.textAlignment = .Left
         }
     }
-    
-    func setDefaultFont(size: CGFloat? = nil){
+
+    func setDefaultFont(size: CGFloat? = nil) {
         if size != nil {
-            self.font = UIFont(name: AppFontName_IranSans, size:(size!))
+            self.font = UIFont(name: AppFontName_IranSans, size: (size!))
         } else {
-            self.font = UIFont(name: AppFontName_IranSans, size:(self.font.pointSize - 3))
+            self.font = UIFont(name: AppFontName_IranSans, size: (self.font.pointSize - 3))
         }
     }
-    
+
 }
 
 extension UIButton {
-    
+
     func changeDirection() {
-        if (getAppLanguage() == Language.fa.rawValue){
+        if (getAppLanguage() == Language.fa.rawValue) {
             self.titleLabel!.textAlignment = .Right
-        }else if (getAppLanguage() == Language.en.rawValue) {
+        } else if (getAppLanguage() == Language.en.rawValue) {
             self.titleLabel!.textAlignment = .Left
         }
     }
-    
-    func setDefaultFont(){
-        self.titleLabel?.font = UIFont(name: AppFontName_IranSans, size:(self.titleLabel?.font.pointSize)!)
+
+    func setDefaultFont() {
+        self.titleLabel?.font = UIFont(name: AppFontName_IranSans, size: (self.titleLabel?.font.pointSize)!)
     }
 }
 
@@ -50,23 +50,23 @@ private var haveComma = [UITextField: Bool]()
 private var allowedCharacters = [UITextField: String]()
 
 extension UITextField {
-    
+
     func changeDirection() {
-        if (getAppLanguage() == Language.fa.rawValue){
+        if (getAppLanguage() == Language.fa.rawValue) {
             self.textAlignment = .Right
-        }else if (getAppLanguage() == Language.en.rawValue) {
+        } else if (getAppLanguage() == Language.en.rawValue) {
             self.textAlignment = .Left
         }
-        
+
     }
-    
-    func setDefaultFont(){
-        self.font = UIFont(name: AppFontName_IranSans, size:self.font!.pointSize )
+
+    func setDefaultFont() {
+        self.font = UIFont(name: AppFontName_IranSans, size: self.font!.pointSize)
     }
-    
+
     @IBInspectable var maxLength: Int {
         get {
-            
+
             guard let length = maxLengths[self] else {
                 return Int.max
             }
@@ -74,18 +74,18 @@ extension UITextField {
         }
         set {
             maxLengths[self] = newValue
-            
+
             addTarget(
-                self,
-                action: #selector(textFieldPropertyEditor),
-                forControlEvents: UIControlEvents.EditingChanged
-            )
+                    self,
+                    action: #selector(textFieldPropertyEditor),
+                    forControlEvents: UIControlEvents.EditingChanged
+                    )
         }
     }
-    
+
     @IBInspectable var commaSeperator: Bool {
         get {
-            
+
             guard let haveComma = haveComma[self] else {
                 return false
             }
@@ -93,18 +93,18 @@ extension UITextField {
         }
         set {
             haveComma[self] = newValue
-            
+
             addTarget(
-                self,
-                action: #selector(textFieldPropertyEditor),
-                forControlEvents: UIControlEvents.EditingChanged
-            )
+                    self,
+                    action: #selector(textFieldPropertyEditor),
+                    forControlEvents: UIControlEvents.EditingChanged
+                    )
         }
     }
-    
+
     @IBInspectable var allowedCharacter: String {
         get {
-            
+
             guard let allowedCharacters = allowedCharacters[self] else {
                 return ""
             }
@@ -112,29 +112,28 @@ extension UITextField {
         }
         set {
             allowedCharacters[self] = newValue
-            
+
             addTarget(
-                self,
-                action: #selector(textFieldPropertyEditor),
-                forControlEvents: UIControlEvents.EditingChanged
-            )
+                    self,
+                    action: #selector(textFieldPropertyEditor),
+                    forControlEvents: UIControlEvents.EditingChanged
+                    )
         }
     }
-    
-    
-    
+
+
     func textFieldPropertyEditor(textField: UITextField) {
-        
+
         if let enteredAllowedCharacters = allowedCharacters[textField] {
             if enteredAllowedCharacters.characters.count > 0 {
                 if let enteredText = textField.text {
                     if !(enteredText.isEmpty) {
-                        let lastCharacter : Character = enteredText[(enteredText.characters.count-1)]
+                        let lastCharacter: Character = enteredText[(enteredText.characters.count - 1)]
                         guard allowedCharacter.characters.contains(lastCharacter) else {
                             var previousText = String()
                             var textCharacters = enteredText.characters
                             textCharacters.removeLast()
-                            
+
                             for character in textCharacters {
                                 previousText += String(character)
                             }
@@ -145,82 +144,82 @@ extension UITextField {
                 }
             }
         }
-        
+
         let doesHaveComma = haveComma[textField]
-        
+
         guard let prospectiveText = textField.text
-            where prospectiveText.characters.count > maxLength else {
-                if (doesHaveComma != nil) {
-                    if let enteredText = text {
-                        guard !enteredText.isEmpty else {
-                            return
+        where prospectiveText.characters.count > maxLength else {
+            if (doesHaveComma != nil) {
+                if let enteredText = text {
+                    guard !enteredText.isEmpty else {
+                        return
+                    }
+                    var numberString = String()
+                    var characterArray = enteredText.characters
+                    characterArray.removeLast()
+                    for character in characterArray {
+
+                        if let number = String(character).getCurrencyNumber() {
+                            numberString += String(number)
                         }
-                        var numberString = String()
-                        var characterArray = enteredText.characters
-                        characterArray.removeLast()
-                        for character in characterArray {
-                            
-                            if let number = String(character).getCurrencyNumber() {
-                                numberString += String(number)
-                            }
-                            
-                        }
-                        if !numberString.isEmpty {
-                            numberString = String(numberString.getCurrencyNumber()!)
-                        }
-                        
-                        numberString += String(enteredText[enteredText.characters.count-1])
-                        if let resutText = numberString.getCurrencyNumber()?.currencyFormat(0) {
-                            text = resutText
-                        }
+
+                    }
+                    if !numberString.isEmpty {
+                        numberString = String(numberString.getCurrencyNumber()!)
+                    }
+
+                    numberString += String(enteredText[enteredText.characters.count - 1])
+                    if let resutText = numberString.getCurrencyNumber()?.currencyFormat(0) {
+                        text = resutText
                     }
                 }
-                
-                return
+            }
+
+            return
         }
         if (doesHaveComma != nil) {
             text = prospectiveText.substringWithRange(
-                Range<String.Index>(prospectiveText.startIndex ..< prospectiveText.startIndex.advancedBy(maxLength+1))
-            )
+                    Range<String.Index>(prospectiveText.startIndex ..< prospectiveText.startIndex.advancedBy(maxLength + 1))
+                    )
         } else {
             text = prospectiveText.substringWithRange(
-                Range<String.Index>(prospectiveText.startIndex ..< prospectiveText.startIndex.advancedBy(maxLength))
-            )
+                    Range<String.Index>(prospectiveText.startIndex ..< prospectiveText.startIndex.advancedBy(maxLength))
+                    )
         }
     }
-    
+
 }
 
 extension UITextView {
-    
+
     func changeDirection() {
-        if (getAppLanguage() == Language.fa.rawValue){
+        if (getAppLanguage() == Language.fa.rawValue) {
             self.textAlignment = .Right
-        }else if (getAppLanguage() == Language.en.rawValue) {
+        } else if (getAppLanguage() == Language.en.rawValue) {
             self.textAlignment = .Left
         }
     }
-    
-    func setDefaultFont(){
-        self.font = UIFont(name: AppFontName_IranSans, size:self.font!.pointSize )
+
+    func setDefaultFont() {
+        self.font = UIFont(name: AppFontName_IranSans, size: self.font!.pointSize)
     }
-    
+
 }
 
 extension UIViewController {
-    
+
     func setFontFamily(fontFamily: String, forView view: UIView, andSubViews isSubViews: Bool) {
         if (view is UILabel) {
             let lbl = (view as! UILabel)
             lbl.font = UIFont(name: fontFamily, size: lbl.font.pointSize)
-        }else if (view is UIButton) {
+        } else if (view is UIButton) {
             let btn = (view as! UIButton)
             btn.titleLabel?.font = UIFont(name: fontFamily, size: btn.titleLabel!.font.pointSize)
-        }else if (view is UITextView) {
+        } else if (view is UITextView) {
             let txt = (view as! UITextView)
             txt.font = UIFont(name: fontFamily, size: txt.font!.pointSize)
         }
-        
+
         if isSubViews {
             for sview: UIView in view.subviews {
                 self.setFontFamily(fontFamily, forView: sview, andSubViews: true)
@@ -230,7 +229,7 @@ extension UIViewController {
 }
 
 extension UIView {
-    
+
     //Round Corners in Interface Biulder
     @IBInspectable var cornerRadius: CGFloat {
         get {
@@ -241,7 +240,7 @@ extension UIView {
             layer.masksToBounds = newValue > 0
         }
     }
-    
+
     @IBInspectable var borderWidth: CGFloat {
         get {
             return layer.borderWidth
@@ -250,7 +249,7 @@ extension UIView {
             layer.borderWidth = newValue
         }
     }
-    
+
     @IBInspectable var borderColor: UIColor? {
         get {
             return UIColor(CGColor: layer.borderColor!)
@@ -259,20 +258,26 @@ extension UIView {
             layer.borderColor = newValue?.CGColor
         }
     }
-    
-    func roundCorners(corners:UIRectCorner, radius: CGFloat) {
+
+    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
         mask.path = path.CGPath
         self.layer.mask = mask
     }
-    
+
 }
 
 extension UISearchBar {
     public func setSerchTextcolor(color: UIColor) {
-        let clrChange = subviews.flatMap { $0.subviews }
-        guard let sc = (clrChange.filter { $0 is UITextField }).first as? UITextField else { return }
+        let clrChange = subviews.flatMap {
+            $0.subviews
+        }
+        guard let sc = (clrChange.filter {
+            $0 is UITextField
+        }).first as? UITextField else {
+            return
+        }
         sc.textColor = color
     }
 }

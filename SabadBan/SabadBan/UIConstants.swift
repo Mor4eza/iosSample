@@ -9,7 +9,7 @@
 import Foundation
 
 struct UIConstants {
-    
+
     //MARK: nibs
     static let MyAlert = "MyAlert"
     static let BuyInformationView = "BuyInformationView"
@@ -38,7 +38,7 @@ struct UIConstants {
     static let indexCell = "indexCell"
     static let settingCell = "settingCell"
     static let menuCells = "menuCells"
-    
+
     //MARK: Restoration Identifiers
     static let lblAmount = "lblAmount"
     static let imgSortAmount = "imgSortAmount"
@@ -46,16 +46,16 @@ struct UIConstants {
     static let imgSortVolume = "imgSortVolume"
     static let lblSymbol = "lblSymbol"
     static let imgSortName = "imgSortName"
-    
+
     //MARK: Rotation
     static let RotationZ = "layer.transform.rotation.z"
-    
+
     //MARK: Class Names
     static let UIVisualEffectView = "UIVisualEffectView"
-    
+
     //MARK: Boundaries
     static let menuBoundary = "menuBoundary"
-    
+
     //MARK: Segue
     static let registerSegue = "registerSegue"
     static let loginSegue = "loginSegue"
@@ -91,7 +91,7 @@ struct UIConstants {
     static let exit = "exit"
     static let selectPicture = "contact_us_upload_picture"
     static let icDone = "ic_done_white"
-    
+
     //MARK: View Controller Identifier
     static let Main = "Main"
     static let indexTableViewController = "indexTableViewController"

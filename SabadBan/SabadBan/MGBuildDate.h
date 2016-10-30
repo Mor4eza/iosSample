@@ -10,5 +10,6 @@
 
 @interface MGBuildDate : NSObject
 NSString *compileDate();
+
 NSString *compileTime();
 @end

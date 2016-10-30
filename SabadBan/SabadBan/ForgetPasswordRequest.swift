@@ -10,12 +10,12 @@ import Foundation
 
 public struct ForgetPasswordRequest {
     let email: String!
-    
-    func getDic() -> [String : AnyObject] {
-        let dic : [String : AnyObject]
-        
+
+    func getDic() -> [String: AnyObject] {
+        let dic: [String: AnyObject]
+
         dic = [
-            "email": email
+                "email": email
         ]
         return dic
     }

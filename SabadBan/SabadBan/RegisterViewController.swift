@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import FCAlertView
+
 class RegisterViewController: BaseViewController, UITextFieldDelegate {
 
     //MARK: Properties
@@ -26,7 +27,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
 
     @IBOutlet weak var btnRegister: UIButton!
 
-    var defaults  = NSUserDefaults.standardUserDefaults()
+    var defaults = NSUserDefaults.standardUserDefaults()
 
     var successLogin = false
     override func viewDidLoad() {
@@ -61,7 +62,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
             UIView.animateWithDuration(1, delay: 0, options: .CurveEaseIn, animations: {
                 self.bottomConstraint.constant = keyboardSize.height
                 self.view.layoutIfNeeded()
-                }, completion: nil)
+            }, completion: nil)
         }
 
     }
@@ -70,11 +71,10 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         UIView.animateWithDuration(1, delay: 0, options: .CurveEaseIn, animations: {
             self.bottomConstraint.constant = 45
             self.view.layoutIfNeeded()
-            }, completion: nil)
+        }, completion: nil)
     }
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool
-    {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textField == txtUserName {
             txtPhone.becomeFirstResponder()
         } else if textField == txtPhone {
@@ -106,7 +106,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
             showAlert(Strings.pleaseEnterEmail)
         } else if (!txtUserName.text!.isValidEmail()) {
             showAlert(Strings.emailInvalid)
-        }  else if txtPhone.text == "" {
+        } else if txtPhone.text == "" {
             showAlert(Strings.pleaseEnterPhoneNumber)
         } else if txtPhone.text?.characters.count < 11 {
             showAlert(Strings.phoneNumberLengthError)
@@ -116,28 +116,28 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
             showAlert(Strings.passwordLengthError)
         } else if txtRPassword.text == "" {
             showAlert(Strings.pleaseEnterPasswordRepeat)
-        } else if !(txtRPassword.text == txtPassword.text){
+        } else if !(txtRPassword.text == txtPassword.text) {
             showAlert(Strings.passwordRepeatNotMatch)
         } else {
             if isSimulator {
-                sendRegisterRequest(txtUserName.text!, password:txtPassword.text!, phone:txtPhone.text!, pushToken: "IOS_RUNNING_IN_SIMULATOR")
-            }else {
-                sendRegisterRequest(txtUserName.text!, password:txtPassword.text!, phone:txtPhone.text!, pushToken: PushToken)
+                sendRegisterRequest(txtUserName.text!, password: txtPassword.text!, phone: txtPhone.text!, pushToken: "IOS_RUNNING_IN_SIMULATOR")
+            } else {
+                sendRegisterRequest(txtUserName.text!, password: txtPassword.text!, phone: txtPhone.text!, pushToken: PushToken)
             }
         }
     }
 
-    func showAlert(message : String) {
+    func showAlert(message: String) {
 
         let alert = FCAlertView()
         alert.makeAlertTypeCaution()
-        alert.colorScheme = UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1)
+        alert.colorScheme = UIColor(red: 44 / 255, green: 62 / 255, blue: 80 / 255, alpha: 1)
         alert.showAlertInView(self,
-                              withTitle: Strings.Attention.localized(),
-                              withSubtitle: message.localized(),
-                              withCustomImage: nil,
-                              withDoneButtonTitle: Strings.Ok.localized(),
-                              andButtons: nil)
+                withTitle: Strings.Attention.localized(),
+                withSubtitle: message.localized(),
+                withCustomImage: nil,
+                withDoneButtonTitle: Strings.Ok.localized(),
+                andButtons: nil)
 
     }
 
@@ -152,7 +152,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
 //            let newLength = text.utf16.count + string.utf16.count - range.length
 //            return newLength <= 11
 
-            let aSet = NSCharacterSet(charactersInString:"0123456789").invertedSet
+            let aSet = NSCharacterSet(charactersInString: "0123456789").invertedSet
             let compSepByCharInSet = string.componentsSeparatedByCharactersInSet(aSet)
             let numberFiltered = compSepByCharInSet.joinWithSeparator("")
             return string == numberFiltered
@@ -166,7 +166,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         if identifier == UIConstants.registerSegue {
             if successLogin {
                 return true
-            }else {
+            } else {
                 return false
             }
 
@@ -176,14 +176,14 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
 
     //MARK:- Login Service
 
-    func sendRegisterRequest(email:String , password:String, phone:String, pushToken:String) {
+    func sendRegisterRequest(email: String, password: String, phone: String, pushToken: String) {
         /**
          ChangePassword
          POST http://sabadbannewstest.sefryek.com/api/v1/auth/changePassword
          */
 
         btnRegister.enabled = false
-        let progress:UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        let progress: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
         progress.frame = CGRectMake(btnRegister.bounds.maxX - 30, btnRegister.bounds.maxY - 33, 20, 20)
         progress.startAnimating()
         btnRegister.addSubview(progress)
@@ -194,7 +194,8 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         let body = RegisterRequest(email: email, device_token: pushToken, password: password, phone: phone).getDic()
 
         // Fetch Request
-        Request.postData(url, body: body) { (register:UserManagementModel<RegisterResponse>?, error) in
+        Request.postData(url, body: body) {
+            (register: UserManagementModel<RegisterResponse>?, error) in
 
             if ((register?.success) != nil) {
                 if register!.result != nil {

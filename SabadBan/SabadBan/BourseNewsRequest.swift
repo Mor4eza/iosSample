@@ -9,16 +9,16 @@
 import Foundation
 
 public struct BourseNewsRequest {
-    public let take : Int!
-    public let api_token : String!
-    public let page : Int!
+    public let take: Int!
+    public let api_token: String!
+    public let page: Int!
 
-    func getDic() -> [String : AnyObject] {
+    func getDic() -> [String: AnyObject] {
         let dic = [
-        "take" : self.take,
-        "api_token" : self.api_token,
-        "page" : self.page
+                "take": self.take,
+                "api_token": self.api_token,
+                "page": self.page
         ]
-        return dic as! [String : AnyObject]
+        return dic as! [String: AnyObject]
     }
 }

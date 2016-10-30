@@ -12,23 +12,24 @@ import Foundation
 import Gloss
 
 //MARK: - Response
+
 public struct BourseNewsResponse: Glossy {
 
-	public let count : Int!
-	public let newsDetailsList : [BourseNewsDetailsList]!
+    public let count: Int!
+    public let newsDetailsList: [BourseNewsDetailsList]!
 
-	//MARK: Decodable
-	public init?(json: JSON){
-		count = "count" <~~ json
-		newsDetailsList = "newsDetailsList" <~~ json
-	}
+    //MARK: Decodable
+    public init?(json: JSON) {
+        count = "count" <~~ json
+        newsDetailsList = "newsDetailsList" <~~ json
+    }
 
-	//MARK: Encodable
-	public func toJSON() -> JSON? {
-		return jsonify([
-		"count" ~~> count,
-		"newsDetailsList" ~~> newsDetailsList,
-		])
-	}
+    //MARK: Encodable
+    public func toJSON() -> JSON? {
+        return jsonify([
+                "count" ~~> count,
+                "newsDetailsList" ~~> newsDetailsList,
+        ])
+    }
 
 }

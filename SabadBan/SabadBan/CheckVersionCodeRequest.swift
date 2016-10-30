@@ -9,15 +9,15 @@
 import Foundation
 
 public struct CheckVersionCodeRequest {
-    let osVersion : String!
-    let osName : String!
-    let versionCode : Double!
-    
-    func getDic() -> [String : AnyObject] {
-        let dic : [String : AnyObject] = [
-            "osVersion": osVersion,
-            "osName": osName,
-            "versionCode": versionCode
+    let osVersion: String!
+    let osName: String!
+    let versionCode: Double!
+
+    func getDic() -> [String: AnyObject] {
+        let dic: [String: AnyObject] = [
+                "osVersion": osVersion,
+                "osName": osName,
+                "versionCode": versionCode
         ]
         return dic
     }

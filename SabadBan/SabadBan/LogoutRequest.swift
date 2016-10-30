@@ -9,11 +9,11 @@
 import Foundation
 
 public struct LogoutRequest {
-    let apiToken : String!
-    
-    func getDic() -> [String : AnyObject] {
-        let dic : [String : AnyObject] = [
-            "apiToken": apiToken
+    let apiToken: String!
+
+    func getDic() -> [String: AnyObject] {
+        let dic: [String: AnyObject] = [
+                "apiToken": apiToken
         ]
         return dic
     }

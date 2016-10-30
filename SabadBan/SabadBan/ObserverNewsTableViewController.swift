@@ -8,7 +8,8 @@
 
 import UIKit
 import Alamofire
-class ObserverNewsTableViewController: BaseTableViewController  {
+
+class ObserverNewsTableViewController: BaseTableViewController {
 
     var newsModel = [NewsModel]()
     override func viewDidLoad() {
@@ -25,11 +26,12 @@ class ObserverNewsTableViewController: BaseTableViewController  {
 
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
             self.clearsSelectionOnViewWillAppear = false
-        }else {
+        } else {
             self.clearsSelectionOnViewWillAppear = true
         }
     }
-    func refresh(sender:AnyObject) {
+
+    func refresh(sender: AnyObject) {
         sendObserverNewsRequest()
     }
 
@@ -79,11 +81,12 @@ class ObserverNewsTableViewController: BaseTableViewController  {
         let body = ObserverNewsRequest(newsStartTime: time, symbolCodeList: []).getDic()
 
         // Fetch Request
-        Request.postData(url, body: body) { (news:MainResponse<ObserverNewsResponse>?, error)  in
+        Request.postData(url, body: body) {
+            (news: MainResponse<ObserverNewsResponse>?, error) in
 
             if ((news?.successful) != nil) {
-                for i in 0..<news!.response.newsDetailsList.count {
-                    self.newsModel.append(NewsModel(title: news!.response.newsDetailsList[i].newsTitle, details: news!.response.newsDetailsList[i].newsReport, date: news!.response.newsDetailsList[i].newsTime,link: ""))
+                for i in 0 ..< news!.response.newsDetailsList.count {
+                    self.newsModel.append(NewsModel(title: news!.response.newsDetailsList[i].newsTitle, details: news!.response.newsDetailsList[i].newsReport, date: news!.response.newsDetailsList[i].newsTime, link: ""))
                 }
                 self.tableView.reloadData()
             } else {
@@ -109,13 +112,15 @@ class ObserverNewsTableViewController: BaseTableViewController  {
 
         }
     }
-    
+
     override func updateServiceData() {
         sendObserverNewsRequest()
     }
 
 }
+
 //MARK:- News Model
+
 struct NewsModel {
     var title = String()
     var details = String()

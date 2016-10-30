@@ -9,18 +9,18 @@
 import Foundation
 
 public struct ContactUsRequest {
-    let name : String!
-    let email : String!
-    let subject : String!
-    let message : String!
+    let name: String!
+    let email: String!
+    let subject: String!
+    let message: String!
 
-    func getDic() -> [String : String] {
+    func getDic() -> [String: String] {
         let dic = [
-            "name": name,
-            "email":email,
-            "subject": subject,
-            "message": message]
+                "name": name,
+                "email": email,
+                "subject": subject,
+                "message": message]
 
-        return dic as! [String : String]
+        return dic as! [String: String]
     }
 }

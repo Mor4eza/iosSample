@@ -12,23 +12,24 @@ import Foundation
 import Gloss
 
 //MARK: - SymbolBestLimitResponse
+
 public struct SymbolBestLimitResponse: Glossy {
 
-	public let bestLimitDataList : [BestLimitDataList]!
-	public let symbolCode : Int64!
+    public let bestLimitDataList: [BestLimitDataList]!
+    public let symbolCode: Int64!
 
-	//MARK: Decodable
-	public init?(json: JSON){
-		bestLimitDataList = "bestLimitDataList" <~~ json
-		symbolCode = "symbolCode" <~~ json
-	}
+    //MARK: Decodable
+    public init?(json: JSON) {
+        bestLimitDataList = "bestLimitDataList" <~~ json
+        symbolCode = "symbolCode" <~~ json
+    }
 
-	//MARK: Encodable
-	public func toJSON() -> JSON? {
-		return jsonify([
-		"bestLimitDataList" ~~> bestLimitDataList,
-		"symbolCode" ~~> symbolCode,
-		])
-	}
+    //MARK: Encodable
+    public func toJSON() -> JSON? {
+        return jsonify([
+                "bestLimitDataList" ~~> bestLimitDataList,
+                "symbolCode" ~~> symbolCode,
+        ])
+    }
 
 }

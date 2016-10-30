@@ -1,4 +1,3 @@
-
 //
 //  SymbolBestLimitRequest.swift
 //  SabadBan
@@ -12,11 +11,11 @@ import Foundation
 public struct SymbolBestLimitRequest {
     let symbolCode: String!
 
-    func getDic() -> [String : AnyObject] {
-        let dic : [String : AnyObject]
+    func getDic() -> [String: AnyObject] {
+        let dic: [String: AnyObject]
 
         dic = [
-            "symbolCode": symbolCode
+                "symbolCode": symbolCode
         ]
         return dic
     }

@@ -9,14 +9,14 @@
 import Foundation
 import Gloss
 
-public struct NewsMainResponse<T: Glossy> : Glossy {
-    public let errorCode : AnyObject!
-    public let errorDescription : AnyObject!
-    public let response : T!
-    public let success : Bool?
+public struct NewsMainResponse<T:Glossy>: Glossy {
+    public let errorCode: AnyObject!
+    public let errorDescription: AnyObject!
+    public let response: T!
+    public let success: Bool?
 
     //MARK: Decodable
-    public init?(json: JSON){
+    public init?(json: JSON) {
         errorCode = "errorCode" <~~ json
         errorDescription = "errorDescription" <~~ json
         response = "response" <~~ json
@@ -26,10 +26,10 @@ public struct NewsMainResponse<T: Glossy> : Glossy {
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "errorCode" ~~> errorCode,
-            "errorDescription" ~~> errorDescription,
-            "response" ~~> response,
-            "success" ~~> success
-            ])
+                "errorCode" ~~> errorCode,
+                "errorDescription" ~~> errorDescription,
+                "response" ~~> response,
+                "success" ~~> success
+        ])
     }
 }

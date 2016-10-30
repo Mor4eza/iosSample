@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsDetailViewController: UIViewController{
+class NewsDetailViewController: UIViewController {
 
     var newsTitle = String()
     var newsDetails = String()
@@ -35,11 +35,11 @@ class NewsDetailViewController: UIViewController{
         lblTitle.changeDirection()
         fillData()
         if newsLink.isEmpty {
-           btnUrl.enabled = false
+            btnUrl.enabled = false
         }
     }
 
-    func fillData (){
+    func fillData() {
 
         lblTitle.text = newsTitle
         txtDescription.text = newsDetails
@@ -49,7 +49,7 @@ class NewsDetailViewController: UIViewController{
     @IBAction func btnShareTap(sender: AnyObject) {
 
         let appSign = Strings.appName.localized()
-        let vc = UIActivityViewController(activityItems: [newsTitle,"\n \n" ,newsDetails + "\n \n", appSign], applicationActivities: [])
+        let vc = UIActivityViewController(activityItems: [newsTitle, "\n \n", newsDetails + "\n \n", appSign], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = btnShare
         presentViewController(vc, animated: true, completion: nil)
 

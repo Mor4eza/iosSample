@@ -10,18 +10,19 @@ import Foundation
 import Gloss
 
 //MARK: - Response
+
 public struct MarketActivityModel: Glossy {
 
-    public let marketDateTime : String!
-    public let marketStatusEn : String!
-    public let marketStatusFa : String!
-    public let marketValue : Double!
-    public let numberOfTransactions : Double!
-    public let valueOfTransactions : Double!
-    public let volumeOfTransactions : Double!
+    public let marketDateTime: String!
+    public let marketStatusEn: String!
+    public let marketStatusFa: String!
+    public let marketValue: Double!
+    public let numberOfTransactions: Double!
+    public let valueOfTransactions: Double!
+    public let volumeOfTransactions: Double!
 
     //MARK: Decodable
-    public init?(json: JSON){
+    public init?(json: JSON) {
         marketDateTime = "marketDateTime" <~~ json
         marketStatusEn = "marketStatusEn" <~~ json
         marketStatusFa = "marketStatusFa" <~~ json
@@ -34,14 +35,14 @@ public struct MarketActivityModel: Glossy {
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "marketDateTime" ~~> marketDateTime,
-            "marketStatusEn" ~~> marketStatusEn,
-            "marketStatusFa" ~~> marketStatusFa,
-            "marketValue" ~~> marketValue,
-            "numberOfTransactions" ~~> numberOfTransactions,
-            "valueOfTransactions" ~~> valueOfTransactions,
-            "volumeOfTransactions" ~~> volumeOfTransactions,
-            ])
+                "marketDateTime" ~~> marketDateTime,
+                "marketStatusEn" ~~> marketStatusEn,
+                "marketStatusFa" ~~> marketStatusFa,
+                "marketValue" ~~> marketValue,
+                "numberOfTransactions" ~~> numberOfTransactions,
+                "valueOfTransactions" ~~> valueOfTransactions,
+                "volumeOfTransactions" ~~> volumeOfTransactions,
+        ])
     }
 
 }

@@ -12,23 +12,23 @@ import Foundation
 import Gloss
 
 //MARK: - Result
+
 public struct ForgetPasswordResult: Glossy {
-    
-    public let mail : Int!
-    
-    
-    
+
+    public let mail: Int!
+
+
     //MARK: Decodable
-    public init?(json: JSON){
+    public init?(json: JSON) {
         mail = "mail" <~~ json
     }
-    
-    
+
+
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "mail" ~~> mail,
-            ])
+                "mail" ~~> mail,
+        ])
     }
-    
+
 }

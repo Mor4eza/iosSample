@@ -9,15 +9,16 @@
 import UIKit
 
 protocol BuyInfoClickDelegate {
-    func dialogOkButtonClicked ()
+    func dialogOkButtonClicked()
+
     func dialogCancelButtonClicked()
 
 }
 
-class BuyInformationView: UIView ,UITableViewDelegate ,UITableViewDataSource{
+class BuyInformationView: UIView, UITableViewDelegate, UITableViewDataSource {
 
-    var delegate:BuyInfoClickDelegate!
-    var canDismissWithTouch:Bool!
+    var delegate: BuyInfoClickDelegate!
+    var canDismissWithTouch: Bool!
     var view: UIView!
 
     @IBOutlet weak var lblDate: UILabel!
@@ -84,7 +85,7 @@ class BuyInformationView: UIView ,UITableViewDelegate ,UITableViewDataSource{
 
     }
 
-     //MARK:- TableView Delegates
+    //MARK:- TableView Delegates
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -100,11 +101,11 @@ class BuyInformationView: UIView ,UITableViewDelegate ,UITableViewDataSource{
         return cell
     }
 
-     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
 
-     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.buyInfoHeader) as! BuyInfoHeader
 
         headerView.lblDate.text = Strings.Date.localized()
@@ -122,7 +123,7 @@ class BuyInformationView: UIView ,UITableViewDelegate ,UITableViewDataSource{
      - parameter onView: the view that will display the overlayView
      */
 
-    func showAlert(onView:UIView) {
+    func showAlert(onView: UIView) {
         displayView(onView)
     }
 
@@ -136,10 +137,12 @@ class BuyInformationView: UIView ,UITableViewDelegate ,UITableViewDataSource{
 
         // display the view
         transform = CGAffineTransformMakeScale(0.1, 0.1)
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+        UIView.animateWithDuration(0.3, animations: {
+            () -> Void in
             self.alpha = 1.0
             self.transform = CGAffineTransformIdentity
-        }) { (finished) -> Void in
+        }) {
+            (finished) -> Void in
             // When finished wait 1.5 seconds, than hide it
             //            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Double(NSEC_PER_SEC)))
             //            dispatch_after(delayTime, dispatch_get_main_queue()) {
@@ -166,9 +169,11 @@ class BuyInformationView: UIView ,UITableViewDelegate ,UITableViewDataSource{
      Hides the view with animation
      */
     private func hideView() {
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+        UIView.animateWithDuration(0.3, animations: {
+            () -> Void in
             self.transform = CGAffineTransformMakeScale(0.1, 0.1)
-        }) { (finished) -> Void in
+        }) {
+            (finished) -> Void in
             self.removeFromSuperview()
         }
     }
@@ -180,7 +185,7 @@ class BuyInformationView: UIView ,UITableViewDelegate ,UITableViewDataSource{
     @IBAction func rightClick(sender: AnyObject) {
 
         debugPrint("Right")
-        if self.delegate != nil{
+        if self.delegate != nil {
             delegate.dialogOkButtonClicked()
         }
         self.hideView()
@@ -188,7 +193,7 @@ class BuyInformationView: UIView ,UITableViewDelegate ,UITableViewDataSource{
 
     @IBAction func leftClick(sender: AnyObject) {
         debugPrint("Left")
-        if self.delegate != nil{
+        if self.delegate != nil {
             delegate.dialogCancelButtonClicked()
         }
         self.hideView()
@@ -196,7 +201,7 @@ class BuyInformationView: UIView ,UITableViewDelegate ,UITableViewDataSource{
     }
 
     @IBAction func btnCloseTap(sender: AnyObject) {
-      hideView()
+        hideView()
     }
 
 }

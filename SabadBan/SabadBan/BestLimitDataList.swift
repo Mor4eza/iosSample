@@ -12,38 +12,39 @@ import Foundation
 import Gloss
 
 //MARK: - BestLimitDataList
+
 public struct BestLimitDataList: Glossy {
 
-	public let buyNumber : Int!
-	public let buyPrice : Int!
-	public let buyValue : Int!
-	public let number : Int!
-	public let sellNumber : Int!
-	public let sellPrice : Int!
-	public let sellValue : Int!
+    public let buyNumber: Int!
+    public let buyPrice: Int!
+    public let buyValue: Int!
+    public let number: Int!
+    public let sellNumber: Int!
+    public let sellPrice: Int!
+    public let sellValue: Int!
 
-	//MARK: Decodable
-	public init?(json: JSON){
-		buyNumber = "buyNumber" <~~ json
-		buyPrice = "buyPrice" <~~ json
-		buyValue = "buyValue" <~~ json
-		number = "number" <~~ json
-		sellNumber = "sellNumber" <~~ json
-		sellPrice = "sellPrice" <~~ json
-		sellValue = "sellValue" <~~ json
-	}
+    //MARK: Decodable
+    public init?(json: JSON) {
+        buyNumber = "buyNumber" <~~ json
+        buyPrice = "buyPrice" <~~ json
+        buyValue = "buyValue" <~~ json
+        number = "number" <~~ json
+        sellNumber = "sellNumber" <~~ json
+        sellPrice = "sellPrice" <~~ json
+        sellValue = "sellValue" <~~ json
+    }
 
-	//MARK: Encodable
-	public func toJSON() -> JSON? {
-		return jsonify([
-		"buyNumber" ~~> buyNumber,
-		"buyPrice" ~~> buyPrice,
-		"buyValue" ~~> buyValue,
-		"number" ~~> number,
-		"sellNumber" ~~> sellNumber,
-		"sellPrice" ~~> sellPrice,
-		"sellValue" ~~> sellValue,
-		])
-	}
+    //MARK: Encodable
+    public func toJSON() -> JSON? {
+        return jsonify([
+                "buyNumber" ~~> buyNumber,
+                "buyPrice" ~~> buyPrice,
+                "buyValue" ~~> buyValue,
+                "number" ~~> number,
+                "sellNumber" ~~> sellNumber,
+                "sellPrice" ~~> sellPrice,
+                "sellValue" ~~> sellValue,
+        ])
+    }
 
 }

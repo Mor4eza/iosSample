@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+
 class IndexTableViewController: BaseTableViewController {
 
     var indexNames = [String]()
@@ -32,9 +33,9 @@ class IndexTableViewController: BaseTableViewController {
         getIndexList()
 
 
-
     }
-    func refresh(sender:AnyObject) {
+
+    func refresh(sender: AnyObject) {
         getIndexList()
     }
 
@@ -54,11 +55,11 @@ class IndexTableViewController: BaseTableViewController {
 
         cell.lblIndexName.text = indexNames[indexPath.row]
         cell.imgIndex.image = UIImage(named: UIConstants.icIncrease)
-        if (indexPercent[indexPath.row] < 0){
+        if (indexPercent[indexPath.row] < 0) {
             cell.imgIndex.image = UIImage(named: UIConstants.icDecrease)
         }
-        let price:NSNumber = indexPrice[indexPath.row]
-        let percent:NSNumber = indexPercent[indexPath.row]
+        let price: NSNumber = indexPrice[indexPath.row]
+        let percent: NSNumber = indexPercent[indexPath.row]
         cell.lblIndexCount.text = price.currencyFormat(2)
         cell.lblIndexPercent.text = "%" + percent.currencyFormat(2)
         cell.lblIndexName.sizeToFit()
@@ -68,7 +69,7 @@ class IndexTableViewController: BaseTableViewController {
     }
 
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if (indexNames.count == 0){
+        if (indexNames.count == 0) {
             return 0
         }
         return 77
@@ -94,22 +95,23 @@ class IndexTableViewController: BaseTableViewController {
 
     }
 
-    func setTexts(){
+    func setTexts() {
         self.title = Strings.Index.localized()
     }
 
     // MARK: - Service
-    func getIndexList (){
+    func getIndexList() {
 
         refreshControl?.beginRefreshing()
         let url = AppTadbirUrl + URLS["IndexListAndDetails"]!
         // Add Headers
 
         // JSON Body
-        let body = IndexDetailsRequest(timeFrameType: TimeFrameType.day, indexCode: "0",language: getAppLanguage()).getDic()
+        let body = IndexDetailsRequest(timeFrameType: TimeFrameType.day, indexCode: "0", language: getAppLanguage()).getDic()
 
         // Fetch Request
-        Request.postData(url, body: body) { (indexs:MainResponse<Response>?, error) in
+        Request.postData(url, body: body) {
+            (indexs: MainResponse<Response>?, error) in
 
             if ((indexs?.successful) != nil) {
 
@@ -117,8 +119,8 @@ class IndexTableViewController: BaseTableViewController {
                 self.indexCode.removeAll()
                 self.indexPrice.removeAll()
                 self.indexPercent.removeAll()
-                self.lastUpdateTime =  (indexs?.convertTime())!
-                for i in 0  ..< indexs!.response.indexDetailsList.count{
+                self.lastUpdateTime = (indexs?.convertTime())!
+                for i in 0 ..< indexs!.response.indexDetailsList.count {
                     self.indexNames.append(indexs!.response.indexDetailsList[i].shortName)
                     self.indexPrice.append(Double(indexs!.response.indexDetailsList[i].closePrice))
                     self.indexPercent.append(indexs!.response.indexDetailsList[i].changePricePercentVsPreviousTime)
@@ -150,7 +152,7 @@ class IndexTableViewController: BaseTableViewController {
 
         }
     }
-    
+
     override func updateServiceData() {
         getIndexList()
     }

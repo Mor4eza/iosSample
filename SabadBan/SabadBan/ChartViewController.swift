@@ -1,4 +1,3 @@
-
 //
 //  ChartViewController.swift
 //  SabadBan
@@ -8,11 +7,12 @@
 //
 
 import UIKit
-class ChartViewController: BaseViewController{
+
+class ChartViewController: BaseViewController {
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        }
+    }
 }

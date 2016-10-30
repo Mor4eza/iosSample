@@ -10,13 +10,14 @@ import Foundation
 import Gloss
 
 //MARK: - Error
+
 public struct RegisterErrorModel: Glossy {
 
-    public let email : [String]!
-    public let unigueEmail : Bool!
+    public let email: [String]!
+    public let unigueEmail: Bool!
 
     //MARK: Decodable
-    public init?(json: JSON){
+    public init?(json: JSON) {
         email = "email" <~~ json
         unigueEmail = "unigueEmail" <~~ json
     }
@@ -24,9 +25,9 @@ public struct RegisterErrorModel: Glossy {
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "email" ~~> email,
-            "unigueEmail" ~~> unigueEmail,
-            ])
+                "email" ~~> email,
+                "unigueEmail" ~~> unigueEmail,
+        ])
     }
 
 }

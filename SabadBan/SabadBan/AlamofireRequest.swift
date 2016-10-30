@@ -19,20 +19,21 @@ public let AlamoFireGloss_ErrCode = -1
 public extension Alamofire.Request {
 
     /// Creates a response serializer to map Response Data into an object that implements the Decodable or Glossy protocol.
-    static public func GlossyObjectResponseSerializerErrorHadling<T: Decodable>() -> Alamofire.ResponseSerializer<T, NSError> {
-        return Alamofire.ResponseSerializer { _, resp, data, error in
+    static public func GlossyObjectResponseSerializerErrorHadling<T:Decodable>() -> Alamofire.ResponseSerializer<T, NSError> {
+        return Alamofire.ResponseSerializer {
+            _, resp, data, error in
             guard error == nil
-                else {
-                    return .Failure(error!)
+            else {
+                return .Failure(error!)
             }
 
             guard
-                let dat = data,
-                let json = mapJSON(dat) as? JSON,
-                let result = T(json: json)
-                else {
-                    let errz = NSError(domain: AlamoFireGloss_ErrDomain, code: AlamoFireGloss_ErrCode, userInfo: ["data": resp ?? "nil"])
-                    return .Failure(errz)
+            let dat = data,
+            let json = mapJSON(dat) as? JSON,
+            let result = T(json: json)
+            else {
+                let errz = NSError(domain: AlamoFireGloss_ErrDomain, code: AlamoFireGloss_ErrCode, userInfo: ["data": resp ?? "nil"])
+                return .Failure(errz)
             }
 
             return .Success(result)
@@ -40,17 +41,20 @@ public extension Alamofire.Request {
     }
 
     /// Creates a response serializer to map Response Data into an array of objects that implements the Decodable or Glossy protocol.
-    static public func GlossyArrayResponseSerializerErrorHadling<T: Decodable>() -> Alamofire.ResponseSerializer<[T], NSError> {
-        return Alamofire.ResponseSerializer { _, resp, data, error in
+    static public func GlossyArrayResponseSerializerErrorHadling<T:Decodable>() -> Alamofire.ResponseSerializer<[T], NSError> {
+        return Alamofire.ResponseSerializer {
+            _, resp, data, error in
             guard error == nil
-                else { return .Failure(error!) }
+            else {
+                return .Failure(error!)
+            }
 
             guard
-                let dat = data,
-                let json = mapJSON(dat) as? [JSON]
-                else {
-                    let errz = NSError(domain: AlamoFireGloss_ErrDomain, code: AlamoFireGloss_ErrCode, userInfo: ["data": resp ?? "nil"])
-                    return .Failure(errz)
+            let dat = data,
+            let json = mapJSON(dat) as? [JSON]
+            else {
+                let errz = NSError(domain: AlamoFireGloss_ErrDomain, code: AlamoFireGloss_ErrCode, userInfo: ["data": resp ?? "nil"])
+                return .Failure(errz)
             }
 
             let result = [T].fromJSONArray(json)
@@ -59,12 +63,12 @@ public extension Alamofire.Request {
     }
 
     /// The response handler for object-mapping that is called once the Alamofire request completes.
-    public func responseObjectErrorHadling<T: Decodable>(type: T.Type, completionHandler: Alamofire.Response<T, NSError> -> Void) -> Self {
+    public func responseObjectErrorHadling<T:Decodable>(type: T.Type, completionHandler: Alamofire.Response<T, NSError> -> Void) -> Self {
         return response(responseSerializer: Alamofire.Request.GlossyObjectResponseSerializerErrorHadling(), completionHandler: completionHandler)
     }
 
     /// The response handler for array-mapping that is called once the Alamofire request completes.
-    public func responseArrayErrorHadling<T: Decodable>(type: T.Type, completionHandler: Alamofire.Response<[T], NSError> -> Void) -> Self {
+    public func responseArrayErrorHadling<T:Decodable>(type: T.Type, completionHandler: Alamofire.Response<[T], NSError> -> Void) -> Self {
         return response(responseSerializer: Alamofire.Request.GlossyArrayResponseSerializer(), completionHandler: completionHandler)
     }
 }

@@ -15,17 +15,18 @@ class OurInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.lblTitle.text = Strings.ContactInfo.localized()
-        
+
         let blurEffect = UIBlurEffect(style: .Light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.view.frame
-        self.view.insertSubview(blurEffectView, atIndex: 0)    }
+        self.view.insertSubview(blurEffectView, atIndex: 0)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 
     @IBAction func closeTaped(sender: AnyObject) {
 

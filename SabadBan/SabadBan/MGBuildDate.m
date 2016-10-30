@@ -10,12 +10,12 @@
 
 @implementation MGBuildDate
 
-NSString *compileDate(){
+NSString *compileDate() {
 
     return [NSString stringWithFormat:@__DATE__];
 }
 
-NSString *compileTime(){
+NSString *compileTime() {
     return [NSString stringWithFormat:@__TIME__];
 }
 

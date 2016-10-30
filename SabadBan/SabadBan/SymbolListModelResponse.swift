@@ -12,16 +12,17 @@ import Foundation
 import Gloss
 
 //MARK: - Response
+
 public struct SymbolListModelResponse: Glossy {
 
-    public let pageNumber : Int!
-    public let recordPerPage : Int!
-    public let supportPaging : Bool!
-    public let symbolDetailsList : [SymbolDetailsList]!
-    public let totalPages : Int!
+    public let pageNumber: Int!
+    public let recordPerPage: Int!
+    public let supportPaging: Bool!
+    public let symbolDetailsList: [SymbolDetailsList]!
+    public let totalPages: Int!
 
     //MARK: Decodable
-    public init?(json: JSON){
+    public init?(json: JSON) {
         pageNumber = "pageNumber" <~~ json
         recordPerPage = "recordPerPage" <~~ json
         supportPaging = "supportPaging" <~~ json
@@ -32,12 +33,12 @@ public struct SymbolListModelResponse: Glossy {
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "pageNumber" ~~> pageNumber,
-            "recordPerPage" ~~> recordPerPage,
-            "supportPaging" ~~> supportPaging,
-            "symbolDetailsList" ~~> symbolDetailsList,
-            "totalPages" ~~> totalPages,
-            ])
+                "pageNumber" ~~> pageNumber,
+                "recordPerPage" ~~> recordPerPage,
+                "supportPaging" ~~> supportPaging,
+                "symbolDetailsList" ~~> symbolDetailsList,
+                "totalPages" ~~> totalPages,
+        ])
     }
-    
+
 }

@@ -12,38 +12,39 @@ import Foundation
 import Gloss
 
 //MARK: - SymbolDetailsList
+
 public struct SymbolDetailsList: Glossy {
 
-    public let baseValue : Double!
-    public let benchmarkBuy : Double!
-    public let benchmarkSales : Double!
-    public let buyValue : Double!
-    public let closePrice : Double!
-    public let closePriceChange : Double!
-    public let closePriceYesterday : Double!
-    public let descriptionField : AnyObject!
-    public let eps : Double!
-    public let highPrice : Double!
-    public let lastTradeDate : AnyObject!
-    public let lastTradePrice : Double!
-    public let lastTradePriceChange : Double!
-    public let lastTradePriceChangePercent : Double!
-    public let lowPrice : Double!
-    public let marketValue : Double!
-    public let openPrice : Double!
-    public let pe : Double!
-    public let status : String!
-    public let symbolCode : Int64!
-    public let symbolCompleteName : String!
-    public let symbolShortName : String!
-    public let todayPrice : Double!
-    public let todayProfit : Float!
-    public let totalProfit : Float!
-    public let transactionNumber : Double!
-    public let transactionVolume : Double!
+    public let baseValue: Double!
+    public let benchmarkBuy: Double!
+    public let benchmarkSales: Double!
+    public let buyValue: Double!
+    public let closePrice: Double!
+    public let closePriceChange: Double!
+    public let closePriceYesterday: Double!
+    public let descriptionField: AnyObject!
+    public let eps: Double!
+    public let highPrice: Double!
+    public let lastTradeDate: AnyObject!
+    public let lastTradePrice: Double!
+    public let lastTradePriceChange: Double!
+    public let lastTradePriceChangePercent: Double!
+    public let lowPrice: Double!
+    public let marketValue: Double!
+    public let openPrice: Double!
+    public let pe: Double!
+    public let status: String!
+    public let symbolCode: Int64!
+    public let symbolCompleteName: String!
+    public let symbolShortName: String!
+    public let todayPrice: Double!
+    public let todayProfit: Float!
+    public let totalProfit: Float!
+    public let transactionNumber: Double!
+    public let transactionVolume: Double!
 
     //MARK: Decodable
-    public init?(json: JSON){
+    public init?(json: JSON) {
         baseValue = "baseValue" <~~ json
         benchmarkBuy = "benchmarkBuy" <~~ json
         benchmarkSales = "benchmarkSales" <~~ json
@@ -76,34 +77,34 @@ public struct SymbolDetailsList: Glossy {
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "baseValue" ~~> baseValue,
-            "benchmarkBuy" ~~> benchmarkBuy,
-            "benchmarkSales" ~~> benchmarkSales,
-            "buyValue" ~~> buyValue,
-            "closePrice" ~~> closePrice,
-            "closePriceChange" ~~> closePriceChange,
-            "closePriceYesterday" ~~> closePriceYesterday,
-            "description" ~~> descriptionField,
-            "eps" ~~> eps,
-            "highPrice" ~~> highPrice,
-            "lastTradeDate" ~~> lastTradeDate,
-            "lastTradePrice" ~~> lastTradePrice,
-            "lastTradePriceChange" ~~> lastTradePriceChange,
-            "lastTradePriceChangePercent" ~~> lastTradePriceChangePercent,
-            "lowPrice" ~~> lowPrice,
-            "marketValue" ~~> marketValue,
-            "openPrice" ~~> openPrice,
-            "pe" ~~> pe,
-            "status" ~~> status,
-            "symbolCode" ~~> symbolCode,
-            "symbolCompleteName" ~~> symbolCompleteName,
-            "symbolShortName" ~~> symbolShortName,
-            "todayPrice" ~~> todayPrice,
-            "todayProfit" ~~> todayProfit,
-            "totalProfit" ~~> totalProfit,
-            "transactionNumber" ~~> transactionNumber,
-            "transactionVolume" ~~> transactionVolume,
-            ])
+                "baseValue" ~~> baseValue,
+                "benchmarkBuy" ~~> benchmarkBuy,
+                "benchmarkSales" ~~> benchmarkSales,
+                "buyValue" ~~> buyValue,
+                "closePrice" ~~> closePrice,
+                "closePriceChange" ~~> closePriceChange,
+                "closePriceYesterday" ~~> closePriceYesterday,
+                "description" ~~> descriptionField,
+                "eps" ~~> eps,
+                "highPrice" ~~> highPrice,
+                "lastTradeDate" ~~> lastTradeDate,
+                "lastTradePrice" ~~> lastTradePrice,
+                "lastTradePriceChange" ~~> lastTradePriceChange,
+                "lastTradePriceChangePercent" ~~> lastTradePriceChangePercent,
+                "lowPrice" ~~> lowPrice,
+                "marketValue" ~~> marketValue,
+                "openPrice" ~~> openPrice,
+                "pe" ~~> pe,
+                "status" ~~> status,
+                "symbolCode" ~~> symbolCode,
+                "symbolCompleteName" ~~> symbolCompleteName,
+                "symbolShortName" ~~> symbolShortName,
+                "todayPrice" ~~> todayPrice,
+                "todayProfit" ~~> todayProfit,
+                "totalProfit" ~~> totalProfit,
+                "transactionNumber" ~~> transactionNumber,
+                "transactionVolume" ~~> transactionVolume,
+        ])
     }
-    
+
 }

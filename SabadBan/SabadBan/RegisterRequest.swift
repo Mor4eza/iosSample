@@ -14,14 +14,14 @@ public struct RegisterRequest {
     let password: String!
     let phone: String!
 
-    func getDic() -> [String : AnyObject] {
-        let dic : [String : AnyObject]
+    func getDic() -> [String: AnyObject] {
+        let dic: [String: AnyObject]
 
         dic = [
-            "email": email,
-            "device_token": device_token,
-            "password": password,
-            "phone": phone
+                "email": email,
+                "device_token": device_token,
+                "password": password,
+                "phone": phone
         ]
         return dic
     }

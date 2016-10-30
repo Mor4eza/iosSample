@@ -1,4 +1,3 @@
-
 //
 //  RootNavigationViewController.swift
 //  SwiftSideMenu
@@ -11,22 +10,22 @@ import UIKit
 
 public class ENSideMenuNavigationController: UINavigationController, ENSideMenuProtocol {
 
-    public var sideMenu : ENSideMenu?
-    public var sideMenuAnimationType : ENSideMenuAnimation = .Default
+    public var sideMenu: ENSideMenu?
+    public var sideMenuAnimationType: ENSideMenuAnimation = .Default
 
     // MARK: - Life cycle
     public override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    public init( menuViewController: UITableViewController, contentViewController: UIViewController?) {
+    public init(menuViewController: UITableViewController, contentViewController: UIViewController?) {
         super.init(nibName: nil, bundle: nil)
 
         if (contentViewController != nil) {
             self.viewControllers = [contentViewController!]
         }
 
-        sideMenu = ENSideMenu(sourceView: self.view, menuViewController: menuViewController, menuPosition:.Left)
+        sideMenu = ENSideMenu(sourceView: self.view, menuViewController: menuViewController, menuPosition: .Left)
         view.bringSubviewToFront(navigationBar)
     }
 

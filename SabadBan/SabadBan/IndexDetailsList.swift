@@ -12,23 +12,24 @@ import Foundation
 import Gloss
 
 //MARK: - IndexDetailsList
+
 public struct IndexDetailsList: Glossy {
 
-    public let baseValue : Float!
-    public let changePriceOnSameTime : Double!
-    public let changePricePercentOnSameTime : Double!
-    public let changePricePercentVsPreviousTime : Float!
-    public let changePriceVsPreviousTime : Float!
-    public let closePrice : Float!
-    public let descriptionField : AnyObject!
-    public let highPrice : Float!
-    public let indexCode : Int64!
-    public let lowPrice : Float!
-    public let openPrice : Float!
-    public let shortName : String!
+    public let baseValue: Float!
+    public let changePriceOnSameTime: Double!
+    public let changePricePercentOnSameTime: Double!
+    public let changePricePercentVsPreviousTime: Float!
+    public let changePriceVsPreviousTime: Float!
+    public let closePrice: Float!
+    public let descriptionField: AnyObject!
+    public let highPrice: Float!
+    public let indexCode: Int64!
+    public let lowPrice: Float!
+    public let openPrice: Float!
+    public let shortName: String!
 
     //MARK: Decodable
-    public init?(json: JSON){
+    public init?(json: JSON) {
         baseValue = "baseValue" <~~ json
         changePriceOnSameTime = "changePriceOnSameTime" <~~ json
         changePricePercentOnSameTime = "changePricePercentOnSameTime" <~~ json
@@ -46,19 +47,19 @@ public struct IndexDetailsList: Glossy {
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "baseValue" ~~> baseValue,
-            "changePriceOnSameTime" ~~> changePriceOnSameTime,
-            "changePricePercentOnSameTime" ~~> changePricePercentOnSameTime,
-            "changePricePercentVsPreviousTime" ~~> changePricePercentVsPreviousTime,
-            "changePriceVsPreviousTime" ~~> changePriceVsPreviousTime,
-            "closePrice" ~~> closePrice,
-            "description" ~~> descriptionField,
-            "highPrice" ~~> highPrice,
-            "indexCode" ~~> indexCode,
-            "lowPrice" ~~> lowPrice,
-            "openPrice" ~~> openPrice,
-            "shortName" ~~> shortName,
-            ])
+                "baseValue" ~~> baseValue,
+                "changePriceOnSameTime" ~~> changePriceOnSameTime,
+                "changePricePercentOnSameTime" ~~> changePricePercentOnSameTime,
+                "changePricePercentVsPreviousTime" ~~> changePricePercentVsPreviousTime,
+                "changePriceVsPreviousTime" ~~> changePriceVsPreviousTime,
+                "closePrice" ~~> closePrice,
+                "description" ~~> descriptionField,
+                "highPrice" ~~> highPrice,
+                "indexCode" ~~> indexCode,
+                "lowPrice" ~~> lowPrice,
+                "openPrice" ~~> openPrice,
+                "shortName" ~~> shortName,
+        ])
     }
 
 }

@@ -12,13 +12,14 @@ import Foundation
 import Gloss
 
 //MARK: - LoginResponse
+
 public struct LoginResponse: Glossy {
 
-    public let apiToken : String?
-    public let email : String?
+    public let apiToken: String?
+    public let email: String?
 
     //MARK: Decodable
-    public init?(json: JSON){
+    public init?(json: JSON) {
         apiToken = "api_token" <~~ json
         email = "email" <~~ json
     }
@@ -26,9 +27,9 @@ public struct LoginResponse: Glossy {
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "api_token" ~~> apiToken,
-            "email" ~~> email,
-            ])
+                "api_token" ~~> apiToken,
+                "email" ~~> email,
+        ])
     }
 
 }
