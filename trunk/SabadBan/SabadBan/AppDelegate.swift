@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.barTintColor = AppBarTintColor
 
         // change navigation item title color
-        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
         navigationBarAppearace.barStyle = UIBarStyle.Black
@@ -58,7 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
-
 
 
     func applicationWillResignActive(application: UIApplication) {
@@ -91,13 +90,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if FIRInstanceID.instanceID().token() != nil {
             PushToken = FIRInstanceID.instanceID().token()!
-        }else {
+        } else {
             PushToken = Strings.EmptyToken
         }
         print("REAL_TOKEN: \(PushToken)")
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
         var tokenString = ""
-        for i in 0..<deviceToken.length {
+        for i in 0 ..< deviceToken.length {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
 
@@ -108,13 +107,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(error)
     }
 
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject: AnyObject]) {
         //        PushToken = userInfo["gcm_message_id"] as! String
         //        print("GCM_TOKEN: \(PushToken)")
         print(userInfo)
 
-        if ( UIApplication.sharedApplication().applicationState == .Inactive || UIApplication.sharedApplication().applicationState == .Background  )
-        {
+        if (UIApplication.sharedApplication().applicationState == .Inactive || UIApplication.sharedApplication().applicationState == .Background) {
 
             UIView.transitionWithView(self.window!, duration: 0.5, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations: {
 
@@ -123,8 +121,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let newsVC = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.NewsTabBarController) as! NewsTabBarController
                 let nav = UINavigationController(rootViewController: newsVC)
                 appdelegate.window!.rootViewController = nav
-                
-                }, completion: nil)
+
+            }, completion: nil)
         }
     }
 }

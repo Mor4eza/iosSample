@@ -7,27 +7,28 @@
 //
 
 import Foundation
+
 public struct EditAlarmRequest {
-    let id : Int!
-    let email : String!
-    let symbolCode : String!
-    let atPrice : Double!
-    let orderType : String!
-    let alarmPrice : Double!
-    let description : String!
+    let id: Int!
+    let email: String!
+    let symbolCode: String!
+    let atPrice: Double!
+    let orderType: String!
+    let alarmPrice: Double!
+    let description: String!
     let active = Bool()
 
-    func getDic() -> [String : String] {
+    func getDic() -> [String: String] {
         let dic = [
-            "id": id,
-            "email":email,
-            "symbolCode": symbolCode,
-            "atPrice": atPrice,
-            "orderType":orderType,
-            "alarmPrice":alarmPrice,
-            "description":description,
-            "active": active]
+                "id": id,
+                "email": email,
+                "symbolCode": symbolCode,
+                "atPrice": atPrice,
+                "orderType": orderType,
+                "alarmPrice": alarmPrice,
+                "description": description,
+                "active": active]
 
-        return dic as! [String : String]
+        return dic as! [String: String]
     }
 }

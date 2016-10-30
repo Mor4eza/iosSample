@@ -12,32 +12,33 @@ import Foundation
 import Gloss
 
 //MARK: - ObserverNewsResponse
+
 public struct ObserverNewsResponse: Glossy {
 
-	public let newsDetailsList : [NewsDetailsList]!
-	public let pageNumber : Int!
-	public let recordPerPage : Int!
-	public let supportPaging : Bool!
-	public let totalPages : Int!
+    public let newsDetailsList: [NewsDetailsList]!
+    public let pageNumber: Int!
+    public let recordPerPage: Int!
+    public let supportPaging: Bool!
+    public let totalPages: Int!
 
-	//MARK: Decodable
-	public init?(json: JSON){
-		newsDetailsList = "newsDetailsList" <~~ json
-		pageNumber = "pageNumber" <~~ json
-		recordPerPage = "recordPerPage" <~~ json
-		supportPaging = "supportPaging" <~~ json
-		totalPages = "totalPages" <~~ json
-	}
+    //MARK: Decodable
+    public init?(json: JSON) {
+        newsDetailsList = "newsDetailsList" <~~ json
+        pageNumber = "pageNumber" <~~ json
+        recordPerPage = "recordPerPage" <~~ json
+        supportPaging = "supportPaging" <~~ json
+        totalPages = "totalPages" <~~ json
+    }
 
-	//MARK: Encodable
-	public func toJSON() -> JSON? {
-		return jsonify([
-		"newsDetailsList" ~~> newsDetailsList,
-		"pageNumber" ~~> pageNumber,
-		"recordPerPage" ~~> recordPerPage,
-		"supportPaging" ~~> supportPaging,
-		"totalPages" ~~> totalPages,
-		])
-	}
+    //MARK: Encodable
+    public func toJSON() -> JSON? {
+        return jsonify([
+                "newsDetailsList" ~~> newsDetailsList,
+                "pageNumber" ~~> pageNumber,
+                "recordPerPage" ~~> recordPerPage,
+                "supportPaging" ~~> supportPaging,
+                "totalPages" ~~> totalPages,
+        ])
+    }
 
 }

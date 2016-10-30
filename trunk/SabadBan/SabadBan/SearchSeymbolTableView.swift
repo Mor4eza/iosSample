@@ -10,8 +10,9 @@ import UIKit
 import Alamofire
 import SwiftEventBus
 import GSMessages
-class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating , UISearchBarDelegate{
-    
+
+class SearchSeymbolTableView: BaseTableViewController, UISearchResultsUpdating, UISearchBarDelegate {
+
     let searchController = UISearchController(searchResultsController: nil)
     let db = DataBase()
     var shouldShowSearchResults = false
@@ -28,7 +29,7 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
         self.tableView.tableFooterView = UIView()
         if isSearch {
             self.title = Strings.SearchSymbol.localized()
-        }else {
+        } else {
             self.title = Strings.AddSymbol.localized()
         }
         self.tableView.allowsMultipleSelection = true
@@ -52,7 +53,7 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
         self.tableView.contentOffset = CGPointMake(0, -self.refreshControl!.frame.size.height)
         refreshControl!.addTarget(self, action: #selector(IndexTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
-        
+
         let btnDone = UIButton()
         let imgDone = UIImage(named: UIConstants.icDone)
         btnDone.setImage(imgDone, forState: .Normal)
@@ -60,185 +61,186 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
         btnDone.addTarget(self, action: #selector(doneClicked), forControlEvents: .TouchUpInside)
         let rightBarButton = UIBarButtonItem(customView: btnDone)
         self.navigationItem.rightBarButtonItem = rightBarButton
-        
+
         getSymbolList()
     }
-    
-    func refresh(sender:AnyObject) {
+
+    func refresh(sender: AnyObject) {
         getSymbolList()
     }
-    
-    func doneClicked()  {
+
+    func doneClicked() {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
+
     // MARK: - Table view data source
-    
-    
+
+
     override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-    
+
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if shouldShowSearchResults {
             return filteredSymbol.count
-        }
-        else {
+        } else {
             return symbolsData.count
         }
     }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.SymbolsCell, forIndexPath: indexPath) as! SymbolNamesCell
-        
+
         if shouldShowSearchResults {
             cell.lblName?.text = filteredSymbol[indexPath.row].name
             cell.lblFullName?.text = filteredSymbol[indexPath.row].fullName
-        }else{
+        } else {
             cell.lblName?.text = symbolsData[indexPath.row].name
             cell.lblFullName?.text = symbolsData[indexPath.row].fullName
         }
-        
+
         return cell
     }
-    
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+
         if isSearch {
-            
+
             if shouldShowSearchResults {
-                
+
                 SelectedSymbolCode = filteredSymbol[indexPath.row].code
                 SelectedSymbolName = filteredSymbol[indexPath.row].name
-                
-            }else{
-                
+
+            } else {
+
                 SelectedSymbolCode = symbolsData[indexPath.row].code
                 SelectedSymbolName = symbolsData[indexPath.row].name
-                
+
             }
-            
+
             let backItem = UIBarButtonItem()
             backItem.title = Strings.Back.localized()
             navigationItem.backBarButtonItem = backItem
-            
+
             return
         }
-        
+
         var selected = String()
-        
+
         if shouldShowSearchResults {
             selected = String(filteredSymbol[indexPath.row].code)
-            
-        }else{
+
+        } else {
             selected = String(symbolsData[indexPath.row].code)
         }
         symbols = db.getSymbolbyPortfolio(pCode)
         for i in 0 ..< symbols.count {
             if selected == symbols[i] {
-                
-                Utils.ShowAlert(self, title:Strings.Attention.localized() , details: Strings.symbolExists.localized(),btnOkTitle:Strings.Ok.localized())
+
+                Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.symbolExists.localized(), btnOkTitle: Strings.Ok.localized())
                 searchController.active = false
                 return
             }
         }
         db.addSymbolToPortfolio(selected, pCode: pCode)
-        self.showMessage(Strings.addedSuccessfuliToPortfolio.localized(), type: .Success,options: [
-            .Animation(.Slide),
-            .AnimationDuration(0.3),
-            .AutoHide(true),
-            .AutoHideDelay(3.0),
-            .Height(20),
-            .HideOnTap(true),
-            .Position(.Top),
-            .TextAlignment(.Center),
-            .TextColor(UIColor.whiteColor()),
-            .TextNumberOfLines(1),
-            .TextPadding(10)
-            ])
-        
+        self.showMessage(Strings.addedSuccessfuliToPortfolio.localized(), type: .Success, options: [
+                .Animation(.Slide),
+                .AnimationDuration(0.3),
+                .AutoHide(true),
+                .AutoHideDelay(3.0),
+                .Height(20),
+                .HideOnTap(true),
+                .Position(.Top),
+                .TextAlignment(.Center),
+                .TextColor(UIColor.whiteColor()),
+                .TextNumberOfLines(1),
+                .TextPadding(10)
+        ])
+
         if singleSelection {
             dispatch_async(dispatch_get_main_queue()) {
                 self.searchController.active = false
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
-        
-        
+
+
     }
     //MARK : - Search Controller
-    
+
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        
+
         if searchText == "" {
             shouldShowSearchResults = false
             self.tableView.reloadData()
-            
-        }else{
+
+        } else {
             shouldShowSearchResults = true
             self.tableView.reloadData()
         }
-        
+
     }
-    
+
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         shouldShowSearchResults = false
         self.tableView.reloadData()
     }
-    
+
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         if !shouldShowSearchResults {
             shouldShowSearchResults = true
             self.tableView.reloadData()
         }
-        
+
         searchController.searchBar.resignFirstResponder()
     }
-    
+
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let searchString = searchController.searchBar.text
-        
+
         // Filter the data array and get only those countries that match the search text.
-        
-        filteredSymbol = symbolsData.filter{ symbol in
-            
+
+        filteredSymbol = symbolsData.filter {
+            symbol in
+
             return (symbol.name.lowercaseString.containsString(searchString!.lowercaseString) ||
-                symbol.fullName.lowercaseString.containsString(searchString!.lowercaseString))
+                    symbol.fullName.lowercaseString.containsString(searchString!.lowercaseString))
         }
         // Reload the tableview.
         self.tableView.reloadData()
     }
-    
+
     //MARK: - Get Symbol List Service
-    
+
     func getSymbolList() {
-        
+
         refreshControl?.beginRefreshing()
         self.searchController.active = false
         self.searchController.searchBar.userInteractionEnabled = false
         let url = AppTadbirUrl + URLS["getSymbolNameList"]!
-        
+
         // JSON Body
-        let body = SymbolNamesRequest(pageNumber: 0, recordPerPage: 0, symbolCode: [], supportPaging: false,language: getAppLanguage()).getDic()
-        
+        let body = SymbolNamesRequest(pageNumber: 0, recordPerPage: 0, symbolCode: [], supportPaging: false, language: getAppLanguage()).getDic()
+
         // Fetch Request
-        Request.postData(url, body: body) { (symbols:MainResponse<SymbolNameResponse>?, error)  in
-            
+        Request.postData(url, body: body) {
+            (symbols: MainResponse<SymbolNameResponse>?, error) in
+
             if ((symbols?.successful) != nil) {
-                for i in 0  ..< symbols!.response.symbolNameList.count{
+                for i in 0 ..< symbols!.response.symbolNameList.count {
                     self.symbolsData.append(symbolData(name: symbols!.response.symbolNameList[i].symbolShortName,
-                        fullName: symbols!.response.symbolNameList[i].symbolCompleteName, code: symbols!.response.symbolNameList[i].symbolCode))
-                    
+                            fullName: symbols!.response.symbolNameList[i].symbolCompleteName, code: symbols!.response.symbolNameList[i].symbolCode))
+
                     self.refreshControl?.endRefreshing()
                     self.tableView.reloadData()
                     self.searchController.searchBar.userInteractionEnabled = true
-                    
+
                 }
             } else {
                 debugPrint(error)
@@ -246,26 +248,26 @@ class SearchSeymbolTableView: BaseTableViewController ,UISearchResultsUpdating ,
             self.refreshControl?.endRefreshing()
         }
     }
-    
+
     //MARK:- Seguei
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
         if identifier == UIConstants.symDetailsSegue {
-            
+
             if (!isSearch) {
-                
+
                 return false
-            }else {
+            } else {
                 return true
             }
         }
-        
+
         // by default, transition
         return true
     }
 }
 
 struct symbolData {
-    
+
     var name = String()
     var fullName = String()
     var code = Int64()
@@ -273,9 +275,9 @@ struct symbolData {
 
 class smlCode: NSObject {
     var code: Int64;
-    
+
     init(code: Int64) {
         self.code = code;
     }
-    
+
 }

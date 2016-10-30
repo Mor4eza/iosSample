@@ -9,7 +9,8 @@
 import UIKit
 
 protocol DialogClickDelegate {
-    func dialogOkButtonClicked ()
+    func dialogOkButtonClicked()
+
     func dialogCancelButtonClicked()
 
 }
@@ -23,8 +24,8 @@ class MyAlert: UIView {
     @IBOutlet weak var lblRight: UIButton!
 
     @IBOutlet weak var lblLeft: UIButton!
-    var delegate:DialogClickDelegate!
-    var canDismissWithTouch:Bool!
+    var delegate: DialogClickDelegate!
+    var canDismissWithTouch: Bool!
     var view: UIView!
 
     @IBOutlet weak var visualEffectView: UIView!
@@ -89,7 +90,7 @@ class MyAlert: UIView {
      - parameter onView: the view that will display the overlayView
      */
 
-    func showAlert(title:String , details:String ,okTitle :String , cancelTitle:String ,onView:UIView) {
+    func showAlert(title: String, details: String, okTitle: String, cancelTitle: String, onView: UIView) {
         self.lblTitle.text = title
         self.lblDetails.text = details
         self.lblRight.setTitle(okTitle, forState: .Normal)
@@ -124,10 +125,12 @@ class MyAlert: UIView {
 
         // display the view
         transform = CGAffineTransformMakeScale(0.1, 0.1)
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+        UIView.animateWithDuration(0.3, animations: {
+            () -> Void in
             self.alpha = 1.0
             self.transform = CGAffineTransformIdentity
-        }) { (finished) -> Void in
+        }) {
+            (finished) -> Void in
             // When finished wait 1.5 seconds, than hide it
 //            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Double(NSEC_PER_SEC)))
 //            dispatch_after(delayTime, dispatch_get_main_queue()) {
@@ -154,9 +157,11 @@ class MyAlert: UIView {
      Hides the view with animation
      */
     private func hideView() {
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+        UIView.animateWithDuration(0.3, animations: {
+            () -> Void in
             self.transform = CGAffineTransformMakeScale(0.1, 0.1)
-        }) { (finished) -> Void in
+        }) {
+            (finished) -> Void in
             self.removeFromSuperview()
         }
     }
@@ -168,15 +173,15 @@ class MyAlert: UIView {
     @IBAction func rightClick(sender: AnyObject) {
 
         debugPrint("Right")
-        if self.delegate != nil{
-        delegate.dialogOkButtonClicked()
+        if self.delegate != nil {
+            delegate.dialogOkButtonClicked()
         }
         self.hideView()
     }
 
     @IBAction func leftClick(sender: AnyObject) {
         debugPrint("Left")
-        if self.delegate != nil{
+        if self.delegate != nil {
             delegate.dialogCancelButtonClicked()
         }
         self.hideView()

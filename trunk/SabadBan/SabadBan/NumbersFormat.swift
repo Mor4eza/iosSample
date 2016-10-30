@@ -10,7 +10,7 @@ import Foundation
 
 extension NSNumber {
 
-    func currencyFormat(decimalDigits : Int) -> String {
+    func currencyFormat(decimalDigits: Int) -> String {
         let formatter = NSNumberFormatter()
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
@@ -35,7 +35,7 @@ extension NSNumber {
 
 extension Int {
 
-    func currencyFormat(decimalDigits : Int) -> String {
+    func currencyFormat(decimalDigits: Int) -> String {
         let formatter = NSNumberFormatter()
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
@@ -55,7 +55,7 @@ extension Int {
 
 extension Float {
 
-    func currencyFormat(decimalDigits : Int) -> String {
+    func currencyFormat(decimalDigits: Int) -> String {
         let formatter = NSNumberFormatter()
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
@@ -79,7 +79,7 @@ extension Float {
 
 extension Double {
 
-    func currencyFormat(decimalDigits : Int) -> String {
+    func currencyFormat(decimalDigits: Int) -> String {
         let formatter = NSNumberFormatter()
         formatter.usesGroupingSeparator = true
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
@@ -107,26 +107,26 @@ extension Double {
 
     func suffixNumber() -> String {
 
-        var num:Double = self;
-        let sign = ((num < 0) ? "-" : "" );
+        var num: Double = self;
+        let sign = ((num < 0) ? "-" : "");
 
         num = fabs(num);
 
-        if (num < 1000.0){
+        if (num < 1000.0) {
             return "\(sign)\(num)";
         }
 
-        var exp:Int = Int(log10(num) / 3.0 ); //log10(1000));
+        var exp: Int = Int(log10(num) / 3.0); //log10(1000));
 
-        let units:[String] = ["K","M","B","T","P","E"];
+        let units: [String] = ["K", "M", "B", "T", "P", "E"];
 
         if (exp > 3) {
             exp = 3
         }
 
-        let roundedNum = (num / pow(1000.0,Double(exp))).currencyFormat(3)
+        let roundedNum = (num / pow(1000.0, Double(exp))).currencyFormat(3)
 
-        return "\(sign)\(roundedNum)\(units[exp-1])";
+        return "\(sign)\(roundedNum)\(units[exp - 1])";
     }
 
 }

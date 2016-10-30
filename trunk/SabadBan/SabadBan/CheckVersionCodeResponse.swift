@@ -12,35 +12,35 @@ import Foundation
 import Gloss
 
 //MARK: - Response
+
 public struct CheckVersionCodeResponse: Glossy {
-    
-    public let descriptionEn : String!
-    public let descriptionFa : String!
-    public let upToDate : Bool!
-    public let updateLink : String!
-    public let updateTimer : Int!
-    
-    
-    
+
+    public let descriptionEn: String!
+    public let descriptionFa: String!
+    public let upToDate: Bool!
+    public let updateLink: String!
+    public let updateTimer: Int!
+
+
     //MARK: Decodable
-    public init?(json: JSON){
+    public init?(json: JSON) {
         descriptionEn = "descriptionEn" <~~ json
         descriptionFa = "descriptionFa" <~~ json
         upToDate = "upToDate" <~~ json
         updateLink = "updateLink" <~~ json
         updateTimer = "updateTimer" <~~ json
     }
-    
-    
+
+
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "descriptionEn" ~~> descriptionEn,
-            "descriptionFa" ~~> descriptionFa,
-            "upToDate" ~~> upToDate,
-            "updateLink" ~~> updateLink,
-            "updateTimer" ~~> updateTimer,
-            ])
+                "descriptionEn" ~~> descriptionEn,
+                "descriptionFa" ~~> descriptionFa,
+                "upToDate" ~~> upToDate,
+                "updateLink" ~~> updateLink,
+                "updateTimer" ~~> updateTimer,
+        ])
     }
-    
+
 }

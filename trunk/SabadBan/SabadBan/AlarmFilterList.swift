@@ -12,20 +12,21 @@ import Foundation
 import Gloss
 
 //MARK: - Response
+
 public struct AlarmFilterList: Glossy {
 
-    public let active : Bool!
-    public let alarmPrice : Float!
-    public let atPrice : Float!
-    public let descriptionField : String!
-    public let id : Int!
-    public let orderType : String!
-    public let priceDirection : String!
-    public let symbolCode : Int!
+    public let active: Bool!
+    public let alarmPrice: Float!
+    public let atPrice: Float!
+    public let descriptionField: String!
+    public let id: Int!
+    public let orderType: String!
+    public let priceDirection: String!
+    public let symbolCode: Int!
 
 
     //MARK: Decodable
-    public init?(json: JSON){
+    public init?(json: JSON) {
         active = "active" <~~ json
         alarmPrice = "alarmPrice" <~~ json
         atPrice = "atPrice" <~~ json
@@ -40,15 +41,15 @@ public struct AlarmFilterList: Glossy {
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "active" ~~> active,
-            "alarmPrice" ~~> alarmPrice,
-            "atPrice" ~~> atPrice,
-            "description" ~~> descriptionField,
-            "id" ~~> id,
-            "orderType" ~~> orderType,
-            "priceDirection" ~~> priceDirection,
-            "symbolCode" ~~> symbolCode,
-            ])
+                "active" ~~> active,
+                "alarmPrice" ~~> alarmPrice,
+                "atPrice" ~~> atPrice,
+                "description" ~~> descriptionField,
+                "id" ~~> id,
+                "orderType" ~~> orderType,
+                "priceDirection" ~~> priceDirection,
+                "symbolCode" ~~> symbolCode,
+        ])
     }
-    
+
 }

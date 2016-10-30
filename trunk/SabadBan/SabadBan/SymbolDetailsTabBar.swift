@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SymbolDetailsTabBar:UITabBarController {
+class SymbolDetailsTabBar: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +18,7 @@ class SymbolDetailsTabBar:UITabBarController {
         addMenuButton()
         // Do any additional setup after loading the view.
     }
+
     func addMenuButton() {
         self.navigationItem.rightBarButtonItem = nil
         self.navigationItem.leftBarButtonItem = nil
@@ -30,9 +31,9 @@ class SymbolDetailsTabBar:UITabBarController {
 
 
         //.... Set Right/Left Bar Button item
-        if (getAppLanguage() == Language.fa.rawValue){
+        if (getAppLanguage() == Language.fa.rawValue) {
             self.navigationItem.rightBarButtonItem = alarmBarButton
-        }else {
+        } else {
             self.navigationItem.leftBarButtonItem = alarmBarButton
         }
     }
@@ -53,5 +54,5 @@ class SymbolDetailsTabBar:UITabBarController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 }

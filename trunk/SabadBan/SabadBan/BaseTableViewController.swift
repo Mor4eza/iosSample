@@ -1,4 +1,3 @@
-
 //
 //  BaseTableViewController.swift
 //  HamrahTraderPro
@@ -9,15 +8,17 @@
 
 import UIKit
 import SwiftEventBus
-class BaseTableViewController: UITableViewController,ENSideMenuDelegate{
+
+class BaseTableViewController: UITableViewController, ENSideMenuDelegate {
 
     //MARK: Properties
-    var timer : NSTimer?
-    
+    var timer: NSTimer?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        SwiftEventBus.onMainThread(self, name: LanguageChangedNotification) { result in
+        SwiftEventBus.onMainThread(self, name: LanguageChangedNotification) {
+            result in
             self.addMenuButton()
         }
         addMenuButton()
@@ -25,16 +26,19 @@ class BaseTableViewController: UITableViewController,ENSideMenuDelegate{
         self.sideMenuController()?.sideMenu?.delegate = self
         self.tableView.backgroundColor = AppMainColor
 
-        SwiftEventBus.onMainThread(self, name: NetworkErrorAlert) { result in
+        SwiftEventBus.onMainThread(self, name: NetworkErrorAlert) {
+            result in
             Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.noInternet.localized())
         }
-        SwiftEventBus.onMainThread(self, name: TimeOutErrorAlert) { result in
+        SwiftEventBus.onMainThread(self, name: TimeOutErrorAlert) {
+            result in
             Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.ConnectionTimeOut.localized())
         }
-        SwiftEventBus.onMainThread(self, name: ServerErrorAlert) { result in
+        SwiftEventBus.onMainThread(self, name: ServerErrorAlert) {
+            result in
             Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.serviceIsUnreachable.localized())
         }
-        
+
         timer = NSTimer.scheduledTimerWithTimeInterval(updateServiceInterval, target: self, selector: #selector(BaseTableViewController.updateServiceData), userInfo: nil, repeats: true)
 
     }
@@ -47,14 +51,15 @@ class BaseTableViewController: UITableViewController,ENSideMenuDelegate{
         btnMenu.frame = CGRectMake(0, 0, 30, 30)
         btnMenu.addTarget(self, action: #selector(openMenu), forControlEvents: .TouchUpInside)
         //.... Set Right/Left Bar Button item
-        if (getAppLanguage() == Language.fa.rawValue){
+        if (getAppLanguage() == Language.fa.rawValue) {
             let rightBarButton = UIBarButtonItem(customView: btnMenu)
             self.navigationItem.rightBarButtonItem = rightBarButton
-        }else {
+        } else {
             let rightBarButton = UIBarButtonItem(customView: btnMenu)
             self.navigationItem.leftBarButtonItem = rightBarButton
         }
     }
+
     func openMenu() {
         self.toggleSideMenuView()
     }
@@ -71,15 +76,15 @@ class BaseTableViewController: UITableViewController,ENSideMenuDelegate{
     }
 
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        if (view is UILabel){
+        if (view is UILabel) {
             let lable = (view as! UILabel)
             lable.font = UIFont(name: AppFontName_IranSans, size: (lable.font.pointSize))
         }
     }
-    
+
     func updateServiceData() {
     }
-    
+
     func invalidTimer() {
         if let mTimer = timer {
             mTimer.invalidate()

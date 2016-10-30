@@ -1,5 +1,3 @@
-
-
 import UIKit
 
 @IBDesignable public class Switch: UIControl {

@@ -26,53 +26,53 @@ public var updateServiceInterval = 300.0
 
 
 #if DEV
-    public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
+public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
 
 #elseif TEST
-    public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
+public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
 
-#else 
-    public let AppTadbirUrl = "http://sabadban.sefryek.com:9090" //Server 6 Prod
+#else
+public let AppTadbirUrl = "http://sabadban.sefryek.com:9090" //Server 6 Prod
 #endif
 
 //MARK: - Urls
-public let URLS:[String:String] =
-    ["IndexListAndDetails":"/services/getIndexListAndDetails",
-     "getSymbolListByIndex":"/services/getSymbolListByIndex",
-     "getSymbolListAndDetails":"/services/getSymbolListAndDetails",
-     "getBestLimitsBySymbol":"/services/getBestLimitsBySymbol",
-     "getSymbolTradingDetails":"/services/getSymbolTradingDetails",
-     "getNewsListAndDetails" : "/services/getNewsListAndDetails",
-     "getMarketActivity" : "/services/getMarketActivity",
-     "getSymbolNameList" : "/services/getSymbolNameList",
-     "getBourseNews" : "/api/v1/news/get",
-     "login" : "/api/v1/auth/login",
-     "logout" : "/api/v1/auth/logout",
-     "guestLogin" : "/api/v1/auth/login/guest",
-     "register" : "/api/v1/auth/register",
-     "sendContactUs" : "/api/v1/tools/contact_us",
-     "changePassword" : "/api/v1/auth/changePassword",
-     "checkVersionCode" : "/services/checkVersionCode",
-     "getAlarmFilters" : "/services/find-alarms",
-     "addAlarmFilter" : "/services/add-alarm",
-     "editAlarmFilter" : "/services/edit-alarm",
-     "deleteAlarmFilter" : "/services/delete-alarm"
+public let URLS: [String: String] =
+["IndexListAndDetails": "/services/getIndexListAndDetails",
+ "getSymbolListByIndex": "/services/getSymbolListByIndex",
+ "getSymbolListAndDetails": "/services/getSymbolListAndDetails",
+ "getBestLimitsBySymbol": "/services/getBestLimitsBySymbol",
+ "getSymbolTradingDetails": "/services/getSymbolTradingDetails",
+ "getNewsListAndDetails": "/services/getNewsListAndDetails",
+ "getMarketActivity": "/services/getMarketActivity",
+ "getSymbolNameList": "/services/getSymbolNameList",
+ "getBourseNews": "/api/v1/news/get",
+ "login": "/api/v1/auth/login",
+ "logout": "/api/v1/auth/logout",
+ "guestLogin": "/api/v1/auth/login/guest",
+ "register": "/api/v1/auth/register",
+ "sendContactUs": "/api/v1/tools/contact_us",
+ "changePassword": "/api/v1/auth/changePassword",
+ "checkVersionCode": "/services/checkVersionCode",
+ "getAlarmFilters": "/services/find-alarms",
+ "addAlarmFilter": "/services/add-alarm",
+ "editAlarmFilter": "/services/edit-alarm",
+ "deleteAlarmFilter": "/services/delete-alarm"
 ]
 
 //MARK:- Constants
-public var SelectedIndexCode:String = ""
-public var SelectedSymbolCode:Int64 = 0
-public var SelectedSymbolName:String = ""
-public var LoginToken:String = ""
-public var PushToken:String = ""
-public var LogedInUserName:String = ""
-public var LogedInUserId:Int = -1
+public var SelectedIndexCode: String = ""
+public var SelectedSymbolCode: Int64 = 0
+public var SelectedSymbolName: String = ""
+public var LoginToken: String = ""
+public var PushToken: String = ""
+public var LogedInUserName: String = ""
+public var LogedInUserId: Int = -1
 
 //MARK: - App Style
 
 public let AppMainColor = UIColor(netHex: 0x172340)
-public let AppBarTintColor = UIColor(netHex:0x2b3a5c)
-public let AppBackgroundLight = UIColor(netHex:0x2b3a5c)
+public let AppBarTintColor = UIColor(netHex: 0x2b3a5c)
+public let AppBackgroundLight = UIColor(netHex: 0x2b3a5c)
 
 //MARK: - Language
 public let LocaleFa = "fa_IR"
@@ -86,7 +86,8 @@ public let JailBreakAccept = "JailBreakAccept"
 public let NumberOfLogins = "NumberOfLogins"
 
 //MARK: - Enums
-public enum TimeFrameType : Int {
+
+public enum TimeFrameType: Int {
     case day = 0
     case week
     case month

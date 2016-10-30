@@ -12,22 +12,22 @@ import Foundation
 import Gloss
 
 //MARK: - SymbolListByIndexResponse
+
 public struct SymbolListByIndexResponse: Glossy {
 
-    public let indexCode : Int!
-    public let pageNumber : Int!
-    public let recordPerPage : Int!
-    public let supportPaging : Bool!
-    public let symbolCompleteName : String!
-    public let symbolDetailsList : [SymbolDetailsList]!
-    public let symbolShortName : AnyObject!
-    public let timeFrameType : AnyObject!
-    public let totalPages : Int!
-
+    public let indexCode: Int!
+    public let pageNumber: Int!
+    public let recordPerPage: Int!
+    public let supportPaging: Bool!
+    public let symbolCompleteName: String!
+    public let symbolDetailsList: [SymbolDetailsList]!
+    public let symbolShortName: AnyObject!
+    public let timeFrameType: AnyObject!
+    public let totalPages: Int!
 
 
     //MARK: Decodable
-    public init?(json: JSON){
+    public init?(json: JSON) {
         indexCode = "indexCode" <~~ json
         pageNumber = "pageNumber" <~~ json
         recordPerPage = "recordPerPage" <~~ json
@@ -43,16 +43,16 @@ public struct SymbolListByIndexResponse: Glossy {
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "indexCode" ~~> indexCode,
-            "pageNumber" ~~> pageNumber,
-            "recordPerPage" ~~> recordPerPage,
-            "supportPaging" ~~> supportPaging,
-            "symbolCompleteName" ~~> symbolCompleteName,
-            "symbolDetailsList" ~~> symbolDetailsList,
-            "symbolShortName" ~~> symbolShortName,
-            "timeFrameType" ~~> timeFrameType,
-            "totalPages" ~~> totalPages,
-            ])
+                "indexCode" ~~> indexCode,
+                "pageNumber" ~~> pageNumber,
+                "recordPerPage" ~~> recordPerPage,
+                "supportPaging" ~~> supportPaging,
+                "symbolCompleteName" ~~> symbolCompleteName,
+                "symbolDetailsList" ~~> symbolDetailsList,
+                "symbolShortName" ~~> symbolShortName,
+                "timeFrameType" ~~> timeFrameType,
+                "totalPages" ~~> totalPages,
+        ])
     }
-    
+
 }

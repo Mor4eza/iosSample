@@ -7,15 +7,16 @@
 //
 
 import Foundation
+
 public struct DeleteAlarmRequest {
-    let id : Int!
-    let email : String!
+    let id: Int!
+    let email: String!
 
-    func getDic() -> [String : String] {
+    func getDic() -> [String: String] {
         let dic = [
-            "id": id,
-            "email":email]
+                "id": id,
+                "email": email]
 
-        return dic as! [String : String]
+        return dic as! [String: String]
     }
 }

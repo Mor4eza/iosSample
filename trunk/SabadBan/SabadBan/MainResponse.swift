@@ -10,15 +10,16 @@ import Foundation
 import Gloss
 
 //MARK: - Indexs
+
 public struct MainResponse<T:Glossy>: Glossy {
 
-    public let errorCode : AnyObject!
-    public let errorDescription : AnyObject!
-    public let response : T!
-    public let successful : Bool!
-    public let updateLatest:String!
+    public let errorCode: AnyObject!
+    public let errorDescription: AnyObject!
+    public let response: T!
+    public let successful: Bool!
+    public let updateLatest: String!
     //MARK: Decodable
-    public init?(json: JSON){
+    public init?(json: JSON) {
         errorCode = "errorCode" <~~ json
         errorDescription = "errorDescription" <~~ json
         response = "response" <~~ json
@@ -29,12 +30,12 @@ public struct MainResponse<T:Glossy>: Glossy {
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "errorCode" ~~> errorCode,
-            "errorDescription" ~~> errorDescription,
-            "response" ~~> response,
-            "successful" ~~> successful,
-            "updateLatest" ~~> updateLatest
-            ])
+                "errorCode" ~~> errorCode,
+                "errorDescription" ~~> errorDescription,
+                "response" ~~> response,
+                "successful" ~~> successful,
+                "updateLatest" ~~> updateLatest
+        ])
     }
 
     public func convertTime() -> NSMutableAttributedString {
@@ -47,10 +48,10 @@ public struct MainResponse<T:Glossy>: Glossy {
         let date = dateFormatter.dateFromString(self.updateLatest)
 
 
-        if let font =  UIFont(name: AppFontName_IranSans, size:(12)) {
+        if let font = UIFont(name: AppFontName_IranSans, size: (12)) {
             let firstAtt = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: font]
-            let secondAtt = [NSForegroundColorAttributeName: AppMainColor, NSFontAttributeName:UIFont.systemFontOfSize(1)]
-            let partOne = NSMutableAttributedString(string: Strings.lastUpdate.localized() , attributes: firstAtt)
+            let secondAtt = [NSForegroundColorAttributeName: AppMainColor, NSFontAttributeName: UIFont.systemFontOfSize(1)]
+            let partOne = NSMutableAttributedString(string: Strings.lastUpdate.localized(), attributes: firstAtt)
             let partTwo = NSMutableAttributedString(string: " p", attributes: secondAtt)
             let partThree = NSMutableAttributedString(string: convertToPersianDateWithTime(date!), attributes: firstAtt)
 
@@ -59,7 +60,7 @@ public struct MainResponse<T:Glossy>: Glossy {
             combination.appendAttributedString(partTwo)
             combination.appendAttributedString(partThree)
         }
-        
+
         return combination
     }
 }

@@ -16,7 +16,7 @@ class SymbolListTableViewController: BaseTableViewController {
     var volumeSortCondiiton = SortCondition.notSorted
     var symbolSortCondiiton = SortCondition.notSorted
 
-    var headerView : SymbolListHeader!
+    var headerView: SymbolListHeader!
     var lastUpdate = NSMutableAttributedString()
     var symbolDetailsList = [SymbolDetailsList]()
     var temp = [String]()
@@ -36,7 +36,8 @@ class SymbolListTableViewController: BaseTableViewController {
         getSymbolListByIndex()
 
     }
-    func refresh(sender:AnyObject) {
+
+    func refresh(sender: AnyObject) {
         getSymbolListByIndex()
     }
 
@@ -72,7 +73,7 @@ class SymbolListTableViewController: BaseTableViewController {
 
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = AppBarTintColor
-        }else {
+        } else {
             cell.backgroundColor = AppMainColor
         }
 
@@ -130,21 +131,22 @@ class SymbolListTableViewController: BaseTableViewController {
 
     //MARK: - Service Call
 
-    func getSymbolListByIndex (){
+    func getSymbolListByIndex() {
 
         refreshControl?.beginRefreshing()
         let url = AppTadbirUrl + URLS["getSymbolListByIndex"]!
 
         // JSON Body
-        let body = SymbolListByIndexRequest(pageNumber: 0, recordPerPage: 0, indexCode: SelectedIndexCode, supportPaging: false, timeFrameType: TimeFrameType.day.rawValue,language: getAppLanguage()).getDic()
+        let body = SymbolListByIndexRequest(pageNumber: 0, recordPerPage: 0, indexCode: SelectedIndexCode, supportPaging: false, timeFrameType: TimeFrameType.day.rawValue, language: getAppLanguage()).getDic()
 
         // Fetch Request
-        Request.postData(url, body: body) { (symbols:MainResponse<SymbolListByIndexResponse>?, error) in
+        Request.postData(url, body: body) {
+            (symbols: MainResponse<SymbolListByIndexResponse>?, error) in
 
             if ((symbols?.successful) != nil) {
                 self.symbolDetailsList.removeAll()
                 self.lastUpdate = (symbols?.convertTime())!
-                for i in 0  ..< symbols!.response.symbolDetailsList.count{
+                for i in 0 ..< symbols!.response.symbolDetailsList.count {
                     self.symbolDetailsList.append(symbols!.response.symbolDetailsList[i])
                     self.tableView.reloadData()
                 }
@@ -221,7 +223,7 @@ class SymbolListTableViewController: BaseTableViewController {
                 })
                 break
             }
-        } else if (identifier == UIConstants.lblSymbol || identifier == UIConstants.imgSortName ){
+        } else if (identifier == UIConstants.lblSymbol || identifier == UIConstants.imgSortName) {
             sortImg = headerView.imgSortName
             switch symbolSortCondiiton {
             case .notSorted:
@@ -256,7 +258,7 @@ class SymbolListTableViewController: BaseTableViewController {
             target.transform = CGAffineTransformMakeRotation(CGFloat(angle))
         })
     }
-    
+
     override func updateServiceData() {
         getSymbolListByIndex()
     }

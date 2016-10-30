@@ -1,4 +1,3 @@
-
 //	AlarmResponse.swift
 //
 //	Create by Morteza Gharedaghi on 29/10/2016
@@ -12,23 +11,23 @@ import Foundation
 import Gloss
 
 //MARK: - AlarmResponse
+
 public struct AlarmResponse: Glossy {
-    
-    public let alarmFilterList : [AlarmFilterList]!
-    
-    
-    
+
+    public let alarmFilterList: [AlarmFilterList]!
+
+
     //MARK: Decodable
-    public init?(json: JSON){
+    public init?(json: JSON) {
         alarmFilterList = "alarmFilterList" <~~ json
     }
-    
-    
+
+
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "alarmFilterList" ~~> alarmFilterList,
-            ])
+                "alarmFilterList" ~~> alarmFilterList,
+        ])
     }
-    
+
 }

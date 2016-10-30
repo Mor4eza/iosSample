@@ -10,14 +10,14 @@ import Foundation
 
 public struct ObserverNewsRequest {
 
-    let newsStartTime : String!
-    let symbolCodeList : [String]!
+    let newsStartTime: String!
+    let symbolCodeList: [String]!
 
-    func getDic() -> [String : AnyObject] {
+    func getDic() -> [String: AnyObject] {
         let dic = [
-            "newsStartTime": newsStartTime,
-            "symbolCodeList": symbolCodeList
+                "newsStartTime": newsStartTime,
+                "symbolCodeList": symbolCodeList
         ]
-        return dic as! [String : AnyObject]
+        return dic as! [String: AnyObject]
     }
 }

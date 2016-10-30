@@ -35,19 +35,19 @@ struct Strings {
     static let Yes = "Yes"
     static let No = "No"
     static let RealyWantToDelete = "RealyWantToDelete"
-    
+
     //MARK:- Index View Strings
-    
+
     static let Value = "Value"
     static let Percent = "Percent"
-    
+
     //MARK:- IndexDetails Strings
-    
+
     static let Day = "Day"
     static let Week = "Week"
     static let Month = "Month"
     static let Year = "Year"
-    
+
     static let MaxPrice = "MaxPrice"
     static let MinPrice = "MinPrice"
     static let LastPrice = "LastPrice"
@@ -57,19 +57,19 @@ struct Strings {
     static let Trade = "Trade"
     static let Volume = "Volume"
     static let Amount = "Amount"
-    
+
     static let indexInfo = "indexInfo"
     static let marketInfo = "marketInfo"
-    
+
     static let NumberOfTransactions = "NumberOfTransactions"
     static let ValueOfTransactions = "ValueOfTransactions"
     static let VolumeOfTransactions = "VolumeOfTransactions"
     static let ValueOfMarket = "ValueOfMarket"
-    
+
     static let noData = "noData"
-    
+
     //MARK: - Portfolio Strings
-    
+
     static let AddSymbol = "AddSymbol"
     static let EditPortfolio = "EditPortfolio"
     static let SearchSymbol = "SearchSymbol"
@@ -93,16 +93,16 @@ struct Strings {
     static let reallyWantToDeleteBuy = "reallyWantToDeleteBuy"
     static let deleteBuyAlertTitle = "deleteBuyAlertTitle"
     static let addedSuccessfuliToPortfolio = "addedSuccessfuliToPortfolio"
-    
+
     //MARK: - AboutUs Strings
-    
+
     static let AllrightsReserved = "AllrightsReserved"
     static let UpdateDataIntervalNotice = "UpdateDataIntervalNotice"
     static let ReleaseDate = "ReleaseDate"
     static let Version = "Version"
-    
+
     //MARK: - Login String
-    
+
     static let Email = "Email"
     static let Password = "Password"
     static let RememberMe = "RememberMe"
@@ -125,9 +125,9 @@ struct Strings {
     static let phoneNumberLengthError = "phoneNumberLengthError"
     static let emailRegisterdBefore = "emailRegisterdBefore"
     static let unknownRegisterError = "unknownRegisterError"
-    
+
     //MARK: - Global String
-    
+
     static let noInternet = "noInternet"
     static let ConnectionTimeOut = "ConnectionTimeOut"
     static let serviceIsUnreachable = "serviceIsUnreachable"
@@ -140,11 +140,11 @@ struct Strings {
     static let StartPriceTitle = "StartPriceTitle"
     static let LowPriceTitle = "LowPriceTitle"
     static let HighPriceTitle = "HighPriceTitle"
-    
+
     //MARK: - Date Picker
     static let SelectDate = "SelectDate"
 
-     //MARK: - ContactUs Strings
+    //MARK: - ContactUs Strings
 
     static let SenderName = "SenderName"
     static let SenderEmail = "SenderEmail"
@@ -155,18 +155,18 @@ struct Strings {
     static let pleaseEnterName = "pleaseEnterName"
     static let pleaseEnterSubject = "pleaseEnterSubject"
     static let pleaseEnterDetails = "pleaseEnterDetails"
-    
+
     //MARK: - Forget Password Strings
-    
+
     static let forgetPasswordDescription = "forgetPasswordDescription"
     static let forgetPasswordSendKey = "forgetPasswordSendKey"
     static let changePassword = "changePassword"
     static let changePasswordSuccessMessage = "changePasswordSuccessMessage"
     static let emailNotFound = "emailNotFound"
-    
+
     //MARK: - Check version Strings
     static let download = "download";
-    
+
     //MARK: - Jail break check
     static let isJailBrokenDescription = "isJailBrokenDescription"
 

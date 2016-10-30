@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsTabBarController: UITabBarController{
+class NewsTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +25,15 @@ class NewsTabBarController: UITabBarController{
         btnMenu.frame = CGRectMake(0, 0, 30, 30)
         btnMenu.addTarget(self, action: #selector(openMenu), forControlEvents: .TouchUpInside)
         //.... Set Right/Left Bar Button item
-        if (getAppLanguage() == Language.fa.rawValue){
+        if (getAppLanguage() == Language.fa.rawValue) {
             let rightBarButton = UIBarButtonItem(customView: btnMenu)
             self.navigationItem.rightBarButtonItem = rightBarButton
-        }else {
+        } else {
             let rightBarButton = UIBarButtonItem(customView: btnMenu)
             self.navigationItem.leftBarButtonItem = rightBarButton
         }
     }
+
     func openMenu() {
         debugPrint("Hear")
         self.toggleSideMenuView()

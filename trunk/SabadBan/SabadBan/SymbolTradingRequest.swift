@@ -11,11 +11,11 @@ import Foundation
 public struct SymbolTradingRequest {
     let symbolCode: String!
 
-    func getDic() -> [String : AnyObject] {
-        let dic : [String : AnyObject]
+    func getDic() -> [String: AnyObject] {
+        let dic: [String: AnyObject]
 
         dic = [
-            "symbolCode": symbolCode
+                "symbolCode": symbolCode
         ]
         return dic
     }

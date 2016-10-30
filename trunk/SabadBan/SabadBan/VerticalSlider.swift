@@ -1,4 +1,3 @@
-
 import UIKit
 
 @IBDesignable
@@ -24,13 +23,14 @@ class VerticalSlider: UIControl {
     }
 
     let knobSize = CGSize(width: 36, height: 27)
-    let barMargin:CGFloat = 15.0
+    let barMargin: CGFloat = 15.0
     var knobRect: CGRect!
     var barLength: CGFloat!
     var isSliding = false
 }
 
 // MARK: - Lifecycle
+
 extension VerticalSlider {
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,12 +53,14 @@ extension VerticalSlider {
 }
 
 // MARK: - Helpers
+
 extension VerticalSlider {
     func convertYToValue(y: CGFloat) -> CGFloat {
         let offsetY = bounds.height - barMargin - y
         let value = (offsetY * maxValue) / barLength
         return value
     }
+
     func convertValueToY(value: CGFloat) -> CGFloat {
         let rawY = (value * barLength) / maxValue
         let offsetY = bounds.height - barMargin - rawY
@@ -67,16 +69,17 @@ extension VerticalSlider {
 }
 
 // MARK: - Control Touch Handling
+
 extension VerticalSlider {
-     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let touch  = touches.first
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first
         if CGRectContainsPoint(knobRect, touch!.locationInView(self)) {
             isSliding = true
         }
     }
 
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-         let touch  = touches.first
+        let touch = touches.first
         let rawY = touch!.locationInView(self).y
 
         if isSliding {

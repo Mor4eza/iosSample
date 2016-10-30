@@ -9,22 +9,22 @@
 import Foundation
 
 public struct SymbolListByIndexRequest {
-    let pageNumber : Int!
-    let recordPerPage : Int!
-    let indexCode : String!
-    let supportPaging : Bool!
-    let timeFrameType : Int!
-    let language : String!
+    let pageNumber: Int!
+    let recordPerPage: Int!
+    let indexCode: String!
+    let supportPaging: Bool!
+    let timeFrameType: Int!
+    let language: String!
 
-    func getDic() -> [String : AnyObject] {
+    func getDic() -> [String: AnyObject] {
         let dic = [
-            "pageNumber": pageNumber,
-            "recordPerPage": recordPerPage,
-            "indexCode": indexCode,
-            "supportPaging": supportPaging,
-            "timeFrameType": timeFrameType,
-            "language": language
+                "pageNumber": pageNumber,
+                "recordPerPage": recordPerPage,
+                "indexCode": indexCode,
+                "supportPaging": supportPaging,
+                "timeFrameType": timeFrameType,
+                "language": language
         ]
-        return dic as! [String : AnyObject]
+        return dic as! [String: AnyObject]
     }
 }

@@ -36,7 +36,7 @@ class AboutUsViewController: BaseViewController {
         allRightsReserevedLabel.text = Strings.AllrightsReserved.localized()
     }
 
-    deinit{
+    deinit {
 
         debugPrint("Deinit------------------------>>>>>")
     }

@@ -1,4 +1,3 @@
-
 //
 //  SettingTableViewController.swift
 //  HamrahTraderPro
@@ -10,6 +9,7 @@
 import UIKit
 import Localize_Swift
 import SwiftEventBus
+
 class SettingTableViewController: BaseTableViewController {
 
     var actionSheet: UIAlertController!
@@ -31,7 +31,7 @@ class SettingTableViewController: BaseTableViewController {
         label.changeDirection()
 
         if section == 1 {
-            label.text =  Strings.Language.localized()
+            label.text = Strings.Language.localized()
         }
 
         return label
@@ -59,7 +59,7 @@ class SettingTableViewController: BaseTableViewController {
 
         cell.textLabel?.changeDirection()
 
-        if indexPath.section == 1{
+        if indexPath.section == 1 {
             cell.textLabel?.text = Localize.displayNameForLanguage(Localize.currentLanguage())
         }
         return cell
@@ -67,9 +67,9 @@ class SettingTableViewController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        if  indexPath.row == 0 {
+        if indexPath.row == 0 {
             actionSheet = UIAlertController(title: nil, message: Strings.SwitchLanguage.localized(), preferredStyle: UIAlertControllerStyle.ActionSheet)
-            for language in availableLanguages{
+            for language in availableLanguages {
                 let displayName = Localize.displayNameForLanguage(language)
                 let languageAction = UIAlertAction(title: displayName, style: .Default, handler: {
                     (alert: UIAlertAction!) -> Void in

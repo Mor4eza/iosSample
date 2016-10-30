@@ -41,7 +41,7 @@ class SymbolDetailsViewController: BaseTableViewController {
     @IBOutlet weak var lblHighPriceTitle: UILabel!
     @IBOutlet weak var lblhighPriceValue: UILabel!
     //Section 2 BestBuy
-    @IBOutlet weak var lblBBPTitle:  UILabel!
+    @IBOutlet weak var lblBBPTitle: UILabel!
     @IBOutlet weak var lblBBPValue1: UILabel!
     @IBOutlet weak var lblBBPValue2: UILabel!
     @IBOutlet weak var lblBBPValue3: UILabel!
@@ -88,13 +88,13 @@ class SymbolDetailsViewController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if section == 0{
+        if section == 0 {
             return 1
-        }else if section == 1{
+        } else if section == 1 {
             if hideBestBuy {
                 return 0
             }
-        }else if section == 2 {
+        } else if section == 2 {
             if hideBestSell {
                 return 0
             }
@@ -104,8 +104,7 @@ class SymbolDetailsViewController: BaseTableViewController {
 
     }
 
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
-    {
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let tapGesture = UITapGestureRecognizer()
 
@@ -120,7 +119,7 @@ class SymbolDetailsViewController: BaseTableViewController {
             headerView.lblTitle.backgroundColor = UIColor(netHex: 0x2e9220)
             if hideBestBuy {
                 rotateWithAnimation(headerView.imgArrow, angle: M_PI)
-            }else {
+            } else {
                 rotateWithAnimation(headerView.imgArrow, angle: 0)
             }
         } else if (section == 2) {
@@ -129,7 +128,7 @@ class SymbolDetailsViewController: BaseTableViewController {
             headerView.lblTitle.backgroundColor = UIColor.redColor()
             if hideBestSell {
                 rotateWithAnimation(headerView.imgArrow, angle: M_PI)
-            }else {
+            } else {
                 rotateWithAnimation(headerView.imgArrow, angle: 0)
             }
         }
@@ -138,15 +137,15 @@ class SymbolDetailsViewController: BaseTableViewController {
         return headerView
     }
 
-    func bestBuyTapped(){
+    func bestBuyTapped() {
         hideBestBuy = !hideBestBuy
-        tableView.reloadSections(NSIndexSet(index:1), withRowAnimation: .Fade)
+        tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: .Fade)
     }
 
-    func bestSellTapped(){
+    func bestSellTapped() {
         hideBestSell = !hideBestSell
         //        let indexPath = NSIndexPath(forRow:2, inSection: 2)
-        tableView.reloadSections(NSIndexSet(index:2), withRowAnimation: .Fade)
+        tableView.reloadSections(NSIndexSet(index: 2), withRowAnimation: .Fade)
         //        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
         //        tableView.contentOffset = CGPointMake(0, 120)
     }
@@ -159,7 +158,7 @@ class SymbolDetailsViewController: BaseTableViewController {
 
     //MARK:- Symbol Best Limit service
 
-    func getSymbolBestLimitService(sCode:String){
+    func getSymbolBestLimitService(sCode: String) {
         /**
          getBestLimitsBySymbol
          POST http://185.37.52.193:9090/services/getBestLimitsBySymbol
@@ -171,10 +170,11 @@ class SymbolDetailsViewController: BaseTableViewController {
         let body = SymbolBestLimitRequest(symbolCode: sCode).getDic()
 
         // Fetch Request
-        Request.postData(url, body: body) { (bestLimit:MainResponse<SymbolBestLimitResponse>?, error) in
+        Request.postData(url, body: body) {
+            (bestLimit: MainResponse<SymbolBestLimitResponse>?, error) in
 
             if ((bestLimit?.successful) != nil) {
-                if  bestLimit!.response.bestLimitDataList.count > 0 {
+                if bestLimit!.response.bestLimitDataList.count > 0 {
                     self.lblBBPValue1.text = bestLimit!.response.bestLimitDataList[0].buyPrice.currencyFormat(2)
                     self.lblBBPValue2.text = bestLimit!.response.bestLimitDataList[1].buyPrice.currencyFormat(2)
                     self.lblBBPValue3.text = bestLimit!.response.bestLimitDataList[2].buyPrice.currencyFormat(2)
@@ -202,7 +202,7 @@ class SymbolDetailsViewController: BaseTableViewController {
 
     }
 
-    func getSymbolTradingDetailsService(sCode:String){
+    func getSymbolTradingDetailsService(sCode: String) {
         /**
          getBestLimitsBySymbol
          POST http://185.37.52.193:9090/services/getBestLimitsBySymbol
@@ -214,7 +214,8 @@ class SymbolDetailsViewController: BaseTableViewController {
         let body = SymbolTradingRequest(symbolCode: sCode).getDic()
 
         // Fetch Request
-        Request.postData(url, body: body) { (trading:MainResponse<SymbolTradingResponse>?, error) in
+        Request.postData(url, body: body) {
+            (trading: MainResponse<SymbolTradingResponse>?, error) in
 
             if ((trading?.successful) != nil) {
                 if trading!.response != nil {
@@ -234,15 +235,16 @@ class SymbolDetailsViewController: BaseTableViewController {
 
     }
 
-    func getSymbolListData(sCode:[String]) {
+    func getSymbolListData(sCode: [String]) {
 
         let url = AppTadbirUrl + URLS["getSymbolListAndDetails"]!
 
         // JSON Body
-        let body = SymbolListAndDetailsRequest(pageNumber: 0, recordPerPage: 0, symbolCode: sCode, supportPaging: false,language: getAppLanguage()).getDic()
+        let body = SymbolListAndDetailsRequest(pageNumber: 0, recordPerPage: 0, symbolCode: sCode, supportPaging: false, language: getAppLanguage()).getDic()
 
         // Fetch Request
-        Request.postData(url, body: body) { (symbol:MainResponse<SymbolListByIndexResponse>?, error) in
+        Request.postData(url, body: body) {
+            (symbol: MainResponse<SymbolListByIndexResponse>?, error) in
 
             if ((symbol?.successful) != nil) {
                 if symbol!.response.symbolDetailsList.count > 0 {
@@ -256,7 +258,7 @@ class SymbolDetailsViewController: BaseTableViewController {
                     self.lblLastPriceChanges.text = " \(abs(symbol!.response.symbolDetailsList[0].lastTradePriceChange)) (%\(abs(symbol!.response.symbolDetailsList[0].lastTradePriceChangePercent.roundToPlaces(2))))"
                     if symbol!.response.symbolDetailsList[0].lastTradePriceChange > 0 {
                         self.lblLastPriceChanges.textColor = UIColor.greenColor()
-                    } else{
+                    } else {
                         self.lblLastPriceChanges.textColor = UIColor.redColor()
                     }
                 } else {
@@ -267,69 +269,69 @@ class SymbolDetailsViewController: BaseTableViewController {
         }
     }
 
-        func setUpViews(){
+    func setUpViews() {
 
-            lblBuyTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblCellTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblkindTitle.font  = UIFont(name: AppFontName_IranSans, size: 14.0)
-            lblReal1Title.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblReal2Title.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblLegal1Title.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblLegal2Title.font  = UIFont(name: AppFontName_IranSans, size: 14.0)
-            lblCountTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblCount1Value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblCount2Value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblCount3Value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblCount4Value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblVolumeTitle.font  = UIFont(name: AppFontName_IranSans, size: 14.0)
-            lblVolume1value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblVolume2value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblVolume3value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblVolume4value.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblLastPriceDate.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblLastPriceTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblLastPriceChanges.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblLastPriceValues.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblEndPriceTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblLastPriceValue.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblStartPriceTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblStartPriceValue.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblLowPriceTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblLowPriceValue.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblHighPriceTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblhighPriceValue.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBBPTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBBPValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBBPValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBBPValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBBVTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBBVValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBBVValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBBVValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBBCTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBBCValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBBCValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBBCValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBSPTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBSPValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBSPValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBSPValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBSVTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBSVValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBSVValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBSVValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBSCTitle.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBSCValue1.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBSCValue2.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            lblBSCValue3.font  = UIFont(name: AppFontName_IranSans, size: 15.0)
-            
-            lblLastPriceTitle.text = Strings.LastPriceTitle.localized()
-            lblEndPriceTitle.text = Strings.EndPriceTitle.localized()
-            lblStartPriceTitle.text = Strings.StartPriceTitle.localized()
-            lblLowPriceTitle.text = Strings.LowPriceTitle.localized()
-            lblHighPriceTitle.text = Strings.HighPriceTitle.localized()
-        }
-        
+        lblBuyTitle.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblCellTitle.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblkindTitle.font = UIFont(name: AppFontName_IranSans, size: 14.0)
+        lblReal1Title.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblReal2Title.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblLegal1Title.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblLegal2Title.font = UIFont(name: AppFontName_IranSans, size: 14.0)
+        lblCountTitle.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblCount1Value.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblCount2Value.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblCount3Value.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblCount4Value.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblVolumeTitle.font = UIFont(name: AppFontName_IranSans, size: 14.0)
+        lblVolume1value.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblVolume2value.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblVolume3value.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblVolume4value.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblLastPriceDate.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblLastPriceTitle.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblLastPriceChanges.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblLastPriceValues.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblEndPriceTitle.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblLastPriceValue.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblStartPriceTitle.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblStartPriceValue.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblLowPriceTitle.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblLowPriceValue.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblHighPriceTitle.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblhighPriceValue.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBBPTitle.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBBPValue1.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBBPValue2.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBBPValue3.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBBVTitle.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBBVValue1.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBBVValue2.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBBVValue3.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBBCTitle.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBBCValue1.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBBCValue2.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBBCValue3.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBSPTitle.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBSPValue1.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBSPValue2.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBSPValue3.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBSVTitle.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBSVValue1.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBSVValue2.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBSVValue3.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBSCTitle.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBSCValue1.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBSCValue2.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+        lblBSCValue3.font = UIFont(name: AppFontName_IranSans, size: 15.0)
+
+        lblLastPriceTitle.text = Strings.LastPriceTitle.localized()
+        lblEndPriceTitle.text = Strings.EndPriceTitle.localized()
+        lblStartPriceTitle.text = Strings.StartPriceTitle.localized()
+        lblLowPriceTitle.text = Strings.LowPriceTitle.localized()
+        lblHighPriceTitle.text = Strings.HighPriceTitle.localized()
+    }
+
     override func updateServiceData() {
         getSymbolBestLimitService(String(SelectedSymbolCode))
         getSymbolTradingDetailsService(String(SelectedSymbolCode))

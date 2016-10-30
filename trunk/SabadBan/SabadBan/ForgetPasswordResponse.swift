@@ -12,35 +12,35 @@ import Foundation
 import Gloss
 
 //MARK: - RootClass
+
 public struct ForgetPasswordResponse: Glossy {
-    
-    public let error : String!
-    public let errorCode : Int!
-    public let message : String!
-    public let result : ForgetPasswordResult!
-    public let success : Bool!
-    
-    
-    
+
+    public let error: String!
+    public let errorCode: Int!
+    public let message: String!
+    public let result: ForgetPasswordResult!
+    public let success: Bool!
+
+
     //MARK: Decodable
-    public init?(json: JSON){
+    public init?(json: JSON) {
         error = "error" <~~ json
         errorCode = "error_code" <~~ json
         message = "message" <~~ json
         result = "result" <~~ json
         success = "success" <~~ json
     }
-    
-    
+
+
     //MARK: Encodable
     public func toJSON() -> JSON? {
         return jsonify([
-            "error" ~~> error,
-            "error_code" ~~> errorCode,
-            "message" ~~> message,
-            "result" ~~> result,
-            "success" ~~> success,
-            ])
+                "error" ~~> error,
+                "error_code" ~~> errorCode,
+                "message" ~~> message,
+                "result" ~~> result,
+                "success" ~~> success,
+        ])
     }
-    
+
 }

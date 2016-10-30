@@ -1,4 +1,3 @@
-
 //
 //	Response.swift
 //
@@ -13,26 +12,27 @@ import Foundation
 import Gloss
 
 //MARK: - Response
+
 public struct Response: Glossy {
 
-	public let indexDetailsList : [IndexDetailsList]!
-	public let timeFrameType : String!
-    public let updateLatest : String!
+    public let indexDetailsList: [IndexDetailsList]!
+    public let timeFrameType: String!
+    public let updateLatest: String!
 
-	//MARK: Decodable
-	public init?(json: JSON){
-		indexDetailsList = "indexDetailsList" <~~ json
-		timeFrameType = "timeFrameType" <~~ json
+    //MARK: Decodable
+    public init?(json: JSON) {
+        indexDetailsList = "indexDetailsList" <~~ json
+        timeFrameType = "timeFrameType" <~~ json
         updateLatest = "updateLatest" <~~ json
-	}
+    }
 
-	//MARK: Encodable
-	public func toJSON() -> JSON? {
-		return jsonify([
-		"indexDetailsList" ~~> indexDetailsList,
-		"timeFrameType" ~~> timeFrameType,
-        "updateLatest" ~~> updateLatest,
-		])
-	}
+    //MARK: Encodable
+    public func toJSON() -> JSON? {
+        return jsonify([
+                "indexDetailsList" ~~> indexDetailsList,
+                "timeFrameType" ~~> timeFrameType,
+                "updateLatest" ~~> updateLatest,
+        ])
+    }
 
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+
 class BourseNewsTableViewController: BaseTableViewController {
 
     var newsModel = [NewsModel]()
@@ -27,7 +28,7 @@ class BourseNewsTableViewController: BaseTableViewController {
         sendBourseNewsRequest(servicePage)
     }
 
-    func refresh(sender:AnyObject) {
+    func refresh(sender: AnyObject) {
         updateServiceData()
     }
 
@@ -57,17 +58,17 @@ class BourseNewsTableViewController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
 
-        if (indexPath.row + 1  >= newsCount && newsCount != 0) {
+        if (indexPath.row + 1 >= newsCount && newsCount != 0) {
             sendBourseNewsRequest(servicePage)
         }
 
     }
 
     //MARK:- get Bourse News Service
-    func sendBourseNewsRequest(page:Int) {
+    func sendBourseNewsRequest(page: Int) {
         refreshControl?.beginRefreshing()
 
-        if isMore{
+        if isMore {
             debugPrint("page : \(page)")
             let url = AppNewsURL + URLS["getBourseNews"]!
             // Add Headers
@@ -75,17 +76,18 @@ class BourseNewsTableViewController: BaseTableViewController {
             let body = BourseNewsRequest(take: 10, api_token: LoginToken, page: page).getDic()
 
             // Fetch Request
-            Request.postData(url, body: body) { (news:NewsMainResponse<BourseNewsResponse>?, error) in
+            Request.postData(url, body: body) {
+                (news: NewsMainResponse<BourseNewsResponse>?, error) in
                 if ((news?.success) != nil) {
                     if page == 0 {
                         self.newsModel.removeAll()
                         self.tableView.reloadData()
                     }
-                    for i in 0..<news!.response.newsDetailsList.count {
+                    for i in 0 ..< news!.response.newsDetailsList.count {
                         let date = self.convertStringToDate(news!.response.newsDetailsList[i].createdAt)
                         let dateString = convertToPersianDateWithTime(date)
-                        
-                        self.newsModel.append(NewsModel(title: news!.response.newsDetailsList[i].title, details: news!.response.newsDetailsList[i].descriptionField, date: dateString,link: news!.response.newsDetailsList[i].reference))
+
+                        self.newsModel.append(NewsModel(title: news!.response.newsDetailsList[i].title, details: news!.response.newsDetailsList[i].descriptionField, date: dateString, link: news!.response.newsDetailsList[i].reference))
                     }
                     self.newsCount += news!.response.count
                     self.servicePage += 1
@@ -93,7 +95,7 @@ class BourseNewsTableViewController: BaseTableViewController {
                     if (news!.response.count) > 0 {
 
                         self.isMore = true
-                    }else {
+                    } else {
                         self.isMore = false
                     }
                     self.tableView.reloadData()
@@ -125,14 +127,14 @@ class BourseNewsTableViewController: BaseTableViewController {
     override func sideMenuShouldOpenSideMenu() -> Bool {
         return false
     }
-    
+
     override func updateServiceData() {
         servicePage = 0
         newsCount = 0
         isMore = true
         sendBourseNewsRequest(servicePage)
     }
-    
+
     func convertStringToDate(dateString: String) -> NSDate {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

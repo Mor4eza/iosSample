@@ -1,4 +1,3 @@
-
 //
 //  BuyInfoCell.swift
 //  SabadBan

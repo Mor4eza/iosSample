@@ -81,7 +81,7 @@ class DatePickerSheet: UIView {
         /* Attached to the top most window (make sure we are using the right orientation) */
         let interfaceOrientation = UIApplication.sharedApplication().statusBarOrientation
 
-        switch(interfaceOrientation) {
+        switch (interfaceOrientation) {
         case UIInterfaceOrientation.LandscapeLeft:
             let t: Double = M_PI * 270 / 180
             self.transform = CGAffineTransformMakeRotation(CGFloat(t))
@@ -106,16 +106,17 @@ class DatePickerSheet: UIView {
 
         /* Anim */
         UIView.animateWithDuration(
-            0.2,
-            delay: 0,
-            options: UIViewAnimationOptions.CurveEaseInOut,
-            animations: { () -> Void in
-                self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
-                self.dialogView!.layer.opacity = 1
-                self.dialogView!.layer.transform = CATransform3DMakeScale(1, 1, 1)
-            },
-            completion: nil
-        )
+                0.2,
+                delay: 0,
+                options: UIViewAnimationOptions.CurveEaseInOut,
+                animations: {
+                    () -> Void in
+                    self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+                    self.dialogView!.layer.opacity = 1
+                    self.dialogView!.layer.transform = CATransform3DMakeScale(1, 1, 1)
+                },
+                completion: nil
+                )
     }
 
     /* Dialog close animation then cleaning and removing the view from the parent */
@@ -129,14 +130,16 @@ class DatePickerSheet: UIView {
         self.dialogView.layer.opacity = 1
 
         UIView.animateWithDuration(
-            0.2,
-            delay: 0,
-            options: UIViewAnimationOptions.TransitionNone,
-            animations: { () -> Void in
-                self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-                self.dialogView.layer.transform = CATransform3DConcat(currentTransform, CATransform3DMakeScale(0.6, 0.6, 1))
-                self.dialogView.layer.opacity = 0
-        }) { (finished: Bool) -> Void in
+                0.2,
+                delay: 0,
+                options: UIViewAnimationOptions.TransitionNone,
+                animations: {
+                    () -> Void in
+                    self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+                    self.dialogView.layer.transform = CATransform3DConcat(currentTransform, CATransform3DMakeScale(0.6, 0.6, 1))
+                    self.dialogView.layer.opacity = 0
+                }) {
+            (finished: Bool) -> Void in
             for v in self.subviews {
                 v.removeFromSuperview()
             }
@@ -149,10 +152,10 @@ class DatePickerSheet: UIView {
     private func createContainerView() -> UIView {
         let screenSize = countScreenSize()
         let dialogSize = CGSizeMake(
-            300,
-            230
-                + kDatePickerDialogDefaultButtonHeight
-                + kDatePickerDialogDefaultButtonSpacerHeight)
+                300,
+                230
+                        + kDatePickerDialogDefaultButtonHeight
+                        + kDatePickerDialogDefaultButtonSpacerHeight)
 
         // For the black background
         self.frame = CGRectMake(0, 0, screenSize.width, screenSize.height)
@@ -163,16 +166,16 @@ class DatePickerSheet: UIView {
         // First, we style the dialog to match the iOS8 UIAlertView >>>
         let gradient: CAGradientLayer = CAGradientLayer(layer: self.layer)
         gradient.frame = dialogContainer.bounds
-        gradient.colors = [UIColor(red: 218/255, green: 218/255, blue: 218/255, alpha: 1).CGColor,
-                           UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 1).CGColor,
-                           UIColor(red: 218/255, green: 218/255, blue: 218/255, alpha: 1).CGColor]
+        gradient.colors = [UIColor(red: 218 / 255, green: 218 / 255, blue: 218 / 255, alpha: 1).CGColor,
+                           UIColor(red: 233 / 255, green: 233 / 255, blue: 233 / 255, alpha: 1).CGColor,
+                           UIColor(red: 218 / 255, green: 218 / 255, blue: 218 / 255, alpha: 1).CGColor]
 
         let cornerRadius = kDatePickerDialogCornerRadius
         gradient.cornerRadius = cornerRadius
         dialogContainer.layer.insertSublayer(gradient, atIndex: 0)
 
         dialogContainer.layer.cornerRadius = cornerRadius
-        dialogContainer.layer.borderColor = UIColor(red: 198/255, green: 198/255, blue: 198/255, alpha: 1).CGColor
+        dialogContainer.layer.borderColor = UIColor(red: 198 / 255, green: 198 / 255, blue: 198 / 255, alpha: 1).CGColor
         dialogContainer.layer.borderWidth = 1
         dialogContainer.layer.shadowRadius = cornerRadius + 5
         dialogContainer.layer.shadowOpacity = 0.1
@@ -182,7 +185,7 @@ class DatePickerSheet: UIView {
 
         // There is a line above the button
         let lineView = UIView(frame: CGRectMake(0, dialogContainer.bounds.size.height - kDatePickerDialogDefaultButtonHeight - kDatePickerDialogDefaultButtonSpacerHeight, dialogContainer.bounds.size.width, kDatePickerDialogDefaultButtonSpacerHeight))
-        lineView.backgroundColor = UIColor(red: 198/255, green: 198/255, blue: 198/255, alpha: 1)
+        lineView.backgroundColor = UIColor(red: 198 / 255, green: 198 / 255, blue: 198 / 255, alpha: 1)
         dialogContainer.addSubview(lineView)
         // ˆˆˆ
 
@@ -215,11 +218,11 @@ class DatePickerSheet: UIView {
 
         self.cancelButton = UIButton(type: UIButtonType.Custom) as UIButton
         self.cancelButton.frame = CGRectMake(
-            0,
-            container.bounds.size.height - kDatePickerDialogDefaultButtonHeight,
-            buttonWidth,
-            kDatePickerDialogDefaultButtonHeight
-        )
+                0,
+                container.bounds.size.height - kDatePickerDialogDefaultButtonHeight,
+                buttonWidth,
+                kDatePickerDialogDefaultButtonHeight
+                )
         self.cancelButton.tag = kDatePickerDialogCancelButtonTag
         self.cancelButton.setTitle(self.cancelButtonTitle, forState: UIControlState.Normal)
         self.cancelButton.setTitleColor(UIColor(red: 0, green: 0.5, blue: 1, alpha: 1), forState: UIControlState.Normal)
@@ -231,11 +234,11 @@ class DatePickerSheet: UIView {
 
         self.doneButton = UIButton(type: UIButtonType.Custom) as UIButton
         self.doneButton.frame = CGRectMake(
-            buttonWidth,
-            container.bounds.size.height - kDatePickerDialogDefaultButtonHeight,
-            buttonWidth,
-            kDatePickerDialogDefaultButtonHeight
-        )
+                buttonWidth,
+                container.bounds.size.height - kDatePickerDialogDefaultButtonHeight,
+                buttonWidth,
+                kDatePickerDialogDefaultButtonHeight
+                )
         self.doneButton.tag = kDatePickerDialogDoneButtonTag
         self.doneButton.setTitle(self.doneButtonTitle, forState: UIControlState.Normal)
         self.doneButton.setTitleColor(UIColor(red: 0, green: 0.5, blue: 1, alpha: 1), forState: UIControlState.Normal)

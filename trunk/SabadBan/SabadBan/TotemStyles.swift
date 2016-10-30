@@ -10,7 +10,7 @@
 
 import UIKit
 
-public class TotemStyles : NSObject {
+public class TotemStyles: NSObject {
 
     //// Drawing Methods
 
@@ -21,21 +21,21 @@ public class TotemStyles : NSObject {
         //// Color Declarations
         let onColor = UIColor(red: 0.000, green: 0.493, blue: 1.000, alpha: 1.000)
         var onColorRedComponent: CGFloat = 1,
-            onColorGreenComponent: CGFloat = 1,
-            onColorBlueComponent: CGFloat = 1
+        onColorGreenComponent: CGFloat = 1,
+        onColorBlueComponent: CGFloat = 1
         onColor.getRed(&onColorRedComponent, green: &onColorGreenComponent, blue: &onColorBlueComponent, alpha: nil)
 
         let color = UIColor(red: (onColorRedComponent * 0), green: (onColorGreenComponent * 0), blue: (onColorBlueComponent * 0), alpha: (CGColorGetAlpha(onColor.CGColor) * 0 + 1))
         var colorHueComponent: CGFloat = 1,
-            colorSaturationComponent: CGFloat = 1,
-            colorBrightnessComponent: CGFloat = 1
+        colorSaturationComponent: CGFloat = 1,
+        colorBrightnessComponent: CGFloat = 1
         color.getHue(&colorHueComponent, saturation: &colorSaturationComponent, brightness: &colorBrightnessComponent, alpha: nil)
 
         let offColor = UIColor(hue: colorHueComponent, saturation: colorSaturationComponent, brightness: 0.8, alpha: CGColorGetAlpha(color.CGColor))
         let handleColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
         var handleColorRedComponent: CGFloat = 1,
-            handleColorGreenComponent: CGFloat = 1,
-            handleColorBlueComponent: CGFloat = 1
+        handleColorGreenComponent: CGFloat = 1,
+        handleColorBlueComponent: CGFloat = 1
         handleColor.getRed(&handleColorRedComponent, green: &handleColorGreenComponent, blue: &handleColorBlueComponent, alpha: nil)
 
         let color2 = UIColor(red: (handleColorRedComponent * 0.5), green: (handleColorGreenComponent * 0.5), blue: (handleColorBlueComponent * 0.5), alpha: (CGColorGetAlpha(handleColor.CGColor) * 0.5 + 0.5))

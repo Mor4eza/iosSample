@@ -9,7 +9,8 @@
 import UIKit
 import Alamofire
 import FCAlertView
-class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITableViewDelegate  {
+
+class DetailsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
 
     //MARK: Properties
 
@@ -47,12 +48,12 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         segRange.setTitle(Strings.Day.localized(), forSegmentAtIndex: 3)
         segRange.setTitle(Strings.Week.localized(), forSegmentAtIndex: 2)
         segRange.setTitle(Strings.Month.localized(), forSegmentAtIndex: 1)
-        segRange.setTitle( Strings.Year.localized(), forSegmentAtIndex: 0)
+        segRange.setTitle(Strings.Year.localized(), forSegmentAtIndex: 0)
         segRange.selectedSegmentIndex = 3
 
         tblDetails.registerNib(UINib(nibName: UIConstants
-            .IndexDetailHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants
-                .IndexDetailHeader)
+        .IndexDetailHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants
+        .IndexDetailHeader)
         self.tblDetails.dataSource = self
         tblDetails.delegate = self
         tblDetails.tableFooterView = UIView()
@@ -79,16 +80,16 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         marketDetailsRefreshControl.addTarget(self, action: #selector(DetailsViewController.refreshMarketDetails(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tblMarketDetail.addSubview(marketDetailsRefreshControl)
 
-        getIndexDetails(SelectedIndexCode, range:segRange.selectedSegmentIndex )
+        getIndexDetails(SelectedIndexCode, range: segRange.selectedSegmentIndex)
         getMarketActivity()
 
     }
 
-    func refreshIndexDetails(sender:AnyObject) {
-        getIndexDetails(SelectedIndexCode, range:segRange.selectedSegmentIndex )
+    func refreshIndexDetails(sender: AnyObject) {
+        getIndexDetails(SelectedIndexCode, range: segRange.selectedSegmentIndex)
     }
 
-    func refreshMarketDetails(sender:AnyObject) {
+    func refreshMarketDetails(sender: AnyObject) {
         getMarketActivity()
     }
 
@@ -99,7 +100,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == tblDetails{
+        if tableView == tblDetails {
             return 5
         } else if tableView == tblMarketDetail {
             return 4
@@ -136,7 +137,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
             cell.lblTitle.adjustsFontSizeToFitWidth = true
             if indexPath.row % 2 == 0 {
                 cell.backgroundColor = AppBarTintColor
-            }else {
+            } else {
                 cell.backgroundColor = AppMainColor
             }
 
@@ -166,7 +167,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
             cell.lblTitle.adjustsFontSizeToFitWidth = true
             if indexPath.row % 2 == 0 {
                 cell.backgroundColor = AppBarTintColor
-            }else {
+            } else {
                 cell.backgroundColor = AppMainColor
             }
 
@@ -188,7 +189,7 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
             let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.IndexDetailHeader) as! IndexDetailHeader
 
             headerView.lblTitle.text = Strings.indexInfo.localized()
-            headerView.lblTitle.setDefaultFont(headerView.lblTitle.font.pointSize )
+            headerView.lblTitle.setDefaultFont(headerView.lblTitle.font.pointSize)
             headerView.backView.roundCorners([.TopLeft, .TopRight], radius: 6)
             headerView.lblLastUpdate.attributedText = indexLastUpdate
             return headerView
@@ -205,13 +206,13 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
 
     @IBAction func segmentChanged(sender: AnyObject) {
 
-        getIndexDetails(SelectedIndexCode, range:segRange.selectedSegmentIndex )
+        getIndexDetails(SelectedIndexCode, range: segRange.selectedSegmentIndex)
 
     }
 
     // MARK:- Service Methods
 
-    func getIndexDetails(indexCode:String , range:Int){
+    func getIndexDetails(indexCode: String, range: Int) {
 
 
         let url = AppTadbirUrl + URLS["IndexListAndDetails"]!
@@ -219,7 +220,8 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         let body = IndexDetailsRequest(timeFrameType: TimeFrameType(rawValue: (3 - range)), indexCode: indexCode, language: getAppLanguage()).getDic()
 
         // Fetch Request
-        Request.postData(url, body: body) { (indexs:MainResponse<Response>?, error)  in
+        Request.postData(url, body: body) {
+            (indexs: MainResponse<Response>?, error) in
             if ((indexs?.successful) != nil) {
 
                 if (indexs!.response.indexDetailsList.count > 0) {
@@ -231,10 +233,10 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
                     self.priceChangesPercent = Double(indexs!.response.indexDetailsList[0].changePricePercentVsPreviousTime)
                     self.lblPrice.text = self.lastPrice.currencyFormat(2)
                     self.lblPriceChanges.text = self.priceChanges.currencyFormat(2)
-                    self.lblPricePercent.text  = String(self.priceChangesPercent.roundToPlaces(2))
+                    self.lblPricePercent.text = String(self.priceChangesPercent.roundToPlaces(2))
                     self.tblDetails.reloadData()
 
-                }else{
+                } else {
                     Utils.ShowAlert(self, title: Strings.Warning.localized(), details: Strings.noData.localized())
                 }
 
@@ -251,7 +253,8 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
         let url = AppTadbirUrl + URLS["getMarketActivity"]!
 
         // Fetch Request
-        Request.postData(url) { (marketInfo:MainResponse<MarketActivityModel>?, error) in
+        Request.postData(url) {
+            (marketInfo: MainResponse<MarketActivityModel>?, error) in
             if ((marketInfo?.successful) != nil) {
                 self.marketLastUpdate = (marketInfo?.convertTime())!
                 self.marketValue = Double(marketInfo!.response.marketValue)
@@ -266,8 +269,9 @@ class DetailsViewController:  BaseViewController  , UITableViewDataSource , UITa
             self.marketDetailsRefreshControl.endRefreshing()
         }
     }
+
     override func updateServiceData() {
-        getIndexDetails(SelectedIndexCode, range:segRange.selectedSegmentIndex )
+        getIndexDetails(SelectedIndexCode, range: segRange.selectedSegmentIndex)
         getMarketActivity()
     }
 }

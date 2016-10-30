@@ -1,4 +1,3 @@
-
 //
 //  CallUsViewController.swift
 //  SabadBan
@@ -9,7 +8,8 @@
 
 import UIKit
 import Alamofire
-class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate{
+
+class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
 
     let imagePicker = UIImagePickerController()
     @IBOutlet weak var imgCrash: UIImageView!
@@ -36,18 +36,17 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
         lblName.delegate = self
         lblEmail.delegate = self
         lblSubject.delegate = self
-        
+
         if !isGuest {
             lblEmail.text = LogedInUserName
         }
 
-        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(CallUsViewController.imageTapped(_:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CallUsViewController.imageTapped(_:)))
         imgCrash.userInteractionEnabled = true
         imgCrash.addGestureRecognizer(tapGestureRecognizer)
     }
 
-    func imageTapped(img: AnyObject)
-    {
+    func imageTapped(img: AnyObject) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
 
@@ -55,7 +54,7 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
 
     }
 
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imgCrash.contentMode = .ScaleAspectFit
             imgCrash.image = pickedImage
@@ -73,7 +72,7 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
         self.view.endEditing(true)
     }
 
-    func initViews(){
+    func initViews() {
 
         lblName.placeholder = Strings.SenderName.localized()
         lblEmail.placeholder = Strings.SenderEmail.localized()
@@ -90,19 +89,19 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
         btnSend.setTitle(Strings.Send.localized(), forState: .Normal)
         btnInfo.setTitle(Strings.ContactInfo.localized(), forState: .Normal)
         self.title = Strings.ContactUs.localized()
-        imgCrash.image = UIImage(named: UIConstants.selectPicture )
+        imgCrash.image = UIImage(named: UIConstants.selectPicture)
         lblDetails.keyboardAppearance = .Dark
         btnDelete.hidden = true
 
     }
 
-    func showAlert(message : String) {
+    func showAlert(message: String) {
 
         Utils.ShowAlert(self,
-                        title: Strings.Attention.localized(),
-                        details: message.localized(),
-                        btnOkTitle: Strings.Ok.localized()
-        )
+                title: Strings.Attention.localized(),
+                details: message.localized(),
+                btnOkTitle: Strings.Ok.localized()
+                )
     }
 
     @IBAction func btnSendTap(sender: AnyObject) {
@@ -122,13 +121,12 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
             showAlert(Strings.pleaseEnterSubject)
         } else if ((lblDetails.text == "") || (lblDetails.text == Strings.EmailMessage.localized())) {
             showAlert(Strings.pleaseEnterDetails)
-        }
-        else {
+        } else {
             sendInformation(lblName.text!,
-                            Cemail: lblEmail.text!,
-                            Csubject: lblSubject.text!,
-                            Cmessage: lblDetails.text!,
-                            Cimage:imageData )
+                    Cemail: lblEmail.text!,
+                    Csubject: lblSubject.text!,
+                    Cmessage: lblDetails.text!,
+                    Cimage: imageData)
         }
 
     }
@@ -151,6 +149,7 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
         }
         textView.textAlignment = .Natural
     }
+
     func textViewDidEndEditing(textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = Strings.EmailMessage.localized()
@@ -160,13 +159,12 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
 
     }
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool
-    {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textField == lblName {
             lblEmail.becomeFirstResponder()
         } else if textField == lblEmail {
             lblSubject.becomeFirstResponder()
-        }else if textField == lblSubject {
+        } else if textField == lblSubject {
             lblDetails.becomeFirstResponder()
         }
 
@@ -175,50 +173,53 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
 
     //MARK:- Send Data
 
-    func sendInformation(Cname:String ,Cemail:String , Csubject:String , Cmessage:String , Cimage: UIImage? = nil){
+    func sendInformation(Cname: String, Cemail: String, Csubject: String, Cmessage: String, Cimage: UIImage? = nil) {
 
         let url = AppNewsURL + URLS["sendContactUs"]!
-        let parameters = ContactUsRequest(name: Cname,email: Cemail,subject: Csubject,message: Cmessage).getDic()
+        let parameters = ContactUsRequest(name: Cname, email: Cemail, subject: Csubject, message: Cmessage).getDic()
         btnSend.enabled = false
-        let progress:UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        let progress: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
         progress.frame = CGRectMake(btnSend.bounds.maxX - 30, btnSend.bounds.maxY - 33, 20, 20)
         progress.startAnimating()
         btnSend.addSubview(progress)
         progress.hidesWhenStopped = true
 
         Alamofire.upload(
-            .POST,
-            url,
-            multipartFormData: { multipartFormData in
+                .POST,
+                url,
+                multipartFormData: {
+                    multipartFormData in
 
-                if Cimage != nil {
-                    if let imageData = UIImageJPEGRepresentation(Cimage!, 1) {
-                        multipartFormData.appendBodyPart(data: imageData, name: "file", fileName: Strings.SenderEmail, mimeType: "image/png")
+                    if Cimage != nil {
+                        if let imageData = UIImageJPEGRepresentation(Cimage!, 1) {
+                            multipartFormData.appendBodyPart(data: imageData, name: "file", fileName: Strings.SenderEmail, mimeType: "image/png")
+                        }
                     }
-                }
-                for (key, value) in parameters {
-                    multipartFormData.appendBodyPart(data: value.dataUsingEncoding(NSUTF8StringEncoding)!, name: key)
-                }
-            }, encodingCompletion: { encodingResult in
-                switch encodingResult {
-                case .Success(let upload, _, _):
-                    upload.responseJSON { response in
-                        debugPrint(response)
+                    for (key, value) in parameters {
+                        multipartFormData.appendBodyPart(data: value.dataUsingEncoding(NSUTF8StringEncoding)!, name: key)
+                    }
+                }, encodingCompletion: {
+            encodingResult in
+            switch encodingResult {
+            case .Success(let upload, _, _):
+                upload.responseJSON {
+                    response in
+                    debugPrint(response)
 
-                        Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.Successful.localized())
-                        self.btnSend.enabled = true
-                        progress.stopAnimating()
-                        self.initViews()
-                    }
-                case .Failure(let encodingError):
-                    print(encodingError)
-                    Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.Faild.localized())
+                    Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.Successful.localized())
                     self.btnSend.enabled = true
                     progress.stopAnimating()
+                    self.initViews()
                 }
+            case .Failure(let encodingError):
+                print(encodingError)
+                Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.Faild.localized())
+                self.btnSend.enabled = true
+                progress.stopAnimating()
             }
-        )
-        
+        }
+                )
+
     }
-    
+
 }
