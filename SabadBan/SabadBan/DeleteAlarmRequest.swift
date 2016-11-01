@@ -12,11 +12,11 @@ public struct DeleteAlarmRequest {
     let id: Int!
     let email: String!
 
-    func getDic() -> [String: String] {
+    func getDic() -> [String: AnyObject] {
         let dic = [
                 "id": id,
                 "email": email]
 
-        return dic as! [String: String]
+        return dic as! [String: AnyObject]
     }
 }

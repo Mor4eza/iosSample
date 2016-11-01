@@ -261,6 +261,7 @@ class SymbolDetailsViewController: BaseTableViewController {
                     } else {
                         self.lblLastPriceChanges.textColor = UIColor.redColor()
                     }
+                    SelectedSymbolLastTradePrice = symbol!.response.symbolDetailsList[0].lastTradePrice
                 } else {
                     debugPrint(error)
                 }

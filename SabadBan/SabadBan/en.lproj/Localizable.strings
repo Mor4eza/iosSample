@@ -176,3 +176,9 @@
 "status" = "status";
 "sended" = "Sended";
 "notSended" = "Not Sended";
+"duplicateAlarm" = "duplicateAlarm";
+"priceShouldntBeLastTrade" = "priceShouldntBeLastTrade";
+"deleteAlarmTitle" = "deleteAlarmTitle";
+"reallyWantToDeleteAlarm" = "reallyWantToDeleteAlarm";
+"alarmCountAlert" = "alarmCountAlert";
+"sellOrBuyAlarm" = "sellOrBuyAlarm";

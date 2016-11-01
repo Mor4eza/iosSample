@@ -28,6 +28,7 @@ struct Strings {
     static let CantHaveMoreThan20Symbols = "CantHaveMoreThan20Symbols"
 
     //MARK :- Setting View Controller Strings
+    
     static let Language = "Language"
     static let SwitchLanguage = "SwitchLanguage"
     static let Cancel = "Cancel"
@@ -142,6 +143,7 @@ struct Strings {
     static let HighPriceTitle = "HighPriceTitle"
 
     //MARK: - Date Picker
+    
     static let SelectDate = "SelectDate"
 
     //MARK: - ContactUs Strings
@@ -165,14 +167,15 @@ struct Strings {
     static let emailNotFound = "emailNotFound"
 
     //MARK: - Check version Strings
+    
     static let download = "download";
 
     //MARK: - Jail break check
+    
     static let isJailBrokenDescription = "isJailBrokenDescription"
 
 
     //Mark: - Alarm Filter
-
 
     static let kind = "kind"
     static let sell = "sell"
@@ -181,4 +184,10 @@ struct Strings {
     static let status = "status"
     static let sended = "sended"
     static let notSended = "notSended"
+    static let duplicateAlarm = "duplicateAlarm"
+    static let priceShouldntBeLastTrade = "priceShouldntBeLastTrade"
+    static let deleteAlarmTitle = "deleteAlarmTitle"
+    static let reallyWantToDeleteAlarm = "reallyWantToDeleteAlarm"
+    static let alarmCountAlert = "alarmCountAlert"
+    static let sellOrBuyAlarm = "sellOrBuyAlarm"
 }

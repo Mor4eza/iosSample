@@ -54,6 +54,7 @@ public let URLS: [String: String] =
  "changePassword": "/api/v1/auth/changePassword",
  "checkVersionCode": "/services/checkVersionCode",
  "getAlarmFilters": "/services/find-alarms",
+ "getAlarmFiltersBySymbol": "/services/find-alarms-by-symbol",
  "addAlarmFilter": "/services/add-alarm",
  "editAlarmFilter": "/services/edit-alarm",
  "deleteAlarmFilter": "/services/delete-alarm"
@@ -61,7 +62,8 @@ public let URLS: [String: String] =
 
 //MARK:- Constants
 public var SelectedIndexCode: String = ""
-public var SelectedSymbolCode: Int64 = 0
+public var SelectedSymbolCode: CLong = 0
+public var SelectedSymbolLastTradePrice: Double = 0
 public var SelectedSymbolName: String = ""
 public var LoginToken: String = ""
 public var PushToken: String = ""
@@ -84,6 +86,9 @@ public let Password: String = "Password"
 public let GuestPassword: String = "GuestPassword"
 public let JailBreakAccept = "JailBreakAccept"
 public let NumberOfLogins = "NumberOfLogins"
+
+//MARK: - Error Codes
+public let duplicateAlarmErrorCode = "1001"
 
 //MARK: - Enums
 
