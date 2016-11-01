@@ -37,6 +37,9 @@
 		84B6DCD61DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCD51DBB982400D93B4F /* ForgetPasswordRequest.swift */; };
 		84B6DCD71DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCD51DBB982400D93B4F /* ForgetPasswordRequest.swift */; };
 		84B6DCD81DBB982400D93B4F /* ForgetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCD51DBB982400D93B4F /* ForgetPasswordRequest.swift */; };
+		84B787AA1DC8AB2A00A6A094 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B787A91DC8AB2A00A6A094 /* LoadingOverlay.swift */; };
+		84B787AB1DC8AB2A00A6A094 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B787A91DC8AB2A00A6A094 /* LoadingOverlay.swift */; };
+		84B787AC1DC8AB2A00A6A094 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B787A91DC8AB2A00A6A094 /* LoadingOverlay.swift */; };
 		84C9E2851D992EF000F96EF8 /* BourseNewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2841D992EF000F96EF8 /* BourseNewsRequest.swift */; };
 		84C9E2871D99381300F96EF8 /* NewsMainResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2861D99381300F96EF8 /* NewsMainResponse.swift */; };
 		84C9E2891D993B5E00F96EF8 /* ObserverNewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9E2881D993B5E00F96EF8 /* ObserverNewsRequest.swift */; };
@@ -448,6 +451,7 @@
 		84B6DCCD1DBB957700D93B4F /* ForgetPasswordResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordResponse.swift; sourceTree = "<group>"; };
 		84B6DCD11DBB97C600D93B4F /* ForgetPasswordResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordResult.swift; sourceTree = "<group>"; };
 		84B6DCD51DBB982400D93B4F /* ForgetPasswordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordRequest.swift; sourceTree = "<group>"; };
+		84B787A91DC8AB2A00A6A094 /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		84C9E2841D992EF000F96EF8 /* BourseNewsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BourseNewsRequest.swift; sourceTree = "<group>"; };
 		84C9E2861D99381300F96EF8 /* NewsMainResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsMainResponse.swift; sourceTree = "<group>"; };
 		84C9E2881D993B5E00F96EF8 /* ObserverNewsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverNewsRequest.swift; sourceTree = "<group>"; };
@@ -1035,6 +1039,7 @@
 				84F6BBF71D9F972F009BEEB2 /* Strings.swift */,
 				84F6BBF91D9FC345009BEEB2 /* UIConstants.swift */,
 				948003A31DB632360085A5FC /* AcralizerClient.swift */,
+				84B787A91DC8AB2A00A6A094 /* LoadingOverlay.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1328,6 +1333,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9476FB5E1DBB425700B923D6 /* Build configuration list for PBXNativeTarget "SabadBanTest" */;
 			buildPhases = (
+				063DE427153E74376F7D616D /* 📦 Check Pods Manifest.lock */,
 				E30F399EF8B5D8C4341FCF62 /* [CP] Check Pods Manifest.lock */,
 				9476FADE1DBB425700B923D6 /* [CP] Check Pods Manifest.lock */,
 				9476FADF1DBB425700B923D6 /* [CP] Check Pods Manifest.lock */,
@@ -1341,6 +1347,8 @@
 				9476FB5B1DBB425700B923D6 /* [CP] Embed Pods Frameworks */,
 				9476FB5C1DBB425700B923D6 /* [CP] Copy Pods Resources */,
 				9476FB5D1DBB425700B923D6 /* Remove Empty lines in *.Swift files */,
+				C5756F08113EBBAB63E7B94D /* 📦 Embed Pods Frameworks */,
+				F9860770F3155CF590F98DCC /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1355,6 +1363,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9476FBE41DBB425B00B923D6 /* Build configuration list for PBXNativeTarget "SabadBanProd" */;
 			buildPhases = (
+				E438A2ACDE79D837DD1199EA /* 📦 Check Pods Manifest.lock */,
 				511CEA57ECE6823335890A29 /* [CP] Check Pods Manifest.lock */,
 				9476FB641DBB425B00B923D6 /* [CP] Check Pods Manifest.lock */,
 				9476FB651DBB425B00B923D6 /* [CP] Check Pods Manifest.lock */,
@@ -1368,6 +1377,8 @@
 				9476FBE11DBB425B00B923D6 /* [CP] Embed Pods Frameworks */,
 				9476FBE21DBB425B00B923D6 /* [CP] Copy Pods Resources */,
 				9476FBE31DBB425B00B923D6 /* Remove Empty lines in *.Swift files */,
+				1B559F94E65D6D6D916726B3 /* 📦 Embed Pods Frameworks */,
+				5B34205F4174328736392210 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1382,6 +1393,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 949BEE601D72A51C008FA574 /* Build configuration list for PBXNativeTarget "SabadBanDev" */;
 			buildPhases = (
+				56C0E9C5D7A2EDEF8CD3329A /* 📦 Check Pods Manifest.lock */,
 				65D59ECEF05B0D33C796E1AD /* [CP] Check Pods Manifest.lock */,
 				6B6976D5B839600080B37CB1 /* [CP] Check Pods Manifest.lock */,
 				9070F80B11578457AFAFB70F /* [CP] Check Pods Manifest.lock */,
@@ -1396,6 +1408,8 @@
 				9C5F1587A697F6BB804C8C3E /* [CP] Copy Pods Resources */,
 				940FB9431D9BF10700919DE3 /* Remove Empty lines in *.Swift files */,
 				943A08001DBE2416002773B5 /* Tailor */,
+				A9F2C4E5DA07DFE427A8EC33 /* 📦 Embed Pods Frameworks */,
+				A2B6DC5852FF0E0C3BB18295 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1542,6 +1556,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		063DE427153E74376F7D616D /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1B559F94E65D6D6D916726B3 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanProd/Pods-SabadBanProd-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		23E0DAE45421868EF7347EBA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1570,6 +1614,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		56C0E9C5D7A2EDEF8CD3329A /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5B34205F4174328736392210 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanProd/Pods-SabadBanProd-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		65D59ECEF05B0D33C796E1AD /* [CP] Check Pods Manifest.lock */ = {
@@ -1958,6 +2032,51 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanDev/Pods-SabadBanDev-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A2B6DC5852FF0E0C3BB18295 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanDev/Pods-SabadBanDev-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9F2C4E5DA07DFE427A8EC33 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanDev/Pods-SabadBanDev-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5756F08113EBBAB63E7B94D /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanTest/Pods-SabadBanTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C5D64A95F08DFE760624CE14 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2003,6 +2122,36 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		E438A2ACDE79D837DD1199EA /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F9860770F3155CF590F98DCC /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanTest/Pods-SabadBanTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -2027,6 +2176,7 @@
 				9476FAF21DBB425700B923D6 /* SettingTableViewController.swift in Sources */,
 				9476FAF31DBB425700B923D6 /* SymbolCell.swift in Sources */,
 				9476FAF41DBB425700B923D6 /* CallUsViewController.swift in Sources */,
+				84B787AB1DC8AB2A00A6A094 /* LoadingOverlay.swift in Sources */,
 				9476FAF51DBB425700B923D6 /* BuyInfoCell.swift in Sources */,
 				9476FAF61DBB425700B923D6 /* AboutUsViewController.swift in Sources */,
 				84B6DCCF1DBB957700D93B4F /* ForgetPasswordResponse.swift in Sources */,
@@ -2150,6 +2300,7 @@
 				9476FB781DBB425B00B923D6 /* SettingTableViewController.swift in Sources */,
 				9476FB791DBB425B00B923D6 /* SymbolCell.swift in Sources */,
 				9476FB7A1DBB425B00B923D6 /* CallUsViewController.swift in Sources */,
+				84B787AC1DC8AB2A00A6A094 /* LoadingOverlay.swift in Sources */,
 				9476FB7B1DBB425B00B923D6 /* BuyInfoCell.swift in Sources */,
 				9476FB7C1DBB425B00B923D6 /* AboutUsViewController.swift in Sources */,
 				84B6DCD01DBB957700D93B4F /* ForgetPasswordResponse.swift in Sources */,
@@ -2273,6 +2424,7 @@
 				947C63921D7453B200676822 /* SymbolCell.swift in Sources */,
 				94C59CCA1D9A51900036CF4A /* CallUsViewController.swift in Sources */,
 				94144E951D8D5CB40008F602 /* BuyInfoCell.swift in Sources */,
+				84B787AA1DC8AB2A00A6A094 /* LoadingOverlay.swift in Sources */,
 				8477D9051D85440F006BBFCE /* AboutUsViewController.swift in Sources */,
 				84B6DCCE1DBB957700D93B4F /* ForgetPasswordResponse.swift in Sources */,
 				9465DB611D83D702007F0572 /* BourseNewsDetailsList.swift in Sources */,

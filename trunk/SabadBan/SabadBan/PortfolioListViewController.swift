@@ -560,7 +560,7 @@ struct symData {
     var closePriceChange: Double!
     var lastTradePrice: Double!
     var status: String!
-    var symbolCode: Int64!
+    var symbolCode: CLong!
     var symbolCompleteName: String!
     var symbolShortName: String!
     var todayProfit: Double!

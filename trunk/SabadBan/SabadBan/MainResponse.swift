@@ -13,7 +13,7 @@ import Gloss
 
 public struct MainResponse<T:Glossy>: Glossy {
 
-    public let errorCode: AnyObject!
+    public let errorCode: String!
     public let errorDescription: AnyObject!
     public let response: T!
     public let successful: Bool!

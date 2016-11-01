@@ -11,14 +11,14 @@ import Foundation
 public struct EditAlarmRequest {
     let id: Int!
     let email: String!
-    let symbolCode: String!
+    let symbolCode: Int!
     let atPrice: Double!
     let orderType: String!
     let alarmPrice: Double!
     let description: String!
-    let active = Bool()
+    let active: Bool!
 
-    func getDic() -> [String: String] {
+    func getDic() -> [String: AnyObject] {
         let dic = [
                 "id": id,
                 "email": email,
@@ -29,6 +29,6 @@ public struct EditAlarmRequest {
                 "description": description,
                 "active": active]
 
-        return dic as! [String: String]
+        return dic as! [String: AnyObject]
     }
 }
