@@ -24,6 +24,7 @@
 		8411E6321D9A50FF009A78DA /* SymbolListAndDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8411E6311D9A50FF009A78DA /* SymbolListAndDetailsRequest.swift */; };
 		8477D9051D85440F006BBFCE /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477D9041D85440F006BBFCE /* AboutUsViewController.swift */; };
 		8477D90C1D856D04006BBFCE /* MGBuildDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477D90B1D856D04006BBFCE /* MGBuildDate.m */; };
+		848FA3D61DDC6A4100B1528F /* SabadBanDevUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848FA3D51DDC6A4100B1528F /* SabadBanDevUITests.swift */; };
 		84A34BF61D7EF5E600B02A8D /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A34BF51D7EF5E600B02A8D /* AlamofireRequest.swift */; };
 		84B6DCC91DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCC81DBB787500D93B4F /* ForgetPasswordViewController.swift */; };
 		84B6DCCA1DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCC81DBB787500D93B4F /* ForgetPasswordViewController.swift */; };
@@ -424,6 +425,16 @@
 		94E30E201D8FC4E40052EF59 /* DatePickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E30E1F1D8FC4E40052EF59 /* DatePickerSheet.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		848FA3D81DDC6A4200B1528F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 949BEE461D72A51B008FA574 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 949BEE4D1D72A51B008FA574;
+			remoteInfo = SabadBanDev;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		014B118BF7FB26043C745CF5 /* Pods_SabadBanProd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SabadBanProd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		056F8D223A2B46BAFA51E6B5 /* Pods-SabadBan Prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SabadBan Prod.release.xcconfig"; path = "Pods/Target Support Files/Pods-SabadBan Prod/Pods-SabadBan Prod.release.xcconfig"; sourceTree = "<group>"; };
@@ -446,6 +457,9 @@
 		8477D9041D85440F006BBFCE /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		8477D90A1D856D04006BBFCE /* MGBuildDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGBuildDate.h; sourceTree = "<group>"; };
 		8477D90B1D856D04006BBFCE /* MGBuildDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGBuildDate.m; sourceTree = "<group>"; };
+		848FA3D31DDC6A4100B1528F /* SabadBanDevUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SabadBanDevUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		848FA3D51DDC6A4100B1528F /* SabadBanDevUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SabadBanDevUITests.swift; sourceTree = "<group>"; };
+		848FA3D71DDC6A4200B1528F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84A34BF51D7EF5E600B02A8D /* AlamofireRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
 		84B6DCC81DBB787500D93B4F /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		84B6DCCD1DBB957700D93B4F /* ForgetPasswordResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordResponse.swift; sourceTree = "<group>"; };
@@ -593,6 +607,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		848FA3D01DDC6A4100B1528F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9476FB451DBB425700B923D6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -683,6 +704,15 @@
 				8477D90B1D856D04006BBFCE /* MGBuildDate.m */,
 			);
 			name = BuildDate;
+			sourceTree = "<group>";
+		};
+		848FA3D41DDC6A4100B1528F /* SabadBanDevUITests */ = {
+			isa = PBXGroup;
+			children = (
+				848FA3D51DDC6A4100B1528F /* SabadBanDevUITests.swift */,
+				848FA3D71DDC6A4200B1528F /* Info.plist */,
+			);
+			path = SabadBanDevUITests;
 			sourceTree = "<group>";
 		};
 		84B6DCC71DBB780F00D93B4F /* ForgetPassword */ = {
@@ -977,6 +1007,7 @@
 			isa = PBXGroup;
 			children = (
 				949BEE501D72A51C008FA574 /* SabadBan */,
+				848FA3D41DDC6A4100B1528F /* SabadBanDevUITests */,
 				949BEE4F1D72A51C008FA574 /* Products */,
 				71CB79BDC48DF0EBB0AEC22C /* Pods */,
 				4A8E7FDEF260C6FD64CB10A7 /* Frameworks */,
@@ -992,6 +1023,7 @@
 				949BEE4E1D72A51C008FA574 /* SabadBanDev.app */,
 				9476FB611DBB425700B923D6 /* SabadBanTest.app */,
 				9476FBE71DBB425B00B923D6 /* SabadBanProd.app */,
+				848FA3D31DDC6A4100B1528F /* SabadBanDevUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1329,11 +1361,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		848FA3D21DDC6A4100B1528F /* SabadBanDevUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 848FA3DC1DDC6A4200B1528F /* Build configuration list for PBXNativeTarget "SabadBanDevUITests" */;
+			buildPhases = (
+				848FA3CF1DDC6A4100B1528F /* Sources */,
+				848FA3D01DDC6A4100B1528F /* Frameworks */,
+				848FA3D11DDC6A4100B1528F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				848FA3D91DDC6A4200B1528F /* PBXTargetDependency */,
+			);
+			name = SabadBanDevUITests;
+			productName = SabadBanDevUITests;
+			productReference = 848FA3D31DDC6A4100B1528F /* SabadBanDevUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		9476FADD1DBB425700B923D6 /* SabadBanTest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9476FB5E1DBB425700B923D6 /* Build configuration list for PBXNativeTarget "SabadBanTest" */;
 			buildPhases = (
-				063DE427153E74376F7D616D /* 📦 Check Pods Manifest.lock */,
+				063DE427153E74376F7D616D /* [CP] Check Pods Manifest.lock */,
 				E30F399EF8B5D8C4341FCF62 /* [CP] Check Pods Manifest.lock */,
 				9476FADE1DBB425700B923D6 /* [CP] Check Pods Manifest.lock */,
 				9476FADF1DBB425700B923D6 /* [CP] Check Pods Manifest.lock */,
@@ -1363,7 +1413,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9476FBE41DBB425B00B923D6 /* Build configuration list for PBXNativeTarget "SabadBanProd" */;
 			buildPhases = (
-				E438A2ACDE79D837DD1199EA /* 📦 Check Pods Manifest.lock */,
+				E438A2ACDE79D837DD1199EA /* [CP] Check Pods Manifest.lock */,
 				511CEA57ECE6823335890A29 /* [CP] Check Pods Manifest.lock */,
 				9476FB641DBB425B00B923D6 /* [CP] Check Pods Manifest.lock */,
 				9476FB651DBB425B00B923D6 /* [CP] Check Pods Manifest.lock */,
@@ -1393,7 +1443,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 949BEE601D72A51C008FA574 /* Build configuration list for PBXNativeTarget "SabadBanDev" */;
 			buildPhases = (
-				56C0E9C5D7A2EDEF8CD3329A /* 📦 Check Pods Manifest.lock */,
+				56C0E9C5D7A2EDEF8CD3329A /* [CP] Check Pods Manifest.lock */,
 				65D59ECEF05B0D33C796E1AD /* [CP] Check Pods Manifest.lock */,
 				6B6976D5B839600080B37CB1 /* [CP] Check Pods Manifest.lock */,
 				9070F80B11578457AFAFB70F /* [CP] Check Pods Manifest.lock */,
@@ -1430,6 +1480,10 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Sefr Yek";
 				TargetAttributes = {
+					848FA3D21DDC6A4100B1528F = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 949BEE4D1D72A51B008FA574;
+					};
 					9476FADD1DBB425700B923D6 = {
 						DevelopmentTeam = ME3L9TLYAV;
 					};
@@ -1466,11 +1520,19 @@
 				949BEE4D1D72A51B008FA574 /* SabadBanDev */,
 				9476FADD1DBB425700B923D6 /* SabadBanTest */,
 				9476FB631DBB425B00B923D6 /* SabadBanProd */,
+				848FA3D21DDC6A4100B1528F /* SabadBanDevUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		848FA3D11DDC6A4100B1528F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9476FB471DBB425700B923D6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1556,14 +1618,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		063DE427153E74376F7D616D /* 📦 Check Pods Manifest.lock */ = {
+		063DE427153E74376F7D616D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1616,14 +1678,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		56C0E9C5D7A2EDEF8CD3329A /* 📦 Check Pods Manifest.lock */ = {
+		56C0E9C5D7A2EDEF8CD3329A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2122,14 +2184,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E438A2ACDE79D837DD1199EA /* 📦 Check Pods Manifest.lock */ = {
+		E438A2ACDE79D837DD1199EA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2155,6 +2217,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		848FA3CF1DDC6A4100B1528F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				848FA3D61DDC6A4100B1528F /* SabadBanDevUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9476FAE41DBB425700B923D6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2529,6 +2599,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		848FA3D91DDC6A4200B1528F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 949BEE4D1D72A51B008FA574 /* SabadBanDev */;
+			targetProxy = 848FA3D81DDC6A4200B1528F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		949BEE551D72A51C008FA574 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -2558,6 +2636,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		848FA3DA1DDC6A4200B1528F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = SabadBanDevUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sefryek.SabadBanDevUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SabadBanDev;
+			};
+			name = Debug;
+		};
+		848FA3DB1DDC6A4200B1528F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = SabadBanDevUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sefryek.SabadBanDevUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SabadBanDev;
+			};
+			name = Release;
+		};
 		9476FB5F1DBB425700B923D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4E6CE94CD4FF34268180F724 /* Pods-SabadBanTest.debug.xcconfig */;
@@ -2784,6 +2886,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		848FA3DC1DDC6A4200B1528F /* Build configuration list for PBXNativeTarget "SabadBanDevUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				848FA3DA1DDC6A4200B1528F /* Debug */,
+				848FA3DB1DDC6A4200B1528F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		9476FB5E1DBB425700B923D6 /* Build configuration list for PBXNativeTarget "SabadBanTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

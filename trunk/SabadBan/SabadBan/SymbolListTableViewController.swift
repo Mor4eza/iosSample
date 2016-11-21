@@ -15,6 +15,8 @@ class SymbolListTableViewController: BaseTableViewController {
     var numberSortCondiiton = SortCondition.notSorted
     var volumeSortCondiiton = SortCondition.notSorted
     var symbolSortCondiiton = SortCondition.notSorted
+    
+    var isScrolling = false
 
     var headerView: SymbolListHeader!
     var lastUpdate = NSMutableAttributedString()
@@ -23,7 +25,8 @@ class SymbolListTableViewController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         tableView.registerNib(UINib(nibName: UIConstants.SymbolListHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.SymbolListHeader)
 
         self.tableView.tableFooterView = UIView()
@@ -55,31 +58,15 @@ class SymbolListTableViewController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.symbolCell, forIndexPath: indexPath) as! SymbolCell
-
-        let tempVol = Double(symbolDetailsList[indexPath.row].transactionVolume)
-        let tempLastTrader = Int(symbolDetailsList[indexPath.row].lastTradePriceChange)
-        cell.lblName.text = symbolDetailsList[indexPath.row].symbolShortName
-        cell.lblLastTrade.text = symbolDetailsList[indexPath.row].lastTradePrice.currencyFormat(2)
-        cell.lblLastTradeChanges.text = abs(tempLastTrader).currencyFormat(2)
-        cell.lblVolume.text = tempVol.suffixNumber()
-        cell.lblAmount.text = symbolDetailsList[indexPath.row].transactionNumber.currencyFormat(2)
-        if symbolDetailsList[indexPath.row].lastTradePriceChange > 0 {
-            cell.lblLastTradeChanges.backgroundColor = UIColor(netHex: 0x006400)
-        } else if symbolDetailsList[indexPath.row].lastTradePriceChange < 0 {
-            cell.lblLastTradeChanges.backgroundColor = UIColor.redColor()
-        } else {
-            cell.lblLastTradeChanges.backgroundColor = UIColor.clearColor()
-        }
-
-        if indexPath.row % 2 == 0 {
-            cell.backgroundColor = AppBarTintColor
-        } else {
-            cell.backgroundColor = AppMainColor
-        }
+        
+//        dispatch_async(dispatch_get_main_queue()){
+            cell.initReuseCell(self.symbolDetailsList[indexPath.row], indexPathRow: indexPath.row)
+//        }
+        
 
         return cell
     }
-
+    
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if symbolDetailsList.count == 0 {
             return 0
@@ -262,4 +249,33 @@ class SymbolListTableViewController: BaseTableViewController {
     override func updateServiceData() {
         getSymbolListByIndex()
     }
+    
+    
+//    func visibleCellsShouldRasterize(aBool:Bool){
+//        for cell in tableView.visibleCells as [UITableViewCell]{
+//            cell.layer.shouldRasterize = aBool;
+//        }
+//    }
+//    
+//    override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+//        isScrolling = false
+//        self.visibleCellsShouldRasterize(isScrolling)
+//    }
+//    
+//    override func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+//        if velocity == CGPointZero{
+//            isScrolling = false
+//            self.visibleCellsShouldRasterize(isScrolling)
+//        }
+//    }
+//    
+//    override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+//        isScrolling = true
+//        self.visibleCellsShouldRasterize(isScrolling)
+//        
+//    }
+//    
+//    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+//        cell.layer.shouldRasterize = isScrolling
+//    }
 }

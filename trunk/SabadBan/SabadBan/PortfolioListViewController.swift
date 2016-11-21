@@ -55,7 +55,11 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
         self.tblPortfolio.addSubview(refreshControl)
 
         initFAB()
-
+        
+//        let rect = CGRect(x: 275, y: 465, width: 10, height: 10)
+//        let mView = UIView (frame: rect)
+//        mView.backgroundColor = UIColor.brownColor()
+//        self.view.addSubview(mView)
     }
 
     func refresh(sender: AnyObject) {
