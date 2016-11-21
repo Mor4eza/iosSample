@@ -15,6 +15,7 @@ class SymbolCell: UITableViewCell {
     @IBOutlet weak var lblLastTradeChanges: UILabel!
     @IBOutlet weak var lblLastTrade: UILabel!
     @IBOutlet weak var lblName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,6 +33,30 @@ class SymbolCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func initReuseCell(symbolDetails: SymbolDetailsList, indexPathRow: Int) {
+        
+        let tempVol = Double(symbolDetails.transactionVolume)
+        let tempLastTrader = Int(symbolDetails.lastTradePriceChange)
+        lblName.text = symbolDetails.symbolShortName
+        lblLastTrade.text = symbolDetails.lastTradePrice.currencyFormat(2)
+        lblLastTradeChanges.text = abs(tempLastTrader).currencyFormat(2)
+        lblVolume.text = tempVol.suffixNumber()
+        lblAmount.text = symbolDetails.transactionNumber.currencyFormat(2)
+        if symbolDetails.lastTradePriceChange > 0 {
+            lblLastTradeChanges.backgroundColor = UIColor(netHex: 0x006400)
+        } else if symbolDetails.lastTradePriceChange < 0 {
+            lblLastTradeChanges.backgroundColor = UIColor.redColor()
+        } else {
+            lblLastTradeChanges.backgroundColor = UIColor.clearColor()
+        }
+        
+        if indexPathRow % 2 == 0 {
+            backgroundColor = AppBarTintColor
+        } else {
+            backgroundColor = AppMainColor
+        }
     }
 
 }

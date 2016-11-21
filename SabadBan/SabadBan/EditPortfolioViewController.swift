@@ -35,6 +35,7 @@ class EditPortfolioViewController: BaseTableViewController {
     }
 
     func doneClicked() {
+        etTitle.font?.fontName
 
         for i in 0 ..< self.portfolios.count {
             if etTitle.text != portfolioName {
