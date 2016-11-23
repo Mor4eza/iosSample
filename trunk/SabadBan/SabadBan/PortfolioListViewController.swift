@@ -15,7 +15,7 @@ import Alamofire_Gloss
 import KCFloatingActionButton
 import FCAlertView
 
-class PortfolioListViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, KCFloatingActionButtonDelegate, FCAlertViewDelegate {
+class PortfolioListViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, KCFloatingActionButtonDelegate {
     let db = DataBase()
     var currentPortfolioIndex = 0
     var currentPortfolio: Portfolio?

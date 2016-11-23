@@ -89,6 +89,7 @@
 "deleteBuyAlertTitle" = "Delete Buy Information";
 "addedSuccessfuliToPortfolio" = "Added to Portfolio Successfully";
 "maximumNumberOfSymbolsReached" = "maximumNumberOfSymbolsReached";
+"atleastEnterOneSymbol" = "atleastEnterOneSymbol";
 
 //MARK: - AboutUs Strings
 

@@ -10,9 +10,16 @@ import UIKit
 import SwiftEventBus
 import FCAlertView
 
-class BaseViewController: UIViewController, ENSideMenuDelegate {
+class BaseViewController: UIViewController, ENSideMenuDelegate, FCAlertViewDelegate {
+
+    //MARK : - Properties
 
     var timer: NSTimer?
+    static var isNetworkAlertShown = false
+    var networkAlert: FCAlertView?
+    var timeoutAlert: FCAlertView?
+    var serviceUnreachableAlert: FCAlertView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,11 +36,26 @@ class BaseViewController: UIViewController, ENSideMenuDelegate {
 
         SwiftEventBus.onMainThread(self, name: NetworkErrorAlert) {
             result in
-            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.noInternet.localized())
+            if !BaseViewController.isNetworkAlertShown{
+                BaseViewController.isNetworkAlertShown = true
+                self.networkAlert = Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.noInternet.localized(), delegate: self)
+            }
+            
         }
         SwiftEventBus.onMainThread(self, name: TimeOutErrorAlert) {
             result in
-            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.ConnectionTimeOut.localized())
+            if !BaseViewController.isNetworkAlertShown{
+                BaseViewController.isNetworkAlertShown = true
+                self.timeoutAlert = Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.ConnectionTimeOut.localized(), delegate: self)
+            }
+        }
+        
+        SwiftEventBus.onMainThread(self, name: ServerErrorAlert) {
+            result in
+            if !BaseViewController.isNetworkAlertShown {
+                BaseViewController.isNetworkAlertShown = true
+                self.serviceUnreachableAlert = Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.serviceIsUnreachable.localized())
+            }
         }
 
         timer = NSTimer.scheduledTimerWithTimeInterval(updateServiceInterval, target: self, selector: #selector(BaseViewController.updateServiceData), userInfo: nil, repeats: true)
@@ -91,5 +113,13 @@ class BaseViewController: UIViewController, ENSideMenuDelegate {
     }
 
     func updateServiceData() {
+    }
+    
+    //MARK : - FCAlertView Delegate
+    
+    func FCAlertViewDismissed(alertView: FCAlertView!) {
+        if (alertView == networkAlert || alertView == timeoutAlert || alertView == serviceUnreachableAlert) {
+           BaseViewController.isNetworkAlertShown = false
+        }
     }
 }
