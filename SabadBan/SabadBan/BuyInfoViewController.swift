@@ -10,7 +10,7 @@ import UIKit
 import SwiftEventBus
 import FCAlertView
 
-class BuyInfoViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, FCAlertViewDelegate {
+class BuyInfoViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tblHistory: UITableView!
     @IBOutlet weak var btnDone: UIButton!
@@ -212,25 +212,24 @@ class BuyInfoViewController: BaseViewController, UITableViewDelegate, UITableVie
             return
         }
         
-        guard btnPrice.currentTitle?.getCurrencyNumber() != NSNumber() else {
-            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.enterPricePlease.localized())
-            return
-        }
-        
         guard btnCount.currentTitle != "" else {
             Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.enterQuantityPlease.localized())
             return
         }
         
-        guard btnCount.currentTitle?.getCurrencyNumber() != NSNumber() else {
-            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.enterQuantityPlease.localized())
+        let price = btnPrice.titleLabel?.text?.getCurrencyNumber()!
+        let count = btnCount.titleLabel?.text?.getCurrencyNumber()!
+        let date = btnDate.titleLabel?.text
+        
+        guard !price!.isEqual(0) else {
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.enterPricePlease.localized())
             return
         }
         
-        
-        let price = btnPrice.titleLabel?.text?.getCurrencyNumber()
-        let count = btnCount.titleLabel?.text?.getCurrencyNumber()
-        let date = btnDate.titleLabel?.text
+        guard !count!.isEqual(0) else {
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.enterQuantityPlease.localized())
+            return
+        }
         
         if editMode {
             db.updatePsBuy(psIdForEdit, newPrice: Double(price!), newCount: Double(count!), newDate: date!)

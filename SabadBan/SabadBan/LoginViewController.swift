@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import FCAlertView
 
-class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewDelegate {
+class LoginViewController: BaseViewController, UITextFieldDelegate {
 
     //MARK: Properties
 
@@ -325,8 +325,8 @@ class LoginViewController: BaseViewController, UITextFieldDelegate, FCAlertViewD
 
     }
 
-    func FCAlertViewDismissed(alertView: FCAlertView!) {
-
+    override func FCAlertViewDismissed(alertView: FCAlertView!) {
+        super.FCAlertViewDismissed(alertView)
         if (alertView == updateAlert) {
             exit(0)
         } else if (alertView == rootAlert) {

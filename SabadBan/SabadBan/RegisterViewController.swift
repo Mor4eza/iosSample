@@ -103,21 +103,21 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         self.view.endEditing(true)
 
         if txtUserName.text == "" {
-            showAlert(Strings.pleaseEnterEmail)
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.pleaseEnterEmail.localized())
         } else if (!txtUserName.text!.isValidEmail()) {
-            showAlert(Strings.emailInvalid)
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.emailInvalid.localized())
         } else if txtPhone.text == "" {
-            showAlert(Strings.pleaseEnterPhoneNumber)
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.pleaseEnterPhoneNumber.localized())
         } else if txtPhone.text?.characters.count < 11 {
-            showAlert(Strings.phoneNumberLengthError)
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.phoneNumberLengthError.localized())
         } else if txtPassword.text == "" {
-            showAlert(Strings.pleaseEnterPassword)
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.pleaseEnterPassword.localized())
         } else if txtPassword.text!.characters.count < 8 {
-            showAlert(Strings.passwordLengthError)
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.passwordLengthError.localized())
         } else if txtRPassword.text == "" {
-            showAlert(Strings.pleaseEnterPasswordRepeat)
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.pleaseEnterPasswordRepeat.localized())
         } else if !(txtRPassword.text == txtPassword.text) {
-            showAlert(Strings.passwordRepeatNotMatch)
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.passwordRepeatNotMatch.localized())
         } else {
             if isSimulator {
                 sendRegisterRequest(txtUserName.text!, password: txtPassword.text!, phone: txtPhone.text!, pushToken: "IOS_RUNNING_IN_SIMULATOR")
@@ -125,20 +125,6 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
                 sendRegisterRequest(txtUserName.text!, password: txtPassword.text!, phone: txtPhone.text!, pushToken: PushToken)
             }
         }
-    }
-
-    func showAlert(message: String) {
-
-        let alert = FCAlertView()
-        alert.makeAlertTypeCaution()
-        alert.colorScheme = UIColor(red: 44 / 255, green: 62 / 255, blue: 80 / 255, alpha: 1)
-        alert.showAlertInView(self,
-                withTitle: Strings.Attention.localized(),
-                withSubtitle: message.localized(),
-                withCustomImage: nil,
-                withDoneButtonTitle: Strings.Ok.localized(),
-                andButtons: nil)
-
     }
 
     @IBAction func btnLogin(sender: AnyObject) {
@@ -210,10 +196,10 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
                     }
                 } else if register!.errorCode == 101 {
                     if (register!.error?.unigueEmail != nil) {
-                        self.showAlert(Strings.emailRegisterdBefore)
+                        Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.emailRegisterdBefore.localized())
                     }
                 } else if register!.errorCode == 102 {
-                    self.showAlert(Strings.unknownRegisterError)
+                    Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.unknownRegisterError.localized())
                 }
 
                 self.btnRegister.enabled = true

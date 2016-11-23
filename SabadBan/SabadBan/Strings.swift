@@ -95,6 +95,7 @@ struct Strings {
     static let deleteBuyAlertTitle = "deleteBuyAlertTitle"
     static let addedSuccessfuliToPortfolio = "addedSuccessfuliToPortfolio"
     static let maximumNumberOfSymbolsReached = "maximumNumberOfSymbolsReached"
+    static let atleastEnterOneSymbol = "atleastEnterOneSymbol"
     
     //MARK: - AboutUs Strings
     

@@ -8,8 +8,9 @@
 
 import UIKit
 import FCAlertView
+import GSMessages
 
-class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, FCAlertViewDelegate {
+class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Properties
     
@@ -26,6 +27,8 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
     var editMode = Bool()
     var selectedRowEdit = Int()
     var selectedRowDelete = Int()
+    
+    var deleteAlarmAlert: FCAlertView?
     
     
     override func viewDidLoad() {
@@ -231,8 +234,10 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
                 }
                 
             }
+            self.getAlarms(LogedInUserName, symbolCode: SelectedSymbolCode)
             LoadingOverlay.shared.hideOverlayView()
         }
+        
     }
     
     func editAlarm(id: Int, email: String, atPrice: Double, alarmPrice: Double, orderType: String) {
@@ -304,7 +309,7 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
             return
         }
         
-        guard (alarmData.count < 20) else {
+        if ((alarmData.count >= 20) && !editMode) {
             Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.alarmCountAlert.localized())
             return
         }
@@ -315,6 +320,11 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
         
         let price = Double((btnPrice.currentTitle?.getCurrencyNumber())!)
         let orderType = swType.rightSelected ? OrderType.Buy : OrderType.Sell
+        
+        guard !price.isZero else {
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.enterPricePlease.localized())
+            return
+        }
         
         if editMode {
             editAlarm(alarmData[selectedRowEdit].id, email: LogedInUserName, atPrice: SelectedSymbolLastTradePrice, alarmPrice: price, orderType: orderType.rawValue)
@@ -333,7 +343,7 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
             textField.keyboardType = .NumberPad
             textField.maxLength = 9
             textField.commaSeperator = true
-            textField.allowedCharacter = "0987654321"
+            textField.allowedCharacter = "0987654321۰۱۲۳۴۵۶۷۸۹"
         })
         
         priceAlert.addAction(UIAlertAction(title: Strings.Ok.localized(), style: .Default, handler: {
@@ -347,7 +357,7 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
     
     func deleteTap(sender: AnyObject) {
         selectedRowDelete = sender.tag
-        Utils.ShowAlert(self, title: Strings.deleteAlarmTitle.localized(), details: Strings.reallyWantToDeleteAlarm.localized(), btnOkTitle: Strings.Yes.localized(), btnTitles: [Strings.No.localized()], delegate: self)
+        deleteAlarmAlert = Utils.ShowAlert(self, title: Strings.deleteAlarmTitle.localized(), details: Strings.reallyWantToDeleteAlarm.localized(), btnOkTitle: Strings.Yes.localized(), btnTitles: [Strings.No.localized()], delegate: self)
     }
     
     func editTap(sender: AnyObject) {
@@ -376,9 +386,11 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
     //MARK: -AlertView delegates
     
     func FCAlertDoneButtonClicked(alertView: FCAlertView!) {
+        super.FCAlertViewDismissed(alertView)
         
-        deleteAlarm(alarmData[selectedRowDelete].id, email: LogedInUserName)
-        
+        if alertView == deleteAlarmAlert {
+            deleteAlarm(alarmData[selectedRowDelete].id, email: LogedInUserName)
+        }
     }
 }
 

@@ -70,6 +70,13 @@ class SearchSeymbolTableView: BaseTableViewController, UISearchResultsUpdating, 
     }
     
     func doneClicked() {
+        
+        symbols = db.getSymbolbyPortfolio(pCode)
+        
+        guard symbols.count > 0 else {
+            Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.atleastEnterOneSymbol.localized())
+            return
+        }
         dismissViewControllerAnimated(true, completion: nil)
     }
     
