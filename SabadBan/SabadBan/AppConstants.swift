@@ -62,7 +62,7 @@ public let URLS: [String: String] =
 
 //MARK:- Constants
 public var SelectedIndexCode: String = ""
-public var SelectedSymbolCode: CLong = 0
+public var SelectedSymbolCode:Int64 = 0
 public var SelectedSymbolLastTradePrice: Double = 0
 public var SelectedSymbolName: String = ""
 public var LoginToken: String = ""

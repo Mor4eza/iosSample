@@ -10,13 +10,13 @@ import Foundation
 
 struct FindAlarmsRequest {
     let email: String!
-    let symbolCode: CLong!
+    let symbolCode: Int64!
 
     func getDic() -> [String: AnyObject] {
-        let dic = [
+        let dic : [String: AnyObject]  = [
                 "email": email,
-                "symbolCode": symbolCode]
+                "symbolCode": String(symbolCode)]
 
-        return dic as! [String: AnyObject]
+        return dic
     }
 }

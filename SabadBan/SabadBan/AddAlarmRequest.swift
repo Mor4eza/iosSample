@@ -10,7 +10,7 @@ import Foundation
 
 public struct AddAlarmRequest {
     let email: String!
-    let symbolCode: CLong!
+    let symbolCode: Int64!
     let atPrice: Double!
     let orderType: String!
     let alarmPrice: Double!
@@ -20,7 +20,7 @@ public struct AddAlarmRequest {
     func getDic() -> [String: AnyObject] {
         let dic = [
                 "email": email,
-                "symbolCode": symbolCode,
+                "symbolCode": String(symbolCode),
                 "atPrice": atPrice,
                 "orderType": orderType,
                 "alarmPrice": alarmPrice,

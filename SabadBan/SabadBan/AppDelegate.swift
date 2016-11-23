@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
         UITextField.appearance().keyboardAppearance = .Dark
-
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         let defaults = NSUserDefaults.standardUserDefaults()
 
         if defaults.valueForKey("DefaultLanguage") == nil {

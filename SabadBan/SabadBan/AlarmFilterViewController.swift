@@ -113,7 +113,7 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
     
     //MARK:- WebServices
     
-    func getAlarms(email: String, symbolCode: CLong) {
+    func getAlarms(email: String, symbolCode: Int64) {
         
         LoadingOverlay.shared.showOverlay(self.view)
         
@@ -390,7 +390,7 @@ struct AlarmsData {
     let id: Int!
     let orderType: String!
     let priceDirection: String!
-    let symbolCode: Int!
+    let symbolCode: Int64!
     
 }
 

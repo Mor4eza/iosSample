@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsDetailViewController: UIViewController {
+class NewsDetailViewController: BaseViewController {
 
     var newsTitle = String()
     var newsDetails = String()

@@ -15,7 +15,7 @@ import Gloss
 
 public struct SymbolNameList: Glossy {
 
-    public let symbolCode: CLong!
+    public let symbolCode: Int64!
     public let symbolCompleteName: String!
     public let symbolShortName: String!
 

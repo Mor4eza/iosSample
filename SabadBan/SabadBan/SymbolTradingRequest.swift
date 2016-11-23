@@ -9,13 +9,13 @@
 import Foundation
 
 public struct SymbolTradingRequest {
-    let symbolCode: String!
+    let symbolCode: Int64!
 
     func getDic() -> [String: AnyObject] {
         let dic: [String: AnyObject]
 
         dic = [
-                "symbolCode": symbolCode
+                "symbolCode": String(symbolCode)
         ]
         return dic
     }

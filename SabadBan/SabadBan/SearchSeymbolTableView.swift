@@ -270,7 +270,7 @@ struct symbolData {
 
     var name = String()
     var fullName = String()
-    var code = CLong()
+    var code = Int64()
 }
 
 class smlCode: NSObject {

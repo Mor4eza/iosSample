@@ -11,7 +11,7 @@ import Foundation
 public struct EditAlarmRequest {
     let id: Int!
     let email: String!
-    let symbolCode: Int!
+    let symbolCode: Int64!
     let atPrice: Double!
     let orderType: String!
     let alarmPrice: Double!
@@ -22,7 +22,7 @@ public struct EditAlarmRequest {
         let dic = [
                 "id": id,
                 "email": email,
-                "symbolCode": symbolCode,
+                "symbolCode": String(symbolCode),
                 "atPrice": atPrice,
                 "orderType": orderType,
                 "alarmPrice": alarmPrice,

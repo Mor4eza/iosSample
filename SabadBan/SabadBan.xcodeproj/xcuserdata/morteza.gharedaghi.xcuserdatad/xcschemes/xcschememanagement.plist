@@ -22,21 +22,31 @@
 		<key>SabadBanDev.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
+		<key>SabadBanDevUITests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>14</integer>
 		</dict>
 		<key>SabadBanProd.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>16</integer>
+			<integer>17</integer>
 		</dict>
 		<key>SabadBanTest.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>15</integer>
+			<integer>16</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>848FA3D21DDC6A4100B1528F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9476FADD1DBB425700B923D6</key>
 		<dict>
 			<key>primary</key>
