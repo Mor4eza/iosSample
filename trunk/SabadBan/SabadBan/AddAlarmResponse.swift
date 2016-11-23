@@ -22,7 +22,7 @@ public struct AddAlarmResponse: Glossy {
     public let id: Int!
     public let orderType: String!
     public let priceDirection: String!
-    public let symbolCode: Int!
+    public let symbolCode: Int64!
 
 
     //MARK: Decodable

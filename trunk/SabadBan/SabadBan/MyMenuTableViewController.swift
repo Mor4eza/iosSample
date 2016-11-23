@@ -149,7 +149,9 @@ class MyMenuTableViewController: BaseTableViewController {
             break
         default:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.LogInViewController)
-            self.presentViewController(destViewController!, animated: true, completion: nil)
+            
+           // self.presentViewController(destViewController!, animated: true, completion: nil)
+           
             return
         }
         if destViewController != nil {

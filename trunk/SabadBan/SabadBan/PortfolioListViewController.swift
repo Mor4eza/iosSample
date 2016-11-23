@@ -225,7 +225,11 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
         }
 
         if symbols.count > 0 {
-            getSymbolListData(symbols)
+            var intSymbols = [Int64]()
+            for symbol in symbols {
+                intSymbols.append(Int64(symbol)!)
+            }
+            getSymbolListData(intSymbols)
         } else {
             smData.removeAll()
             tblPortfolio.reloadData()
@@ -392,7 +396,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
 
     //MARK:- Get Symbols Data Service
 
-    func getSymbolListData(symbols: [String]) {
+    func getSymbolListData(symbols: [Int64]) {
 
         refreshControl.beginRefreshing()
 
@@ -564,7 +568,7 @@ struct symData {
     var closePriceChange: Double!
     var lastTradePrice: Double!
     var status: String!
-    var symbolCode: CLong!
+    var symbolCode: Int64!
     var symbolCompleteName: String!
     var symbolShortName: String!
     var todayProfit: Double!

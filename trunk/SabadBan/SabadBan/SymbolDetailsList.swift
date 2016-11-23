@@ -34,7 +34,7 @@ public struct SymbolDetailsList: Glossy {
     public let openPrice: Double!
     public let pe: Double!
     public let status: String!
-    public let symbolCode: CLong!
+    public let symbolCode: Int64!
     public let symbolCompleteName: String!
     public let symbolShortName: String!
     public let todayPrice: Double!

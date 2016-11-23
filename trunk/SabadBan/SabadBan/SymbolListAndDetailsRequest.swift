@@ -11,15 +11,21 @@ import Foundation
 public struct SymbolListAndDetailsRequest {
     let pageNumber: Int!
     let recordPerPage: Int!
-    let symbolCode: [String]!
+    let symbolCode: [Int64]!
     let supportPaging: Bool!
     let language: String!
 
     func getDic() -> [String: AnyObject] {
+        
+        var sCodes = [String]()
+        for symbol in  symbolCode {
+            sCodes.append(String(symbol))
+        }
+        
         let dic = [
                 "pageNumber": pageNumber,
                 "recordPerPage": recordPerPage,
-                "symbolCode": symbolCode,
+                "symbolCode": sCodes,
                 "supportPaging": supportPaging,
                 "language": language
         ]

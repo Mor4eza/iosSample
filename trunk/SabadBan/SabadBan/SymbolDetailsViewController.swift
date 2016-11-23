@@ -69,14 +69,16 @@ class SymbolDetailsViewController: BaseTableViewController {
 
     var hideBestBuy = true
     var hideBestSell = true
+    var lastUpdate = NSMutableAttributedString()
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
         tableView.registerNib(UINib(nibName: UIConstants.buyHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.buyHeader)
+        tableView.registerNib(UINib(nibName: UIConstants.PortfolioHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.PortfolioHeader)
         debugPrint("selected: \(SelectedSymbolCode)")
-        getSymbolBestLimitService(String(SelectedSymbolCode))
-        getSymbolTradingDetailsService(String(SelectedSymbolCode))
-        getSymbolListData([String(SelectedSymbolCode)])
+        getSymbolBestLimitService(SelectedSymbolCode)
+        getSymbolTradingDetailsService(SelectedSymbolCode)
+        getSymbolListData([SelectedSymbolCode])
 
     }
     // MARK: - Table view data source
@@ -106,6 +108,11 @@ class SymbolDetailsViewController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
+        if section == 0 {
+            let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.PortfolioHeader) as! PortfolioHeader
+            headerView.lblLastUpdate.attributedText = lastUpdate
+            return headerView
+        }
         let tapGesture = UITapGestureRecognizer()
 
         let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.buyHeader) as! SymbolBestBuyAndCellHeader
@@ -158,7 +165,7 @@ class SymbolDetailsViewController: BaseTableViewController {
 
     //MARK:- Symbol Best Limit service
 
-    func getSymbolBestLimitService(sCode: String) {
+    func getSymbolBestLimitService(sCode: Int64) {
         /**
          getBestLimitsBySymbol
          POST http://185.37.52.193:9090/services/getBestLimitsBySymbol
@@ -174,6 +181,7 @@ class SymbolDetailsViewController: BaseTableViewController {
             (bestLimit: MainResponse<SymbolBestLimitResponse>?, error) in
 
             if ((bestLimit?.successful) != nil) {
+                self.lastUpdate = (bestLimit?.convertTime())!
                 if bestLimit!.response.bestLimitDataList.count > 0 {
                     self.lblBBPValue1.text = bestLimit!.response.bestLimitDataList[0].buyPrice.currencyFormat(2)
                     self.lblBBPValue2.text = bestLimit!.response.bestLimitDataList[1].buyPrice.currencyFormat(2)
@@ -202,7 +210,7 @@ class SymbolDetailsViewController: BaseTableViewController {
 
     }
 
-    func getSymbolTradingDetailsService(sCode: String) {
+    func getSymbolTradingDetailsService(sCode: Int64) {
         /**
          getBestLimitsBySymbol
          POST http://185.37.52.193:9090/services/getBestLimitsBySymbol
@@ -235,7 +243,7 @@ class SymbolDetailsViewController: BaseTableViewController {
 
     }
 
-    func getSymbolListData(sCode: [String]) {
+    func getSymbolListData(sCode: [Int64]) {
 
         let url = AppTadbirUrl + URLS["getSymbolListAndDetails"]!
 
@@ -334,9 +342,9 @@ class SymbolDetailsViewController: BaseTableViewController {
     }
 
     override func updateServiceData() {
-        getSymbolBestLimitService(String(SelectedSymbolCode))
-        getSymbolTradingDetailsService(String(SelectedSymbolCode))
-        getSymbolListData([String(SelectedSymbolCode)])
+        getSymbolBestLimitService(SelectedSymbolCode)
+        getSymbolTradingDetailsService(SelectedSymbolCode)
+        getSymbolListData([SelectedSymbolCode])
     }
 
 }

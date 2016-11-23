@@ -1383,6 +1383,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9476FB5E1DBB425700B923D6 /* Build configuration list for PBXNativeTarget "SabadBanTest" */;
 			buildPhases = (
+				38A037EF3F8BADB4CEF1DE99 /* 📦 Check Pods Manifest.lock */,
 				063DE427153E74376F7D616D /* [CP] Check Pods Manifest.lock */,
 				E30F399EF8B5D8C4341FCF62 /* [CP] Check Pods Manifest.lock */,
 				9476FADE1DBB425700B923D6 /* [CP] Check Pods Manifest.lock */,
@@ -1413,6 +1414,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9476FBE41DBB425B00B923D6 /* Build configuration list for PBXNativeTarget "SabadBanProd" */;
 			buildPhases = (
+				5D81F3B8E95036C58A78FCE1 /* 📦 Check Pods Manifest.lock */,
 				E438A2ACDE79D837DD1199EA /* [CP] Check Pods Manifest.lock */,
 				511CEA57ECE6823335890A29 /* [CP] Check Pods Manifest.lock */,
 				9476FB641DBB425B00B923D6 /* [CP] Check Pods Manifest.lock */,
@@ -1443,6 +1445,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 949BEE601D72A51C008FA574 /* Build configuration list for PBXNativeTarget "SabadBanDev" */;
 			buildPhases = (
+				84E6C4ECD50FE22F83A181DB /* 📦 Check Pods Manifest.lock */,
 				56C0E9C5D7A2EDEF8CD3329A /* [CP] Check Pods Manifest.lock */,
 				65D59ECEF05B0D33C796E1AD /* [CP] Check Pods Manifest.lock */,
 				6B6976D5B839600080B37CB1 /* [CP] Check Pods Manifest.lock */,
@@ -1663,6 +1666,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		38A037EF3F8BADB4CEF1DE99 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		511CEA57ECE6823335890A29 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1706,6 +1724,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanProd/Pods-SabadBanProd-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D81F3B8E95036C58A78FCE1 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		65D59ECEF05B0D33C796E1AD /* [CP] Check Pods Manifest.lock */ = {
@@ -1761,6 +1794,21 @@
 			inputPaths = (
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		84E6C4ECD50FE22F83A181DB /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2669,7 +2717,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/SabadBan Test.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2692,7 +2740,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/SabadBan Test.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2715,7 +2763,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/SabadBan Prod.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2738,7 +2786,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/SabadBan Prod.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2846,7 +2894,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = SabadBan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2869,7 +2917,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = SabadBan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2893,6 +2941,7 @@
 				848FA3DB1DDC6A4200B1528F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9476FB5E1DBB425700B923D6 /* Build configuration list for PBXNativeTarget "SabadBanTest" */ = {
 			isa = XCConfigurationList;

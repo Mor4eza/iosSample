@@ -59,7 +59,8 @@ class IndexTableViewController: BaseTableViewController {
             cell.imgIndex.image = UIImage(named: UIConstants.icDecrease)
         }
         let price: NSNumber = indexPrice[indexPath.row]
-        let percent: NSNumber = indexPercent[indexPath.row]
+        var percent: Float = indexPercent[indexPath.row]
+        percent = abs(percent)
         cell.lblIndexCount.text = price.currencyFormat(2)
         cell.lblIndexPercent.text = "%" + percent.currencyFormat(2)
         cell.lblIndexName.sizeToFit()
