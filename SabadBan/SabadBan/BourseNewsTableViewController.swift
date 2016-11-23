@@ -11,7 +11,7 @@ import Alamofire
 
 class BourseNewsTableViewController: BaseTableViewController {
 
-    var newsModel = [NewsModel]()
+    var newsModel = [BourseNewsModel]()
     var newsCount = 0
     var servicePage = 0
     var isMore = Bool()
@@ -87,7 +87,9 @@ class BourseNewsTableViewController: BaseTableViewController {
                         let date = self.convertStringToDate(news!.response.newsDetailsList[i].createdAt)
                         let dateString = convertToPersianDateWithTime(date)
 
-                        self.newsModel.append(NewsModel(title: news!.response.newsDetailsList[i].title, details: news!.response.newsDetailsList[i].descriptionField, date: dateString, link: news!.response.newsDetailsList[i].reference))
+                        self.newsModel.append(BourseNewsModel(title: news!.response.newsDetailsList[i].title, details: news!.response.newsDetailsList[i].descriptionField,
+                            date: dateString,
+                            link: news!.response.newsDetailsList[i].reference))
                     }
                     self.newsCount += news!.response.count
                     self.servicePage += 1
@@ -140,4 +142,13 @@ class BourseNewsTableViewController: BaseTableViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return dateFormatter.dateFromString(dateString)!
     }
+}
+
+//MARK:- News Model
+
+struct BourseNewsModel {
+    var title = String()
+    var details = String()
+    var date = String()
+    var link = String()
 }

@@ -84,9 +84,10 @@ func convertToPersianDateWithTime(date: NSDate) -> String {
     let currentYearInt = (calendar?.component(NSCalendarUnit.Year, fromDate: date))!
     let hour = (calendar?.component(NSCalendarUnit.Hour, fromDate: date))!
     let minute = (calendar?.component(NSCalendarUnit.Minute, fromDate: date))!
+    let second = (calendar?.component(NSCalendarUnit.Second, fromDate: date))!
 
 
-    return "\(currentYearInt.addZero())/\(currentMonthInt.addZero())/\(currentDayInt.addZero()) \(hour.addZero()):\(minute.addZero())"
+    return "\(currentYearInt.addZero())/\(currentMonthInt.addZero())/\(currentDayInt.addZero()) \(hour.addZero()):\(minute.addZero()):\(second)"
 }
 
 func isJailbroken() -> Bool {
