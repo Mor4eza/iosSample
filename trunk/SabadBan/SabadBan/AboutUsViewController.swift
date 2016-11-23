@@ -21,7 +21,7 @@ class AboutUsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
+        self.title = Strings.AboutUs.localized()
         versionLabel.text = "\(Strings.Version.localized()) \(String(NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String))"
 
         let calendar = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierPersian)

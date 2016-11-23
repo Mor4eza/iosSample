@@ -91,7 +91,7 @@ struct UIConstants {
     static let exit = "exit"
     static let selectPicture = "contact_us_upload_picture"
     static let icDone = "ic_done_white"
-
+    static let icExpandArrow = "ic_expand_arrow"
     //MARK: View Controller Identifier
     static let Main = "Main"
     static let indexTableViewController = "indexTableViewController"

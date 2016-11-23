@@ -21,7 +21,7 @@
 "Back" = "بازگشت";
 "Yes" = "بله";
 "No" = "خیر";
-"RealyWantToDelete" = "پرتفوی حذف شود؟";
+"RealyWantToDelete" = "با پاک کردن پرتفوی تمام سوابق و اطلاعات خرید پرتفوی حذف خواهد شد.آیا اطمینان دارید؟";
 "Successful" = "با موفقیت ارسال شد.";
 "Faild" = "خطا در اسال.\n دوباره تلاش کنید.";
 "GuestUser" = "کاربر مهمان";
@@ -79,10 +79,10 @@
 "Edit" = "ویرایش";
 "Delete" = "حذف";
 "stopped" = "متوقف";
-"allowed" = "مجاز";
+"allowed" = "باز";
 "symbolExists" = "این نماد در پرتفوی فعلی وجود دارد";
 "nameDuplicate" = "نام پرتفوی تکراری است.";
-"addPortfolioPlease" = "لطفا یک پورتفوی اضافه کنید.";
+"addPortfolioPlease" = "لطفا یک پرتفوی اضافه کنید.";
 "enterDatePlease" = "لطفا تاریخ را وارد کنید.";
 "enterPricePlease" = "لطفا قیمت را وارد کنید.";
 "enterQuantityPlease" = "لطفا تعداد را وارد کنید.";

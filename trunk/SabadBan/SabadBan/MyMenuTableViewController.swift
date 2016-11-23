@@ -90,12 +90,12 @@ class MyMenuTableViewController: BaseTableViewController {
             cell.imgMenu.image = UIImage(named: UIConstants.setting)
             break
         case 4:
-            cell.lblMenuName?.text = Strings.AboutUs.localized()
-            cell.imgMenu.image = UIImage(named: UIConstants.aboutUs)
-            break
-        case 5:
             cell.lblMenuName?.text = Strings.ContactUs.localized()
             cell.imgMenu.image = UIImage(named: UIConstants.contactUs)
+            break
+        case 5:
+            cell.lblMenuName?.text = Strings.AboutUs.localized()
+            cell.imgMenu.image = UIImage(named: UIConstants.aboutUs)
             break
         default:
             cell.lblMenuName?.text = Strings.Exit.localized()
@@ -139,10 +139,10 @@ class MyMenuTableViewController: BaseTableViewController {
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.settingViewController)
             break
         case 4:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.AboutUsViewController)
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.ContactUsViewController)
             break
         case 5:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.ContactUsViewController)
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.AboutUsViewController)
             break
         case 6:
             logOutService()

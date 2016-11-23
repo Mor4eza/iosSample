@@ -18,7 +18,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_sort_aes" translatesAutoresizingMaskIntoConstraints="NO" id="SYS-D0-CQu">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_expand_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="SYS-D0-CQu">
                     <rect key="frame" x="0.0" y="0.0" width="41" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="41" id="8tw-YH-Cbk"/>
@@ -46,6 +46,6 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_sort_aes" width="24" height="24"/>
+        <image name="ic_expand_arrow" width="50" height="50"/>
     </resources>
 </document>

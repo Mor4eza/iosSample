@@ -23,11 +23,7 @@ class EditPortfolioViewController: BaseTableViewController {
         self.navigationItem.leftBarButtonItem = nil
         etTitle.text = portfolioName
         etTitle.changeDirection()
-        let btnDone = UIButton()
-        btnDone.setTitle(Strings.Done.localized(), forState: .Normal)
-        btnDone.frame = CGRectMake(0, 0, 45, 45)
-        btnDone.addTarget(self, action: #selector(doneClicked), forControlEvents: .TouchUpInside)
-        let rightBarButton = UIBarButtonItem(customView: btnDone)
+        let rightBarButton = UIBarButtonItem(image: UIImage(named: UIConstants.icDone), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(doneClicked))
         self.navigationItem.leftBarButtonItem = rightBarButton
 
         setEditing(true, animated: true)
@@ -35,8 +31,7 @@ class EditPortfolioViewController: BaseTableViewController {
     }
 
     func doneClicked() {
-        etTitle.font?.fontName
-
+        
         for i in 0 ..< self.portfolios.count {
             if etTitle.text != portfolioName {
                 if (etTitle.text == self.portfolios[i]) {

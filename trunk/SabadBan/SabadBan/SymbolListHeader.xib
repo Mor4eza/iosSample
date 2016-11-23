@@ -32,9 +32,6 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="imgSortName" image="ic_sort_aes" translatesAutoresizingMaskIntoConstraints="NO" id="kFY-vB-y25">
                             <rect key="frame" x="481" y="0.0" width="24" height="57"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="imgSortVolume" image="ic_sort_aes" translatesAutoresizingMaskIntoConstraints="NO" id="lg1-k5-QpQ">
-                            <rect key="frame" x="86" y="0.0" width="24" height="57"/>
-                        </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="imgSortAmount" image="ic_sort_aes" translatesAutoresizingMaskIntoConstraints="NO" id="9SI-U7-rbq">
                             <rect key="frame" x="0.0" y="0.0" width="24" height="57"/>
                         </imageView>
@@ -60,10 +57,15 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="imgSortVolume" image="ic_sort_aes" translatesAutoresizingMaskIntoConstraints="NO" id="lg1-k5-QpQ">
+                            <rect key="frame" x="86" y="0.0" width="24" height="57"/>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.16452825090000001" green="0.21934768020000001" blue="0.31888299190000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="kFY-vB-y25" firstAttribute="leading" secondItem="8Oh-8J-rIN" secondAttribute="trailing" constant="8" symbolic="YES" id="05F-Jp-PSE"/>
+                        <constraint firstItem="kFY-vB-y25" firstAttribute="leading" secondItem="8Oh-8J-rIN" secondAttribute="trailing" constant="8" symbolic="YES" id="05F-Jp-PSE">
+                            <variation key="heightClass=regular-widthClass=regular" constant="123"/>
+                        </constraint>
                         <constraint firstAttribute="bottom" secondItem="9SI-U7-rbq" secondAttribute="bottom" constant="22" id="0li-io-b2S"/>
                         <constraint firstItem="ipg-PT-9mx" firstAttribute="trailing" secondItem="OEZ-DL-8iW" secondAttribute="trailingMargin" id="1PT-XD-Mva"/>
                         <constraint firstItem="LX3-in-ySQ" firstAttribute="leading" secondItem="lg1-k5-QpQ" secondAttribute="trailing" id="8hp-Tt-b5h"/>
@@ -81,7 +83,9 @@
                         <constraint firstItem="9SI-U7-rbq" firstAttribute="bottom" secondItem="XDa-BC-9GV" secondAttribute="bottom" id="Y9o-4t-R9i"/>
                         <constraint firstItem="kFY-vB-y25" firstAttribute="leading" secondItem="8Oh-8J-rIN" secondAttribute="trailing" constant="25" id="b3t-PD-ZPN"/>
                         <constraint firstItem="XDa-BC-9GV" firstAttribute="leading" secondItem="9SI-U7-rbq" secondAttribute="trailing" id="bd8-Ur-uWA"/>
-                        <constraint firstItem="8Oh-8J-rIN" firstAttribute="leading" secondItem="LX3-in-ySQ" secondAttribute="trailing" constant="8" symbolic="YES" id="bfV-bM-J9U"/>
+                        <constraint firstItem="8Oh-8J-rIN" firstAttribute="leading" secondItem="LX3-in-ySQ" secondAttribute="trailing" constant="8" symbolic="YES" id="bfV-bM-J9U">
+                            <variation key="heightClass=regular-widthClass=regular" constant="32"/>
+                        </constraint>
                         <constraint firstItem="XDa-BC-9GV" firstAttribute="leading" secondItem="9SI-U7-rbq" secondAttribute="trailing" id="cMx-wF-Lo6"/>
                         <constraint firstItem="9SI-U7-rbq" firstAttribute="top" secondItem="OEZ-DL-8iW" secondAttribute="top" id="cjO-FU-w8C"/>
                         <constraint firstItem="LX3-in-ySQ" firstAttribute="leading" secondItem="OEZ-DL-8iW" secondAttribute="leading" constant="82" id="cua-hZ-joJ"/>
@@ -90,7 +94,9 @@
                         <constraint firstItem="9SI-U7-rbq" firstAttribute="top" secondItem="XDa-BC-9GV" secondAttribute="top" id="q5Y-9h-kBD"/>
                         <constraint firstItem="LX3-in-ySQ" firstAttribute="firstBaseline" secondItem="8Oh-8J-rIN" secondAttribute="firstBaseline" id="sAM-XD-pE2"/>
                         <constraint firstItem="9SI-U7-rbq" firstAttribute="leading" secondItem="OEZ-DL-8iW" secondAttribute="leading" id="shL-ZX-cQI"/>
-                        <constraint firstItem="lg1-k5-QpQ" firstAttribute="leading" secondItem="XDa-BC-9GV" secondAttribute="trailing" constant="4" id="uf9-Z3-sUZ"/>
+                        <constraint firstItem="lg1-k5-QpQ" firstAttribute="leading" secondItem="XDa-BC-9GV" secondAttribute="trailing" constant="4" id="uf9-Z3-sUZ">
+                            <variation key="heightClass=regular-widthClass=regular" constant="47"/>
+                        </constraint>
                         <constraint firstItem="kFY-vB-y25" firstAttribute="top" secondItem="ipg-PT-9mx" secondAttribute="top" id="zHx-v6-H2H"/>
                     </constraints>
                     <variation key="default">
