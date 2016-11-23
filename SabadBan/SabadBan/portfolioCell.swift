@@ -18,6 +18,7 @@ class portfolioCell: UITableViewCell {
 
     @IBOutlet weak var lblLastPriceValue: UILabel!
 
+    @IBOutlet weak var imgChanges: UIImageView!
     @IBOutlet weak var lblBuyQuotTitle: UILabel!
 
     @IBOutlet weak var lblBuyQuotValue: UILabel!
@@ -71,6 +72,46 @@ class portfolioCell: UITableViewCell {
         // Initialization code
     }
 
+    func initCells(smData : symData){
+        
+        lblSymbolValue.text = smData.symbolShortName
+        lblLastPriceValue.text = smData.closePrice.currencyFormat(2)
+        lblBuyQuotValue.text = smData.benchmarkBuy.currencyFormat(2)
+        lblSellQuotValue.text = smData.benchmarkSales.currencyFormat(2)
+        if smData.todayProfit > 0 {
+            lblTodayValue.textColor = UIColor.greenColor()
+        } else {
+            lblTodayValue.textColor = UIColor.redColor()
+        }
+        
+        if smData.totalProfit > 0 {
+            lblOverValue.textColor = UIColor.greenColor()
+        } else {
+            lblOverValue.textColor = UIColor.redColor()
+        }
+        
+        if smData.lastTradePriceChange > 0 {
+            imgChanges.image = UIImage(named: UIConstants.icIncrease)
+            lblEndChanges.textColor = UIColor.greenColor()
+        }else if  smData.lastTradePriceChange < 0 {
+            imgChanges.image = UIImage(named: UIConstants.icDecrease)
+            lblEndChanges.textColor = UIColor.redColor()
+        }
+        
+        lblTodayValue.text = smData.todayProfit.currencyFormat(2)
+        lblOverValue.text = smData.totalProfit.currencyFormat(2)
+        lblEndValue.text = smData.lastTradePrice.currencyFormat(2)
+        lblEndChanges.text = abs(smData.lastTradePriceChange).currencyFormat(2) + " (%" + String(abs(smData.lastTradePriceChangePercent.roundToPlaces(2))) + ")"
+        if smData.status == "IS" {
+            lblStatusValue.text = Strings.stopped.localized()
+            viewStatus.backgroundColor = UIColor.redColor()
+        } else {
+            lblStatusValue.text = Strings.allowed.localized()
+            viewStatus.backgroundColor = UIColor(netHex: 0x024b30)
+        }
+        backgroundView?.backgroundColor = AppMainColor
+    }
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -23,7 +23,7 @@ extension UILabel {
         if size != nil {
             self.font = UIFont(name: AppFontName_IranSans, size: (size!))
         } else {
-            self.font = UIFont(name: AppFontName_IranSans, size: (self.font.pointSize - 3))
+            self.font = UIFont(name: AppFontName_IranSans, size: (self.font.pointSize ))
         }
     }
 
