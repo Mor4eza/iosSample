@@ -3383,11 +3383,11 @@
                                 <rect key="frame" x="150" y="100" width="300" height="431"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m1e-If-6yJ">
-                                        <rect key="frame" x="0.0" y="170" width="300" height="261"/>
+                                        <rect key="frame" x="0.0" y="196" width="300" height="235"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="km6-kT-e8Z">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="167"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="193"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GH-hm-Too">
                                                 <rect key="frame" x="129" y="8" width="42" height="21"/>
@@ -3396,7 +3396,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iun-we-AzH">
-                                                <rect key="frame" x="110" y="129" width="80" height="30"/>
+                                                <rect key="frame" x="110" y="155" width="80" height="30"/>
                                                 <color key="backgroundColor" red="0.30115979749999999" green="0.45193880889999999" blue="0.13645794150000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="uh3-gq-BHh"/>
@@ -3414,8 +3414,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGg-Eg-UeH">
-                                                <rect key="frame" x="58" y="79" width="100" height="30"/>
+                                                <rect key="frame" x="58" y="95" width="100" height="40"/>
                                                 <color key="backgroundColor" red="1" green="0.1472621945" blue="0.039924478729999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="FnB-Ge-2KS"/>
+                                                </constraints>
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" red="0.9879675792" green="1" blue="0.9726439939" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -3442,20 +3445,23 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0a-sY-ZZc">
-                                                <rect key="frame" x="217" y="49" width="42" height="21"/>
+                                                <rect key="frame" x="217" y="49" width="42" height="37"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riW-1x-ba0">
-                                                <rect key="frame" x="217" y="83" width="42" height="21"/>
+                                                <rect key="frame" x="217" y="104" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WlJ-5X-VQZ" customClass="Switch" customModule="SabadBanDev" customModuleProvider="target">
-                                                <rect key="frame" x="58" y="47" width="100" height="24"/>
-                                                <color key="backgroundColor" red="0.10980392156862745" green="0.14117647058823529" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                                <rect key="frame" x="58" y="47" width="100" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="grc-ae-OBC"/>
+                                                </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="leftText" value="فروش"/>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="rightSelected" value="YES"/>
@@ -3473,7 +3479,6 @@
                                             <constraint firstItem="q0a-sY-ZZc" firstAttribute="leading" secondItem="riW-1x-ba0" secondAttribute="leading" id="BP2-eh-yf2"/>
                                             <constraint firstItem="q0a-sY-ZZc" firstAttribute="leading" secondItem="WlJ-5X-VQZ" secondAttribute="trailing" constant="59" id="DRC-Eb-Rxo"/>
                                             <constraint firstItem="4GH-hm-Too" firstAttribute="centerX" secondItem="Iun-we-AzH" secondAttribute="centerX" id="IyQ-bz-4YY"/>
-                                            <constraint firstItem="riW-1x-ba0" firstAttribute="top" secondItem="q0a-sY-ZZc" secondAttribute="bottom" constant="13" id="Lfn-SR-PfH"/>
                                             <constraint firstItem="Iun-we-AzH" firstAttribute="top" secondItem="cGg-Eg-UeH" secondAttribute="bottom" constant="20" id="WYl-MH-67G"/>
                                             <constraint firstItem="4GH-hm-Too" firstAttribute="top" secondItem="km6-kT-e8Z" secondAttribute="topMargin" id="XHf-NT-mke"/>
                                             <constraint firstItem="WlJ-5X-VQZ" firstAttribute="centerY" secondItem="q0a-sY-ZZc" secondAttribute="centerY" id="Xod-Ej-g88"/>

@@ -43,5 +43,26 @@ public struct NewsDetailsList: Glossy {
                 "symbolNameFa" ~~> symbolNameFa,
         ])
     }
+    
+    public func convertTime(color: UIColor) -> NSMutableAttributedString {
+        
+        let dateFormatter = NSDateFormatter()
+        let combination = NSMutableAttributedString()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let date = dateFormatter.dateFromString(self.newsTime)
+        
+        if let font = UIFont(name: AppFontName_IranSans, size: (14.5)) {
+            let firstAtt = [NSForegroundColorAttributeName: color, NSFontAttributeName: font]
+            let secondAtt = [NSForegroundColorAttributeName: AppMainColor, NSFontAttributeName: UIFont.systemFontOfSize(1)]
+            let partTwo = NSMutableAttributedString(string: " p", attributes: secondAtt)
+            let partThree = NSMutableAttributedString(string: convertToPersianDateWithTime(date!), attributes: firstAtt)
+            
+            combination.appendAttributedString(partTwo)
+            combination.appendAttributedString(partThree)
+        }
+        
+        return combination
+    }
 
 }

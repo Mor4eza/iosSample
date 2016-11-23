@@ -189,8 +189,10 @@ import UIKit
     }
 
     func reloadLabelsTextColor() {
-        leftLabel.textColor = rightSelected ? disabledColor : UIColor.redColor()
-        rightLabel.textColor = rightSelected ? UIColor.greenColor() : disabledColor
+        leftLabel.textColor = rightSelected ? disabledColor : UIColor.whiteColor()
+        leftLabel.backgroundColor = rightSelected ? UIColor.clearColor() : UIColor.orangeColor()
+        rightLabel.textColor = rightSelected ? UIColor.whiteColor() : disabledColor
+        rightLabel.backgroundColor = rightSelected ? UIColor.orangeColor() : UIColor.whiteColor()
     }
 
     func reloadSwitchLayerPosition() {
@@ -205,6 +207,6 @@ class RoundLayer: CALayer {
 
     override func layoutSublayers() {
         super.layoutSublayers()
-        cornerRadius = bounds.size.height / 2
+        cornerRadius = 0
     }
 }

@@ -87,7 +87,8 @@
 "enterQuantityPlease" = "Please enter the Quantity.";
 "reallyWantToDeleteBuy" = "Are you sure?";
 "deleteBuyAlertTitle" = "Delete Buy Information";
-"addedSuccessfuliToPortfolio" = "Added to Portfolio Successfuli";
+"addedSuccessfuliToPortfolio" = "Added to Portfolio Successfully";
+"maximumNumberOfSymbolsReached" = "maximumNumberOfSymbolsReached";
 
 //MARK: - AboutUs Strings
 

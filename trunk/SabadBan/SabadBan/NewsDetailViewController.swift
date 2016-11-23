@@ -12,6 +12,7 @@ class NewsDetailViewController: BaseViewController {
 
     var newsTitle = String()
     var newsDetails = String()
+    var newsDateAttributed = NSMutableAttributedString()
     var newsDate = String()
     var newsLink = String()
 
@@ -43,7 +44,13 @@ class NewsDetailViewController: BaseViewController {
 
         lblTitle.text = newsTitle
         txtDescription.text = newsDetails
-        lblDate.text = newsDate
+        
+        if newsDate == "" {
+            lblDate.attributedText = newsDateAttributed
+        } else {
+            lblDate.text = newsDate
+        }
+        
     }
 
     @IBAction func btnShareTap(sender: AnyObject) {

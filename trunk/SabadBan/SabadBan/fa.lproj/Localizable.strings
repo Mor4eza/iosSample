@@ -89,6 +89,7 @@
 "reallyWantToDeleteBuy" = "آیا اطمینان دارید؟";
 "deleteBuyAlertTitle" = "حذف خرید";
 "addedSuccessfuliToPortfolio" = "نماد با موفقیت به پرتفوی افزوده شد.";
+"maximumNumberOfSymbolsReached" = "تعداد نمادهای هر پرتفوی باید کمتر از ۲۰ عدد باشد.";
 
 //MARK: - AboutUs Strings
 

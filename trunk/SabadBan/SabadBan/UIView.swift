@@ -48,6 +48,7 @@ extension UIButton {
 private var maxLengths = [UITextField: Int]()
 private var haveComma = [UITextField: Bool]()
 private var allowedCharacters = [UITextField: String]()
+private var previousText = String()
 
 extension UITextField {
 
@@ -130,14 +131,18 @@ extension UITextField {
                     if !(enteredText.isEmpty) {
                         let lastCharacter: Character = enteredText[(enteredText.characters.count - 1)]
                         guard allowedCharacter.characters.contains(lastCharacter) else {
-                            var previousText = String()
+                            var finalText = String()
                             var textCharacters = enteredText.characters
-                            textCharacters.removeLast()
+                        
+                            if (previousText.characters.count < enteredText.characters.count) {
+                                textCharacters.removeLast()
+                            }
 
                             for character in textCharacters {
-                                previousText += String(character)
+                                finalText += String(character)
                             }
-                            text = previousText
+                            text = finalText
+                            previousText = finalText
                             return
                         }
                     }
