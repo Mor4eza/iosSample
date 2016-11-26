@@ -192,4 +192,7 @@ struct Strings {
     static let reallyWantToDeleteAlarm = "reallyWantToDeleteAlarm"
     static let alarmCountAlert = "alarmCountAlert"
     static let sellOrBuyAlarm = "sellOrBuyAlarm"
+    static let alarmIsDeleted = "alarmIsDeleted";
+    static let alarmIsAdded = "alarmIsAdded";
+    static let alarmIsEdited = "alarmIsEdited";
 }

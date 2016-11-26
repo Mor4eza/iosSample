@@ -59,11 +59,6 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
         self.tblPortfolio.addSubview(refreshControl)
         
         initFAB()
-        
-        //        let rect = CGRect(x: 275, y: 465, width: 10, height: 10)
-        //        let mView = UIView (frame: rect)
-        //        mView.backgroundColor = UIColor.brownColor()
-        //        self.view.addSubview(mView)
     }
     
     func refresh(sender: AnyObject) {
@@ -104,7 +99,15 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
         }
         
         loadSymbolsFromDb()
+        changeFabState()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        SwiftEventBus.unregister(self)
         
+    }
+    
+    func changeFabState() {
         if portfolios.count == 0 {
             addPortfolio.hidden = false
             editPortfolio.hidden = true
@@ -126,10 +129,6 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        SwiftEventBus.unregister(self)
-        
-    }
     //MARK: - TableView Delegate
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -248,7 +247,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
             self.currentPortfolioIndex = indexPath
             debugPrint("currentPortfolio\(self.currentPortfolio!.portfolioCode)")
 //            self.defaults.setValue(self.currentPortfolio?.portfolioName, forKey: "currentPortfolioName" )
-            self.defaults.setInteger(self.currentPortfolioIndex, forKey: "currentPortfolioIndex" )
+            self.defaults.setInteger(self.currentPortfolioIndex, forKey: "currentPortfolioIndex")
             self.loadSymbolsFromDb()
         }
         
@@ -314,7 +313,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
                             return
                         }
                     }
-                    self.db.addPortfolio(tField.text!, userId: LogedInUserId)
+                    self.db.addPortfolio(tField.text!.trim(), userId: LogedInUserId)
                     self.portfolios = self.db.getPortfolioList(LogedInUserId)
                     self.currentPortfolio = self.portfolios.last!
                     self.initNavigationTitle()
@@ -366,9 +365,6 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
         fab.addItem(item: searchSymbol)
         fab.addItem(item: editPortfolio)
         fab.addItem(item: deletePortfolio)
-        
-        
-        
         
         addPortfolio.hidden = true
         self.view.addSubview(fab)
@@ -488,7 +484,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
             let nav = segue.destinationViewController as! UINavigationController
             let addVC = nav.topViewController as! SearchSeymbolTableView
             addVC.isSearch = searchableSymbols
-            //            addVC.isFirstTime = isFirstTime
+
             addVC.singleSelection = true
             addVC.pCode = currentPortfolio!.portfolioCode
             addVC.symbols = symbols
@@ -498,7 +494,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
             let nav = segue.destinationViewController as! UINavigationController
             let addVC = nav.topViewController as! SearchSeymbolTableView
             addVC.isSearch = searchableSymbols
-            //            addVC.isFirstTime = isFirstTime
+
             addVC.singleSelection = false
             addVC.pCode = currentPortfolio!.portfolioCode
             addVC.symbols = symbols
@@ -508,7 +504,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
             let nav = segue.destinationViewController as! UINavigationController
             let addVC = nav.topViewController as! SearchSeymbolTableView
             addVC.isSearch = searchableSymbols
-            //            addVC.isFirstTime = isFirstTime
+
             addVC.singleSelection = true
             addVC.pCode = currentPortfolio!.portfolioCode
             addVC.symbols = symbols
@@ -525,11 +521,13 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
         
         if (currentPortfolioIndex > 0) {
             currentPortfolioIndex = currentPortfolioIndex - 1
+            self.defaults.setInteger(self.currentPortfolioIndex, forKey: "currentPortfolioIndex")
         }
         
         getCurrentPortfolio()
         loadSymbolsFromDb()
         initNavigationTitle()
+        changeFabState()
     }
     
     override func updateServiceData() {

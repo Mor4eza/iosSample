@@ -90,7 +90,7 @@ func convertToPersianDateWithTime(date: NSDate) -> String {
     let second = (calendar?.component(NSCalendarUnit.Second, fromDate: date))!
 
 
-    return "\(currentYearInt.addZero())/\(currentMonthInt.addZero())/\(currentDayInt.addZero()) \(hour.addZero()):\(minute.addZero()):\(second)"
+    return "\(currentYearInt.addZero())/\(currentMonthInt.addZero())/\(currentDayInt.addZero()) \(hour.addZero()):\(minute.addZero()):\(second.addZero())"
 }
 
 func isJailbroken() -> Bool {
@@ -139,6 +139,7 @@ public class Utils {
             okTitle = Strings.Ok.localized()
         }
         alert.delegate = delegate
+        
         alert.showAlertInView(inView,
                 withTitle: title,
                 withSubtitle: details,

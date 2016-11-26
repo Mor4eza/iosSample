@@ -39,10 +39,9 @@ class SymbolDetailsTabBar: UITabBarController {
     }
 
     func openAlarmView() {
-        debugPrint("Here")
         let mainStoryBoard = UIStoryboard(name: UIConstants.Main, bundle: nil)
         let alarmVC = mainStoryBoard.instantiateViewControllerWithIdentifier(UIConstants.AlarmFilterViewController)
-        alarmVC.modalPresentationStyle = .OverCurrentContext
+        alarmVC.modalPresentationStyle = .OverFullScreen
         presentViewController(alarmVC, animated: true, completion: nil)
     }
 

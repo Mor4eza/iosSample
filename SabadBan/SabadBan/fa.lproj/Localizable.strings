@@ -43,11 +43,11 @@
 "Month" = "ماه" ;
 "Year" = "سال" ;
 
-"MaxPrice" = "بیشترین قیمت" ;
-"MinPrice" = "کمترین قیمت" ;
-"LastPrice" = "آخرین قیمت" ;
-"PriceChanges" = "تغییر قیمت" ;
-"PriceChangesPercent" = "درصد تغییر قیمت" ;
+"MaxPrice" = "بیشترین مقدار" ;
+"MinPrice" = "کمترین مقدار" ;
+"LastPrice" = "آخرین مقدار" ;
+"PriceChanges" = "تغییر مقدار" ;
+"PriceChangesPercent" = "درصد تغییر مقدار" ;
 
 "Symbol" = "نماد";
 "Trade" = "آخرین معامله";
@@ -89,7 +89,7 @@
 "reallyWantToDeleteBuy" = "آیا اطمینان دارید؟";
 "deleteBuyAlertTitle" = "حذف خرید";
 "addedSuccessfuliToPortfolio" = "نماد با موفقیت به پرتفوی افزوده شد.";
-"maximumNumberOfSymbolsReached" = "تعداد نمادهای هر پرتفوی باید کمتر از ۲۰ عدد باشد.";
+"maximumNumberOfSymbolsReached" = "تعداد نمادهای هر پرتفوی باید حداکثر ۲۰ عدد باشد.";
 "atleastEnterOneSymbol" = "حداقل یک نماد به پرتفوی اضافه کنید.";
 
 //MARK: - AboutUs Strings
@@ -169,7 +169,7 @@
 
 //Mark: - Alarm Filter
 
-"kind" = "نوع";
+"kind" = "نوع آلارم";
 "buy" = "خرید";
 "sell" = "فروش";
 "add" = "افزودن";
@@ -181,4 +181,7 @@
 "deleteAlarmTitle" = "حذف آلارم";
 "reallyWantToDeleteAlarm" = "آیا اطمینان دارید؟";
 "alarmCountAlert" = "شما فقط اجازه تنظیم کردن ۲۰ آلارم خرید/فروش را دارید. برای اضافه کردن آلارم جدید، آلارم های قبلی را پاک نمایید.";
-"sellOrBuyAlarm" = "آلارم خرید یا فروش";
+"sellOrBuyAlarm" = "تنظیم آلارم خرید یا فروش";
+"alarmIsDeleted" = "آلارم حذف شد.";
+"alarmIsAdded" = "آلارم ثبت شد.";
+"alarmIsEdited" = "ویرایش انجام شد.";
