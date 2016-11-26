@@ -17,7 +17,6 @@ public let symbolSelected = "SYMBOL_SELECTED"
 public let PortfolioEdited = "PortfolioEdited"
 public let AppFontName_IranSans = "IRANSansMobileFaNum"
 public let AcraUrl = "http://acra.sefryek.com:5984/acra-p343-sabadban-ios/_design/acra-storage/_update/report"
-public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
 public let ServicesHeaders = ["Content-Type": "application/json"]
 public var GuestUser = "1@1.com"
 public var GuestPass = "12345678"
@@ -26,13 +25,16 @@ public var updateServiceInterval = 300.0
 
 
 #if DEV
-public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
+    public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
+    public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
 
 #elseif TEST
-public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
+    public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
+    public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
 
 #else
-public let AppTadbirUrl = "http://sabadban.sefryek.com:9090" //Server 6 Prod
+    public let AppTadbirUrl = "http://sabadban.sefryek.com:9090" //Server 6 Prod
+    public let AppNewsURL = "http://sabadbannews.sefryek.com"
 #endif
 
 //MARK: - Urls

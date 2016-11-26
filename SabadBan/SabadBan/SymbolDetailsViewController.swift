@@ -70,11 +70,14 @@ class SymbolDetailsViewController: BaseTableViewController {
     var hideBestBuy = true
     var hideBestSell = true
     var lastUpdate = NSMutableAttributedString()
+    var headerView1 : SymbolBestBuyAndCellHeader?
+    var headerView2 : SymbolBestBuyAndCellHeader?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
         tableView.registerNib(UINib(nibName: UIConstants.buyHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.buyHeader)
-        tableView.registerNib(UINib(nibName: UIConstants.PortfolioHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.PortfolioHeader)
+        tableView.registerNib(UINib(nibName: UIConstants.SymbolDetailsHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.SymbolDetailsHeader)
         debugPrint("selected: \(SelectedSymbolCode)")
         getSymbolBestLimitService(SelectedSymbolCode)
         getSymbolTradingDetailsService(SelectedSymbolCode)
@@ -108,11 +111,12 @@ class SymbolDetailsViewController: BaseTableViewController {
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        if section == 0 {
-            let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.PortfolioHeader) as! PortfolioHeader
-            headerView.lblLastUpdate.attributedText = lastUpdate
-            return headerView
-        }
+        
+        let Section1headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.SymbolDetailsHeader) as! SymbolDetailsHeader
+        Section1headerView.lblLastUpdate.attributedText = lastUpdate
+        
+        
+        
         let tapGesture = UITapGestureRecognizer()
         
         let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.buyHeader) as! SymbolBestBuyAndCellHeader
@@ -124,48 +128,62 @@ class SymbolDetailsViewController: BaseTableViewController {
             tapGesture.addTarget(self, action: #selector(self.bestBuyTapped))
             headerView.lblTitle.text = Strings.bestBuyTitle.localized()
             headerView.lblTitle.backgroundColor = UIColor(netHex: 0x2e9220)
-            if hideBestBuy {
-                rotateWithAnimation(headerView.imgArrow, angle: 0)
-            } else {
-                rotateWithAnimation(headerView.imgArrow, angle: M_PI)
-            }
+            
+            headerView1 = headerView
         } else if (section == 2) {
             tapGesture.addTarget(self, action: #selector(self.bestSellTapped))
             headerView.lblTitle.text = Strings.bestSellTitle.localized()
             headerView.lblTitle.backgroundColor = UIColor.redColor()
-            if hideBestSell {
-                rotateWithAnimation(headerView.imgArrow, angle: 0)
-            } else {
-                rotateWithAnimation(headerView.imgArrow, angle: M_PI)
-            }
+            
+            headerView2 = headerView
         }
         headerView.lblTitle.textColor = UIColor.whiteColor()
         headerView.lblTitle.setDefaultFont()
+        if section == 0 {
+            
+            return Section1headerView
+        }
         return headerView
+    }
+    
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 30
     }
     
     func bestBuyTapped() {
         hideBestBuy = !hideBestBuy
-        tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: .Fade)
+        tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: .Automatic)
         if !hideBestBuy {
             let pathToLastRow = NSIndexPath(forRow: 0, inSection: 1)
             self.tableView?.scrollToRowAtIndexPath(pathToLastRow, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+        }
+        if hideBestBuy {
+            rotateWithAnimation(headerView1!.imgArrow, angle: 0)
+        } else {
+            rotateWithAnimation(headerView1!.imgArrow, angle: M_PI)
         }
     }
     
     func bestSellTapped() {
         hideBestSell = !hideBestSell
-        tableView.reloadSections(NSIndexSet(index: 2), withRowAnimation: .Fade)
+        tableView.reloadSections(NSIndexSet(index: 2), withRowAnimation: .Automatic)
         if !hideBestSell {
             let pathToLastRow = NSIndexPath(forRow: 0, inSection: 2)
             self.tableView?.scrollToRowAtIndexPath(pathToLastRow, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
         }
         
+        if hideBestSell {
+            rotateWithAnimation(headerView2!.imgArrow, angle: 0)
+        } else {
+            rotateWithAnimation(headerView2!.imgArrow, angle: M_PI)
+        }
     }
     
     
     func rotateWithAnimation(target: UIImageView, angle: Double) {
-        UIView.animateWithDuration(0.25, animations: {
+        UIView.animateWithDuration(0.20, animations: {
             target.transform = CGAffineTransformMakeRotation(CGFloat(angle))
         })
     }
@@ -199,7 +217,6 @@ class SymbolDetailsViewController: BaseTableViewController {
                     self.lblBBCValue1.text = bestLimit!.response.bestLimitDataList[0].buyNumber.currencyFormat(2)
                     self.lblBBCValue2.text = bestLimit!.response.bestLimitDataList[1].buyNumber.currencyFormat(2)
                     self.lblBBCValue3.text = bestLimit!.response.bestLimitDataList[2].buyNumber.currencyFormat(2)
-                    
                     self.lblBSPValue1.text = bestLimit!.response.bestLimitDataList[0].sellPrice.currencyFormat(2)
                     self.lblBSPValue2.text = bestLimit!.response.bestLimitDataList[1].sellPrice.currencyFormat(2)
                     self.lblBSPValue3.text = bestLimit!.response.bestLimitDataList[2].sellPrice.currencyFormat(2)
@@ -213,6 +230,7 @@ class SymbolDetailsViewController: BaseTableViewController {
             } else {
                 debugPrint(error)
             }
+            self.tableView.reloadData()
         }
         
     }

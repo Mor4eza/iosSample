@@ -74,6 +74,12 @@
 		94283BA91DAA50F200339914 /* SymbolBestBuyAndCellHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94283BA81DAA50F200339914 /* SymbolBestBuyAndCellHeader.xib */; };
 		943333071DA1374A006EF502 /* OurInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943333061DA1374A006EF502 /* OurInfoViewController.swift */; };
 		943A08061DBE330B002773B5 /* .tailor.yml in Resources */ = {isa = PBXBuildFile; fileRef = 943A08051DBE330B002773B5 /* .tailor.yml */; };
+		943ABCE71DE9B5680004D59F /* SymbolDetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943ABCE61DE9B5680004D59F /* SymbolDetailsHeader.swift */; };
+		943ABCE81DE9B5680004D59F /* SymbolDetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943ABCE61DE9B5680004D59F /* SymbolDetailsHeader.swift */; };
+		943ABCE91DE9B5680004D59F /* SymbolDetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943ABCE61DE9B5680004D59F /* SymbolDetailsHeader.swift */; };
+		943ABCEB1DE9B5B00004D59F /* SymbolDetailsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 943ABCEA1DE9B5B00004D59F /* SymbolDetailsHeader.xib */; };
+		943ABCEC1DE9B5B00004D59F /* SymbolDetailsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 943ABCEA1DE9B5B00004D59F /* SymbolDetailsHeader.xib */; };
+		943ABCED1DE9B5B00004D59F /* SymbolDetailsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 943ABCEA1DE9B5B00004D59F /* SymbolDetailsHeader.xib */; };
 		944EF1941D7EC29A00A039BA /* BestLimitDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF1911D7EC29A00A039BA /* BestLimitDataList.swift */; };
 		944EF1961D7EC29A00A039BA /* SymbolBestLimitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF1931D7EC29A00A039BA /* SymbolBestLimitResponse.swift */; };
 		944EF19C1D7EC4BF00A039BA /* SymbolTradingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */; };
@@ -497,6 +503,8 @@
 		94283BA81DAA50F200339914 /* SymbolBestBuyAndCellHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SymbolBestBuyAndCellHeader.xib; sourceTree = "<group>"; };
 		943333061DA1374A006EF502 /* OurInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OurInfoViewController.swift; sourceTree = "<group>"; };
 		943A08051DBE330B002773B5 /* .tailor.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .tailor.yml; sourceTree = "<group>"; };
+		943ABCE61DE9B5680004D59F /* SymbolDetailsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolDetailsHeader.swift; sourceTree = "<group>"; };
+		943ABCEA1DE9B5B00004D59F /* SymbolDetailsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SymbolDetailsHeader.xib; sourceTree = "<group>"; };
 		944EF1911D7EC29A00A039BA /* BestLimitDataList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestLimitDataList.swift; sourceTree = "<group>"; };
 		944EF1931D7EC29A00A039BA /* SymbolBestLimitResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolBestLimitResponse.swift; sourceTree = "<group>"; };
 		944EF19A1D7EC4BF00A039BA /* SymbolTradingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolTradingResponse.swift; sourceTree = "<group>"; };
@@ -840,6 +848,8 @@
 			children = (
 				94283BA61DAA50E200339914 /* SymbolBestBuyAndCellHeader.swift */,
 				94283BA81DAA50F200339914 /* SymbolBestBuyAndCellHeader.xib */,
+				943ABCE61DE9B5680004D59F /* SymbolDetailsHeader.swift */,
+				943ABCEA1DE9B5B00004D59F /* SymbolDetailsHeader.xib */,
 			);
 			name = Symbols;
 			sourceTree = "<group>";
@@ -1446,19 +1456,9 @@
 			buildConfigurationList = 949BEE601D72A51C008FA574 /* Build configuration list for PBXNativeTarget "SabadBanDev" */;
 			buildPhases = (
 				84E6C4ECD50FE22F83A181DB /* 📦 Check Pods Manifest.lock */,
-				56C0E9C5D7A2EDEF8CD3329A /* [CP] Check Pods Manifest.lock */,
-				65D59ECEF05B0D33C796E1AD /* [CP] Check Pods Manifest.lock */,
-				6B6976D5B839600080B37CB1 /* [CP] Check Pods Manifest.lock */,
-				9070F80B11578457AFAFB70F /* [CP] Check Pods Manifest.lock */,
-				23E0DAE45421868EF7347EBA /* [CP] Check Pods Manifest.lock */,
-				DA8014AD9787A3B930297CC7 /* [CP] Check Pods Manifest.lock */,
-				8312FA5A350B89DD3F034BF3 /* [CP] Check Pods Manifest.lock */,
-				C5D64A95F08DFE760624CE14 /* [CP] Check Pods Manifest.lock */,
 				949BEE4A1D72A51B008FA574 /* Sources */,
 				949BEE4B1D72A51B008FA574 /* Frameworks */,
 				949BEE4C1D72A51B008FA574 /* Resources */,
-				810F67EBFB187311FA34728F /* [CP] Embed Pods Frameworks */,
-				9C5F1587A697F6BB804C8C3E /* [CP] Copy Pods Resources */,
 				940FB9431D9BF10700919DE3 /* Remove Empty lines in *.Swift files */,
 				943A08001DBE2416002773B5 /* Tailor */,
 				A9F2C4E5DA07DFE427A8EC33 /* 📦 Embed Pods Frameworks */,
@@ -1542,6 +1542,7 @@
 			files = (
 				9476FB481DBB425700B923D6 /* SymbolListHeader.xib in Resources */,
 				94A4B3901DC49CFB00FBDB39 /* alarmDataCell.xib in Resources */,
+				943ABCEC1DE9B5B00004D59F /* SymbolDetailsHeader.xib in Resources */,
 				9476FB491DBB425700B923D6 /* Localizable.strings in Resources */,
 				9476FB4A1DBB425700B923D6 /* LaunchScreen.storyboard in Resources */,
 				9476FB4B1DBB425700B923D6 /* Assets.xcassets in Resources */,
@@ -1569,6 +1570,7 @@
 			files = (
 				9476FBCE1DBB425B00B923D6 /* SymbolListHeader.xib in Resources */,
 				94A4B3911DC49CFB00FBDB39 /* alarmDataCell.xib in Resources */,
+				943ABCED1DE9B5B00004D59F /* SymbolDetailsHeader.xib in Resources */,
 				9476FBCF1DBB425B00B923D6 /* Localizable.strings in Resources */,
 				9476FBD01DBB425B00B923D6 /* LaunchScreen.storyboard in Resources */,
 				9476FBD11DBB425B00B923D6 /* Assets.xcassets in Resources */,
@@ -1595,6 +1597,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				947C638E1D744FF000676822 /* SymbolListHeader.xib in Resources */,
+				943ABCEB1DE9B5B00004D59F /* SymbolDetailsHeader.xib in Resources */,
 				949BEE8F1D72AABB008FA574 /* Localizable.strings in Resources */,
 				949BEE5C1D72A51C008FA574 /* LaunchScreen.storyboard in Resources */,
 				946B210F1DBF911000FD2EFD /* PortfolioHeader.xib in Resources */,
@@ -1651,21 +1654,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanProd/Pods-SabadBanProd-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		23E0DAE45421868EF7347EBA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		38A037EF3F8BADB4CEF1DE99 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1682,21 +1670,6 @@
 			showEnvVarsInLog = 0;
 		};
 		511CEA57ECE6823335890A29 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		56C0E9C5D7A2EDEF8CD3329A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1741,66 +1714,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		65D59ECEF05B0D33C796E1AD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		6B6976D5B839600080B37CB1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		810F67EBFB187311FA34728F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanDev/Pods-SabadBanDev-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8312FA5A350B89DD3F034BF3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		84E6C4ECD50FE22F83A181DB /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1809,21 +1722,6 @@
 			inputPaths = (
 			);
 			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		9070F80B11578457AFAFB70F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2127,21 +2025,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\n#Remove 2 or more Empty lines in files\nexit 0\nsed -i '' '/^$/N;/^\\n$/D' `find ./SabadBan -name *.swift -o -name *.m -not \\( -name .svn -prune -o -name .git -prune \\) -type f`";
 		};
-		9C5F1587A697F6BB804C8C3E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanDev/Pods-SabadBanDev-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A2B6DC5852FF0E0C3BB18295 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2185,36 +2068,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SabadBanTest/Pods-SabadBanTest-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C5D64A95F08DFE760624CE14 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		DA8014AD9787A3B930297CC7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E30F399EF8B5D8C4341FCF62 /* [CP] Check Pods Manifest.lock */ = {
@@ -2324,6 +2177,7 @@
 				9476FB0A1DBB425700B923D6 /* MarketDetailsCell.swift in Sources */,
 				94A4B3721DC494F400FBDB39 /* FindAlarmsRequest.swift in Sources */,
 				9476FB0B1DBB425700B923D6 /* MGBuildDate.m in Sources */,
+				943ABCE81DE9B5680004D59F /* SymbolDetailsHeader.swift in Sources */,
 				9476FB0C1DBB425700B923D6 /* IndexCell.swift in Sources */,
 				9476FB0D1DBB425700B923D6 /* IndexDetailHeader.swift in Sources */,
 				9476FB0E1DBB425700B923D6 /* ObserverNewsTableViewController.swift in Sources */,
@@ -2448,6 +2302,7 @@
 				9476FB901DBB425B00B923D6 /* MarketDetailsCell.swift in Sources */,
 				94A4B3731DC494F400FBDB39 /* FindAlarmsRequest.swift in Sources */,
 				9476FB911DBB425B00B923D6 /* MGBuildDate.m in Sources */,
+				943ABCE91DE9B5680004D59F /* SymbolDetailsHeader.swift in Sources */,
 				9476FB921DBB425B00B923D6 /* IndexCell.swift in Sources */,
 				9476FB931DBB425B00B923D6 /* IndexDetailHeader.swift in Sources */,
 				9476FB941DBB425B00B923D6 /* ObserverNewsTableViewController.swift in Sources */,
@@ -2572,6 +2427,7 @@
 				94A3DE791DC48095001B254F /* Switch.swift in Sources */,
 				949BEEAF1D72F7B2008FA574 /* UIColor.swift in Sources */,
 				7CAF1DC21D8BFBFB003E22A4 /* MarketDetailsCell.swift in Sources */,
+				943ABCE71DE9B5680004D59F /* SymbolDetailsHeader.swift in Sources */,
 				8477D90C1D856D04006BBFCE /* MGBuildDate.m in Sources */,
 				949BEEA21D72B9C1008FA574 /* IndexCell.swift in Sources */,
 				94CD629D1D8965D600F7B496 /* IndexDetailHeader.swift in Sources */,

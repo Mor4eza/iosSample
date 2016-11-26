@@ -18,8 +18,9 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_expand_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="SYS-D0-CQu">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_expand_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="SYS-D0-CQu">
                     <rect key="frame" x="0.0" y="0.0" width="41" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="41" id="8tw-YH-Cbk"/>
                     </constraints>

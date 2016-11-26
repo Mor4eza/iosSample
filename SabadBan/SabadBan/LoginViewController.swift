@@ -70,6 +70,8 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         checkVersionRequest()
 
         checkForJailBreak()
+        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
     }
 
     func keyboardWillShow(notification: NSNotification) {
@@ -246,6 +248,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
                         LoginToken = response!.result.apiToken!
                         self.successLogin = true
                         LogedInUserName = email
+                        self.dismissViewControllerAnimated(false, completion: nil)
                         self.performSegueWithIdentifier(UIConstants.loginSegue, sender: nil)
 
                         if guest == false {
@@ -351,6 +354,10 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             }
         }
 
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent;
     }
 
 }

@@ -43,6 +43,7 @@ public class ENSideMenuNavigationController: UINavigationController, ENSideMenuP
         self.sideMenu?.hideSideMenu()
         switch sideMenuAnimationType {
         case .None:
+            
             self.viewControllers = [contentViewController]
             break
         default:
