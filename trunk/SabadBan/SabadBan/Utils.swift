@@ -22,6 +22,8 @@ let appPackageName = NSBundle.mainBundle().bundleIdentifier
 var isSimulator: Bool {
     return TARGET_OS_SIMULATOR != 0 // Use this line in Xcode 7 or newer
 }
+let isIpad :Bool = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Pad)
+
 
 var buildDate: NSDate {
     if let infoPath = NSBundle.mainBundle().pathForResource("Info.plist", ofType: nil),
@@ -31,6 +33,7 @@ var buildDate: NSDate {
     }
     return NSDate()
 }
+
 
 func persianStringCompare(value1: String, value2: String) -> Bool {
     // One string is alphabetically first.

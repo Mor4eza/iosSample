@@ -285,5 +285,36 @@ extension UISearchBar {
         }
         sc.textColor = color
     }
+    
+}
+
+extension UINavigationBar {
+    
+    /// Set Navigation Bar title, title color and font.
+    public func setTitleFont(with color: UIColor = UIColor.blackColor()) {
+        var attrs = [String: AnyObject]()
+        attrs[NSFontAttributeName] = UIFont(name: AppFontName_IranSans, size: isIpad ? 18 : 15)
+        attrs[NSForegroundColorAttributeName] = color
+        titleTextAttributes = attrs
+    }
+    
+    /// Make navigation bar transparent
+    func makeTransparent(withTint: UIColor ) {
+        setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        shadowImage = UIImage()
+        translucent = true
+        tintColor = withTint
+        titleTextAttributes = [NSForegroundColorAttributeName: withTint]
+    }
+    
+    /// Set navigationBar background and text colors
+    func setColors(background: UIColor, text: UIColor) {
+        self.translucent = false
+        self.backgroundColor = background
+        self.barTintColor = background
+        self.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.tintColor = text
+        self.titleTextAttributes = [NSForegroundColorAttributeName: text]
+    }
 }
 

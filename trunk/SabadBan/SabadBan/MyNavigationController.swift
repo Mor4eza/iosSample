@@ -18,6 +18,7 @@ public class MyNavigationController: ENSideMenuNavigationController, ENSideMenuD
             print("getMessage")
             self.initMenu()
         }
+        self.navigationBar.setTitleFont(with: UIColor.whiteColor())
         var menuPosition: ENSideMenuPosition!
 
         if getAppLanguage() == Language.fa.rawValue {

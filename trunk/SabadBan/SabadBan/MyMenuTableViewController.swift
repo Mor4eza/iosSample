@@ -175,14 +175,15 @@ class MyMenuTableViewController: BaseTableViewController {
 
     func logOutService() {
         let url = AppNewsURL + URLS["logout"]!
-
+        
         // JSON Body
         let body = LogoutRequest(apiToken: LoginToken).getDic()
 
         // Fetch Request
         Request.postData(url, body: body) {
             (response: UserManagementModel<LoginResponse>?, error) in
-
+        
+            self.view.window!.rootViewController?.dismissViewControllerAnimated(false, completion: nil)
             let mainStoryboard: UIStoryboard = UIStoryboard(name: UIConstants.Main, bundle: nil)
             let destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.LogInViewController)
             self.presentViewController(destViewController, animated: true, completion: nil)
