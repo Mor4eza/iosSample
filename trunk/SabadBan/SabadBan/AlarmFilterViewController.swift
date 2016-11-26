@@ -10,7 +10,7 @@ import UIKit
 import FCAlertView
 import GSMessages
 
-class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class AlarmFilterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FCAlertViewDelegate {
     
     //MARK: Properties
     
@@ -21,6 +21,7 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
     @IBOutlet var btnPrice: UIButton!
     @IBOutlet var btnAdd: UIButton!
     @IBOutlet var tblHistory: UITableView!
+    @IBOutlet weak var imgClose: UIImageView!
     
     var priceAlert = UIAlertController()
     var alarmData = [AlarmsData]()
@@ -55,6 +56,10 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
         btnPrice.setDefaultFont()
         lblPrice.setDefaultFont()
         btnAdd.setDefaultFont()
+        
+        imgClose.userInteractionEnabled = true
+        let closeGesture = UITapGestureRecognizer(target: self, action: #selector(self.btnCloseTap))
+        imgClose.addGestureRecognizer(closeGesture)
     }
     
     //MARK:- TableView Delegates
@@ -95,6 +100,12 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
         cell.btnDelete.tag = indexPath.row
         cell.btnDelete.addTarget(self, action: #selector(AlarmFilterViewController.deleteTap(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
+        if indexPath.row % 2 == 0 {
+            cell.backgroundLayer.backgroundColor = AppBarTintColor
+        } else {
+            cell.backgroundLayer.backgroundColor = AppMainColor
+        }
+        
         return cell
     }
     
@@ -129,8 +140,9 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
         Request.postData(url, body: body) {
             (alarms: MainResponse<AlarmResponse>?, error) in
             if ((alarms?.successful) != nil) {
+                self.alarmData.removeAll()
                 if alarms!.response.alarmFilterList.count > 0 {
-                    self.alarmData.removeAll()
+                    
                     for alarm in alarms!.response.alarmFilterList {
                         self.alarmData.append(AlarmsData(active: alarm.active,
                             alarmPrice: alarm.alarmPrice,
@@ -141,8 +153,9 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
                             priceDirection: alarm.priceDirection,
                             symbolCode: alarm.symbolCode))
                     }
-                    self.tblHistory.reloadData()
+                    
                 }
+                self.tblHistory.reloadData()
                 
             } else {
                 debugPrint(error)
@@ -173,6 +186,9 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
             if alarms?.response != nil {
                 self.btnPrice.setTitle(SelectedSymbolLastTradePrice.currencyFormat(0), forState: .Normal)
                 self.getAlarms(LogedInUserName, symbolCode: SelectedSymbolCode)
+                
+                self.displayMessage(Strings.alarmIsAdded.localized())
+                
             } else {
                 if alarms?.errorCode != nil {
                     if (alarms?.errorCode)! == duplicateAlarmErrorCode {
@@ -204,23 +220,7 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
             
             if (alarms!.successful!) {
                 
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.showMessage("alarmIsDeleted", type: .Success, options: [
-                        .Animation(.Slide),
-                        .AnimationDuration(0.3),
-                        .AutoHide(true),
-                        .AutoHideDelay(3.0),
-                        .Height(20),
-                        .HideOnTap(true),
-                        .Position(.Top),
-                        .TextAlignment(.Center),
-                        .TextColor(UIColor.whiteColor()),
-                        .TextNumberOfLines(1),
-                        .TextPadding(10)
-                        ])
-                }
-                
-                self.getAlarms(LogedInUserName, symbolCode: SelectedSymbolCode)
+                self.displayMessage(Strings.alarmIsDeleted.localized())
                 
                 self.editMode = false
                 self.resetView()
@@ -234,8 +234,8 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
                 }
                 
             }
-            self.getAlarms(LogedInUserName, symbolCode: SelectedSymbolCode)
             LoadingOverlay.shared.hideOverlayView()
+            self.getAlarms(LogedInUserName, symbolCode: SelectedSymbolCode)
         }
         
     }
@@ -259,21 +259,8 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
             
             if (alarms!.successful!) {
                 
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.showMessage("alarmEditedSuccessfully", type: .Success, options: [
-                        .Animation(.Slide),
-                        .AnimationDuration(0.3),
-                        .AutoHide(true),
-                        .AutoHideDelay(3.0),
-                        .Height(20),
-                        .HideOnTap(true),
-                        .Position(.Top),
-                        .TextAlignment(.Center),
-                        .TextColor(UIColor.whiteColor()),
-                        .TextNumberOfLines(1),
-                        .TextPadding(10)
-                        ])
-                }
+                self.displayMessage(Strings.alarmIsEdited.localized())
+                
                 self.getAlarms(LogedInUserName, symbolCode: SelectedSymbolCode)
                 
             } else {
@@ -293,7 +280,7 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
     
     //MARK:- Actions
     
-    @IBAction func btnCloseTap(sender: AnyObject) {
+    func btnCloseTap() {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -383,11 +370,25 @@ class AlarmFilterViewController: BaseViewController, UITableViewDelegate, UITabl
         
     }
     
+    func displayMessage(message: String)  {
+        self.showMessage(message, type: .Success, options: [
+            .Animation(.Slide),
+            .AnimationDuration(0.3),
+            .AutoHide(true),
+            .AutoHideDelay(3.0),
+            .Height(20),
+            .HideOnTap(true),
+            .Position(.Top),
+            .TextAlignment(.Center),
+            .TextColor(UIColor.whiteColor()),
+            .TextNumberOfLines(1),
+            .TextPadding(10)
+            ])
+    }
+    
     //MARK: -AlertView delegates
     
     func FCAlertDoneButtonClicked(alertView: FCAlertView!) {
-        super.FCAlertViewDismissed(alertView)
-        
         if alertView == deleteAlarmAlert {
             deleteAlarm(alarmData[selectedRowDelete].id, email: LogedInUserName)
         }

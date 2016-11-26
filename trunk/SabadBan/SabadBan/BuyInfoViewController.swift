@@ -163,7 +163,7 @@ class BuyInfoViewController: BaseViewController, UITableViewDelegate, UITableVie
             (textField) -> Void in
             textField.text = self.btnPrice.currentTitle
             textField.keyboardType = .NumberPad
-            textField.maxLength = 9
+            textField.maxLength = 11
             textField.commaSeperator = true
             textField.allowedCharacter = "0987654321۱۲۳۴۵۶۷۸۹۰"
         })

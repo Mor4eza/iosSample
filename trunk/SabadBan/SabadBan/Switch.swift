@@ -56,7 +56,6 @@ import UIKit
     /// The color used for the unselected text and the background border.
     @IBInspectable public var disabledColor: UIColor = UIColor.lightGrayColor() {
         didSet {
-            backgroundLayer.borderColor = disabledColor.CGColor
             reloadLabelsTextColor()
         }
     }
@@ -85,13 +84,11 @@ import UIKit
     }
 
     func setup() {
-        backgroundLayer.backgroundColor = UIColor.whiteColor().CGColor
-        backgroundLayer.borderColor = disabledColor.CGColor
-        backgroundLayer.borderWidth = 1
+        backgroundLayer.backgroundColor = UIColor.clearColor().CGColor
+        backgroundLayer.borderColor = UIColor.orangeColor().CGColor
+        backgroundLayer.borderWidth = 10
         layer.addSublayer(backgroundLayer)
 
-        switchLayer.borderColor = tintColor.CGColor
-        switchLayer.borderWidth = 1
         layer.addSublayer(switchLayer)
 
         addSubview(leftLabel)
@@ -190,7 +187,7 @@ import UIKit
 
     func reloadLabelsTextColor() {
         leftLabel.textColor = rightSelected ? disabledColor : UIColor.whiteColor()
-        leftLabel.backgroundColor = rightSelected ? UIColor.clearColor() : UIColor.orangeColor()
+        leftLabel.backgroundColor = rightSelected ? UIColor.whiteColor() : UIColor.orangeColor()
         rightLabel.textColor = rightSelected ? UIColor.whiteColor() : disabledColor
         rightLabel.backgroundColor = rightSelected ? UIColor.orangeColor() : UIColor.whiteColor()
     }
@@ -207,6 +204,6 @@ class RoundLayer: CALayer {
 
     override func layoutSublayers() {
         super.layoutSublayers()
-        cornerRadius = 0
+        cornerRadius = 10
     }
 }

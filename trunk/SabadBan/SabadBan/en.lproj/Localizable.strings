@@ -184,3 +184,6 @@
 "reallyWantToDeleteAlarm" = "reallyWantToDeleteAlarm";
 "alarmCountAlert" = "alarmCountAlert";
 "sellOrBuyAlarm" = "sellOrBuyAlarm";
+"alarmIsDeleted" = "alarmIsDeleted";
+"alarmIsAdded" = "alarmIsAdded";
+"alarmIsEdited" = "alarmIsEdited";
