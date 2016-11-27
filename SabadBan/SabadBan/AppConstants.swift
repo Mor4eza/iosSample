@@ -25,16 +25,16 @@ public var updateServiceInterval = 300.0
 
 
 #if DEV
-    public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
-    public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
+public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
+public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
 
 #elseif TEST
-    public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
-    public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
+public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
+public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
 
 #else
-    public let AppTadbirUrl = "http://sabadban.sefryek.com:9090" //Server 6 Prod
-    public let AppNewsURL = "http://sabadbannews.sefryek.com"
+public let AppTadbirUrl = "http://sabadban.sefryek.com:9090" //Server 6 Prod
+public let AppNewsURL = "http://sabadbannews.sefryek.com"
 #endif
 
 //MARK: - Urls
@@ -64,7 +64,7 @@ public let URLS: [String: String] =
 
 //MARK:- Constants
 public var SelectedIndexCode: String = ""
-public var SelectedSymbolCode:Int64 = 0
+public var SelectedSymbolCode: Int64 = 0
 public var SelectedSymbolLastTradePrice: Double = 0
 public var SelectedSymbolName: String = ""
 public var LoginToken: String = ""

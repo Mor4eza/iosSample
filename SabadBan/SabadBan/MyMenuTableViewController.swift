@@ -20,7 +20,7 @@ class MyMenuTableViewController: BaseTableViewController {
         self.tableView.tableFooterView = UIView()
 
         // Customize apperance of table view
-        tableView.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0) //
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0) //
         tableView.separatorStyle = .None
         tableView.backgroundColor = UIColor.clearColor()
         tableView.scrollsToTop = false
@@ -32,7 +32,7 @@ class MyMenuTableViewController: BaseTableViewController {
     }
 
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 120
+        return 200
     }
 
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -149,9 +149,9 @@ class MyMenuTableViewController: BaseTableViewController {
             break
         default:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.LogInViewController)
-            
-           // self.presentViewController(destViewController!, animated: true, completion: nil)
-           
+
+            // self.presentViewController(destViewController!, animated: true, completion: nil)
+
             return
         }
         if destViewController != nil {
@@ -175,14 +175,14 @@ class MyMenuTableViewController: BaseTableViewController {
 
     func logOutService() {
         let url = AppNewsURL + URLS["logout"]!
-        
+
         // JSON Body
         let body = LogoutRequest(apiToken: LoginToken).getDic()
 
         // Fetch Request
         Request.postData(url, body: body) {
             (response: UserManagementModel<LoginResponse>?, error) in
-        
+
             self.view.window!.rootViewController?.dismissViewControllerAnimated(false, completion: nil)
             let mainStoryboard: UIStoryboard = UIStoryboard(name: UIConstants.Main, bundle: nil)
             let destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.LogInViewController)

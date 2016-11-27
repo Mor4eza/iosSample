@@ -26,6 +26,8 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var btnRegister: UIButton!
+    @IBOutlet weak var btnForgetPassword: UIButton!
+
 
     var defaults = NSUserDefaults.standardUserDefaults()
 
@@ -42,6 +44,7 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
         txtUserName.placeholder = Strings.Email.localized()
         txtPassword.placeholder = Strings.Password.localized()
         btnRegister.setTitle(Strings.Register.localized(), forState: .Normal)
+        btnForgetPassword.setTitle(Strings.ForgetPassword.localized(), forState: .Normal)
         txtPhone.placeholder = Strings.Tell.localized()
         txtRPassword.placeholder = Strings.RepeatPass.localized()
         btnLogin.setTitle(Strings.Login.localized(), forState: .Normal)
@@ -129,6 +132,19 @@ class RegisterViewController: BaseViewController, UITextFieldDelegate {
 
     @IBAction func btnLogin(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+
+    @IBAction func btnForgetPassword(sender: UIButton) {
+
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: UIConstants.Main, bundle: nil)
+        let destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("forgetPasswordViewController")
+
+        let presentingViewController: UIViewController! = self.presentingViewController
+
+        self.dismissViewControllerAnimated(false, completion: {
+            presentingViewController.presentViewController(destViewController, animated: true, completion: nil)
+        })
     }
 
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {

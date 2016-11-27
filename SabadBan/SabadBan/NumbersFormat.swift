@@ -20,11 +20,13 @@ extension NSNumber {
         var decimalPart = self as Double
         decimalPart = decimalPart - Double(IntMax(decimalPart))
 
-//        if (decimalPart == 0) {
-//            formatter.minimumFractionDigits = 0
-//        } else {
-//            formatter.minimumFractionDigits = 1
-//        }
+        formatter.minimumFractionDigits = 0
+
+        //        if (decimalPart == 0) {
+        //            formatter.minimumFractionDigits = 0
+        //        } else {
+        //            formatter.minimumFractionDigits = 1
+        //        }
 
         formatter.maximumFractionDigits = decimalDigits
         let priceString = formatter.stringFromNumber(self)
@@ -63,13 +65,13 @@ extension Float {
         formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
         formatter.currencyDecimalSeparator = "."
 
-        let decimalPart = self - Float(IntMax(self))
+        //        let decimalPart = self - Float(IntMax(self))
 
-        if (decimalPart == 0) {
-            formatter.minimumFractionDigits = 0
-        } else {
-            formatter.minimumFractionDigits = decimalDigits
-        }
+        //        if (decimalPart == 0) {
+        formatter.minimumFractionDigits = 0
+        //        } else {
+        //            formatter.minimumFractionDigits = decimalDigits
+        //        }
 
         formatter.maximumFractionDigits = decimalDigits
         let priceString = formatter.stringFromNumber(self)
@@ -87,13 +89,15 @@ extension Double {
         formatter.locale = NSLocale.init(localeIdentifier: getAppLanguage())
         formatter.currencyDecimalSeparator = "."
 
-        let decimalPart = self - Double(IntMax(self))
+        //        let decimalPart = self - Double(IntMax(self))
 
-        if (decimalPart == 0) {
-            formatter.minimumFractionDigits = 0
-        } else {
-            formatter.minimumFractionDigits = decimalDigits
-        }
+        formatter.minimumFractionDigits = 0
+
+        //        if (decimalPart == 0) {
+        //
+        //        } else {
+        //            formatter.minimumFractionDigits = decimalDigits
+        //        }
 
         formatter.maximumFractionDigits = decimalDigits
         let priceString = formatter.stringFromNumber(self)
@@ -113,7 +117,7 @@ extension Double {
         num = fabs(num);
 
         if (num < 1000.0) {
-            return "\(sign)\(num)";
+            return "\(sign)\(num.currencyFormat(3))";
         }
 
         var exp: Int = Int(log10(num) / 3.0); //log10(1000));
@@ -124,7 +128,7 @@ extension Double {
             exp = 3
         }
 
-        let roundedNum = (num / pow(1000.0, Double(exp))).currencyFormat(3)
+        let roundedNum = Double(num / pow(1000.0, Double(exp))).currencyFormat(3)
 
         return "\(sign)\(roundedNum)\(units[exp - 1])";
     }

@@ -70,7 +70,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         checkVersionRequest()
 
         checkForJailBreak()
-        
+
         UIApplication.sharedApplication().statusBarStyle = .LightContent
     }
 
@@ -112,13 +112,12 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     //MARK:- Buttons Tap
 
     @IBAction func btnLoginTap(sender: AnyObject) {
-
-        beginLoginSequence()
         isGuest = false
+        beginLoginSequence()
     }
 
     @IBAction func btnGuestLoginTap(sender: AnyObject) {
-
+        isGuest = true
         if defaults.stringForKey(GuestUserName) == nil {
             if isSimulator {
                 sendLoginRequest(GuestUser, password: GuestPass, pushToken: Strings.SimulatorPushToken, guest: true)
@@ -135,7 +134,6 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
                 sendLoginRequest(GuestUser, password: GuestPass, pushToken: PushToken)
             }
         }
-        isGuest = true
     }
 
 
@@ -160,9 +158,9 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             showAlert(Strings.passwordLengthError)
         } else {
             if isSimulator {
-                sendLoginRequest(txtUserName.text!, password: txtPassword.text!, pushToken: Strings.SimulatorPushToken,guest: false)
+                sendLoginRequest(txtUserName.text!, password: txtPassword.text!, pushToken: Strings.SimulatorPushToken, guest: false)
             } else {
-                sendLoginRequest(txtUserName.text!, password: txtPassword.text!, pushToken: PushToken,guest: false)
+                sendLoginRequest(txtUserName.text!, password: txtPassword.text!, pushToken: PushToken, guest: false)
             }
         }
     }
@@ -192,14 +190,21 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         btnLogin.enabled = false
         btnGuestLogin.enabled = false
         let progress: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
-        progress.frame = CGRectMake(btnLogin.bounds.maxX - 30, btnLogin.bounds.maxY - 33, 20, 20)
+
+        if isGuest {
+            progress.frame = CGRectMake(btnGuestLogin.bounds.maxX - 30, btnGuestLogin.bounds.maxY - 33, 20, 20)
+            btnGuestLogin.addSubview(progress)
+        } else {
+            progress.frame = CGRectMake(btnLogin.bounds.maxX - 30, btnLogin.bounds.maxY - 33, 20, 20)
+            btnLogin.addSubview(progress)
+        }
+
         progress.startAnimating()
         var url: String?
+
         if guest == true {
-            btnGuestLogin.addSubview(progress)
             url = AppNewsURL + URLS["guestLogin"]!
         } else {
-            btnLogin.addSubview(progress)
             url = AppNewsURL + URLS["login"]!
         }
         progress.hidesWhenStopped = true
@@ -264,6 +269,8 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
                         if (loginCount < 4) {
                             self.defaults.setValue((loginCount + 1), forKeyPath: NumberOfLogins)
                         }
+                        // reset portfolio selection
+                        self.defaults.setInteger(0, forKey: "currentPortfolioIndex")
                     }
                 } else if response!.errorCode == 202 {
 
@@ -355,7 +362,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         }
 
     }
-    
+
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent;
     }

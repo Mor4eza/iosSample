@@ -23,7 +23,7 @@ extension UILabel {
         if size != nil {
             self.font = UIFont(name: AppFontName_IranSans, size: (size!))
         } else {
-            self.font = UIFont(name: AppFontName_IranSans, size: (self.font.pointSize ))
+            self.font = UIFont(name: AppFontName_IranSans, size: (self.font.pointSize))
         }
     }
 
@@ -133,7 +133,7 @@ extension UITextField {
                         guard allowedCharacter.characters.contains(lastCharacter) else {
                             var finalText = String()
                             var textCharacters = enteredText.characters
-                        
+
                             if (previousText.characters.count < enteredText.characters.count) {
                                 textCharacters.removeLast()
                             }
@@ -285,11 +285,11 @@ extension UISearchBar {
         }
         sc.textColor = color
     }
-    
+
 }
 
 extension UINavigationBar {
-    
+
     /// Set Navigation Bar title, title color and font.
     public func setTitleFont(with color: UIColor = UIColor.blackColor()) {
         var attrs = [String: AnyObject]()
@@ -297,16 +297,16 @@ extension UINavigationBar {
         attrs[NSForegroundColorAttributeName] = color
         titleTextAttributes = attrs
     }
-    
+
     /// Make navigation bar transparent
-    func makeTransparent(withTint: UIColor ) {
+    func makeTransparent(withTint: UIColor) {
         setBackgroundImage(UIImage(), forBarMetrics: .Default)
         shadowImage = UIImage()
         translucent = true
         tintColor = withTint
         titleTextAttributes = [NSForegroundColorAttributeName: withTint]
     }
-    
+
     /// Set navigationBar background and text colors
     func setColors(background: UIColor, text: UIColor) {
         self.translucent = false

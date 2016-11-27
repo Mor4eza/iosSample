@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -25,65 +24,69 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceT-DE-cSr">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Hpv-Qi-rn4">
-                            <rect key="frame" x="50" y="10" width="35" height="23"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="35" id="MCa-qr-DSS"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
-                            <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Del" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="a2E-tS-XaW">
-                            <rect key="frame" x="2" y="10" width="35" height="23"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="35" id="22M-PF-uqw"/>
-                            </constraints>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="QsH-1M-fmG">
+                            <rect key="frame" x="247" y="10" width="53" height="23"/>
                             <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
                             <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="BUs-WS-Jxj">
-                            <rect key="frame" x="105" y="10" width="51" height="23"/>
+                            <rect key="frame" x="170" y="10" width="71" height="23"/>
                             <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
                             <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="LXY-vl-mOk">
-                            <rect key="frame" x="170" y="10" width="50" height="23"/>
+                            <rect key="frame" x="94" y="10" width="71" height="23"/>
                             <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
                             <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="QsH-1M-fmG">
-                            <rect key="frame" x="230" y="10" width="61" height="23"/>
-                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
-                            <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPQ-y2-0ce">
+                            <rect key="frame" x="0.0" y="0.0" width="88" height="44"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Del" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="a2E-tS-XaW">
+                                    <rect key="frame" x="5" y="11" width="35" height="23"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="35" id="9Hy-6B-Pwl"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
+                                    <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Hpv-Qi-rn4">
+                                    <rect key="frame" x="50" y="11" width="35" height="23"/>
+                                    <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
+                                    <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="a2E-tS-XaW" firstAttribute="centerY" secondItem="yPQ-y2-0ce" secondAttribute="centerY" id="MzU-Mb-AJB"/>
+                                <constraint firstItem="a2E-tS-XaW" firstAttribute="leading" secondItem="yPQ-y2-0ce" secondAttribute="leading" constant="5" id="b0D-Xm-kyh"/>
+                                <constraint firstItem="Hpv-Qi-rn4" firstAttribute="width" secondItem="a2E-tS-XaW" secondAttribute="width" id="cq6-po-kT4"/>
+                                <constraint firstItem="Hpv-Qi-rn4" firstAttribute="centerY" secondItem="a2E-tS-XaW" secondAttribute="centerY" id="giL-uY-Cdw"/>
+                                <constraint firstItem="Hpv-Qi-rn4" firstAttribute="leading" secondItem="a2E-tS-XaW" secondAttribute="trailing" constant="10" id="y9N-dC-4nQ"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.090196078430000007" green="0.13725490200000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="a2E-tS-XaW" firstAttribute="baseline" secondItem="BUs-WS-Jxj" secondAttribute="baseline" id="4a5-t3-kAD"/>
-                        <constraint firstItem="Hpv-Qi-rn4" firstAttribute="leading" secondItem="a2E-tS-XaW" secondAttribute="trailing" constant="13" id="5Cs-Co-fDA"/>
-                        <constraint firstItem="BUs-WS-Jxj" firstAttribute="baseline" secondItem="LXY-vl-mOk" secondAttribute="baseline" id="5qp-KF-40M"/>
-                        <constraint firstItem="QsH-1M-fmG" firstAttribute="width" secondItem="ceT-DE-cSr" secondAttribute="width" multiplier="2/7" constant="-24.714285714285708" id="789-af-58M"/>
-                        <constraint firstItem="BUs-WS-Jxj" firstAttribute="width" secondItem="ceT-DE-cSr" secondAttribute="width" multiplier="1/6" constant="1" id="C34-5N-69W"/>
-                        <constraint firstItem="BUs-WS-Jxj" firstAttribute="centerY" secondItem="ceT-DE-cSr" secondAttribute="centerY" id="CRY-fq-6Qj"/>
-                        <constraint firstItem="QsH-1M-fmG" firstAttribute="trailing" secondItem="ceT-DE-cSr" secondAttribute="trailingMargin" constant="-1" id="LUt-kE-h2f"/>
-                        <constraint firstAttribute="trailing" secondItem="LXY-vl-mOk" secondAttribute="trailing" constant="87" id="QEI-w7-yb4"/>
-                        <constraint firstItem="Hpv-Qi-rn4" firstAttribute="baseline" secondItem="QsH-1M-fmG" secondAttribute="baseline" id="Wb7-tR-nxP"/>
-                        <constraint firstItem="LXY-vl-mOk" firstAttribute="width" secondItem="ceT-DE-cSr" secondAttribute="width" multiplier="1/6" id="bY1-Cb-wV1"/>
-                        <constraint firstItem="BUs-WS-Jxj" firstAttribute="leading" secondItem="Hpv-Qi-rn4" secondAttribute="trailing" constant="20" id="hi4-BD-nCy"/>
-                        <constraint firstItem="a2E-tS-XaW" firstAttribute="leading" secondItem="ceT-DE-cSr" secondAttribute="leading" constant="2" id="mH1-h6-3gz"/>
-                        <constraint firstItem="Hpv-Qi-rn4" firstAttribute="centerY" secondItem="ceT-DE-cSr" secondAttribute="centerY" id="pjR-Lb-nzR"/>
-                        <constraint firstItem="LXY-vl-mOk" firstAttribute="leading" secondItem="BUs-WS-Jxj" secondAttribute="trailing" constant="14" id="zO8-Uw-rBx"/>
+                        <constraint firstItem="QsH-1M-fmG" firstAttribute="width" secondItem="ceT-DE-cSr" secondAttribute="width" multiplier="3:17" id="789-af-58M"/>
+                        <constraint firstItem="yPQ-y2-0ce" firstAttribute="width" secondItem="ceT-DE-cSr" secondAttribute="width" multiplier="5:17" id="DTt-OD-knZ"/>
+                        <constraint firstItem="QsH-1M-fmG" firstAttribute="centerY" secondItem="ceT-DE-cSr" secondAttribute="centerY" id="GhA-7I-hjV"/>
+                        <constraint firstItem="yPQ-y2-0ce" firstAttribute="top" secondItem="ceT-DE-cSr" secondAttribute="top" id="HK6-Mp-EGr"/>
+                        <constraint firstItem="BUs-WS-Jxj" firstAttribute="leading" secondItem="LXY-vl-mOk" secondAttribute="trailing" constant="5" id="LL9-CR-80q"/>
+                        <constraint firstItem="QsH-1M-fmG" firstAttribute="trailing" secondItem="ceT-DE-cSr" secondAttribute="trailing" id="LUt-kE-h2f"/>
+                        <constraint firstItem="BUs-WS-Jxj" firstAttribute="centerY" secondItem="ceT-DE-cSr" secondAttribute="centerY" id="O9U-LB-3p9"/>
+                        <constraint firstItem="QsH-1M-fmG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BUs-WS-Jxj" secondAttribute="trailing" constant="5" id="WUG-3a-c3D"/>
+                        <constraint firstItem="LXY-vl-mOk" firstAttribute="leading" secondItem="yPQ-y2-0ce" secondAttribute="trailing" constant="6" id="aEA-sU-vnP"/>
+                        <constraint firstItem="yPQ-y2-0ce" firstAttribute="leading" secondItem="ceT-DE-cSr" secondAttribute="leading" id="cXB-1I-1e3"/>
+                        <constraint firstItem="LXY-vl-mOk" firstAttribute="centerY" secondItem="ceT-DE-cSr" secondAttribute="centerY" id="loS-mA-Y8c"/>
+                        <constraint firstAttribute="bottom" secondItem="yPQ-y2-0ce" secondAttribute="bottom" id="ntX-qa-ArX"/>
+                        <constraint firstItem="LXY-vl-mOk" firstAttribute="width" secondItem="ceT-DE-cSr" secondAttribute="width" multiplier="4:17" id="vHs-UO-52C"/>
+                        <constraint firstItem="BUs-WS-Jxj" firstAttribute="width" secondItem="ceT-DE-cSr" secondAttribute="width" multiplier="4:17" priority="750" id="wM0-lE-4RY"/>
                     </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="QEI-w7-yb4"/>
-                        </mask>
-                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

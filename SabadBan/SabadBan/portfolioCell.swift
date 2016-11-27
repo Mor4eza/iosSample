@@ -47,11 +47,11 @@ class portfolioCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
+
+
 //        self.contentView.transform = CGAffineTransformMakeScale(-1, 1)
-        
-        
+
+
         lblsymbolTitle.setDefaultFont()
         lblSymbolValue.setDefaultFont()
         lblLastValueTitle.setDefaultFont()
@@ -76,8 +76,8 @@ class portfolioCell: UITableViewCell {
         // Initialization code
     }
 
-    func initCells(smData : symData){
-        
+    func initCells(smData: symData) {
+
         lblSymbolValue.text = smData.symbolShortName
         lblLastPriceValue.text = smData.closePrice.currencyFormat(2)
         lblBuyQuotValue.text = smData.benchmarkBuy.currencyFormat(2)
@@ -87,21 +87,21 @@ class portfolioCell: UITableViewCell {
         } else if smData.todayProfit < 0 {
             lblTodayValue.textColor = UIColor.redColor()
         }
-        
+
         if smData.totalProfit > 0 {
             lblOverValue.textColor = UIColor.greenColor()
         } else if smData.totalProfit < 0 {
             lblOverValue.textColor = UIColor.redColor()
         }
-        
+
         if smData.lastTradePriceChange > 0 {
             imgChanges.image = UIImage(named: UIConstants.icIncrease)
             lblEndChanges.textColor = UIColor.greenColor()
-        }else if  smData.lastTradePriceChange < 0 {
+        } else if smData.lastTradePriceChange < 0 {
             imgChanges.image = UIImage(named: UIConstants.icDecrease)
             lblEndChanges.textColor = UIColor.redColor()
         }
-        
+
         lblTodayValue.text = abs(smData.todayProfit).currencyFormat(2)
         lblOverValue.text = abs(smData.totalProfit).currencyFormat(2)
         lblEndValue.text = smData.lastTradePrice.currencyFormat(2)
@@ -115,7 +115,7 @@ class portfolioCell: UITableViewCell {
         }
         backgroundView?.backgroundColor = AppMainColor
     }
-    
+
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

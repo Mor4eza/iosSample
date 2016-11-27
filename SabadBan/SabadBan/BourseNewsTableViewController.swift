@@ -88,8 +88,8 @@ class BourseNewsTableViewController: BaseTableViewController {
                         let dateString = convertToPersianDateWithTime(date)
 
                         self.newsModel.append(BourseNewsModel(title: news!.response.newsDetailsList[i].title, details: news!.response.newsDetailsList[i].descriptionField,
-                            date: dateString,
-                            link: news!.response.newsDetailsList[i].reference))
+                                date: dateString,
+                                link: news!.response.newsDetailsList[i].reference))
                     }
                     self.newsCount += news!.response.count
                     self.servicePage += 1

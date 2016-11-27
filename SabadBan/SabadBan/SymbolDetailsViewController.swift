@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 class SymbolDetailsViewController: BaseTableViewController {
-    
+
     @IBOutlet weak var lblBuyTitle: UILabel!
     @IBOutlet weak var lblCellTitle: UILabel!
     @IBOutlet weak var lblkindTitle: UILabel!
@@ -66,13 +66,13 @@ class SymbolDetailsViewController: BaseTableViewController {
     @IBOutlet weak var lblBSCValue1: UILabel!
     @IBOutlet weak var lblBSCValue2: UILabel!
     @IBOutlet weak var lblBSCValue3: UILabel!
-    
+
     var hideBestBuy = true
     var hideBestSell = true
     var lastUpdate = NSMutableAttributedString()
-    var headerView1 : SymbolBestBuyAndCellHeader?
-    var headerView2 : SymbolBestBuyAndCellHeader?
-    
+    var headerView1: SymbolBestBuyAndCellHeader?
+    var headerView2: SymbolBestBuyAndCellHeader?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
@@ -82,15 +82,15 @@ class SymbolDetailsViewController: BaseTableViewController {
         getSymbolBestLimitService(SelectedSymbolCode)
         getSymbolTradingDetailsService(SelectedSymbolCode)
         getSymbolListData([SelectedSymbolCode])
-        
+
     }
     // MARK: - Table view data source
-    
+
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 3
     }
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
@@ -103,55 +103,55 @@ class SymbolDetailsViewController: BaseTableViewController {
             if hideBestSell {
                 return 0
             }
-            
+
         }
         return 1
-        
+
     }
-    
+
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        
+
+
         let Section1headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.SymbolDetailsHeader) as! SymbolDetailsHeader
         Section1headerView.lblLastUpdate.attributedText = lastUpdate
-        
-        
-        
+
+
+
         let tapGesture = UITapGestureRecognizer()
-        
+
         let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(UIConstants.buyHeader) as! SymbolBestBuyAndCellHeader
         headerView.addGestureRecognizer(tapGesture)
-        
+
         tableView.backgroundColor = AppMainColor
-        
+
         if (section == 1) {
             tapGesture.addTarget(self, action: #selector(self.bestBuyTapped))
             headerView.lblTitle.text = Strings.bestBuyTitle.localized()
             headerView.lblTitle.backgroundColor = UIColor(netHex: 0x2e9220)
-            
+
             headerView1 = headerView
         } else if (section == 2) {
             tapGesture.addTarget(self, action: #selector(self.bestSellTapped))
             headerView.lblTitle.text = Strings.bestSellTitle.localized()
             headerView.lblTitle.backgroundColor = UIColor.redColor()
-            
+
             headerView2 = headerView
         }
         headerView.lblTitle.textColor = UIColor.whiteColor()
         headerView.lblTitle.setDefaultFont()
         if section == 0 {
-            
+
             return Section1headerView
         }
         return headerView
     }
-    
-    
+
+
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
+
         return 30
     }
-    
+
     func bestBuyTapped() {
         hideBestBuy = !hideBestBuy
         tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: .Automatic)
@@ -159,11 +159,11 @@ class SymbolDetailsViewController: BaseTableViewController {
             if !hideBestSell {
                 let pathToLastRow = NSIndexPath(forRow: 0, inSection: 2)
                 self.tableView?.scrollToRowAtIndexPath(pathToLastRow, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
-            }else {
+            } else {
                 let pathToLastRow = NSIndexPath(forRow: 0, inSection: 1)
                 self.tableView?.scrollToRowAtIndexPath(pathToLastRow, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
             }
-            
+
         }
         if hideBestBuy {
             rotateWithAnimation(headerView1!.imgArrow, angle: 0)
@@ -171,7 +171,7 @@ class SymbolDetailsViewController: BaseTableViewController {
             rotateWithAnimation(headerView1!.imgArrow, angle: M_PI)
         }
     }
-    
+
     func bestSellTapped() {
         hideBestSell = !hideBestSell
         tableView.reloadSections(NSIndexSet(index: 2), withRowAnimation: .Automatic)
@@ -179,38 +179,38 @@ class SymbolDetailsViewController: BaseTableViewController {
             let pathToLastRow = NSIndexPath(forRow: 0, inSection: 2)
             self.tableView?.scrollToRowAtIndexPath(pathToLastRow, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
         }
-        
+
         if hideBestSell {
             rotateWithAnimation(headerView2!.imgArrow, angle: 0)
         } else {
             rotateWithAnimation(headerView2!.imgArrow, angle: M_PI)
         }
     }
-    
-    
+
+
     func rotateWithAnimation(target: UIImageView, angle: Double) {
         UIView.animateWithDuration(0.20, animations: {
             target.transform = CGAffineTransformMakeRotation(CGFloat(angle))
         })
     }
-    
+
     //MARK:- Symbol Best Limit service
-    
+
     func getSymbolBestLimitService(sCode: Int64) {
         /**
          getBestLimitsBySymbol
          POST http://185.37.52.193:9090/services/getBestLimitsBySymbol
          */
-        
+
         let url = AppTadbirUrl + URLS["getBestLimitsBySymbol"]!
-        
+
         // JSON Body
         let body = SymbolBestLimitRequest(symbolCode: sCode).getDic()
-        
+
         // Fetch Request
         Request.postData(url, body: body) {
             (bestLimit: MainResponse<SymbolBestLimitResponse>?, error) in
-            
+
             if ((bestLimit?.successful) != nil) {
                 self.lastUpdate = (bestLimit?.convertTime())!
                 if bestLimit!.response.bestLimitDataList.count > 0 {
@@ -238,24 +238,24 @@ class SymbolDetailsViewController: BaseTableViewController {
             }
             self.tableView.reloadData()
         }
-        
+
     }
-    
+
     func getSymbolTradingDetailsService(sCode: Int64) {
         /**
          getBestLimitsBySymbol
          POST http://185.37.52.193:9090/services/getBestLimitsBySymbol
          */
-        
+
         let url = AppTadbirUrl + URLS["getSymbolTradingDetails"]!
-        
+
         // JSON Body
         let body = SymbolTradingRequest(symbolCode: sCode).getDic()
-        
+
         // Fetch Request
         Request.postData(url, body: body) {
             (trading: MainResponse<SymbolTradingResponse>?, error) in
-            
+
             if ((trading?.successful) != nil) {
                 if trading!.response != nil {
                     self.lblCount1Value.text = trading!.response.buyNumberLegal.currencyFormat(2)
@@ -271,20 +271,20 @@ class SymbolDetailsViewController: BaseTableViewController {
                 debugPrint(error)
             }
         }
-        
+
     }
-    
+
     func getSymbolListData(sCode: [Int64]) {
-        
+
         let url = AppTadbirUrl + URLS["getSymbolListAndDetails"]!
-        
+
         // JSON Body
         let body = SymbolListAndDetailsRequest(pageNumber: 0, recordPerPage: 0, symbolCode: sCode, supportPaging: false, language: getAppLanguage()).getDic()
-        
+
         // Fetch Request
         Request.postData(url, body: body) {
             (symbol: MainResponse<SymbolListByIndexResponse>?, error) in
-            
+
             if ((symbol?.successful) != nil) {
                 if symbol!.response.symbolDetailsList.count > 0 {
                     self.lblLastPriceValue.text = symbol!.response.symbolDetailsList[0].closePrice.currencyFormat(2)
@@ -308,9 +308,9 @@ class SymbolDetailsViewController: BaseTableViewController {
             }
         }
     }
-    
+
     func setUpViews() {
-        
+
         lblBuyTitle.font = UIFont(name: AppFontName_IranSans, size: 15.0)
         lblCellTitle.font = UIFont(name: AppFontName_IranSans, size: 15.0)
         lblkindTitle.font = UIFont(name: AppFontName_IranSans, size: 14.0)
@@ -364,18 +364,18 @@ class SymbolDetailsViewController: BaseTableViewController {
         lblBSCValue1.font = UIFont(name: AppFontName_IranSans, size: 15.0)
         lblBSCValue2.font = UIFont(name: AppFontName_IranSans, size: 15.0)
         lblBSCValue3.font = UIFont(name: AppFontName_IranSans, size: 15.0)
-        
+
         lblLastPriceTitle.text = Strings.LastPriceTitle.localized()
         lblEndPriceTitle.text = Strings.EndPriceTitle.localized()
         lblStartPriceTitle.text = Strings.StartPriceTitle.localized()
         lblLowPriceTitle.text = Strings.LowPriceTitle.localized()
         lblHighPriceTitle.text = Strings.HighPriceTitle.localized()
     }
-    
+
     override func updateServiceData() {
         getSymbolBestLimitService(SelectedSymbolCode)
         getSymbolTradingDetailsService(SelectedSymbolCode)
         getSymbolListData([SelectedSymbolCode])
     }
-    
+
 }

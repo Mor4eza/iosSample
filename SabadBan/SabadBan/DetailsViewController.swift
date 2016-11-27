@@ -126,7 +126,7 @@ class DetailsViewController: BaseViewController, UITableViewDataSource, UITableV
                 cell.lblTitle.text = Strings.PriceChanges.localized()
                 if priceChanges < 0 {
                     cell.lblValue.textColor = UIColor.redColor()
-                }else if priceChanges > 0 {
+                } else if priceChanges > 0 {
                     cell.lblValue.textColor = UIColor.greenColor()
                 }
                 cell.lblValue.text = abs(priceChanges).currencyFormat(2)
@@ -134,12 +134,12 @@ class DetailsViewController: BaseViewController, UITableViewDataSource, UITableV
                 cell.lblTitle.text = Strings.PriceChangesPercent.localized()
                 cell.lblTitle.text = Strings.PriceChangesPercent.localized()
                 if priceChangesPercent < 0 {
-                     cell.lblValue.textColor = UIColor.redColor()
-                }else if priceChangesPercent > 0 {
-                     cell.lblValue.textColor = UIColor.greenColor()
+                    cell.lblValue.textColor = UIColor.redColor()
+                } else if priceChangesPercent > 0 {
+                    cell.lblValue.textColor = UIColor.greenColor()
                 }
                 cell.lblValue.text = "%" + String(abs(priceChangesPercent).roundToPlaces(2))
-                
+
             default:
                 cell.lblTitle.text = "."
                 cell.lblValue.text = "."

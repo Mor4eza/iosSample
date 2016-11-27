@@ -11,7 +11,7 @@ import UIKit
 class SymbolDetailsHeader: UITableViewHeaderFooterView {
 
     @IBOutlet weak var lblLastUpdate: UILabel!
-    
+
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

@@ -91,6 +91,9 @@
 "addedSuccessfuliToPortfolio" = "نماد با موفقیت به پرتفوی افزوده شد.";
 "maximumNumberOfSymbolsReached" = "تعداد نمادهای هر پرتفوی باید حداکثر ۲۰ عدد باشد.";
 "atleastEnterOneSymbol" = "حداقل یک نماد به پرتفوی اضافه کنید.";
+"buyInfoDeleted" = "سابقه خرید حذف شد";
+"buyInfoAdded" = "سابقه خرید اضافه شد";
+"buyInfoEdited" = "سابقه خرید ویرایش شد";
 
 //MARK: - AboutUs Strings
 

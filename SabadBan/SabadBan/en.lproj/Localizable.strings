@@ -90,6 +90,9 @@
 "addedSuccessfuliToPortfolio" = "Added to Portfolio Successfully";
 "maximumNumberOfSymbolsReached" = "maximumNumberOfSymbolsReached";
 "atleastEnterOneSymbol" = "atleastEnterOneSymbol";
+"buyInfoDeleted" = "buyInfoDeleted";
+"buyInfoAdded" = "buyInfoDeleted";
+"buyInfoEdited" = "buyInfoDeleted";
 
 //MARK: - AboutUs Strings
 

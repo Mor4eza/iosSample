@@ -155,7 +155,7 @@ class DatePickerSheet: UIView {
                 300,
                 230
                         + kDatePickerDialogDefaultButtonHeight
-                        + kDatePickerDialogDefaultButtonSpacerHeight)
+                + kDatePickerDialogDefaultButtonSpacerHeight)
 
         // For the black background
         self.frame = CGRectMake(0, 0, screenSize.width, screenSize.height)

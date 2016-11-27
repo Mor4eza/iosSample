@@ -32,7 +32,7 @@ class EditPortfolioViewController: BaseTableViewController {
     }
 
     func doneClicked() {
-        
+
         for i in 0 ..< self.portfolios.count {
             if etTitle.text != portfolioName {
                 if (etTitle.text == self.portfolios[i]) {
