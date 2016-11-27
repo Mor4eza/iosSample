@@ -227,15 +227,17 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
         loadPortfolioListsFromDB()
         
         if portfolios.count == 0 {
-            menuView = BTNavigationDropdownMenu(title: Strings.Portfolio.localized(), items: portfolioNames)
+            self.title = Strings.Portfolio.localized()
+            return
         }else {
             menuView = BTNavigationDropdownMenu(title: currentPortfolio!.portfolioName, items: portfolioNames)
+            menuView.animationDuration = 0.5
+            menuView.cellTextLabelAlignment = NSTextAlignment.Center
+            self.navigationItem.titleView = menuView
         }
         
         
-        menuView.animationDuration = 0.5
-        menuView.cellTextLabelAlignment = NSTextAlignment.Center
-        self.navigationItem.titleView = menuView
+        
         
         menuView.didSelectItemAtIndexHandler = {
             (indexPath: Int) -> () in
@@ -528,7 +530,9 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
     }
     
     override func sideMenuDidOpen() {
-        menuView.hide()
+        if portfolios.count > 0 {
+            menuView.hide()
+        }
     }
 }
 
