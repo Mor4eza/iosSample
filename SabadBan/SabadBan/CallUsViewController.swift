@@ -85,6 +85,7 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
         lblName.text = ""
         lblSubject.text = ""
         lblEmail.text = ""
+        lblName.maxLength = 15
         lblDetails.textAlignment = .Center
         btnSend.setTitle(Strings.Send.localized(), forState: .Normal)
         btnInfo.setTitle(Strings.ContactInfo.localized(), forState: .Normal)

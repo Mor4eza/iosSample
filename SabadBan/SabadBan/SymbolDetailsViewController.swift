@@ -156,8 +156,14 @@ class SymbolDetailsViewController: BaseTableViewController {
         hideBestBuy = !hideBestBuy
         tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: .Automatic)
         if !hideBestBuy {
-            let pathToLastRow = NSIndexPath(forRow: 0, inSection: 1)
-            self.tableView?.scrollToRowAtIndexPath(pathToLastRow, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+            if !hideBestSell {
+                let pathToLastRow = NSIndexPath(forRow: 0, inSection: 2)
+                self.tableView?.scrollToRowAtIndexPath(pathToLastRow, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+            }else {
+                let pathToLastRow = NSIndexPath(forRow: 0, inSection: 1)
+                self.tableView?.scrollToRowAtIndexPath(pathToLastRow, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+            }
+            
         }
         if hideBestBuy {
             rotateWithAnimation(headerView1!.imgArrow, angle: 0)
