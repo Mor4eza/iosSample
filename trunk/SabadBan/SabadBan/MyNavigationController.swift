@@ -37,8 +37,6 @@ public class MyNavigationController: ENSideMenuNavigationController, ENSideMenuD
             sideMenu?.showSideMenu()
             sideMenu?.hideSideMenu()
         }
-
-        view.bringSubviewToFront(navigationBar)
     }
 
     override public func didReceiveMemoryWarning() {

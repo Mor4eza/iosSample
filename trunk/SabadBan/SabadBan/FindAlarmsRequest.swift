@@ -13,7 +13,7 @@ struct FindAlarmsRequest {
     let symbolCode: Int64!
 
     func getDic() -> [String: AnyObject] {
-        let dic : [String: AnyObject]  = [
+        let dic: [String: AnyObject] = [
                 "email": email,
                 "symbolCode": String(symbolCode)]
 

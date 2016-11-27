@@ -22,7 +22,7 @@ let appPackageName = NSBundle.mainBundle().bundleIdentifier
 var isSimulator: Bool {
     return TARGET_OS_SIMULATOR != 0 // Use this line in Xcode 7 or newer
 }
-let isIpad :Bool = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Pad)
+let isIpad: Bool = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Pad)
 
 
 var buildDate: NSDate {
@@ -139,7 +139,7 @@ public class Utils {
             okTitle = Strings.Ok.localized()
         }
         alert.delegate = delegate
-        
+
         alert.showAlertInView(inView,
                 withTitle: title,
                 withSubtitle: details,

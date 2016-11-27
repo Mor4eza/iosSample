@@ -70,6 +70,7 @@ struct UIConstants {
     static let symDetailsSegue = "symDetailsSegue"
     static let IndexDetailSegue = "IndexDetailSegue"
     static let AlarmSegue = "alarmSegue"
+    static let forgetPasswordSegue = "forgetPasswordSegue"
 
 
     //MARK: Images

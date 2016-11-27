@@ -19,7 +19,7 @@ class BaseViewController: UIViewController, ENSideMenuDelegate, FCAlertViewDeleg
     var networkAlert: FCAlertView?
     var timeoutAlert: FCAlertView?
     var serviceUnreachableAlert: FCAlertView?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,20 +36,20 @@ class BaseViewController: UIViewController, ENSideMenuDelegate, FCAlertViewDeleg
 
         SwiftEventBus.onMainThread(self, name: NetworkErrorAlert) {
             result in
-            if !BaseViewController.isNetworkAlertShown{
+            if !BaseViewController.isNetworkAlertShown {
                 BaseViewController.isNetworkAlertShown = true
                 self.networkAlert = Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.noInternet.localized(), delegate: self)
             }
-            
+
         }
         SwiftEventBus.onMainThread(self, name: TimeOutErrorAlert) {
             result in
-            if !BaseViewController.isNetworkAlertShown{
+            if !BaseViewController.isNetworkAlertShown {
                 BaseViewController.isNetworkAlertShown = true
                 self.timeoutAlert = Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.ConnectionTimeOut.localized(), delegate: self)
             }
         }
-        
+
         SwiftEventBus.onMainThread(self, name: ServerErrorAlert) {
             result in
             if !BaseViewController.isNetworkAlertShown {
@@ -114,12 +114,12 @@ class BaseViewController: UIViewController, ENSideMenuDelegate, FCAlertViewDeleg
 
     func updateServiceData() {
     }
-    
+
     //MARK : - FCAlertView Delegate
-    
+
     func FCAlertViewDismissed(alertView: FCAlertView!) {
         if (alertView == networkAlert || alertView == timeoutAlert || alertView == serviceUnreachableAlert) {
-           BaseViewController.isNetworkAlertShown = false
+            BaseViewController.isNetworkAlertShown = false
         }
     }
 }

@@ -17,6 +17,9 @@ class BuyInfoCell: UITableViewCell {
     @IBOutlet weak var btnEdit: UIButton!
 
     @IBOutlet weak var btnDelete: UIButton!
+
+    @IBOutlet weak var backgroundLayer: UIView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

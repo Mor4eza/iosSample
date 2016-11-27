@@ -9,7 +9,7 @@
 import UIKit
 
 class AlarmDataCell: UITableViewCell {
-    
+
     //MARK : - Properties
 
     @IBOutlet weak var lblSymbol: UILabel!
@@ -19,10 +19,10 @@ class AlarmDataCell: UITableViewCell {
     @IBOutlet weak var btnEdit: UIButton!
 
     @IBOutlet weak var btnDelete: UIButton!
-    
+
     @IBOutlet weak var backgroundLayer: UIView!
-    
-    
+
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

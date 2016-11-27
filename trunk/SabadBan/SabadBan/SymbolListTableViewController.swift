@@ -15,7 +15,7 @@ class SymbolListTableViewController: BaseTableViewController {
     var numberSortCondiiton = SortCondition.notSorted
     var volumeSortCondiiton = SortCondition.notSorted
     var symbolSortCondiiton = SortCondition.notSorted
-    
+
     var isScrolling = false
 
     var headerView: SymbolListHeader!
@@ -25,8 +25,8 @@ class SymbolListTableViewController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
+
         tableView.registerNib(UINib(nibName: UIConstants.SymbolListHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.SymbolListHeader)
 
         self.tableView.tableFooterView = UIView()
@@ -58,15 +58,15 @@ class SymbolListTableViewController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.symbolCell, forIndexPath: indexPath) as! SymbolCell
-        
+
 //        dispatch_async(dispatch_get_main_queue()){
-            cell.initReuseCell(self.symbolDetailsList[indexPath.row], indexPathRow: indexPath.row)
+        cell.initReuseCell(self.symbolDetailsList[indexPath.row], indexPathRow: indexPath.row)
 //        }
-        
+
 
         return cell
     }
-    
+
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if symbolDetailsList.count == 0 {
             return 0
@@ -249,8 +249,8 @@ class SymbolListTableViewController: BaseTableViewController {
     override func updateServiceData() {
         getSymbolListByIndex()
     }
-    
-    
+
+
 //    func visibleCellsShouldRasterize(aBool:Bool){
 //        for cell in tableView.visibleCells as [UITableViewCell]{
 //            cell.layer.shouldRasterize = aBool;

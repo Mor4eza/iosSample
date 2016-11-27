@@ -261,7 +261,7 @@ public class ENSideMenu: NSObject, UIGestureRecognizerDelegate {
         let menuFrame = CGRectMake(
                 (menuPosition == .Left) ?
                 isMenuOpen ? 0 : -menuWidth - 1.0 :
-                isMenuOpen ? width - menuWidth : width + 1.0,
+                isMenuOpen ? width - menuWidth:width + 1.0,
                 sourceView.frame.origin.y,
                 isMenuOpen ? 0 : menuWidth + 2000,
                 height
@@ -271,8 +271,8 @@ public class ENSideMenu: NSObject, UIGestureRecognizerDelegate {
 
     private func adjustFrameDimensions(width: CGFloat, height: CGFloat) -> (CGFloat, CGFloat) {
         if floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1 &&
-                (UIApplication.sharedApplication().statusBarOrientation == UIInterfaceOrientation.LandscapeRight ||
-                        UIApplication.sharedApplication().statusBarOrientation == UIInterfaceOrientation.LandscapeLeft) {
+        (UIApplication.sharedApplication().statusBarOrientation == UIInterfaceOrientation.LandscapeRight ||
+        UIApplication.sharedApplication().statusBarOrientation == UIInterfaceOrientation.LandscapeLeft) {
             // iOS 7.1 or lower and landscape mode -> interchange width and height
             return (height, width)
         } else {
@@ -477,7 +477,7 @@ public class ENSideMenu: NSObject, UIGestureRecognizerDelegate {
 
         default:
 
-            let shouldClose = menuPosition == .Left ? !leftToRight && CGRectGetMaxX(sideMenuContainerView.frame) < menuWidth : leftToRight && CGRectGetMinX(sideMenuContainerView.frame) > (sourceView.frame.size.width - menuWidth)
+            let shouldClose = menuPosition == .Left ? !leftToRight && CGRectGetMaxX(sideMenuContainerView.frame) < menuWidth :leftToRight && CGRectGetMinX(sideMenuContainerView.frame) > (sourceView.frame.size.width - menuWidth)
 
             toggleMenu(!shouldClose)
 

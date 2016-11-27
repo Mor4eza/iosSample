@@ -17,19 +17,21 @@ import UIKit
 import Foundation
 
 
-public class LoadingOverlay{
-    
+public class LoadingOverlay {
+
     var overlayView = UIView()
     var activityIndicator = UIActivityIndicatorView()
     var isShown = Bool()
-    
+
     class var shared: LoadingOverlay {
+
         struct Static {
             static let instance: LoadingOverlay = LoadingOverlay()
         }
+
         return Static.instance
     }
-    
+
     public func showOverlay(view: UIView!) {
         if !isShown {
             overlayView = UIView(frame: UIScreen.mainScreen().bounds)
@@ -42,7 +44,7 @@ public class LoadingOverlay{
             isShown = true
         }
     }
-    
+
     public func hideOverlayView() {
         activityIndicator.stopAnimating()
         overlayView.removeFromSuperview()
