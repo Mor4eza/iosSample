@@ -47,7 +47,11 @@ class portfolioCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
+        
+//        self.contentView.transform = CGAffineTransformMakeScale(-1, 1)
+        
+        
         lblsymbolTitle.setDefaultFont()
         lblSymbolValue.setDefaultFont()
         lblLastValueTitle.setDefaultFont()
@@ -80,13 +84,13 @@ class portfolioCell: UITableViewCell {
         lblSellQuotValue.text = smData.benchmarkSales.currencyFormat(2)
         if smData.todayProfit > 0 {
             lblTodayValue.textColor = UIColor.greenColor()
-        } else {
+        } else if smData.todayProfit < 0 {
             lblTodayValue.textColor = UIColor.redColor()
         }
         
         if smData.totalProfit > 0 {
             lblOverValue.textColor = UIColor.greenColor()
-        } else {
+        } else if smData.totalProfit < 0 {
             lblOverValue.textColor = UIColor.redColor()
         }
         
@@ -98,8 +102,8 @@ class portfolioCell: UITableViewCell {
             lblEndChanges.textColor = UIColor.redColor()
         }
         
-        lblTodayValue.text = smData.todayProfit.currencyFormat(2)
-        lblOverValue.text = smData.totalProfit.currencyFormat(2)
+        lblTodayValue.text = abs(smData.todayProfit).currencyFormat(2)
+        lblOverValue.text = abs(smData.totalProfit).currencyFormat(2)
         lblEndValue.text = smData.lastTradePrice.currencyFormat(2)
         lblEndChanges.text = abs(smData.lastTradePriceChange).currencyFormat(2) + " (%" + String(abs(smData.lastTradePriceChangePercent.roundToPlaces(2))) + ")"
         if smData.status == "IS" {

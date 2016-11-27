@@ -160,9 +160,9 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             showAlert(Strings.passwordLengthError)
         } else {
             if isSimulator {
-                sendLoginRequest(txtUserName.text!, password: txtPassword.text!, pushToken: Strings.SimulatorPushToken)
+                sendLoginRequest(txtUserName.text!, password: txtPassword.text!, pushToken: Strings.SimulatorPushToken,guest: false)
             } else {
-                sendLoginRequest(txtUserName.text!, password: txtPassword.text!, pushToken: PushToken)
+                sendLoginRequest(txtUserName.text!, password: txtPassword.text!, pushToken: PushToken,guest: false)
             }
         }
     }
