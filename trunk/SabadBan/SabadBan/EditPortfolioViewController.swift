@@ -22,6 +22,7 @@ class EditPortfolioViewController: BaseTableViewController {
         self.navigationItem.rightBarButtonItem = nil
         self.navigationItem.leftBarButtonItem = nil
         etTitle.text = portfolioName
+        etTitle.maxLength = 30
         etTitle.changeDirection()
         let rightBarButton = UIBarButtonItem(image: UIImage(named: UIConstants.icDone), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(doneClicked))
         self.navigationItem.leftBarButtonItem = rightBarButton

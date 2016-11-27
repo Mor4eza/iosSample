@@ -15,7 +15,7 @@ import Alamofire_Gloss
 import KCFloatingActionButton
 import FCAlertView
 
-class PortfolioListViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, KCFloatingActionButtonDelegate {
+class PortfolioListViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, KCFloatingActionButtonDelegate{
     let db = DataBase()
     var currentPortfolioIndex = 0
     var currentPortfolio: Portfolio?
@@ -42,7 +42,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
     @IBOutlet weak var lblLastUpdate: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        self.tblPortfolio.transform = CGAffineTransformMakeScale(-1, 1)
         self.currentPortfolioIndex = defaults.integerForKey("currentPortfolioIndex")
         
         self.tblPortfolio.backgroundView?.backgroundColor = AppBackgroundLight
@@ -59,6 +59,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
         self.tblPortfolio.addSubview(refreshControl)
         
         initFAB()
+        
     }
     
     func refresh(sender: AnyObject) {
@@ -99,15 +100,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
         }
         
         loadSymbolsFromDb()
-        changeFabState()
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        SwiftEventBus.unregister(self)
         
-    }
-    
-    func changeFabState() {
         if portfolios.count == 0 {
             addPortfolio.hidden = false
             editPortfolio.hidden = true
@@ -128,6 +121,12 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
             }
         }
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        SwiftEventBus.unregister(self)
+        
+    }
+    
     
     //MARK: - TableView Delegate
     
@@ -153,7 +152,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         // 1
-        let buyInformation = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: Strings.BuyInformation.localized(), handler: {
+        let buyInformation = UITableViewRowAction(style: .Default, title: Strings.BuyInformation.localized(), handler: {
             (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
             SwiftEventBus.onMainThread(self, name: BestBuyClosed) {
                 result in
@@ -164,9 +163,9 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
             SelectedSymbolCode = self.smData[indexPath.row].symbolCode
             self.selectedSymbolPrice = self.smData[indexPath.row].benchmarkBuy
             self.performSegueWithIdentifier(UIConstants.buyInfoSegue, sender: nil)
+            self.tblPortfolio.editing = false
             
         })
-        
         return [buyInformation]
     }
     
@@ -247,7 +246,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
             self.currentPortfolioIndex = indexPath
             debugPrint("currentPortfolio\(self.currentPortfolio!.portfolioCode)")
 //            self.defaults.setValue(self.currentPortfolio?.portfolioName, forKey: "currentPortfolioName" )
-            self.defaults.setInteger(self.currentPortfolioIndex, forKey: "currentPortfolioIndex")
+            self.defaults.setInteger(self.currentPortfolioIndex, forKey: "currentPortfolioIndex" )
             self.loadSymbolsFromDb()
         }
         
@@ -284,6 +283,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
             func configurationTextField(textField: UITextField!) {
                 textField.placeholder = Strings.EnterPortfolioName.localized()
                 textField.changeDirection()
+                textField.maxLength = 30
                 tField = textField
             }
             
@@ -299,21 +299,13 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
                 (UIAlertAction) in
                 
                 if !(tField.text?.isEmpty)! {
-                    
-                    if tField.text?.characters.count > 30 {
-                        
-                        Utils.ShowAlert(self, title: Strings.Attention.localized(), details: "نام پرتفوی نباید بیش از ۳۰ کاراکتر باشد.", btnOkTitle: Strings.Ok.localized())
-                        
-                        return
-                    }
-                    
                     for i in 0 ..< self.portfolios.count {
                         if (tField.text == self.portfolios[i].portfolioName) {
                             Utils.ShowAlert(self, title: Strings.Attention.localized(), details: "نام پرتفوی تکراری است.", btnOkTitle: Strings.Ok.localized())
                             return
                         }
                     }
-                    self.db.addPortfolio(tField.text!.trim(), userId: LogedInUserId)
+                    self.db.addPortfolio(tField.text!, userId: LogedInUserId)
                     self.portfolios = self.db.getPortfolioList(LogedInUserId)
                     self.currentPortfolio = self.portfolios.last!
                     self.initNavigationTitle()
@@ -365,6 +357,9 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
         fab.addItem(item: searchSymbol)
         fab.addItem(item: editPortfolio)
         fab.addItem(item: deletePortfolio)
+        
+        
+        
         
         addPortfolio.hidden = true
         self.view.addSubview(fab)
@@ -484,7 +479,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
             let nav = segue.destinationViewController as! UINavigationController
             let addVC = nav.topViewController as! SearchSeymbolTableView
             addVC.isSearch = searchableSymbols
-
+            //            addVC.isFirstTime = isFirstTime
             addVC.singleSelection = true
             addVC.pCode = currentPortfolio!.portfolioCode
             addVC.symbols = symbols
@@ -494,7 +489,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
             let nav = segue.destinationViewController as! UINavigationController
             let addVC = nav.topViewController as! SearchSeymbolTableView
             addVC.isSearch = searchableSymbols
-
+            //            addVC.isFirstTime = isFirstTime
             addVC.singleSelection = false
             addVC.pCode = currentPortfolio!.portfolioCode
             addVC.symbols = symbols
@@ -504,7 +499,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
             let nav = segue.destinationViewController as! UINavigationController
             let addVC = nav.topViewController as! SearchSeymbolTableView
             addVC.isSearch = searchableSymbols
-
+            //            addVC.isFirstTime = isFirstTime
             addVC.singleSelection = true
             addVC.pCode = currentPortfolio!.portfolioCode
             addVC.symbols = symbols
@@ -521,13 +516,11 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
         
         if (currentPortfolioIndex > 0) {
             currentPortfolioIndex = currentPortfolioIndex - 1
-            self.defaults.setInteger(self.currentPortfolioIndex, forKey: "currentPortfolioIndex")
         }
         
         getCurrentPortfolio()
         loadSymbolsFromDb()
         initNavigationTitle()
-        changeFabState()
     }
     
     override func updateServiceData() {
