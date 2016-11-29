@@ -11,6 +11,8 @@ import Alamofire
 
 class IndexTableViewController: BaseTableViewController {
 
+    //MARK : - Properties
+    
     var indexNames = [String]()
     var indexPrice = [Double]()
     var indexPercent = [Float]()
@@ -18,10 +20,11 @@ class IndexTableViewController: BaseTableViewController {
     var selectedIndexCode = String()
     var selectedIndexName = String()
     var lastUpdateTime = NSMutableAttributedString()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         super.addMenuButton()
-        setTexts()
         tableView.registerNib(UINib(nibName: UIConstants.IndexHeader, bundle: nil), forHeaderFooterViewReuseIdentifier: UIConstants.IndexHeader)
 
         self.tableView.tableFooterView = UIView()
@@ -31,12 +34,13 @@ class IndexTableViewController: BaseTableViewController {
         refreshControl!.addTarget(self, action: #selector(IndexTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
         getIndexList()
-
+        getMarketActivity()
 
     }
 
     func refresh(sender: AnyObject) {
         getIndexList()
+        getMarketActivity()
     }
 
     // MARK: - Table view data source
@@ -96,11 +100,8 @@ class IndexTableViewController: BaseTableViewController {
 
     }
 
-    func setTexts() {
-        self.title = Strings.Index.localized()
-    }
-
-    // MARK: - Service
+    // MARK: - Services
+    
     func getIndexList() {
 
         refreshControl?.beginRefreshing()
@@ -135,6 +136,44 @@ class IndexTableViewController: BaseTableViewController {
             self.refreshControl?.endRefreshing()
         }
     }
+    
+    func getMarketActivity() {
+        let url = AppTadbirUrl + URLS["getMarketActivity"]!
+        
+        // Fetch Request
+        Request.postData(url) {
+            (marketInfo: MainResponse<MarketActivityModel>?, error) in
+            if ((marketInfo?.successful) != nil) {
+                var marketStatusString: String!
+                var marketColor: UIColor!
+                if marketInfo?.response.marketStatusEn == "OPEN" {
+                    marketStatusString = "باز"
+                    marketColor = UIColor(hue: 0.3333, saturation: 1, brightness: 0.6, alpha: 1.0)
+                } else {
+                    marketStatusString = "بسته"
+                    marketColor = UIColor.redColor()
+                }
+
+                if let marketView = NSBundle.mainBundle().loadNibNamed(UIConstants.MarketActivityButtonView, owner: self, options: nil).first as? MarketActivityButtonView {
+                    
+                    marketView.txtMarketActivityTitle.setDefaultFont(14)
+                    marketView.txtMarketActivityValue.setDefaultFont(14)
+                    
+                    marketView.txtMarketActivityTitle.text = "\(Strings.status.localized()):"
+                    marketView.txtMarketActivityValue.text = marketStatusString
+                    
+                    marketView.backgroundLayer.backgroundColor = marketColor
+                    marketView.frame = CGRect(x: 0, y: 0, width: 130, height: 30)
+                    marketView.cornerRadius = 3
+                    self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: marketView)
+                }
+                
+            } else {
+                debugPrint(error)
+            }
+            
+        }
+    }
 
     // MARK: - Navigation
 
@@ -156,6 +195,7 @@ class IndexTableViewController: BaseTableViewController {
 
     override func updateServiceData() {
         getIndexList()
+        getMarketActivity()
     }
 
 }

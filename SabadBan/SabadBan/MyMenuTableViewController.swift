@@ -25,6 +25,7 @@ class MyMenuTableViewController: BaseTableViewController {
         tableView.backgroundColor = UIColor.clearColor()
         tableView.scrollsToTop = false
         tableView.bounces = false
+        
         // Preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
 
@@ -71,6 +72,7 @@ class MyMenuTableViewController: BaseTableViewController {
         selectedBackgroundView.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.2)
         selectedBackgroundView.tintColor = UIColor.redColor()
         cell.selectedBackgroundView = selectedBackgroundView
+        cell.selectionStyle = .None
 
         switch indexPath.row {
         case 0:

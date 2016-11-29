@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MarketActivityButtonView" customModule="SabadBanDev" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="291" height="43"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oQb-Si-SNg">
+                    <rect key="frame" x="0.0" y="0.0" width="291" height="43"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwE-Lf-7X9">
+                            <rect key="frame" x="0.0" y="2" width="146" height="41"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xli-sb-6GP">
+                            <rect key="frame" x="146" y="2" width="145" height="41"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="NwE-Lf-7X9" secondAttribute="bottom" id="8ai-jY-ZEh"/>
+                        <constraint firstAttribute="bottom" secondItem="Xli-sb-6GP" secondAttribute="bottom" id="CI9-Hx-d7m"/>
+                        <constraint firstItem="NwE-Lf-7X9" firstAttribute="leading" secondItem="oQb-Si-SNg" secondAttribute="leading" id="EnX-of-gqQ"/>
+                        <constraint firstAttribute="trailing" secondItem="Xli-sb-6GP" secondAttribute="trailing" id="FML-Gn-gWK"/>
+                        <constraint firstItem="NwE-Lf-7X9" firstAttribute="width" secondItem="oQb-Si-SNg" secondAttribute="width" multiplier="1:2" id="XNw-JP-X02"/>
+                        <constraint firstItem="Xli-sb-6GP" firstAttribute="top" secondItem="oQb-Si-SNg" secondAttribute="top" constant="2" id="caC-dF-LZE"/>
+                        <constraint firstItem="NwE-Lf-7X9" firstAttribute="top" secondItem="oQb-Si-SNg" secondAttribute="top" constant="2" id="j6a-le-CnF"/>
+                        <constraint firstItem="Xli-sb-6GP" firstAttribute="width" secondItem="oQb-Si-SNg" secondAttribute="width" multiplier="1:2" id="v3d-3q-tI4"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="oQb-Si-SNg" secondAttribute="bottom" id="24y-33-eGC"/>
+                <constraint firstItem="oQb-Si-SNg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hYd-8S-PQE"/>
+                <constraint firstAttribute="trailing" secondItem="oQb-Si-SNg" secondAttribute="trailing" id="loL-Mk-4QD"/>
+                <constraint firstItem="oQb-Si-SNg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tEf-My-kDF"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backgroundLayer" destination="oQb-Si-SNg" id="3ac-XT-nSA"/>
+                <outlet property="txtMarketActivityTitle" destination="Xli-sb-6GP" id="eCQ-tg-yc8"/>
+                <outlet property="txtMarketActivityValue" destination="NwE-Lf-7X9" id="V5a-8i-bwZ"/>
+            </connections>
+            <point key="canvasLocation" x="245.5" y="-346.5"/>
+        </view>
+    </objects>
+</document>

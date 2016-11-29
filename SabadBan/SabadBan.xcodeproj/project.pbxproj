@@ -26,6 +26,12 @@
 		8477D90C1D856D04006BBFCE /* MGBuildDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477D90B1D856D04006BBFCE /* MGBuildDate.m */; };
 		848FA3D61DDC6A4100B1528F /* SabadBanDevUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848FA3D51DDC6A4100B1528F /* SabadBanDevUITests.swift */; };
 		84A34BF61D7EF5E600B02A8D /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A34BF51D7EF5E600B02A8D /* AlamofireRequest.swift */; };
+		84AD196C1DED63ED0027DF07 /* MarketActivityButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD196B1DED63ED0027DF07 /* MarketActivityButtonView.swift */; };
+		84AD196D1DED63ED0027DF07 /* MarketActivityButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD196B1DED63ED0027DF07 /* MarketActivityButtonView.swift */; };
+		84AD196E1DED63ED0027DF07 /* MarketActivityButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD196B1DED63ED0027DF07 /* MarketActivityButtonView.swift */; };
+		84AD19701DED64340027DF07 /* MarketActivityButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AD196F1DED64340027DF07 /* MarketActivityButtonView.xib */; };
+		84AD19711DED64340027DF07 /* MarketActivityButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AD196F1DED64340027DF07 /* MarketActivityButtonView.xib */; };
+		84AD19721DED64340027DF07 /* MarketActivityButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AD196F1DED64340027DF07 /* MarketActivityButtonView.xib */; };
 		84B6DCC91DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCC81DBB787500D93B4F /* ForgetPasswordViewController.swift */; };
 		84B6DCCA1DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCC81DBB787500D93B4F /* ForgetPasswordViewController.swift */; };
 		84B6DCCB1DBB787500D93B4F /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B6DCC81DBB787500D93B4F /* ForgetPasswordViewController.swift */; };
@@ -467,6 +473,8 @@
 		848FA3D51DDC6A4100B1528F /* SabadBanDevUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SabadBanDevUITests.swift; sourceTree = "<group>"; };
 		848FA3D71DDC6A4200B1528F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84A34BF51D7EF5E600B02A8D /* AlamofireRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
+		84AD196B1DED63ED0027DF07 /* MarketActivityButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketActivityButtonView.swift; sourceTree = "<group>"; };
+		84AD196F1DED64340027DF07 /* MarketActivityButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarketActivityButtonView.xib; sourceTree = "<group>"; };
 		84B6DCC81DBB787500D93B4F /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		84B6DCCD1DBB957700D93B4F /* ForgetPasswordResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordResponse.swift; sourceTree = "<group>"; };
 		84B6DCD11DBB97C600D93B4F /* ForgetPasswordResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordResult.swift; sourceTree = "<group>"; };
@@ -1230,6 +1238,8 @@
 				7CAF1DC11D8BFBFB003E22A4 /* MarketDetailsCell.swift */,
 				7CAF1DC61D8C3294003E22A4 /* MarketDetailsHeader.swift */,
 				7CAF1DC81D8C3362003E22A4 /* MarketDetailsHeader.xib */,
+				84AD196B1DED63ED0027DF07 /* MarketActivityButtonView.swift */,
+				84AD196F1DED64340027DF07 /* MarketActivityButtonView.xib */,
 			);
 			name = Index;
 			sourceTree = "<group>";
@@ -1559,6 +1569,7 @@
 				9476FB561DBB425700B923D6 /* BuyInformationView.xib in Resources */,
 				94A4B3981DC49D5D00FBDB39 /* AlarmDataHeader.xib in Resources */,
 				946B21121DBF912500FD2EFD /* PortfolioHeader.xib in Resources */,
+				84AD19711DED64340027DF07 /* MarketActivityButtonView.xib in Resources */,
 				9476FB571DBB425700B923D6 /* BuyInfoCell.xib in Resources */,
 				9476FB581DBB425700B923D6 /* menuHeader.xib in Resources */,
 			);
@@ -1587,6 +1598,7 @@
 				9476FBDC1DBB425B00B923D6 /* BuyInformationView.xib in Resources */,
 				94A4B3991DC49D5D00FBDB39 /* AlarmDataHeader.xib in Resources */,
 				946B21131DBF912500FD2EFD /* PortfolioHeader.xib in Resources */,
+				84AD19721DED64340027DF07 /* MarketActivityButtonView.xib in Resources */,
 				9476FBDD1DBB425B00B923D6 /* BuyInfoCell.xib in Resources */,
 				9476FBDE1DBB425B00B923D6 /* menuHeader.xib in Resources */,
 			);
@@ -1610,6 +1622,7 @@
 				949BEE571D72A51C008FA574 /* Main.storyboard in Resources */,
 				94283BA91DAA50F200339914 /* SymbolBestBuyAndCellHeader.xib in Resources */,
 				94A4B3971DC49D5D00FBDB39 /* AlarmDataHeader.xib in Resources */,
+				84AD19701DED64340027DF07 /* MarketActivityButtonView.xib in Resources */,
 				7CAF1DC91D8C3362003E22A4 /* MarketDetailsHeader.xib in Resources */,
 				941F7D031DA26C5D00FE5617 /* GoogleService-Info.plist in Resources */,
 				949BEE961D72ADB4008FA574 /* IRANSans.ttf in Resources */,
@@ -2214,6 +2227,7 @@
 				9476FB291DBB425700B923D6 /* MyAlert.swift in Sources */,
 				94A4B37A1DC4968300FBDB39 /* DeleteAlarmRequest.swift in Sources */,
 				9476FB2A1DBB425700B923D6 /* TotemStyles.swift in Sources */,
+				84AD196D1DED63ED0027DF07 /* MarketActivityButtonView.swift in Sources */,
 				9476FB2B1DBB425700B923D6 /* BaseTableViewController.swift in Sources */,
 				9476FB2C1DBB425700B923D6 /* ContactUsRequest.swift in Sources */,
 				9476FB2D1DBB425700B923D6 /* DetailsViewController.swift in Sources */,
@@ -2339,6 +2353,7 @@
 				9476FBAF1DBB425B00B923D6 /* MyAlert.swift in Sources */,
 				94A4B37B1DC4968300FBDB39 /* DeleteAlarmRequest.swift in Sources */,
 				9476FBB01DBB425B00B923D6 /* TotemStyles.swift in Sources */,
+				84AD196E1DED63ED0027DF07 /* MarketActivityButtonView.swift in Sources */,
 				9476FBB11DBB425B00B923D6 /* BaseTableViewController.swift in Sources */,
 				9476FBB21DBB425B00B923D6 /* ContactUsRequest.swift in Sources */,
 				9476FBB31DBB425B00B923D6 /* DetailsViewController.swift in Sources */,
@@ -2464,6 +2479,7 @@
 				949BEE7C1D72A7C4008FA574 /* ENSideMenu.swift in Sources */,
 				949BEE731D72A799008FA574 /* MyAlert.swift in Sources */,
 				94C59CCC1D9A52120036CF4A /* TotemStyles.swift in Sources */,
+				84AD196C1DED63ED0027DF07 /* MarketActivityButtonView.swift in Sources */,
 				949BEE8A1D72A883008FA574 /* BaseTableViewController.swift in Sources */,
 				945E61531D9FF63500FDB549 /* ContactUsRequest.swift in Sources */,
 				949BEEB91D731235008FA574 /* DetailsViewController.swift in Sources */,

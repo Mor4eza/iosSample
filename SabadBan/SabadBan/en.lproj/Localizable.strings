@@ -155,7 +155,7 @@
 "pleaseEnterName" = "Please Enter Your Name!";
 "pleaseEnterSubject" = "Please Enter Message Subject";
 "pleaseEnterDetails" = "Please Enter Message Description";
-
+"messageSentSuccessfully" = "messageSentSuccessfully";
 
 //MARK: - Forget Password Strings
 

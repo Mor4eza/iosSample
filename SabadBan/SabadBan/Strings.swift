@@ -138,7 +138,9 @@ struct Strings {
     static let ConnectionTimeOut = "ConnectionTimeOut"
     static let serviceIsUnreachable = "serviceIsUnreachable"
     static let lastUpdate = "lastUpdate"
+    
     //MARK: - Symbol Details
+    
     static let bestBuyTitle = "bestBuyTitle"
     static let bestSellTitle = "bestSellTitle"
     static let LastPriceTitle = "LastPriceTitle"
@@ -162,6 +164,7 @@ struct Strings {
     static let pleaseEnterName = "pleaseEnterName"
     static let pleaseEnterSubject = "pleaseEnterSubject"
     static let pleaseEnterDetails = "pleaseEnterDetails"
+    static let messageSentSuccessfully = "messageSentSuccessfully"
 
     //MARK: - Forget Password Strings
 
