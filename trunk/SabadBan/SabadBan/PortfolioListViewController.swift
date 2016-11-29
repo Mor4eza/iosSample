@@ -49,7 +49,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.tblPortfolio.transform = CGAffineTransformMakeScale(-1, 1)
+
         self.currentPortfolioIndex = defaults.integerForKey("currentPortfolioIndex")
 
         self.tblPortfolio.backgroundView?.backgroundColor = AppBackgroundLight
@@ -543,6 +543,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
             menuView.hide()
         }
     }
+
 }
 
 //MARK:- Symbol Data Model

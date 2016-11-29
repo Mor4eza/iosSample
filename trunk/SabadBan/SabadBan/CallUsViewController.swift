@@ -8,8 +8,11 @@
 
 import UIKit
 import Alamofire
+import FCAlertView
 
 class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
+    
+    //MARK : - Properties
 
     let imagePicker = UIImagePickerController()
     @IBOutlet weak var imgCrash: UIImageView!
@@ -26,6 +29,8 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
 
     @IBOutlet weak var btnDelete: UIButton!
     @IBOutlet weak var btnInfo: UIButton!
+    
+    var successAlert: FCAlertView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -207,7 +212,7 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
                     response in
                     debugPrint(response)
 
-                    Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.Successful.localized())
+                    self.successAlert = Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.messageSentSuccessfully.localized(), delegate: self)
                     self.btnSend.enabled = true
                     progress.stopAnimating()
                     self.initViews()
@@ -221,6 +226,18 @@ class CallUsViewController: BaseViewController, UIImagePickerControllerDelegate,
         }
                 )
 
+    }
+    
+    override func FCAlertViewDismissed(alertView: FCAlertView!) {
+        super.FCAlertViewDismissed(alertView)
+        
+        if alertView == successAlert {
+//            dismissViewControllerAnimated(true, completion: nil)
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: UIConstants.Main, bundle: nil)
+            let destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.indexTableViewController)
+            sideMenuController()?.setContentViewController(destViewController)
+        }
+        
     }
 
 }

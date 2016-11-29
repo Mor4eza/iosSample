@@ -50,25 +50,26 @@ class portfolioCell: UITableViewCell {
 
 
 //        self.contentView.transform = CGAffineTransformMakeScale(-1, 1)
+        
+        let fontSize = CGFloat(12)
 
-
-        lblsymbolTitle.setDefaultFont()
-        lblSymbolValue.setDefaultFont()
-        lblLastValueTitle.setDefaultFont()
-        lblLastPriceValue.setDefaultFont()
-        lblBuyQuotTitle.setDefaultFont()
-        lblBuyQuotValue.setDefaultFont()
-        lblOverTitle.setDefaultFont()
-        lblOverValue.setDefaultFont()
-        lblEndTitle.setDefaultFont()
-        lblEndValue.setDefaultFont()
-        lblEndChanges.setDefaultFont()
-        lblSellQuotValue.setDefaultFont()
-        lblSellQuotTitle.setDefaultFont()
-        lblTodayValue.setDefaultFont()
-        lblTodayTitle.setDefaultFont()
-        lblStatusTitle.setDefaultFont()
-        lblStatusValue.setDefaultFont()
+        lblsymbolTitle.setDefaultFont(fontSize)
+        lblSymbolValue.setDefaultFont(fontSize)
+        lblLastValueTitle.setDefaultFont(fontSize)
+        lblLastPriceValue.setDefaultFont(fontSize)
+        lblBuyQuotTitle.setDefaultFont(fontSize)
+        lblBuyQuotValue.setDefaultFont(fontSize)
+        lblOverTitle.setDefaultFont(fontSize)
+        lblOverValue.setDefaultFont(fontSize)
+        lblEndTitle.setDefaultFont(fontSize)
+        lblEndValue.setDefaultFont(fontSize)
+        lblEndChanges.setDefaultFont(fontSize)
+        lblSellQuotValue.setDefaultFont(fontSize)
+        lblSellQuotTitle.setDefaultFont(fontSize)
+        lblTodayValue.setDefaultFont(fontSize)
+        lblTodayTitle.setDefaultFont(fontSize)
+        lblStatusTitle.setDefaultFont(fontSize)
+        lblStatusValue.setDefaultFont(fontSize)
 
         viewStatus.layer.cornerRadius = 6
         viewStatus.layer.masksToBounds = true

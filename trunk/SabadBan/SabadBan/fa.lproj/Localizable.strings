@@ -155,6 +155,7 @@
 "pleaseEnterName" = "لطفا نام خود را وارد کنید.";
 "pleaseEnterSubject" = "لطفا عنوان پیام را وارد کنید.";
 "pleaseEnterDetails" = "لطفا توضیحات را وارد کنید.";
+"messageSentSuccessfully" = "پیام با موفقیت ارسال شد.";
 
 //MARK: - Forget Password Strings
 
