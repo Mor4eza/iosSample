@@ -93,6 +93,15 @@
 "buyInfoDeleted" = "buyInfoDeleted";
 "buyInfoAdded" = "buyInfoDeleted";
 "buyInfoEdited" = "buyInfoDeleted";
+"portfolio_authorized" = "portfolio_authorized";
+"portfolio_authorized_closed" = "portfolio_authorized_closed";
+"portfolio_authorized_stop" = "portfolio_authorized_stop";
+"portfolio_authorized_protected" = "portfolio_authorized_protected";
+"portfolio_forbidden" = "portfolio_forbidden";
+"portfolio_forbidden_closed" = "portfolio_forbidden_closed";
+"portfolio_forbidden_stop" = "portfolio_forbidden_stop";
+"portfolio_forbidden_protected" = "portfolio_forbidden_protected";
+"portfolio_open" = "portfolio_open";
 
 //MARK: - AboutUs Strings
 
