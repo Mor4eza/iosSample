@@ -94,6 +94,15 @@
 "buyInfoDeleted" = "سابقه خرید حذف شد";
 "buyInfoAdded" = "سابقه خرید اضافه شد";
 "buyInfoEdited" = "سابقه خرید ویرایش شد";
+"portfolio_authorized" = "مجاز";
+"portfolio_authorized_closed" = "مجاز-مسدود";
+"portfolio_authorized_stop" = "مجاز-متوقف";
+"portfolio_authorized_protected" = "مجاز-محفوظ";
+"portfolio_forbidden" = "ممنوع";
+"portfolio_forbidden_closed" = "ممنوع-مسدود";
+"portfolio_forbidden_stop" = "ممنوع-متوقف";
+"portfolio_forbidden_protected" = "ممنوع-محفوظ";
+"portfolio_open" = "باز";
 
 //MARK: - AboutUs Strings
 

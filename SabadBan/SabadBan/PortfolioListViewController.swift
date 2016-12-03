@@ -237,12 +237,16 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
         loadPortfolioListsFromDB()
 
         if portfolios.count == 0 {
+            
+            self.navigationItem.titleView = nil
             self.title = Strings.Portfolio.localized()
+            
             return
         } else {
             menuView = BTNavigationDropdownMenu(title: currentPortfolio!.portfolioName, items: portfolioNames)
             menuView.animationDuration = 0.5
             menuView.cellTextLabelAlignment = NSTextAlignment.Center
+            menuView.hidden = false
             self.navigationItem.titleView = menuView
         }
 

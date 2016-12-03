@@ -99,6 +99,15 @@ struct Strings {
     static let buyInfoDeleted = "buyInfoDeleted"
     static let buyInfoAdded = "buyInfoAdded"
     static let buyInfoEdited = "buyInfoEdited"
+    static let portfolio_authorized = "portfolio_authorized";
+    static let portfolio_authorized_closed = "portfolio_authorized_closed";
+    static let portfolio_authorized_stop = "portfolio_authorized_stop";
+    static let portfolio_authorized_protected = "portfolio_authorized_protected";
+    static let portfolio_forbidden = "portfolio_forbidden";
+    static let portfolio_forbidden_closed = "portfolio_forbidden_closed";
+    static let portfolio_forbidden_stop = "portfolio_forbidden_stop";
+    static let portfolio_forbidden_protected = "portfolio_forbidden_protected";
+    static let portfolio_open = "portfolio_open";
 
     //MARK: - AboutUs Strings
 
