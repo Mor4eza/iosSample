@@ -126,10 +126,6 @@ class BourseNewsTableViewController: BaseTableViewController {
         }
     }
 
-    override func sideMenuShouldOpenSideMenu() -> Bool {
-        return false
-    }
-
     override func updateServiceData() {
         servicePage = 0
         newsCount = 0

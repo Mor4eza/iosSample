@@ -5,6 +5,7 @@ PODS:
   - Alamofire-Gloss/Core (1.0.1):
     - Alamofire (~> 3.4)
     - Gloss (~> 0.7)
+  - BRYXBanner (0.2.1)
   - BTNavigationDropdownMenu (0.4.1)
   - FCAlertView (1.0.7)
   - Firebase (3.6.0):
@@ -46,6 +47,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Alamofire-Gloss
+  - BRYXBanner (from `https://github.com/bryx-inc/BRYXBanner.git`, branch `swift-2`)
   - BTNavigationDropdownMenu
   - FCAlertView
   - Firebase
@@ -57,11 +59,17 @@ DEPENDENCIES:
   - SwiftEventBus
 
 EXTERNAL SOURCES:
+  BRYXBanner:
+    :branch: swift-2
+    :git: https://github.com/bryx-inc/BRYXBanner.git
   KCFloatingActionButton:
     :branch: swift2.0
     :git: https://github.com/kciter/KCFloatingActionButton.git
 
 CHECKOUT OPTIONS:
+  BRYXBanner:
+    :commit: 40e86ad750fc89070b56c439ab84b0eb70954313
+    :git: https://github.com/bryx-inc/BRYXBanner.git
   KCFloatingActionButton:
     :commit: b7da1afe045ad1f27099353ba7ad4ce6e8229137
     :git: https://github.com/kciter/KCFloatingActionButton.git
@@ -69,6 +77,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
   Alamofire-Gloss: e22525bc86605d72e8d41b249cd3a5c8ba610dc4
+  BRYXBanner: 1d2f3bf8fd9244b4edab30be944f0de00a2e5a87
   BTNavigationDropdownMenu: 093f3cbfad1572f2c222bdf8d17584d1e13380d4
   FCAlertView: dfdf853e3815aec845bf339bb25235c1ae90823d
   Firebase: 34187200ef4979dbd485c7aa685ef078bf587c86
@@ -86,6 +95,6 @@ SPEC CHECKSUMS:
   SQLite.swift: 6a6e4b034efc317ce4e203b6af2d3024fee2b570
   SwiftEventBus: d33b51752d4e3e994f0ea7b31873f0beca7eada0
 
-PODFILE CHECKSUM: 76893215b35201b25ba76594a483557face18fac
+PODFILE CHECKSUM: 67bb574092f7efcabdf337d7299322b3968a370a
 
 COCOAPODS: 1.0.0

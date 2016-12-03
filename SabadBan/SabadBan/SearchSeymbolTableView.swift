@@ -104,6 +104,8 @@ class SearchSeymbolTableView: BaseTableViewController, UISearchResultsUpdating, 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(UIConstants.SymbolsCell, forIndexPath: indexPath) as! SymbolNamesCell
 
+        cell.lblName.setDefaultFont()
+        cell.lblFullName.setDefaultFont()
         if shouldShowSearchResults {
             cell.lblName?.text = filteredSymbol[indexPath.row].name
             cell.lblFullName?.text = filteredSymbol[indexPath.row].fullName

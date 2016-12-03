@@ -11,7 +11,8 @@ import Localize_Swift
 import Firebase
 import FirebaseMessaging
 import Alamofire
-
+import GSMessages
+import BRYXBanner
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -108,8 +109,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject: AnyObject]) {
-        //        PushToken = userInfo["gcm_message_id"] as! String
+//             let body = userInfo["body"] as! String
         //        print("GCM_TOKEN: \(PushToken)")
+//        let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        appdelegate.window?.rootViewController?.showMessage("gffgffg", type: .Success, options: [
+//            .Animation(.Slide),
+//            .AnimationDuration(0.3),
+//            .AutoHide(true),
+//            .AutoHideDelay(1.5),
+//            .Height(20),
+//            .HideOnTap(true),
+//            .Position(.Top),
+//            .TextAlignment(.Center),
+//            .TextColor(UIColor.whiteColor()),
+//            .TextNumberOfLines(1),
+//            .TextPadding(10)
+//            ])
+        
+        let banner = Banner(title: "salam", subtitle: "chetori???",image: UIImage(named: "AppIcon"), backgroundColor: UIColor.redColor(), didTapBlock: nil)
+        
+        banner.show(duration: 5.0)
         print(userInfo)
 
         if (UIApplication.sharedApplication().applicationState == .Inactive || UIApplication.sharedApplication().applicationState == .Background) {
@@ -119,8 +138,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: UIConstants.Main, bundle: nil)
                 let newsVC = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.NewsTabBarController) as! NewsTabBarController
-                let nav = UINavigationController(rootViewController: newsVC)
-                appdelegate.window!.rootViewController = nav
+                let myNav = MyNavigationController(menuViewController: MyMenuTableViewController(), contentViewController: newsVC)
+//                myNav.viewDidLoad()
+                appdelegate.window!.rootViewController = myNav
 
             }, completion: nil)
         }

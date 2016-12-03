@@ -1878,6 +1878,7 @@
         <!--My Navigation Controller-->
         <scene sceneID="m9U-Ja-N5c">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ntQ-qt-vxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="baseNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="3x8-rP-1o7" customClass="MyNavigationController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qWk-aj-4fh">
@@ -1889,7 +1890,6 @@
                         <segue destination="B3H-zG-zAG" kind="relationship" relationship="rootViewController" id="iYk-Mm-RzE"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ntQ-qt-vxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-341" y="-77"/>
         </scene>
@@ -2505,21 +2505,28 @@
         <scene sceneID="E99-ch-j0J">
             <objects>
                 <tabBarController storyboardIdentifier="NewsTabBarController" id="GVG-B3-gjO" customClass="NewsTabBarController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="kR5-LI-oin"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="G6R-UG-SOC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.090196078430000007" green="0.13725490200000001" blue="0.25098039220000001" alpha="0.61089871453900713" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="kaf-R9-uI9" kind="relationship" relationship="viewControllers" id="oE0-dZ-kHG"/>
                         <segue destination="7gu-iH-Hmx" kind="relationship" relationship="viewControllers" id="09Y-hf-ywW"/>
+                        <segue destination="kaf-R9-uI9" kind="relationship" relationship="viewControllers" id="oE0-dZ-kHG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBs-Rq-gHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-37" y="4649"/>
+            <point key="canvasLocation" x="-45" y="4501"/>
         </scene>
         <!--About Us View Controller-->
         <scene sceneID="nUZ-bn-zCK">
@@ -3772,10 +3779,10 @@
         <image name="login_username" width="48" height="46"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cbY-Qz-fGF"/>
-        <segue reference="gxD-wd-LCR"/>
         <segue reference="v3r-OE-uI3"/>
         <segue reference="RP5-i4-ySo"/>
+        <segue reference="mtk-JZ-idg"/>
+        <segue reference="gxD-wd-LCR"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
