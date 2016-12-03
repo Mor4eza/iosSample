@@ -13,6 +13,7 @@ public class MyNavigationController: ENSideMenuNavigationController, ENSideMenuD
 
     override public func viewDidLoad() {
         super.viewDidLoad()
+        sideMenu = nil
         SwiftEventBus.onMainThread(self, name: LanguageChangedNotification) {
             result in
             print("getMessage")

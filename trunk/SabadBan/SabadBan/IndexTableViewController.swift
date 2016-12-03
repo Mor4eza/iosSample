@@ -35,6 +35,7 @@ class IndexTableViewController: BaseTableViewController {
         self.tableView.addSubview(refreshControl!)
         getIndexList()
         getMarketActivity()
+        self.title = ""
 
     }
 
