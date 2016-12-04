@@ -58,7 +58,7 @@ class MyMenuTableViewController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 7
+        return 6
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -88,14 +88,10 @@ class MyMenuTableViewController: BaseTableViewController {
             cell.imgMenu.image = UIImage(named: UIConstants.NewsImg)
             break
         case 3:
-            cell.lblMenuName?.text = Strings.Setting.localized()
-            cell.imgMenu.image = UIImage(named: UIConstants.setting)
-            break
-        case 4:
             cell.lblMenuName?.text = Strings.ContactUs.localized()
             cell.imgMenu.image = UIImage(named: UIConstants.contactUs)
             break
-        case 5:
+        case 4:
             cell.lblMenuName?.text = Strings.AboutUs.localized()
             cell.imgMenu.image = UIImage(named: UIConstants.aboutUs)
             break
@@ -138,15 +134,12 @@ class MyMenuTableViewController: BaseTableViewController {
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.NewsTabBarController)
             break
         case 3:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.settingViewController)
-            break
-        case 4:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.ContactUsViewController)
             break
-        case 5:
+        case 4:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.AboutUsViewController)
             break
-        case 6:
+        case 5:
             logOutService()
             break
         default:
