@@ -83,7 +83,9 @@ class EditPortfolioViewController: BaseTableViewController {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-
+    
+    
+    
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
     }

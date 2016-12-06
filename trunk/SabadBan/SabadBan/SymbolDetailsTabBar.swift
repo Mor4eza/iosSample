@@ -9,6 +9,9 @@
 import UIKit
 
 class SymbolDetailsTabBar: UITabBarController {
+    
+    //MARK : - Properties
+    var hasComeFromPush = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,11 +20,19 @@ class SymbolDetailsTabBar: UITabBarController {
         self.title = SelectedSymbolName
         addMenuButton()
         // Do any additional setup after loading the view.
+        
+        if hasComeFromPush {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: UIConstants.icBack), style: .Plain, target: self, action: #selector(self.goToPortfolio))
+        }
     }
 
     func addMenuButton() {
+        
         self.navigationItem.rightBarButtonItem = nil
-        self.navigationItem.leftBarButtonItem = nil
+        
+        if !hasComeFromPush {
+            self.navigationItem.leftBarButtonItem = nil
+        }
 
         let alarmButton = UIButton()
         alarmButton.setImage(UIImage(named: UIConstants.Alarm), forState: .Normal)
@@ -42,6 +53,7 @@ class SymbolDetailsTabBar: UITabBarController {
         let mainStoryBoard = UIStoryboard(name: UIConstants.Main, bundle: nil)
         let alarmVC = mainStoryBoard.instantiateViewControllerWithIdentifier(UIConstants.AlarmFilterViewController)
         alarmVC.modalPresentationStyle = .OverFullScreen
+        alarmVC.modalTransitionStyle = .CrossDissolve
         presentViewController(alarmVC, animated: true, completion: nil)
     }
 
@@ -52,6 +64,15 @@ class SymbolDetailsTabBar: UITabBarController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func goToPortfolio() {
+        let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: UIConstants.Main, bundle: nil)
+        let portfolioVC = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.PortfolioViewController) as! PortfolioListViewController
+        let myNav = MyNavigationController(menuViewController: MyMenuTableViewController(), contentViewController: portfolioVC)
+        //                myNav.viewDidLoad()
+        appdelegate.window!.rootViewController = myNav
     }
 
 }

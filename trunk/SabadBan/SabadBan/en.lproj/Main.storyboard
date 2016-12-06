@@ -1552,7 +1552,7 @@
         <!--Symbol Details Tab Bar-->
         <scene sceneID="TpI-B0-AQl">
             <objects>
-                <tabBarController id="aU8-zy-qG6" customClass="SymbolDetailsTabBar" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="symbolDetailsTabBar" id="aU8-zy-qG6" customClass="SymbolDetailsTabBar" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="pDj-9E-Ik0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1906,7 +1906,6 @@
         <!--My Navigation Controller-->
         <scene sceneID="m9U-Ja-N5c">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ntQ-qt-vxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="baseNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="3x8-rP-1o7" customClass="MyNavigationController" customModule="SabadBanDev" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qWk-aj-4fh">
@@ -1918,6 +1917,7 @@
                         <segue destination="B3H-zG-zAG" kind="relationship" relationship="rootViewController" id="iYk-Mm-RzE"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ntQ-qt-vxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-341" y="-77"/>
         </scene>
@@ -2436,7 +2436,7 @@
                                 <rect key="frame" x="0.0" y="254" width="600" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="mc2-0A-afa" kind="presentation" identifier="buyInfoSegue" modalPresentationStyle="overFullScreen" id="Jou-gz-CrY"/>
+                                    <segue destination="mc2-0A-afa" kind="presentation" identifier="buyInfoSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="Jou-gz-CrY"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CO2-qy-QcW">
@@ -2742,7 +2742,7 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.82745098039999998" green="0.35294117650000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" fixedFrame="YES" image="ic_phone_contact_info" translatesAutoresizingMaskIntoConstraints="NO" id="eR6-Oc-lnM">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="ic_phone_contact_info" translatesAutoresizingMaskIntoConstraints="NO" id="eR6-Oc-lnM">
                                         <rect key="frame" x="94" y="67" width="53" height="61"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="www.sefryek.com" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9lD-WD-oFV">
@@ -2759,7 +2759,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                     </textView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" fixedFrame="YES" image="ic_web_contact_info" translatesAutoresizingMaskIntoConstraints="NO" id="228-oE-4Hc">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="ic_web_contact_info" translatesAutoresizingMaskIntoConstraints="NO" id="228-oE-4Hc">
                                         <rect key="frame" x="94" y="189" width="53" height="61"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="02126422854" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nah-a5-zaR">

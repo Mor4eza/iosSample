@@ -25,41 +25,41 @@ public var updateServiceInterval = 300.0
 
 
 #if DEV
-public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
-public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
-
+    public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
+    public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
+    
 #elseif TEST
-public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
-public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
-
+    public let AppTadbirUrl = "http://sabadban.sefryek.com:9091" //Server 6 Test
+    public let AppNewsURL = "http://sabadbannewstest.sefryek.com"
+    
 #else
-public let AppTadbirUrl = "http://sabadban.sefryek.com:9090" //Server 6 Prod
-public let AppNewsURL = "http://sabadbannews.sefryek.com"
+    public let AppTadbirUrl = "http://sabadban.sefryek.com:9090" //Server 6 Prod
+    public let AppNewsURL = "http://sabadbannews.sefryek.com"
 #endif
 
 //MARK: - Urls
 public let URLS: [String: String] =
-["IndexListAndDetails": "/services/getIndexListAndDetails",
- "getSymbolListByIndex": "/services/getSymbolListByIndex",
- "getSymbolListAndDetails": "/services/getSymbolListAndDetails",
- "getBestLimitsBySymbol": "/services/getBestLimitsBySymbol",
- "getSymbolTradingDetails": "/services/getSymbolTradingDetails",
- "getNewsListAndDetails": "/services/getNewsListAndDetails",
- "getMarketActivity": "/services/getMarketActivity",
- "getSymbolNameList": "/services/getSymbolNameList",
- "getBourseNews": "/api/v1/news/get",
- "login": "/api/v1/auth/login",
- "logout": "/api/v1/auth/logout",
- "guestLogin": "/api/v1/auth/login/guest",
- "register": "/api/v1/auth/register",
- "sendContactUs": "/api/v1/tools/contact_us",
- "changePassword": "/api/v1/auth/changePassword",
- "checkVersionCode": "/services/checkVersionCode",
- "getAlarmFilters": "/services/find-alarms",
- "getAlarmFiltersBySymbol": "/services/find-alarms-by-symbol",
- "addAlarmFilter": "/services/add-alarm",
- "editAlarmFilter": "/services/edit-alarm",
- "deleteAlarmFilter": "/services/delete-alarm"
+    ["IndexListAndDetails": "/services/getIndexListAndDetails",
+     "getSymbolListByIndex": "/services/getSymbolListByIndex",
+     "getSymbolListAndDetails": "/services/getSymbolListAndDetails",
+     "getBestLimitsBySymbol": "/services/getBestLimitsBySymbol",
+     "getSymbolTradingDetails": "/services/getSymbolTradingDetails",
+     "getNewsListAndDetails": "/services/getNewsListAndDetails",
+     "getMarketActivity": "/services/getMarketActivity",
+     "getSymbolNameList": "/services/getSymbolNameList",
+     "getBourseNews": "/api/v1/news/get",
+     "login": "/api/v1/auth/login",
+     "logout": "/api/v1/auth/logout",
+     "guestLogin": "/api/v1/auth/login/guest",
+     "register": "/api/v1/auth/register",
+     "sendContactUs": "/api/v1/tools/contact_us",
+     "changePassword": "/api/v1/auth/changePassword",
+     "checkVersionCode": "/services/checkVersionCode",
+     "getAlarmFilters": "/services/find-alarms",
+     "getAlarmFiltersBySymbol": "/services/find-alarms-by-symbol",
+     "addAlarmFilter": "/services/add-alarm",
+     "editAlarmFilter": "/services/edit-alarm",
+     "deleteAlarmFilter": "/services/delete-alarm"
 ]
 
 //MARK:- Constants
@@ -69,8 +69,31 @@ public var SelectedSymbolLastTradePrice: Double = 0
 public var SelectedSymbolName: String = ""
 public var LoginToken: String = ""
 public var PushToken: String = ""
-public var LogedInUserName: String = ""
-public var LogedInUserId: Int = -1
+public var LogedInUserName: String {
+get{
+    if let mUsername = NSUserDefaults.standardUserDefaults().stringForKey(LastLoggedInUserName) {
+        return mUsername
+    } else {
+        return ""
+    }
+}
+set {
+    NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: LastLoggedInUserName)
+}
+}
+public var LogedInUserId: Int {
+get {
+    if let mUserId = NSUserDefaults.standardUserDefaults().valueForKey(LastLoggedInUserId) as? Int {
+        return mUserId
+    } else {
+        return -1
+    }
+    
+}
+set {
+    NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: LastLoggedInUserId)
+}
+}
 
 //MARK: - App Style
 
@@ -88,6 +111,8 @@ public let Password: String = "Password"
 public let GuestPassword: String = "GuestPassword"
 public let JailBreakAccept = "JailBreakAccept"
 public let NumberOfLogins = "NumberOfLogins"
+public let LastLoggedInUserId = "LastLoggedInUserId"
+public let LastLoggedInUserName = "LastLoggedInUserName"
 
 //MARK: - Error Codes
 public let duplicateAlarmErrorCode = "1001"
