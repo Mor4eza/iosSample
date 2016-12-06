@@ -96,6 +96,8 @@ struct UIConstants {
     static let selectPicture = "contact_us_upload_picture"
     static let icDone = "ic_done_white"
     static let icExpandArrow = "ic_expand_arrow"
+    static let icBack = "ic_back"
+    
     //MARK: View Controller Identifier
     static let Main = "Main"
     static let indexTableViewController = "indexTableViewController"
@@ -107,5 +109,6 @@ struct UIConstants {
     static let ContactUsViewController = "ContactUsViewController"
     static let LogInViewController = "loginViewController"
     static let AlarmFilterViewController = "AlarmFilterViewController"
+    static let symbolDetailsTabBar = "symbolDetailsTabBar"
 
 }

@@ -130,11 +130,19 @@ extension UITextField {
                 if let enteredText = textField.text {
                     if !(enteredText.isEmpty) {
                         let lastCharacter: Character = enteredText[(enteredText.characters.count - 1)]
-                        guard allowedCharacter.characters.contains(lastCharacter) else {
+                        if !allowedCharacter.characters.contains(lastCharacter) {
                             var finalText = String()
                             var textCharacters = enteredText.characters
+                            
+                            var previousTextCount: Int
+                            
+                            if let numberText = previousText.getCurrencyNumber() {
+                                previousTextCount = String(numberText).characters.count
+                            } else {
+                                previousTextCount = previousText.characters.count
+                            }
 
-                            if (previousText.characters.count < enteredText.characters.count) {
+                            if (previousTextCount < enteredText.characters.count) {
                                 textCharacters.removeLast()
                             }
 
@@ -143,7 +151,6 @@ extension UITextField {
                             }
                             text = finalText
                             previousText = finalText
-                            return
                         }
                     }
                 }
@@ -151,9 +158,17 @@ extension UITextField {
         }
 
         let doesHaveComma = haveComma[textField]
+        
+        var currentTextCount = 0
+        
+        if let numberText = textField.text {
+            currentTextCount = String(numberText).characters.count
+        } else {
+            currentTextCount = previousText.characters.count
+        }
 
         guard let prospectiveText = textField.text
-        where prospectiveText.characters.count > maxLength else {
+        where currentTextCount > maxLength else {
             if (doesHaveComma != nil) {
                 if let enteredText = text {
                     guard !enteredText.isEmpty else {

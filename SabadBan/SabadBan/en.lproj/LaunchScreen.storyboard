@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="yoI-lE-ZNk">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="yoI-lE-ZNk">
                                 <rect key="frame" x="200" y="180" width="200" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="Cva-ah-20J"/>

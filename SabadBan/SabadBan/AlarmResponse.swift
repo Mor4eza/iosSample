@@ -14,6 +14,7 @@ import Gloss
 
 public struct AlarmResponse: Glossy {
 
+
     public let alarmFilterList: [AlarmFilterList]!
 
 
@@ -22,8 +23,13 @@ public struct AlarmResponse: Glossy {
         alarmFilterList = "alarmFilterList" <~~ json
     }
 
-
+    
     //MARK: Encodable
+    
+    /**
+     in unjurie injurie felan
+     - parameter salam: salam mikone
+     */
     public func toJSON() -> JSON? {
         return jsonify([
                 "alarmFilterList" ~~> alarmFilterList,

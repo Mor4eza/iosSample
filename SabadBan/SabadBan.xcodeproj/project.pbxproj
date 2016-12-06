@@ -22,6 +22,9 @@
 		84036D4D1DBCB24400799A49 /* CheckVersionCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84036D4B1DBCB24400799A49 /* CheckVersionCodeRequest.swift */; };
 		84036D4E1DBCB24400799A49 /* CheckVersionCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84036D4B1DBCB24400799A49 /* CheckVersionCodeRequest.swift */; };
 		8411E6321D9A50FF009A78DA /* SymbolListAndDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8411E6311D9A50FF009A78DA /* SymbolListAndDetailsRequest.swift */; };
+		846E14001DF542A100432D38 /* PushNotificationAlarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E13FF1DF542A100432D38 /* PushNotificationAlarmData.swift */; };
+		846E14011DF542A100432D38 /* PushNotificationAlarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E13FF1DF542A100432D38 /* PushNotificationAlarmData.swift */; };
+		846E14021DF542A100432D38 /* PushNotificationAlarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E13FF1DF542A100432D38 /* PushNotificationAlarmData.swift */; };
 		8477D9051D85440F006BBFCE /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477D9041D85440F006BBFCE /* AboutUsViewController.swift */; };
 		8477D90C1D856D04006BBFCE /* MGBuildDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477D90B1D856D04006BBFCE /* MGBuildDate.m */; };
 		848FA3D61DDC6A4100B1528F /* SabadBanDevUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848FA3D51DDC6A4100B1528F /* SabadBanDevUITests.swift */; };
@@ -466,6 +469,7 @@
 		84036D471DBCB02F00799A49 /* CheckVersionCodeResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckVersionCodeResponse.swift; sourceTree = "<group>"; };
 		84036D4B1DBCB24400799A49 /* CheckVersionCodeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckVersionCodeRequest.swift; sourceTree = "<group>"; };
 		8411E6311D9A50FF009A78DA /* SymbolListAndDetailsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolListAndDetailsRequest.swift; sourceTree = "<group>"; };
+		846E13FF1DF542A100432D38 /* PushNotificationAlarmData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationAlarmData.swift; sourceTree = "<group>"; };
 		8477D9041D85440F006BBFCE /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		8477D90A1D856D04006BBFCE /* MGBuildDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGBuildDate.h; sourceTree = "<group>"; };
 		8477D90B1D856D04006BBFCE /* MGBuildDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGBuildDate.m; sourceTree = "<group>"; };
@@ -1307,6 +1311,7 @@
 				94A4B3811DC4990900FBDB39 /* AlarmFilterList.swift */,
 				94A4B3891DC49AF800FBDB39 /* EditAlarmResponse.swift */,
 				94A4B3A01DC4BEB700FBDB39 /* AlarmResponse.swift */,
+				846E13FF1DF542A100432D38 /* PushNotificationAlarmData.swift */,
 			);
 			name = AlarmFilterResponse;
 			sourceTree = "<group>";
@@ -2143,6 +2148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846E14011DF542A100432D38 /* PushNotificationAlarmData.swift in Sources */,
 				9476FAE51DBB425700B923D6 /* BestLimitDataList.swift in Sources */,
 				9476FAE61DBB425700B923D6 /* SymbolListByIndexRequest.swift in Sources */,
 				9476FAE71DBB425700B923D6 /* SymbolNamesRequest.swift in Sources */,
@@ -2269,6 +2275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846E14021DF542A100432D38 /* PushNotificationAlarmData.swift in Sources */,
 				9476FB6B1DBB425B00B923D6 /* BestLimitDataList.swift in Sources */,
 				9476FB6C1DBB425B00B923D6 /* SymbolListByIndexRequest.swift in Sources */,
 				9476FB6D1DBB425B00B923D6 /* SymbolNamesRequest.swift in Sources */,
@@ -2395,6 +2402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846E14001DF542A100432D38 /* PushNotificationAlarmData.swift in Sources */,
 				944EF1941D7EC29A00A039BA /* BestLimitDataList.swift in Sources */,
 				84C9E2981D997B5700F96EF8 /* SymbolListByIndexRequest.swift in Sources */,
 				945F3CBA1DA5165F006D800D /* SymbolNamesRequest.swift in Sources */,

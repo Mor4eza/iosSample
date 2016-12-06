@@ -147,6 +147,7 @@ class AlarmFilterViewController: UIViewController, UITableViewDelegate, UITableV
         Request.postData(url, body: body) {
             (alarms: MainResponse<AlarmResponse>?, error) in
             if ((alarms?.successful) != nil) {
+                alarms?.response.toJSON()
                 self.alarmData.removeAll()
                 if alarms!.response.alarmFilterList.count > 0 {
 

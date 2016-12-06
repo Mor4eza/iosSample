@@ -148,6 +148,10 @@ class SymbolListTableViewController: BaseTableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if segue.identifier == "symbolDetailsSegue" {
+            
+            let backItem = UIBarButtonItem()
+            backItem.title = Strings.Back.localized()
+            navigationItem.backBarButtonItem = backItem
 
             let indexPath = self.tableView.indexPathForSelectedRow!
 
