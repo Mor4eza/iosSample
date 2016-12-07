@@ -41,6 +41,9 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
     let defaults = NSUserDefaults.standardUserDefaults()
     @IBOutlet weak var tblPortfolio: UITableView!
     let nc = NSNotificationCenter.defaultCenter()
+    
+    var isHintShowing = false
+    
 
     @IBOutlet weak var lblLastUpdate: UILabel!
 
@@ -74,8 +77,9 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
 
     func showHintView() {
 
-        if ((smData.count > 0) && (self.defaults.integerForKey(NumberOfLogins) < 4)) {
+        if ((smData.count > 0) && (self.defaults.integerForKey(NumberOfLogins) < 4) && !isHintShowing) {
 
+            isHintShowing = true
             let imageName = UIConstants.tooltipHand
             let image = UIImage(named: imageName)
             let hintImage = UIImageView(image: image!)
@@ -90,6 +94,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
 
                 (value: Bool) in
                 hintImage.removeFromSuperview()
+                self.isHintShowing = false
             })
         }
     }
@@ -299,7 +304,7 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
             func configurationTextField(textField: UITextField!) {
                 textField.placeholder = Strings.EnterPortfolioName.localized()
                 textField.changeDirection()
-                textField.maxLength = 30
+                textField.maxLength = 20
                 tField = textField
             }
 
@@ -313,15 +318,17 @@ class PortfolioListViewController: BaseViewController, UITableViewDataSource, UI
             alert.addAction(UIAlertAction(title: Strings.Cancel.localized(), style: .Cancel, handler: handleCancel))
             alert.addAction(UIAlertAction(title: Strings.Submit.localized(), style: .Default, handler: {
                 (UIAlertAction) in
+                
+                let enteredPortfolioName = tField.text?.trim()
 
                 if !(tField.text?.isEmpty)! {
                     for i in 0 ..< self.portfolios.count {
-                        if (tField.text == self.portfolios[i].portfolioName) {
+                        if (enteredPortfolioName == self.portfolios[i].portfolioName) {
                             Utils.ShowAlert(self, title: Strings.Attention.localized(), details: "نام پرتفوی تکراری است.", btnOkTitle: Strings.Ok.localized())
                             return
                         }
                     }
-                    self.db.addPortfolio(tField.text!.trim(), userId: LogedInUserId)
+                    self.db.addPortfolio(enteredPortfolioName!, userId: LogedInUserId)
                     self.portfolios = self.db.getPortfolioList(LogedInUserId)
                     self.currentPortfolio = self.portfolios.last!
                     self.initNavigationTitle()

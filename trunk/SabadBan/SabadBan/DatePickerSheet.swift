@@ -79,27 +79,27 @@ class DatePickerSheet: UIView {
         self.addSubview(self.dialogView!)
 
         /* Attached to the top most window (make sure we are using the right orientation) */
-        let interfaceOrientation = UIApplication.sharedApplication().statusBarOrientation
+//        let interfaceOrientation = UIApplication.sharedApplication().statusBarOrientation
 
-        switch (interfaceOrientation) {
-        case UIInterfaceOrientation.LandscapeLeft:
-            let t: Double = M_PI * 270 / 180
-            self.transform = CGAffineTransformMakeRotation(CGFloat(t))
-            break
-
-        case UIInterfaceOrientation.LandscapeRight:
-            let t: Double = M_PI * 90 / 180
-            self.transform = CGAffineTransformMakeRotation(CGFloat(t))
-            break
-
-        case UIInterfaceOrientation.PortraitUpsideDown:
-            let t: Double = M_PI * 180 / 180
-            self.transform = CGAffineTransformMakeRotation(CGFloat(t))
-            break
-
-        default:
-            break
-        }
+//        switch (interfaceOrientation) {
+//        case UIInterfaceOrientation.LandscapeLeft:
+//            let t: Double = M_PI * 270 / 180
+//            self.transform = CGAffineTransformMakeRotation(CGFloat(t))
+//            break
+//
+//        case UIInterfaceOrientation.LandscapeRight:
+//            let t: Double = M_PI * 90 / 180
+//            self.transform = CGAffineTransformMakeRotation(CGFloat(t))
+//            break
+//
+//        case UIInterfaceOrientation.PortraitUpsideDown:
+//            let t: Double = M_PI * 180 / 180
+//            self.transform = CGAffineTransformMakeRotation(CGFloat(t))
+//            break
+//
+//        default:
+//            break
+//        }
 
         self.frame = CGRectMake(0, 0, self.frame.width, self.frame.size.height)
         UIApplication.sharedApplication().windows.first!.addSubview(self)
@@ -194,6 +194,7 @@ class DatePickerSheet: UIView {
         self.titleLabel.textAlignment = NSTextAlignment.Center
         self.titleLabel.font = UIFont.boldSystemFontOfSize(17)
         self.titleLabel.text = self.title
+        self.titleLabel.setDefaultFont()
         dialogContainer.addSubview(self.titleLabel)
 
         self.datePicker = UIDatePicker(frame: CGRectMake(0, 30, 0, 0))
@@ -204,6 +205,7 @@ class DatePickerSheet: UIView {
         self.datePicker.frame.size.width = 300
         self.datePicker.datePickerMode = self.datePickerMode
         self.datePicker.date = self.defaultDate
+        
         dialogContainer.addSubview(self.datePicker)
 
         // Add the buttons
@@ -229,6 +231,7 @@ class DatePickerSheet: UIView {
         self.cancelButton.setTitleColor(UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.5), forState: UIControlState.Highlighted)
         self.cancelButton.titleLabel!.font = UIFont.boldSystemFontOfSize(14)
         self.cancelButton.layer.cornerRadius = kDatePickerDialogCornerRadius
+        self.cancelButton.setDefaultFont()
         self.cancelButton.addTarget(self, action: #selector(DatePickerSheet.buttonTapped(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         container.addSubview(self.cancelButton)
 
@@ -245,6 +248,7 @@ class DatePickerSheet: UIView {
         self.doneButton.setTitleColor(UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.5), forState: UIControlState.Highlighted)
         self.doneButton.titleLabel!.font = UIFont.boldSystemFontOfSize(14)
         self.doneButton.layer.cornerRadius = kDatePickerDialogCornerRadius
+        self.doneButton.setDefaultFont()
         self.doneButton.addTarget(self, action: #selector(DatePickerSheet.buttonTapped(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         container.addSubview(self.doneButton)
     }

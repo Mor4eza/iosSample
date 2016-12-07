@@ -41,6 +41,7 @@ struct Strings {
 
     static let Value = "Value"
     static let Percent = "Percent"
+    static let marketStatus = "marketStatus"
 
     //MARK:- IndexDetails Strings
 

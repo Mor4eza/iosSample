@@ -16,14 +16,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="291" height="43"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwE-Lf-7X9">
-                            <rect key="frame" x="0.0" y="2" width="146" height="41"/>
+                            <rect key="frame" x="0.0" y="2" width="97" height="41"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xli-sb-6GP">
-                            <rect key="frame" x="146" y="2" width="145" height="41"/>
+                            <rect key="frame" x="97" y="2" width="194" height="41"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -36,10 +36,10 @@
                         <constraint firstAttribute="bottom" secondItem="Xli-sb-6GP" secondAttribute="bottom" id="CI9-Hx-d7m"/>
                         <constraint firstItem="NwE-Lf-7X9" firstAttribute="leading" secondItem="oQb-Si-SNg" secondAttribute="leading" id="EnX-of-gqQ"/>
                         <constraint firstAttribute="trailing" secondItem="Xli-sb-6GP" secondAttribute="trailing" id="FML-Gn-gWK"/>
-                        <constraint firstItem="NwE-Lf-7X9" firstAttribute="width" secondItem="oQb-Si-SNg" secondAttribute="width" multiplier="1:2" id="XNw-JP-X02"/>
+                        <constraint firstItem="NwE-Lf-7X9" firstAttribute="width" secondItem="oQb-Si-SNg" secondAttribute="width" multiplier="1:3" id="XNw-JP-X02"/>
                         <constraint firstItem="Xli-sb-6GP" firstAttribute="top" secondItem="oQb-Si-SNg" secondAttribute="top" constant="2" id="caC-dF-LZE"/>
                         <constraint firstItem="NwE-Lf-7X9" firstAttribute="top" secondItem="oQb-Si-SNg" secondAttribute="top" constant="2" id="j6a-le-CnF"/>
-                        <constraint firstItem="Xli-sb-6GP" firstAttribute="width" secondItem="oQb-Si-SNg" secondAttribute="width" multiplier="1:2" id="v3d-3q-tI4"/>
+                        <constraint firstItem="Xli-sb-6GP" firstAttribute="width" secondItem="oQb-Si-SNg" secondAttribute="width" multiplier="2:3" id="v3d-3q-tI4"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

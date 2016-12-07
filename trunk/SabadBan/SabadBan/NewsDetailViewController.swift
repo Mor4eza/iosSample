@@ -37,6 +37,7 @@ class NewsDetailViewController: BaseViewController {
         fillData()
         if newsLink.isEmpty {
             btnUrl.enabled = false
+            btnUrl.tintColor = UIColor.clearColor()
         }
     }
 

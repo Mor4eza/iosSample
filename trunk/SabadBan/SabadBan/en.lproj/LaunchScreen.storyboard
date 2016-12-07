@@ -29,14 +29,19 @@
                                     <constraint firstAttribute="width" constant="200" id="kHj-7j-MNi"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اولین اپلیکیشن خبری  تحلیلی بورس در ایران" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEp-3b-9eG">
-                                <rect key="frame" x="183" y="428" width="234" height="85"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اولین اپلیکیشن خبری  تحلیلی بورس در ایران" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="SEp-3b-9eG">
+                                <rect key="frame" x="0.0" y="428" width="600" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="234" id="Djq-eO-8Xm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Djq-eO-8Xm"/>
+                                    </mask>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.16452825090000001" green="0.21934768020000001" blue="0.31888299190000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,6 +49,7 @@
                         <constraints>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="SEp-3b-9eG" secondAttribute="bottom" constant="87" id="Bi8-S4-vUV"/>
                             <constraint firstItem="yoI-lE-ZNk" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Nm9-H8-OGi"/>
+                            <constraint firstItem="SEp-3b-9eG" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="PTN-o6-ISz"/>
                             <constraint firstItem="yoI-lE-ZNk" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="b7D-Fr-tze"/>
                             <constraint firstItem="SEp-3b-9eG" firstAttribute="centerX" secondItem="yoI-lE-ZNk" secondAttribute="centerX" id="dAg-Cu-Vhg"/>
                             <constraint firstItem="SEp-3b-9eG" firstAttribute="top" secondItem="yoI-lE-ZNk" secondAttribute="bottom" constant="8" symbolic="YES" id="nyo-Oi-uuk"/>

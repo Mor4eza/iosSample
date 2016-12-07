@@ -68,10 +68,7 @@ class SymbolListTableViewController: BaseTableViewController {
     }
 
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if symbolDetailsList.count == 0 {
-            return 0
-        }
-        return 50
+        return 60
     }
 
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

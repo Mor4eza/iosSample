@@ -43,14 +43,8 @@
                             <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="1Os-WF-jij">
-                            <rect key="frame" x="95" y="10" width="50" height="23"/>
-                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
-                            <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="pYf-ML-se3">
-                            <rect key="frame" x="150" y="10" width="50" height="23"/>
+                            <rect key="frame" x="95" y="10" width="50" height="23"/>
                             <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
                             <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -61,29 +55,29 @@
                             <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="1Os-WF-jij">
+                            <rect key="frame" x="150" y="10" width="50" height="23"/>
+                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
+                            <color key="textColor" red="0.73096084859999999" green="0.82502295140000004" blue="0.97729875649999998" alpha="0.68619791669999997" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.090196078430000007" green="0.13725490200000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="pYf-ML-se3" firstAttribute="width" secondItem="YUs-ws-RFX" secondAttribute="width" multiplier="1/6" id="8mb-Ql-Srf"/>
+                        <constraint firstItem="1Os-WF-jij" firstAttribute="width" secondItem="YUs-ws-RFX" secondAttribute="width" multiplier="1:6" id="0UW-bu-CVQ"/>
+                        <constraint firstItem="pYf-ML-se3" firstAttribute="width" secondItem="YUs-ws-RFX" secondAttribute="width" multiplier="1:6" id="9b1-BZ-37Z"/>
+                        <constraint firstItem="pYf-ML-se3" firstAttribute="leading" secondItem="2Hg-qT-wDR" secondAttribute="trailing" constant="10" id="CPy-to-l1o"/>
                         <constraint firstItem="9lK-DL-8ek" firstAttribute="leading" secondItem="YUs-ws-RFX" secondAttribute="leading" constant="2" id="G2S-vx-LCC"/>
-                        <constraint firstItem="1Os-WF-jij" firstAttribute="centerY" secondItem="YUs-ws-RFX" secondAttribute="centerY" id="JLk-OX-NqX"/>
                         <constraint firstItem="2Hg-qT-wDR" firstAttribute="leading" secondItem="9lK-DL-8ek" secondAttribute="trailing" constant="13" id="Ldi-vo-xyR"/>
-                        <constraint firstItem="pYf-ML-se3" firstAttribute="leading" secondItem="1Os-WF-jij" secondAttribute="trailing" constant="5" id="MQb-OO-BeL"/>
-                        <constraint firstItem="9lK-DL-8ek" firstAttribute="baseline" secondItem="1Os-WF-jij" secondAttribute="baseline" id="Y35-RD-dY4"/>
+                        <constraint firstItem="1Os-WF-jij" firstAttribute="centerY" secondItem="YUs-ws-RFX" secondAttribute="centerY" id="Pax-Wa-VvD"/>
                         <constraint firstItem="2Hg-qT-wDR" firstAttribute="baseline" secondItem="3Xg-GC-lM3" secondAttribute="baseline" id="Zcw-6d-I86"/>
                         <constraint firstItem="2Hg-qT-wDR" firstAttribute="centerY" secondItem="YUs-ws-RFX" secondAttribute="centerY" id="bhX-3G-OY7"/>
+                        <constraint firstItem="1Os-WF-jij" firstAttribute="leading" secondItem="pYf-ML-se3" secondAttribute="trailing" constant="5" id="cRL-9W-cWV"/>
                         <constraint firstItem="3Xg-GC-lM3" firstAttribute="width" secondItem="YUs-ws-RFX" secondAttribute="width" multiplier="2/7" id="eSc-5h-yYZ"/>
-                        <constraint firstAttribute="trailing" secondItem="pYf-ML-se3" secondAttribute="trailing" constant="87" id="gGU-xh-BaJ"/>
-                        <constraint firstItem="1Os-WF-jij" firstAttribute="width" secondItem="YUs-ws-RFX" secondAttribute="width" multiplier="1/6" id="o2I-dg-deH"/>
+                        <constraint firstItem="pYf-ML-se3" firstAttribute="centerY" secondItem="YUs-ws-RFX" secondAttribute="centerY" id="hsQ-z3-UwG"/>
+                        <constraint firstItem="9lK-DL-8ek" firstAttribute="centerY" secondItem="YUs-ws-RFX" secondAttribute="centerY" id="l30-vV-J5t"/>
                         <constraint firstItem="3Xg-GC-lM3" firstAttribute="trailing" secondItem="YUs-ws-RFX" secondAttribute="trailingMargin" id="otU-Nv-xNS"/>
-                        <constraint firstItem="1Os-WF-jij" firstAttribute="baseline" secondItem="pYf-ML-se3" secondAttribute="baseline" id="q9X-Uf-gVc"/>
-                        <constraint firstItem="1Os-WF-jij" firstAttribute="leading" secondItem="2Hg-qT-wDR" secondAttribute="trailing" constant="10" id="to2-ZX-zsb"/>
                     </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="gGU-xh-BaJ"/>
-                        </mask>
-                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

@@ -35,6 +35,7 @@
 "Index" = "Index";
 "Count" = "Count";
 "Percent" = "Percent";
+"marketStatus" = "Market Status:";
 
 //MARK:- IndexDetails Strings
 "Day" = "Day" ;

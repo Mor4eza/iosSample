@@ -84,7 +84,9 @@ class EditPortfolioViewController: BaseTableViewController {
         return true
     }
     
-    
+    override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
+        return Strings.Delete.localized()
+    }
     
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)

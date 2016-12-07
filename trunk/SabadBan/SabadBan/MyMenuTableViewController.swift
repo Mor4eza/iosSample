@@ -140,7 +140,7 @@ class MyMenuTableViewController: BaseTableViewController {
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.AboutUsViewController)
             break
         case 5:
-            logOutService()
+            logOut()
             break
         default:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.LogInViewController)
@@ -168,22 +168,12 @@ class MyMenuTableViewController: BaseTableViewController {
         self.tableView.reloadData()
     }
 
-    func logOutService() {
-        let url = AppNewsURL + URLS["logout"]!
-
-        // JSON Body
-        let body = LogoutRequest(apiToken: LoginToken).getDic()
-
-        // Fetch Request
-        Request.postData(url, body: body) {
-            (response: UserManagementModel<LoginResponse>?, error) in
+    func logOut() {
 
             self.view.window!.rootViewController?.dismissViewControllerAnimated(false, completion: nil)
             let mainStoryboard: UIStoryboard = UIStoryboard(name: UIConstants.Main, bundle: nil)
             let destViewController = mainStoryboard.instantiateViewControllerWithIdentifier(UIConstants.LogInViewController)
             self.presentViewController(destViewController, animated: true, completion: nil)
-
-        }
 
     }
 
