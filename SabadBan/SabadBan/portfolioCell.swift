@@ -139,7 +139,9 @@ class portfolioCell: UITableViewCell {
         lblTodayValue.text = abs(smData.todayProfit).currencyFormat(2)
         lblOverValue.text = abs(smData.totalProfit).currencyFormat(2)
         lblEndValue.text = smData.lastTradePrice.currencyFormat(2)
-        lblEndChanges.text = abs(smData.lastTradePriceChange).currencyFormat(2) + " (%" + String(abs(smData.lastTradePriceChangePercent.roundToPlaces(2))) + ")"
+        let changePercent = abs(smData.lastTradePriceChangePercent.roundToPlaces(2))
+        let changePercentString = changePercent == 0 ? "0" : String(changePercent)
+        lblEndChanges.text = abs(smData.lastTradePriceChange).currencyFormat(2) + " (%" + changePercentString + ")"
 
         backgroundView?.backgroundColor = AppMainColor
     }

@@ -20,7 +20,17 @@ public let AcraUrl = "http://acra.sefryek.com:5984/acra-p343-sabadban-ios/_desig
 public let ServicesHeaders = ["Content-Type": "application/json"]
 public var GuestUser = "1@1.com"
 public var GuestPass = "12345678"
-public var isGuest = false
+
+public var isGuest: Bool {
+get {
+    return NSUserDefaults.standardUserDefaults().boolForKey(isGuestUser)
+}
+
+set {
+    NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: isGuestUser)
+}
+}
+
 public var updateServiceInterval = 300.0
 
 
@@ -113,6 +123,7 @@ public let JailBreakAccept = "JailBreakAccept"
 public let NumberOfLogins = "NumberOfLogins"
 public let LastLoggedInUserId = "LastLoggedInUserId"
 public let LastLoggedInUserName = "LastLoggedInUserName"
+public let isGuestUser = "isGuestUser"
 
 //MARK: - Error Codes
 public let duplicateAlarmErrorCode = "1001"

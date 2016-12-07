@@ -160,11 +160,11 @@ class IndexTableViewController: BaseTableViewController {
                     marketView.txtMarketActivityTitle.setDefaultFont(14)
                     marketView.txtMarketActivityValue.setDefaultFont(14)
                     
-                    marketView.txtMarketActivityTitle.text = "\(Strings.status.localized()):"
+                    marketView.txtMarketActivityTitle.text = "\(Strings.marketStatus.localized()):"
                     marketView.txtMarketActivityValue.text = marketStatusString
                     
                     marketView.backgroundLayer.backgroundColor = marketColor
-                    marketView.frame = CGRect(x: 0, y: 0, width: 130, height: 30)
+                    marketView.frame = CGRect(x: 0, y: 0, width: 140, height: 30)
                     marketView.cornerRadius = 3
                     self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: marketView)
                 }

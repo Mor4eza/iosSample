@@ -158,13 +158,14 @@ extension UITextField {
         }
 
         let doesHaveComma = haveComma[textField]
+        let enteredAllowedCharacters = allowedCharacters[textField]
         
         var currentTextCount = 0
         
-        if let numberText = textField.text {
-            currentTextCount = String(numberText).characters.count
+        if enteredAllowedCharacters != nil && doesHaveComma != nil {
+            currentTextCount = textField.text!.stringByReplacingOccurrencesOfString("٬", withString: "").characters.count - 1
         } else {
-            currentTextCount = previousText.characters.count
+            currentTextCount = textField.text!.characters.count
         }
 
         guard let prospectiveText = textField.text
@@ -198,8 +199,9 @@ extension UITextField {
             return
         }
         if (doesHaveComma != nil) {
+            let numberOfCommas = prospectiveText.componentsSeparatedByString("٬").count - 1
             text = prospectiveText.substringWithRange(
-                    Range<String.Index>(prospectiveText.startIndex ..< prospectiveText.startIndex.advancedBy(maxLength + 1))
+                    Range<String.Index>(prospectiveText.startIndex ..< prospectiveText.startIndex.advancedBy(maxLength + numberOfCommas + 1))
                     )
         } else {
             text = prospectiveText.substringWithRange(

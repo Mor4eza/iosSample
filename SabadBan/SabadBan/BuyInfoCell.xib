@@ -32,14 +32,14 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="u72-lp-xTb">
-                                <rect key="frame" x="151" y="10" width="54" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="u8X-4d-BdU">
+                                <rect key="frame" x="152" y="10" width="53" height="24"/>
                                 <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="u8X-4d-BdU">
-                                <rect key="frame" x="93" y="10" width="53" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="u72-lp-xTb">
+                                <rect key="frame" x="93" y="10" width="54" height="24"/>
                                 <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -62,15 +62,15 @@
                         <constraints>
                             <constraint firstItem="fyI-rp-T5Q" firstAttribute="leading" secondItem="dpQ-SY-PCW" secondAttribute="leading" id="6CG-4V-GRh"/>
                             <constraint firstItem="xfg-JX-AqQ" firstAttribute="width" secondItem="dpQ-SY-PCW" secondAttribute="width" multiplier="2/7" id="BaC-pU-JVs"/>
+                            <constraint firstItem="u72-lp-xTb" firstAttribute="centerY" secondItem="dpQ-SY-PCW" secondAttribute="centerY" id="Bt0-kZ-Gla"/>
                             <constraint firstAttribute="trailing" secondItem="xfg-JX-AqQ" secondAttribute="trailing" id="De9-cD-mC1"/>
-                            <constraint firstItem="u8X-4d-BdU" firstAttribute="width" secondItem="dpQ-SY-PCW" secondAttribute="width" multiplier="1:6" id="Fnf-uY-bfJ"/>
-                            <constraint firstItem="u72-lp-xTb" firstAttribute="centerY" secondItem="dpQ-SY-PCW" secondAttribute="centerY" id="Glb-bC-ppu"/>
-                            <constraint firstItem="u72-lp-xTb" firstAttribute="width" secondItem="dpQ-SY-PCW" secondAttribute="width" multiplier="1:6" id="IOU-uF-ikw"/>
+                            <constraint firstItem="u72-lp-xTb" firstAttribute="leading" secondItem="66X-Mt-doS" secondAttribute="trailing" constant="10" id="Dil-8p-PH7"/>
+                            <constraint firstItem="u8X-4d-BdU" firstAttribute="width" secondItem="dpQ-SY-PCW" secondAttribute="width" multiplier="1:6" id="Dr3-GT-8oz"/>
                             <constraint firstItem="66X-Mt-doS" firstAttribute="centerY" secondItem="dpQ-SY-PCW" secondAttribute="centerY" id="NT7-ff-8Zd"/>
                             <constraint firstItem="fyI-rp-T5Q" firstAttribute="centerY" secondItem="dpQ-SY-PCW" secondAttribute="centerY" id="UNn-SL-TDC"/>
-                            <constraint firstItem="u8X-4d-BdU" firstAttribute="centerY" secondItem="dpQ-SY-PCW" secondAttribute="centerY" id="Wid-jb-QaS"/>
-                            <constraint firstItem="u72-lp-xTb" firstAttribute="leading" secondItem="u8X-4d-BdU" secondAttribute="trailing" constant="5" id="btX-h5-b2D"/>
-                            <constraint firstItem="u8X-4d-BdU" firstAttribute="leading" secondItem="66X-Mt-doS" secondAttribute="trailing" constant="10" id="d9C-jf-Wbb"/>
+                            <constraint firstItem="u8X-4d-BdU" firstAttribute="leading" secondItem="u72-lp-xTb" secondAttribute="trailing" constant="5" id="YoL-qZ-fUn"/>
+                            <constraint firstItem="u8X-4d-BdU" firstAttribute="centerY" secondItem="dpQ-SY-PCW" secondAttribute="centerY" id="c4J-Ln-l1k"/>
+                            <constraint firstItem="u72-lp-xTb" firstAttribute="width" secondItem="dpQ-SY-PCW" secondAttribute="width" multiplier="1:6" id="fbZ-wq-FrJ"/>
                             <constraint firstItem="xfg-JX-AqQ" firstAttribute="centerY" secondItem="dpQ-SY-PCW" secondAttribute="centerY" id="nMZ-GX-uZw"/>
                             <constraint firstItem="66X-Mt-doS" firstAttribute="leading" secondItem="fyI-rp-T5Q" secondAttribute="trailing" constant="13" id="pkX-xX-sXy"/>
                         </constraints>

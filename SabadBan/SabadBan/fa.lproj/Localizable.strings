@@ -36,6 +36,7 @@
 "Index" = "شاخص";
 "Value" = "مقدار";
 "Percent" = "درصد";
+"marketStatus" = "وضعیت بازار";
 
 //mark:- IndexDetails Strings
 "Day" = "روز" ;

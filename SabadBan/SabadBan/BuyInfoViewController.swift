@@ -193,7 +193,7 @@ class BuyInfoViewController: UIViewController, UITableViewDelegate, UITableViewD
             (textField) -> Void in
             textField.text = self.btnPrice.currentTitle
             textField.keyboardType = .NumberPad
-            textField.maxLength = 11
+            textField.maxLength = 9
             textField.commaSeperator = true
             textField.allowedCharacter = "0987654321۱۲۳۴۵۶۷۸۹۰"
         })
@@ -215,7 +215,7 @@ class BuyInfoViewController: UIViewController, UITableViewDelegate, UITableViewD
             (textField) -> Void in
             textField.text = self.btnCount.currentTitle
             textField.keyboardType = .NumberPad
-            textField.maxLength = 9
+            textField.maxLength = 7
             textField.commaSeperator = true
             textField.allowedCharacter = "0987654321۱۲۳۴۵۶۷۸۹۰"
         })
@@ -247,7 +247,7 @@ class BuyInfoViewController: UIViewController, UITableViewDelegate, UITableViewD
             return
         }
 
-        let price = btnPrice.titleLabel?.text?.getCurrencyNumber()!
+        let enteredPrice = btnPrice.titleLabel?.text?.getCurrencyNumber()!
         let count = btnCount.titleLabel?.text?.getCurrencyNumber()!
         let date = btnDate.titleLabel?.text
 
@@ -256,25 +256,26 @@ class BuyInfoViewController: UIViewController, UITableViewDelegate, UITableViewD
             return
         }
 
-        guard !price!.isEqual(0) else {
+        guard !enteredPrice!.isEqual(0) else {
             Utils.ShowAlert(self, title: Strings.Attention.localized(), details: Strings.enterPricePlease.localized())
             return
         }
 
         if editMode {
-            db.updatePsBuy(psIdForEdit, newPrice: Double(price!), newCount: Double(count!), newDate: date!)
+            db.updatePsBuy(psIdForEdit, newPrice: Double(enteredPrice!), newCount: Double(count!), newDate: date!)
             editMode = false
 
             displayMessage(Strings.buyInfoEdited.localized())
 
             btnDone.setTitle(Strings.add.localized(), forState: .Normal)
         } else {
-            AddPsBuy(PsBuyCode, price: Double(price!), count: Double(count!), date: date!)
+            AddPsBuy(PsBuyCode, price: Double(enteredPrice!), count: Double(count!), date: date!)
             displayMessage(Strings.buyInfoAdded.localized())
         }
 
         btnDate.setTitle("-", forState: .Normal)
         btnCount.setTitle("۰", forState: .Normal)
+        btnPrice.setTitle(price.currencyFormat(0), forState: .Normal)
         getPsData(PsBuyCode)
 
     }
